@@ -1,0 +1,63 @@
+.widget-container {
+  box-shadow: 0 4px 12px 0 rgb(34 41 47 / 8%);
+  border: 1px solid rgba(38, 56, 150, 0.08);
+  border-radius: 6px;
+  padding: 5px 10px 10px 10px;
+  display: block;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.widget-title {
+  /* margin-left: 30px; */
+  justify-content: left;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: 15px;
+  font-weight: bold;
+}
+.widget-sub-title {
+  /* margin-left: 30px; */
+  justify-content: left;
+  font-size: 13.5px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  color: #919191;
+}
+.widget {
+  width: 100%;
+  height: calc(100% - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.widget-header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  align-items: flex-start;
+}
+.widget-title-container {
+  width: calc(100% - 30px);
+  cursor: pointer;
+}
+.widget-menu-container {
+  width: 30px;
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border-left: 1px solid #ededed; */
+}
+.ant-dropdown-menu {
+  max-height: 300px;
+  overflow: auto;
+}
+.page-label {
+  display: flex;
+  align-items: center;
+}

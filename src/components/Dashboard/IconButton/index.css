@@ -1,0 +1,13 @@
+.icon-button .ant-btn > svg {
+  font-size: 20px;
+  color: #6e6e6e;
+}
+
+.icon-button .ant-btn {
+  border: 0;
+  box-shadow: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: transparent; */
+}

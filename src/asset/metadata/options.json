@@ -1,0 +1,4458 @@
+{
+    "options": [
+        {
+            "code": "0000",
+            "name": "0000 - All Causes",
+            "id": "lJz5VH7BB4F",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Toutes les causes"
+                }
+            ]
+        },
+        {
+            "code": "0010",
+            "name": "0010 - Communicable, maternal, perinatal and nutritional conditions",
+            "id": "CIxMVCsFsl1",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies transmissibles, maternelles, périnatales et nutritionnelles"
+                }
+            ]
+        },
+        {
+            "code": "0020",
+            "name": "0020 - Infectious and parasitic diseases",
+            "id": "lPtORQP0VH1",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies infectieuses et parasitaires"
+                }
+            ]
+        },
+        {
+            "code": "0030",
+            "name": "0030 - Tuberculosis",
+            "id": "v7ZaA738dju",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Tuberculose"
+                }
+            ]
+        },
+        {
+            "code": "0040",
+            "name": "0040 - Sexually transmitted diseases excluding HIV",
+            "id": "l3ABTSlCwme",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies sexuellement transmissibles, à l'exception du VIH"
+                }
+            ]
+        },
+        {
+            "code": "0050",
+            "name": "0050 - Syphilis",
+            "id": "LKpCCYFPKw9",
+            "sortOrder": 6,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Syphilis"
+                }
+            ]
+        },
+        {
+            "code": "0060",
+            "name": "0060 - Chlamydia",
+            "id": "HDqemLlLxDV",
+            "sortOrder": 7,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Chlamydia"
+                }
+            ]
+        },
+        {
+            "code": "0070",
+            "name": "0070 - Gonorrhoea",
+            "id": "qLNohbljSc8",
+            "sortOrder": 8,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Gonorrhée"
+                }
+            ]
+        },
+        {
+            "code": "0080",
+            "name": "0080 - Other STDs",
+            "id": "QyyicWN1D6E",
+            "sortOrder": 9,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres MST"
+                }
+            ]
+        },
+        {
+            "code": "0090",
+            "name": "0090 - HIV",
+            "id": "SvdGPOToMz9",
+            "sortOrder": 10,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "VIH"
+                }
+            ]
+        },
+        {
+            "code": "01",
+            "name": "01 - Certain infectious or parasitic diseases",
+            "id": "PnlRW3r5tlO",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Certaines maladies infectieuses ou parasitaires"
+                }
+            ]
+        },
+        {
+            "code": "0100",
+            "name": "0100 - Diarrhoeal diseases",
+            "id": "d67Fwx3YLf5",
+            "sortOrder": 11,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies diarrhéiques"
+                }
+            ]
+        },
+        {
+            "code": "0110",
+            "name": "0110 - Childhood-cluster diseases",
+            "id": "Zg5ZXmq5b3C",
+            "sortOrder": 12,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies infantiles"
+                }
+            ]
+        },
+        {
+            "code": "0120",
+            "name": "0120 - Pertussis",
+            "id": "n9LXYHEDHYE",
+            "sortOrder": 13,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Coqueluche"
+                }
+            ]
+        },
+        {
+            "code": "0130",
+            "name": "0130 - Poliomyelitis",
+            "id": "uA9vQmdbfgC",
+            "sortOrder": 14,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Poliomyélite"
+                }
+            ]
+        },
+        {
+            "code": "0140",
+            "name": "0140 - Diphtheria",
+            "id": "QQbKdguLpXK",
+            "sortOrder": 15,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Diphtérie"
+                }
+            ]
+        },
+        {
+            "code": "0150",
+            "name": "0150 - Measles",
+            "id": "oWbOzWojWAi",
+            "sortOrder": 16,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Rougeole"
+                }
+            ]
+        },
+        {
+            "code": "0160",
+            "name": "0160 - Tetanus",
+            "id": "ODQsHaiPc6w",
+            "sortOrder": 17,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Tétanos"
+                }
+            ]
+        },
+        {
+            "code": "0170",
+            "name": "0170 - Meningitis",
+            "id": "IiBUpEktEIO",
+            "sortOrder": 18,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Méningite"
+                }
+            ]
+        },
+        {
+            "code": "0180",
+            "name": "0180 - Hepatitis B ",
+            "id": "hqMDJaR5qp6",
+            "sortOrder": 19,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hépatite B"
+                }
+            ]
+        },
+        {
+            "code": "0190",
+            "name": "0190 - Hepatitis C ",
+            "id": "pzneoMalHjj",
+            "sortOrder": 20,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hépatite C"
+                }
+            ]
+        },
+        {
+            "code": "02",
+            "name": "02 - Neoplasms",
+            "id": "mxCEHs0i0f2",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Tumeurs"
+                }
+            ]
+        },
+        {
+            "code": "0200",
+            "name": "0200 - Malaria",
+            "id": "S2isivHBEQm",
+            "sortOrder": 21,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Paludisme"
+                }
+            ]
+        },
+        {
+            "code": "0210",
+            "name": "0210 - Tropical-cluster diseases",
+            "id": "tXntsSEfMyj",
+            "sortOrder": 22,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies des clusters tropicaux"
+                }
+            ]
+        },
+        {
+            "code": "0220",
+            "name": "0220 - Trypanosomiasis",
+            "id": "svqXK7AaUXr",
+            "sortOrder": 23,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Trypanosomiase"
+                }
+            ]
+        },
+        {
+            "code": "0230",
+            "name": "0230 - Chagas disease",
+            "id": "WqNRqPlWZLp",
+            "sortOrder": 24,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie de Chagas"
+                }
+            ]
+        },
+        {
+            "code": "0240",
+            "name": "0240 - Schistosomiasis",
+            "id": "Igk4UisFSoo",
+            "sortOrder": 25,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Schistosomiase"
+                }
+            ]
+        },
+        {
+            "code": "0250",
+            "name": "0250 - Leishmaniasis",
+            "id": "LKzNoz359Ug",
+            "sortOrder": 26,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Leishmaniose"
+                }
+            ]
+        },
+        {
+            "code": "0260",
+            "name": "0260 - Lymphatic filariasis",
+            "id": "cMYc181X18d",
+            "sortOrder": 27,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Filariose lymphatique"
+                }
+            ]
+        },
+        {
+            "code": "0270",
+            "name": "0270 - Onchocerciasis",
+            "id": "y685gDjOnAP",
+            "sortOrder": 28,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Onchocercose"
+                }
+            ]
+        },
+        {
+            "code": "0280",
+            "name": "0280 - Leprosy",
+            "id": "jKIyo94SJ0i",
+            "sortOrder": 29,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Lèpre"
+                }
+            ]
+        },
+        {
+            "code": "0290",
+            "name": "0290 - Dengue",
+            "id": "f9u48Wtet7i",
+            "sortOrder": 30,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Dengue"
+                }
+            ]
+        },
+        {
+            "code": "03",
+            "name": "03 - Diseases of the blood or blood-forming organs",
+            "id": "ciNIf5iS13R",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies du sang ou des organes hématopoïétiques"
+                }
+            ]
+        },
+        {
+            "code": "0300",
+            "name": "0300 - Japanese encephalitis",
+            "id": "dZrEmTt6EGy",
+            "sortOrder": 31,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Encéphalite japonaise"
+                }
+            ]
+        },
+        {
+            "code": "0310",
+            "name": "0310 - Trachoma",
+            "id": "f3C2ThfwSh5",
+            "sortOrder": 32,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Trachome"
+                }
+            ]
+        },
+        {
+            "code": "0320",
+            "name": "0320 - Intestinal nematode infections",
+            "id": "NhZghGlFNRb",
+            "sortOrder": 33,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Infections aux nématodes intestinaux"
+                }
+            ]
+        },
+        {
+            "code": "0330",
+            "name": "0330 - Ascariasis",
+            "id": "K2EMgaAhrFS",
+            "sortOrder": 34,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Ascaridiose"
+                }
+            ]
+        },
+        {
+            "code": "0340",
+            "name": "0340 - Trichuriasis",
+            "id": "gmn8MzH4saM",
+            "sortOrder": 35,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Trichuriasis"
+                }
+            ]
+        },
+        {
+            "code": "0350",
+            "name": "0350 - Hookworm (Ancylostomiasis and necatoriasis)",
+            "id": "LV8wfr0RUV2",
+            "sortOrder": 36,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Ankylostomiase (Ancylostomiase et nécatoriase)"
+                }
+            ]
+        },
+        {
+            "code": "0360",
+            "name": "0360 - Other intestinal infections",
+            "id": "cu2EUlNo7n4",
+            "sortOrder": 37,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres infections intestinales"
+                }
+            ]
+        },
+        {
+            "code": "0370",
+            "name": "0370 - Other infectious diseases",
+            "id": "tJa6b7G1e1U",
+            "sortOrder": 38,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies infectieuses"
+                }
+            ]
+        },
+        {
+            "code": "0380",
+            "name": "0380 - Respiratory infections",
+            "id": "oS6XUlnlHHZ",
+            "sortOrder": 39,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Infections respiratoires"
+                }
+            ]
+        },
+        {
+            "code": "0390",
+            "name": "0390 - Lower respiratory infections",
+            "id": "R0CAd00KJnJ",
+            "sortOrder": 40,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Infections des voies respiratoires inférieures"
+                }
+            ]
+        },
+        {
+            "code": "04",
+            "name": "04 - Diseases of the immune system",
+            "id": "XMHeQS1a1x1",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies du système immunitaire"
+                }
+            ]
+        },
+        {
+            "code": "0400",
+            "name": "0400 - Upper respiratory infections",
+            "id": "bd8DGZGqK9F",
+            "sortOrder": 41,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Infections des voies respiratoires supérieures"
+                }
+            ]
+        },
+        {
+            "code": "0410",
+            "name": "0410 - Otitis media",
+            "id": "mD6PSQljwI5",
+            "sortOrder": 42,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Otites moyennes"
+                }
+            ]
+        },
+        {
+            "code": "0420",
+            "name": "0420 - Maternal conditions",
+            "id": "n9iLTUIUe4d",
+            "sortOrder": 43,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Affections maternelles"
+                }
+            ]
+        },
+        {
+            "code": "0430",
+            "name": "0430 - Maternal haemorrhage",
+            "id": "PrVI2QF5lt4",
+            "sortOrder": 44,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hémorragie maternelle"
+                }
+            ]
+        },
+        {
+            "code": "0440",
+            "name": "0440 - Maternal sepsis",
+            "id": "tTfkXspBQwa",
+            "sortOrder": 45,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Septicémie maternelle"
+                }
+            ]
+        },
+        {
+            "code": "0450",
+            "name": "0450 - Hypertensive disorders of pregnancy",
+            "id": "wR5XV5Azn38",
+            "sortOrder": 46,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles hypertensifs de la grossesse"
+                }
+            ]
+        },
+        {
+            "code": "0460",
+            "name": "0460 - Obstructed labour",
+            "id": "Z6PQvtfD9Io",
+            "sortOrder": 47,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Travail obstrué"
+                }
+            ]
+        },
+        {
+            "code": "0470",
+            "name": "0470 - Abortion",
+            "id": "pcWogzewtnD",
+            "sortOrder": 48,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Avortement"
+                }
+            ]
+        },
+        {
+            "code": "0480",
+            "name": "0480 - Other maternal conditions",
+            "id": "zyjNFBNbITi",
+            "sortOrder": 49,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres affections maternelles"
+                }
+            ]
+        },
+        {
+            "code": "0490",
+            "name": "0490 - Conditions arising during the perinatal period",
+            "id": "yMS5BpkbbFr",
+            "sortOrder": 50,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Affections survenant au cours de la période périnatale"
+                }
+            ]
+        },
+        {
+            "code": "05",
+            "name": "05 - Endocrine, nutritional or metabolic diseases",
+            "id": "j4vYvwcKIPP",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies endocriniennes, nutritionnelles ou métaboliques"
+                }
+            ]
+        },
+        {
+            "code": "0500",
+            "name": "0500 - Prematurity and low birth weight",
+            "id": "VEFpyJoZOOA",
+            "sortOrder": 51,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Prématurité et faible poids de naissance"
+                }
+            ]
+        },
+        {
+            "code": "0510",
+            "name": "0510 - Birth asphyxia and birth trauma",
+            "id": "O9SHowqCZ0X",
+            "sortOrder": 52,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Asphyxie et traumatisme à la naissance"
+                }
+            ]
+        },
+        {
+            "code": "0520",
+            "name": "0520 - Other conditions arising during the perinatal period",
+            "id": "cmE8Kq49erj",
+            "sortOrder": 53,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres affections survenant au cours de la période périnatale"
+                }
+            ]
+        },
+        {
+            "code": "0530",
+            "name": "0530 - Nutritional deficiencies",
+            "id": "r5u3J1DATLU",
+            "sortOrder": 54,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Déficiences nutritionnelles"
+                }
+            ]
+        },
+        {
+            "code": "0540",
+            "name": "0540 - Protein-energy malnutrition",
+            "id": "Dbu8sC1rNab",
+            "sortOrder": 55,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Malnutrition protéino-énergétique"
+                }
+            ]
+        },
+        {
+            "code": "0550",
+            "name": "0550 - Iodine deficiency",
+            "id": "RDPT4TUUhvu",
+            "sortOrder": 56,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Carence en iode"
+                }
+            ]
+        },
+        {
+            "code": "0560",
+            "name": "0560 - Vitamin A deficiency",
+            "id": "RD3mH2AciJf",
+            "sortOrder": 57,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Carence en vitamine A"
+                }
+            ]
+        },
+        {
+            "code": "0570",
+            "name": "0570 - Iron deficiency Anaemia",
+            "id": "rcNvadRh5my",
+            "sortOrder": 58,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Carence en fer Anémie"
+                }
+            ]
+        },
+        {
+            "code": "0580",
+            "name": "0580 - Other nutritional disorders",
+            "id": "rIZG48TIJBx",
+            "sortOrder": 59,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres troubles nutritionnels"
+                }
+            ]
+        },
+        {
+            "code": "0590",
+            "name": "0590 - Noncommunicable diseases",
+            "id": "ZXdH9JMv9ZK",
+            "sortOrder": 60,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies non transmissibles"
+                }
+            ]
+        },
+        {
+            "code": "06",
+            "name": "06 - Mental, behavioural or neurodevelopmental disorders",
+            "id": "M4PserMSyby",
+            "sortOrder": 6,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles mentaux, comportementaux ou neurodéveloppementaux"
+                }
+            ]
+        },
+        {
+            "code": "0600",
+            "name": "0600 - Malignant neoplasms",
+            "id": "bwvv5O7u64E",
+            "sortOrder": 61,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Tumeurs malignes"
+                }
+            ]
+        },
+        {
+            "code": "0610",
+            "name": "0610 - Mouth and oropharynx cancers",
+            "id": "zMTjGSmtNgI",
+            "sortOrder": 62,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancers de la bouche et de l'oropharynx"
+                }
+            ]
+        },
+        {
+            "code": "0620",
+            "name": "0620 - Oesophagus cancer",
+            "id": "Dy0cMMpcpg7",
+            "sortOrder": 63,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer de l'œsophage"
+                }
+            ]
+        },
+        {
+            "code": "0630",
+            "name": "0630 - Stomach cancer",
+            "id": "E3Pmt2LLeLZ",
+            "sortOrder": 64,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer de l'estomac"
+                }
+            ]
+        },
+        {
+            "code": "0640",
+            "name": "0640 - Colon and rectum cancers",
+            "id": "sQPrJPNb8Yx",
+            "sortOrder": 65,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancers du côlon et du rectum"
+                }
+            ]
+        },
+        {
+            "code": "0650",
+            "name": "0650 - Liver cancer",
+            "id": "zxDysc1WIuR",
+            "sortOrder": 66,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer du foie"
+                }
+            ]
+        },
+        {
+            "code": "0660",
+            "name": "0660 - Pancreas cancer",
+            "id": "YWYDSCM1jQF",
+            "sortOrder": 67,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer du pancréas"
+                }
+            ]
+        },
+        {
+            "code": "0670",
+            "name": "0670 - Trachea, bronchus and lung cancers",
+            "id": "PFJHB6Glqop",
+            "sortOrder": 68,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancers de la trachée, des bronches et du poumon"
+                }
+            ]
+        },
+        {
+            "code": "0680",
+            "name": "0680 - Melanoma and other skin cancers",
+            "id": "p6yWW5erSq8",
+            "sortOrder": 69,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Mélanome et autres cancers de la peau"
+                }
+            ]
+        },
+        {
+            "code": "0690",
+            "name": "0690 - Breast cancer",
+            "id": "AK8e1eUminR",
+            "sortOrder": 70,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer du sein"
+                }
+            ]
+        },
+        {
+            "code": "07",
+            "name": "07 - Sleep-wake disorders",
+            "id": "im2iJ2SokDb",
+            "sortOrder": 7,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles du cycle veille-sommeil"
+                }
+            ]
+        },
+        {
+            "code": "0700",
+            "name": "0700 - Cervix uteri cancer",
+            "id": "qZzdb6iEp47",
+            "sortOrder": 71,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer du col de l'utérus"
+                }
+            ]
+        },
+        {
+            "code": "0710",
+            "name": "0710 - Corpus uteri cancer",
+            "id": "LRbaqlMvWeJ",
+            "sortOrder": 72,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer du corps de l'utérus"
+                }
+            ]
+        },
+        {
+            "code": "0720",
+            "name": "0720 - Ovary cancer",
+            "id": "K5FXDiJZC3l",
+            "sortOrder": 73,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer de l'ovaire"
+                }
+            ]
+        },
+        {
+            "code": "0730",
+            "name": "0730 - Prostate cancer",
+            "id": "hgUQE9yJjfB",
+            "sortOrder": 74,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer de la prostate"
+                }
+            ]
+        },
+        {
+            "code": "0740",
+            "name": "0740 - Bladder cancer",
+            "id": "e8WZQOIULVp",
+            "sortOrder": 75,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cancer de la vessie"
+                }
+            ]
+        },
+        {
+            "code": "0750",
+            "name": "0750 - Lymphomas and multiple myeloma",
+            "id": "SuEPmMADTle",
+            "sortOrder": 76,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Lymphomes et myélomes multiples"
+                }
+            ]
+        },
+        {
+            "code": "0760",
+            "name": "0760 - Leukaemia",
+            "id": "VvydsY5HWeJ",
+            "sortOrder": 77,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Leucémies"
+                }
+            ]
+        },
+        {
+            "code": "0770",
+            "name": "0770 - Other malignant neoplasms",
+            "id": "m7HCImeA0HF",
+            "sortOrder": 78,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres tumeurs malignes"
+                }
+            ]
+        },
+        {
+            "code": "0780",
+            "name": "0780 - Other neoplasms",
+            "id": "cX83FTXwa61",
+            "sortOrder": 79,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres tumeurs"
+                }
+            ]
+        },
+        {
+            "code": "0790",
+            "name": "0790 - Diabetes mellitus",
+            "id": "dFTvJqcYXuh",
+            "sortOrder": 80,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Diabète sucré"
+                }
+            ]
+        },
+        {
+            "code": "08",
+            "name": "08 - Diseases of the nervous system",
+            "id": "vEYW2ratf9W",
+            "sortOrder": 8,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies du système nerveux"
+                }
+            ]
+        },
+        {
+            "code": "0800",
+            "name": "0800 - Endocrine disorders",
+            "id": "ZZdlHyu1xks",
+            "sortOrder": 81,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles endocriniens"
+                }
+            ]
+        },
+        {
+            "code": "0810",
+            "name": "0810 - Neuro-psychiatric conditions",
+            "id": "jpPxFGKW5HL",
+            "sortOrder": 82,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Affections neuro-psychiatriques"
+                }
+            ]
+        },
+        {
+            "code": "0820",
+            "name": "0820 - Unipolar depressive disorders",
+            "id": "lH6Y9zAqUDY",
+            "sortOrder": 83,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles dépressifs unipolaires"
+                }
+            ]
+        },
+        {
+            "code": "0830",
+            "name": "0830 - Bipolar affective disorder",
+            "id": "zCqeghdMA8B",
+            "sortOrder": 84,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles affectifs bipolaires"
+                }
+            ]
+        },
+        {
+            "code": "0840",
+            "name": "0840 - Schizophrenia",
+            "id": "lsaRPZGihX3",
+            "sortOrder": 85,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Schizophrénie"
+                }
+            ]
+        },
+        {
+            "code": "0850",
+            "name": "0850 - Epilepsy",
+            "id": "McXzRqQEqbH",
+            "sortOrder": 86,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Épilepsie"
+                }
+            ]
+        },
+        {
+            "code": "0860",
+            "name": "0860 - Alcohol use disorders",
+            "id": "GIF3HNGLcX5",
+            "sortOrder": 87,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles liés à la consommation d'alcool"
+                }
+            ]
+        },
+        {
+            "code": "0870",
+            "name": "0870 - Alzheimer and other dementias",
+            "id": "rV9IzyBYkAQ",
+            "sortOrder": 88,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Alzheimer et autres démences"
+                }
+            ]
+        },
+        {
+            "code": "0880",
+            "name": "0880 - Parkinson disease",
+            "id": "TVKMeQiTX8Q",
+            "sortOrder": 89,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "La maladie de Parkinson"
+                }
+            ]
+        },
+        {
+            "code": "0890",
+            "name": "0890 - Multiple sclerosis",
+            "id": "zuFyR5oTub5",
+            "sortOrder": 90,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Sclérose en plaques"
+                }
+            ]
+        },
+        {
+            "code": "09",
+            "name": "09 - Diseases of the visual system",
+            "id": "gNLfUK7QY20",
+            "sortOrder": 9,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'appareil visuel"
+                }
+            ]
+        },
+        {
+            "code": "0900",
+            "name": "0900 - Drug use disorders",
+            "id": "R4sarWQ3zVF",
+            "sortOrder": 91,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles liés à l’utilisation de drogues"
+                }
+            ]
+        },
+        {
+            "code": "0910",
+            "name": "0910 - Post-traumatic stress disorder",
+            "id": "IxQidYm7OLW",
+            "sortOrder": 92,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Trouble du stress post-traumatique"
+                }
+            ]
+        },
+        {
+            "code": "0920",
+            "name": "0920 - Obsessive-compulsive disorders",
+            "id": "MsnShh2VNJA",
+            "sortOrder": 93,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Troubles obsessionnels compulsifs"
+                }
+            ]
+        },
+        {
+            "code": "0930",
+            "name": "0930 - Panic disorder",
+            "id": "JJT3lOwa3Fv",
+            "sortOrder": 94,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Trouble panique"
+                }
+            ]
+        },
+        {
+            "code": "0940",
+            "name": "0940 - Insomnia (primary)",
+            "id": "h2GB4XKBIjB",
+            "sortOrder": 95,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Insomnie (primaire)"
+                }
+            ]
+        },
+        {
+            "code": "0950",
+            "name": "0950 - Migraine",
+            "id": "Iy13sOl5amv",
+            "sortOrder": 96,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Migraine"
+                }
+            ]
+        },
+        {
+            "code": "0960",
+            "name": "0960 - Mental Retardation ",
+            "id": "uR27kTJCINN",
+            "sortOrder": 97,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Retard mental"
+                }
+            ]
+        },
+        {
+            "code": "0970",
+            "name": "0970 - Other neuropsychiatric disorders",
+            "id": "yoplR7tFz1e",
+            "sortOrder": 98,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres troubles neuropsychiatriques"
+                }
+            ]
+        },
+        {
+            "code": "0980",
+            "name": "0980 - Sense organ diseases",
+            "id": "Sjy5Iwh6LwW",
+            "sortOrder": 99,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies des organes sensoriels"
+                }
+            ]
+        },
+        {
+            "code": "0990",
+            "name": "0990 - Glaucoma",
+            "id": "B7KwAKbmc0K",
+            "sortOrder": 100,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Glaucome"
+                }
+            ]
+        },
+        {
+            "code": "10",
+            "name": "10 - Diseases of the ear or mastoid process",
+            "id": "rNoGKCdjc4m",
+            "sortOrder": 10,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'oreille ou de l'apophyse mastoïde"
+                }
+            ]
+        },
+        {
+            "code": "1000",
+            "name": "1000 - Cataracts",
+            "id": "T7w5ww5X2nb",
+            "sortOrder": 101,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cataractes"
+                }
+            ]
+        },
+        {
+            "code": "1010",
+            "name": "1010 - Refractive errors",
+            "id": "KbTcEkNbZ24",
+            "sortOrder": 102,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Erreurs de réfraction"
+                }
+            ]
+        },
+        {
+            "code": "1020",
+            "name": "1020 - Hearing loss, adult onset",
+            "id": "IvdAF3dL3Lm",
+            "sortOrder": 103,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Perte auditive à l'âge adulte"
+                }
+            ]
+        },
+        {
+            "code": "1030",
+            "name": "1030 - Other sense organ disorders",
+            "id": "fmjXjOAA3xW",
+            "sortOrder": 104,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies des organes des sens"
+                }
+            ]
+        },
+        {
+            "code": "1040",
+            "name": "1040 - Cardiovascular diseases",
+            "id": "Zd2CnGIJD0l",
+            "sortOrder": 105,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies cardiovasculaires"
+                }
+            ]
+        },
+        {
+            "code": "1050",
+            "name": "1050 - Rheumatic heart disease",
+            "id": "OKp9T1copRL",
+            "sortOrder": 106,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cardiopathie rhumatismale"
+                }
+            ]
+        },
+        {
+            "code": "1060",
+            "name": "1060 - Hypertensive disease",
+            "id": "rUj1uygveTf",
+            "sortOrder": 107,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie hypertensive"
+                }
+            ]
+        },
+        {
+            "code": "1070",
+            "name": "1070 - Ischaemic heart disease",
+            "id": "ufKvec3FDw4",
+            "sortOrder": 108,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cardiopathie ischémique"
+                }
+            ]
+        },
+        {
+            "code": "1080",
+            "name": "1080 - Cerebrovascular disease",
+            "id": "jblE3hMJhJ8",
+            "sortOrder": 109,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie cérébrovasculaire"
+                }
+            ]
+        },
+        {
+            "code": "1090",
+            "name": "1090 - Inflammatory heart diseases",
+            "id": "LhvpxNs2l7N",
+            "sortOrder": 110,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cardiopathies inflammatoires"
+                }
+            ]
+        },
+        {
+            "code": "11",
+            "name": "11 - Diseases of the circulatory system",
+            "id": "szZ8qCtK9tQ",
+            "sortOrder": 11,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'appareil circulatoire"
+                }
+            ]
+        },
+        {
+            "code": "1100",
+            "name": "1100 - Other cardiovascular diseases",
+            "id": "bRWj08Wna7Y",
+            "sortOrder": 111,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies cardiovasculaires"
+                }
+            ]
+        },
+        {
+            "code": "1110",
+            "name": "1110 - Respiratory diseases",
+            "id": "RoIbcNrhkNd",
+            "sortOrder": 112,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies respiratoires"
+                }
+            ]
+        },
+        {
+            "code": "1120",
+            "name": "1120 - Chronic obstructive pulmonary disease",
+            "id": "iHOqE3JyRjk",
+            "sortOrder": 113,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie pulmonaire obstructive chronique"
+                }
+            ]
+        },
+        {
+            "code": "1130",
+            "name": "1130 - Asthma",
+            "id": "rkJz6Oz7CkA",
+            "sortOrder": 114,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Asthme"
+                }
+            ]
+        },
+        {
+            "code": "1140",
+            "name": "1140 - Other respiratory diseases",
+            "id": "zeul4oYwsbC",
+            "sortOrder": 115,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies respiratoires"
+                }
+            ]
+        },
+        {
+            "code": "1150",
+            "name": "1150 - Digestive diseases",
+            "id": "q5OAKjiCbwg",
+            "sortOrder": 116,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies digestives"
+                }
+            ]
+        },
+        {
+            "code": "1160",
+            "name": "1160 - Peptic ulcer",
+            "id": "XLDIKObVpsm",
+            "sortOrder": 117,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Ulcère gastroduodénal"
+                }
+            ]
+        },
+        {
+            "code": "1170",
+            "name": "1170 - Cirrhosis of the liver",
+            "id": "M3MOqjmGBN5",
+            "sortOrder": 118,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Cirrhose du foie"
+                }
+            ]
+        },
+        {
+            "code": "1180",
+            "name": "1180 - Appendicitis",
+            "id": "HFEQiEa4vV2",
+            "sortOrder": 119,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Appendicite"
+                }
+            ]
+        },
+        {
+            "code": "1190",
+            "name": "1190 - Other digestive diseases",
+            "id": "ItqFQJw43xx",
+            "sortOrder": 120,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies digestives"
+                }
+            ]
+        },
+        {
+            "code": "12",
+            "name": "12 - Diseases of the respiratory system",
+            "id": "N8ImkyGw01t",
+            "sortOrder": 12,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'appareil respiratoire"
+                }
+            ]
+        },
+        {
+            "code": "1200",
+            "name": "1200 - Genito-urinary diseases",
+            "id": "kQTBv6RBcyX",
+            "sortOrder": 121,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies génito-urinaires"
+                }
+            ]
+        },
+        {
+            "code": "1210",
+            "name": "1210 - Nephritis and nephrosis",
+            "id": "tFPpOLYvo4O",
+            "sortOrder": 122,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Néphrite et néphrose"
+                }
+            ]
+        },
+        {
+            "code": "1220",
+            "name": "1220 - Benign prostatic hypertrophy",
+            "id": "d22Dq7LXzKy",
+            "sortOrder": 123,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hypertrophie bénigne de la prostate"
+                }
+            ]
+        },
+        {
+            "code": "1230",
+            "name": "1230 - Other genitourinary system diseases",
+            "id": "LOJyl4QnrcJ",
+            "sortOrder": 124,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies du système génito-urinaire"
+                }
+            ]
+        },
+        {
+            "code": "1240",
+            "name": "1240 - Skin diseases",
+            "id": "N92CeYMC8Cy",
+            "sortOrder": 125,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de la peau"
+                }
+            ]
+        },
+        {
+            "code": "1250",
+            "name": "1250 - Musculo-skeletal diseases",
+            "id": "WswNYaPOqNk",
+            "sortOrder": 126,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies musculo-squelettiques"
+                }
+            ]
+        },
+        {
+            "code": "1260",
+            "name": "1260 - Rheumatoid arthritis",
+            "id": "TYOUSEeR5z9",
+            "sortOrder": 127,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Arthrite rhumatoïde"
+                }
+            ]
+        },
+        {
+            "code": "1270",
+            "name": "1270 - Osteoarthritis",
+            "id": "AikBnT54MTb",
+            "sortOrder": 128,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Arthrose"
+                }
+            ]
+        },
+        {
+            "code": "1280",
+            "name": "1280 - Gout",
+            "id": "AFEBgOcj8mw",
+            "sortOrder": 129,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Goutte"
+                }
+            ]
+        },
+        {
+            "code": "1290",
+            "name": "1290 - Low back pain",
+            "id": "XmHggm0btUo",
+            "sortOrder": 130,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Lombalgie"
+                }
+            ]
+        },
+        {
+            "code": "13",
+            "name": "13 - Diseases of the digestive system",
+            "id": "JVdHpMnlj9E",
+            "sortOrder": 13,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'appareil digestif"
+                }
+            ]
+        },
+        {
+            "code": "1300",
+            "name": "1300 - Other musculoskeletal disorders",
+            "id": "OfE2KlaSShf",
+            "sortOrder": 131,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres troubles musculo-squelettiques"
+                }
+            ]
+        },
+        {
+            "code": "1310",
+            "name": "1310 - Congenital anomalies",
+            "id": "wFS5VnYfUMC",
+            "sortOrder": 132,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Anomalies congénitales"
+                }
+            ]
+        },
+        {
+            "code": "1320",
+            "name": "1320 - Abdominal wall defect",
+            "id": "Tfq8ODRmic6",
+            "sortOrder": 133,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Défaut de la paroi abdominale"
+                }
+            ]
+        },
+        {
+            "code": "1330",
+            "name": "1330 - Anencephaly",
+            "id": "XAweo7NtBhI",
+            "sortOrder": 134,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Anencéphalie"
+                }
+            ]
+        },
+        {
+            "code": "1340",
+            "name": "1340 - Anorectal atresia",
+            "id": "dFMSGqNknAp",
+            "sortOrder": 135,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Atrésie anorectale"
+                }
+            ]
+        },
+        {
+            "code": "1350",
+            "name": "1350 - Cleft lip",
+            "id": "IfO0WqqjC5d",
+            "sortOrder": 136,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Fente labiale"
+                }
+            ]
+        },
+        {
+            "code": "1360",
+            "name": "1360 - Cleft palate",
+            "id": "RbAqxsheADZ",
+            "sortOrder": 137,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Fente palatine"
+                }
+            ]
+        },
+        {
+            "code": "1370",
+            "name": "1370 - Oesophageal atresia",
+            "id": "XIYpDQYeAJq",
+            "sortOrder": 138,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Atrésie de l'œsophage"
+                }
+            ]
+        },
+        {
+            "code": "1380",
+            "name": "1380 - Renal agenesis",
+            "id": "ZvdwJrxgg4v",
+            "sortOrder": 139,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Agénésie rénale"
+                }
+            ]
+        },
+        {
+            "code": "1390",
+            "name": "1390 - Down syndrome",
+            "id": "YIXndqRwEGK",
+            "sortOrder": 140,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Syndrome de Down"
+                }
+            ]
+        },
+        {
+            "code": "14",
+            "name": "14 - Diseases of the skin",
+            "id": "CcnbZhKorgB",
+            "sortOrder": 14,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de la peau"
+                }
+            ]
+        },
+        {
+            "code": "1400",
+            "name": "1400 - Congenital heart anomalies",
+            "id": "BQXMqHiew56",
+            "sortOrder": 141,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Anomalies cardiaques congénitales"
+                }
+            ]
+        },
+        {
+            "code": "1410",
+            "name": "1410 - Spina bifida",
+            "id": "u1OUVJq4aQu",
+            "sortOrder": 142,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Spina bifida"
+                }
+            ]
+        },
+        {
+            "code": "1420",
+            "name": "1420 - Other Congenital anomalies",
+            "id": "Nl733frJOam",
+            "sortOrder": 143,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres anomalies congénitales"
+                }
+            ]
+        },
+        {
+            "code": "1430",
+            "name": "1430 - Oral conditions",
+            "id": "x1jWqioneES",
+            "sortOrder": 144,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Affections bucco-dentaires"
+                }
+            ]
+        },
+        {
+            "code": "1440",
+            "name": "1440 - Dental caries",
+            "id": "tpJNcJa6Lnu",
+            "sortOrder": 145,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Caries dentaires"
+                }
+            ]
+        },
+        {
+            "code": "1450",
+            "name": "1450 - Periodontal disease",
+            "id": "nRyFJpsmvzZ",
+            "sortOrder": 146,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie parodontale"
+                }
+            ]
+        },
+        {
+            "code": "1460",
+            "name": "1460 - Edentulism",
+            "id": "pnkXCh2wZam",
+            "sortOrder": 147,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Édentulisme"
+                }
+            ]
+        },
+        {
+            "code": "1470",
+            "name": "1470 - Other oral diseases",
+            "id": "opnDZpU7oCU",
+            "sortOrder": 148,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres maladies buccales"
+                }
+            ]
+        },
+        {
+            "code": "1480",
+            "name": "1480 - Injuries",
+            "id": "jP3Lxnypf2R",
+            "sortOrder": 149,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Blessures"
+                }
+            ]
+        },
+        {
+            "code": "1490",
+            "name": "1490 - Unintentional injuries",
+            "id": "mRMK2wzaGw4",
+            "sortOrder": 150,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Blessures non intentionnelles"
+                }
+            ]
+        },
+        {
+            "code": "15",
+            "name": "15 - Diseases of the musculoskeletal system or connective tissue",
+            "id": "mp6HjPfebNG",
+            "sortOrder": 15,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies du système musculosquelettique ou du tissu conjonctif"
+                }
+            ]
+        },
+        {
+            "code": "1500",
+            "name": "1500 - Road traffic accidents",
+            "id": "WXM2voXBT91",
+            "sortOrder": 151,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Accidents de la route"
+                }
+            ]
+        },
+        {
+            "code": "1510",
+            "name": "1510 - Poisonings",
+            "id": "GbpXPUFI58A",
+            "sortOrder": 152,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Empoisonnements"
+                }
+            ]
+        },
+        {
+            "code": "1520",
+            "name": "1520 - Falls",
+            "id": "moLqAeip4oF",
+            "sortOrder": 153,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Chutes"
+                }
+            ]
+        },
+        {
+            "code": "1530",
+            "name": "1530 - Fires",
+            "id": "J6RSwLkydnq",
+            "sortOrder": 154,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Incendies"
+                }
+            ]
+        },
+        {
+            "code": "1540",
+            "name": "1540 - Drownings",
+            "id": "UDvMdIBhCWT",
+            "sortOrder": 155,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Noyades"
+                }
+            ]
+        },
+        {
+            "code": "1550",
+            "name": "1550 - Other unintentional injuries",
+            "id": "fopeIGWTn8d",
+            "sortOrder": 156,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres blessures non intentionnelles"
+                }
+            ]
+        },
+        {
+            "code": "1560",
+            "name": "1560 - Intentional injuries",
+            "id": "trkFMUelGSz",
+            "sortOrder": 157,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Blessures intentionnelles"
+                }
+            ]
+        },
+        {
+            "code": "1570",
+            "name": "1570 - Suicide ",
+            "id": "SxM7SWoACz2",
+            "sortOrder": 158,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Suicide"
+                }
+            ]
+        },
+        {
+            "code": "1580",
+            "name": "1580 - Homicide",
+            "id": "YfCJgz114RO",
+            "sortOrder": 159,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Homicide"
+                }
+            ]
+        },
+        {
+            "code": "1590",
+            "name": "1590 - War and conflict",
+            "id": "KpjNF2HQ1Xm",
+            "sortOrder": 160,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Guerre et conflits"
+                }
+            ]
+        },
+        {
+            "code": "16",
+            "name": "16 - Diseases of the genitourinary system",
+            "id": "Uir8InWSX88",
+            "sortOrder": 16,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies de l'appareil génito-urinaire"
+                }
+            ]
+        },
+        {
+            "code": "1600",
+            "name": "1600 - Other Intentional injuries",
+            "id": "Tfh54jy7zDW",
+            "sortOrder": 161,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autres blessures intentionnelles"
+                }
+            ]
+        },
+        {
+            "code": "1610",
+            "name": "1610 - Ill-defined diseases ",
+            "id": "W3pCDuMScSv",
+            "sortOrder": 162,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladies mal définies"
+                }
+            ]
+        },
+        {
+            "code": "1620",
+            "name": "1620 - Ill-defined injuries/accidents",
+            "id": "UZ2rSOeTLfy",
+            "sortOrder": 163,
+            "optionSet": {
+                "id": "T2wD6jsdZze"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Blessures/accidents mal définis"
+                }
+            ]
+        },
+        {
+            "code": "17",
+            "name": "17 - Conditions related to sexual health",
+            "id": "Zn5NsptwMeq",
+            "sortOrder": 17,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Affections liées à la santé sexuelle"
+                }
+            ]
+        },
+        {
+            "code": "18",
+            "name": "18 - Pregnancy, childbirth or the puerperium",
+            "id": "MRndO5FsAcM",
+            "sortOrder": 18,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Grossesse, accouchement ou puerpéralité"
+                }
+            ]
+        },
+        {
+            "code": "19",
+            "name": "19 - Certain conditions originating in the perinatal period",
+            "id": "DFGSvIg1GWi",
+            "sortOrder": 19,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Certaines affections dont l'origine se situe dans la période périnatale"
+                }
+            ]
+        },
+        {
+            "code": "20",
+            "name": "20 - Developmental anomalies",
+            "id": "ggR5CXnFI7Q",
+            "sortOrder": 20,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Anomalies du développement"
+                }
+            ]
+        },
+        {
+            "code": "21",
+            "name": "21 - Symptoms, signs or clinical findings, not elsewhere classified",
+            "id": "VO18VZVTYem",
+            "sortOrder": 21,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Symptômes, signes ou résultats d'examen clinique, non classés ailleurs"
+                }
+            ]
+        },
+        {
+            "code": "22",
+            "name": "22 - Injury, poisoning or certain other consequences of external causes",
+            "id": "jJhwbzgGqPS",
+            "sortOrder": 22,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Lésions traumatiques, empoisonnements ou certaines autres conséquences de causes externes"
+                }
+            ]
+        },
+        {
+            "code": "23",
+            "name": "23 - External causes of morbidity or mortality",
+            "id": "elJy33b08iv",
+            "sortOrder": 23,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Causes externes de morbidité ou de mortalité"
+                }
+            ]
+        },
+        {
+            "code": "24",
+            "name": "24 - Factors influencing health status or contact with health services",
+            "id": "QyiA62CUivx",
+            "sortOrder": 24,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Facteurs influant sur l'état de santé ou motifs de recours aux services de santé"
+                }
+            ]
+        },
+        {
+            "code": "25",
+            "name": "25 - Codes for special purposes",
+            "id": "JefdkCXrroj",
+            "sortOrder": 25,
+            "optionSet": {
+                "id": "fDaHPG8FrYV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Codes d'utilisation particulière"
+                }
+            ]
+        },
+        {
+            "code": "ACCIDENT",
+            "name": "Accident",
+            "id": "Kt5m38ayDhf",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Nehoda"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Accident"
+                }
+            ]
+        },
+        {
+            "code": "antepartum_hemorrage",
+            "name": "Antepartum hemorrage",
+            "id": "Aq3J39uELMb",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Předporodní krvácení"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hémorragie antepartum"
+                }
+            ]
+        },
+        {
+            "code": "ASSAULT",
+            "name": "Assault",
+            "id": "V8gEEmyktxU",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Agressions"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Útok"
+                }
+            ]
+        },
+        {
+            "code": "HOME",
+            "name": "At home",
+            "id": "mjpU3NOh7Km",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Doma"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Domicile"
+                }
+            ]
+        },
+        {
+            "code": "AT_DEATH",
+            "name": "At time of death",
+            "id": "bMwkT5De6B1",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "GqmQvJGc5PV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Au moment du décès"
+                }
+            ]
+        },
+        {
+            "code": "BETWEEN_43D_1Y",
+            "name": "Between 43 days up to 1 year before death",
+            "id": "iPXEYhpWbUU",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "GqmQvJGc5PV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Entre 43 jours et 1 an avant le décès"
+                }
+            ]
+        },
+        {
+            "code": "NOT_DETERMINED",
+            "name": "Could not be determined",
+            "id": "c8FeiRCDU5Y",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Nelze určit"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "N’ont pas pu être déterminées"
+                }
+            ]
+        },
+        {
+            "code": "DAYS",
+            "name": "Days",
+            "id": "Nf2tlOyxDpW",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "ITHzuJgBuS6"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Kunlar"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Jours"
+                }
+            ]
+        },
+        {
+            "code": "deep_vein_thrombosis",
+            "name": "Deep vein thrombosis",
+            "id": "GltJtwrWsf6",
+            "sortOrder": 9,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Hluboká žilní trombóza"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Thrombose veineuse profonde"
+                }
+            ]
+        },
+        {
+            "code": "DISEASE",
+            "name": "Disease",
+            "id": "wJWlGy14Orx",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Choroba"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Maladie"
+                }
+            ]
+        },
+        {
+            "code": "Eclampsia",
+            "name": "Eclampsia",
+            "id": "iraZ4RTR4aZ",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Eklampsie"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Éclampsie"
+                }
+            ]
+        },
+        {
+            "code": "FARM",
+            "name": "Farm",
+            "id": "AST8SDb4U6u",
+            "sortOrder": 8,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Farma"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Ferme"
+                }
+            ]
+        },
+        {
+            "code": "FEMALE",
+            "name": "Female",
+            "id": "pwQ4Cz1R7EE",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "z7EvKyu3I65"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "id",
+                    "value": "Wanita"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Féminin"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Feminino"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "Femenino"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "إناث"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Аёл"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "ženský"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Аyol"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Kvinne"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "женский"
+                }
+            ]
+        },
+        {
+            "code": "gestational_diabetes",
+            "name": "Gestational diabetes",
+            "id": "Gh7uJHpyjKX",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Těhotenský diabetes"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Diabète gestationnel"
+                }
+            ]
+        },
+        {
+            "code": "gestational_hypertension",
+            "name": "Gestational hypertension",
+            "id": "id7QHkmjeSF",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Gestační hypertenze"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hypertension gestationnelle"
+                }
+            ]
+        },
+        {
+            "code": "HOURS",
+            "name": "Hours",
+            "id": "VJJ5FivvSz0",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "ITHzuJgBuS6"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Hodin"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Heures"
+                }
+            ]
+        },
+        {
+            "code": "INDUSTRIAL_CONSTRUCTION_AREA",
+            "name": "Industrial and construction area",
+            "id": "WHE2R5w8MGg",
+            "sortOrder": 7,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Průmyslová a stavební oblast"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Zone industrielle et de construction "
+                }
+            ]
+        },
+        {
+            "code": "SUICIDE",
+            "name": "Intentional self-harm",
+            "id": "V2vLgRorQ2P",
+            "sortOrder": 9,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Úmyslné sebepoškozování"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Lésions auto-infligées"
+                }
+            ]
+        },
+        {
+            "code": "LEGAL_INTERVENTION",
+            "name": "Legal intervention",
+            "id": "HE8FkiQfMxL",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Právní zásah"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Intervention de la force publique"
+                }
+            ]
+        },
+        {
+            "code": "MALE",
+            "name": "Male",
+            "id": "h1g74lLp9xa",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "z7EvKyu3I65"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Masculin"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "мужской"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Erkak"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "id",
+                    "value": "Laki-laki"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Mann"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "Masculino"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "muž"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Masculino"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "ذكور"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Эркак"
+                }
+            ]
+        },
+        {
+            "code": "MONTHS",
+            "name": "Months",
+            "id": "o3avck9RtfI",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "ITHzuJgBuS6"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Oylar"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Mois"
+                }
+            ]
+        },
+        {
+            "code": "NO",
+            "name": "No",
+            "id": "ueETuxbu9pQ",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "dhiyfHmX1P8"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "No"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Йўқ"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "لا"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "нет"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Não"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Ne"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Nei"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Yo`q"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Non"
+                }
+            ]
+        },
+        {
+            "code": "Oedema",
+            "name": "Oedema",
+            "id": "Hjaw2EpAELo",
+            "sortOrder": 10,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Edema"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "Edema"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "œdème"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Otok"
+                }
+            ]
+        },
+        {
+            "code": "OTHER",
+            "name": "Other place (please specify)",
+            "id": "jWVBnrZnBxI",
+            "sortOrder": 9,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Jiné místo (prosím upřesněte)"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Autre lieu (veuillez préciser)"
+                }
+            ]
+        },
+        {
+            "code": "PENDING_INVESTIGATION",
+            "name": "Pending investigation",
+            "id": "NymgckGwVe2",
+            "sortOrder": 7,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Čeká se na vyšetření"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "En cours d’investigation"
+                }
+            ]
+        },
+        {
+            "code": "postpartum_hemorrage",
+            "name": "Postpartum hemorrage",
+            "id": "x8tB1gtPAow",
+            "sortOrder": 6,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Poporodní krvácení"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Hémorragie post-partum"
+                }
+            ]
+        },
+        {
+            "code": "Preeclampsia",
+            "name": "Preeclampsia",
+            "id": "inhYx0jfQ7D",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Preeklampsie"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Prééclampsie"
+                }
+            ]
+        },
+        {
+            "code": "puerperal_sepsis",
+            "name": "Puerperal sepsis",
+            "id": "O38MIradmCX",
+            "sortOrder": 8,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Puerperální sepse"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Septicémie puerpérale"
+                }
+            ]
+        },
+        {
+            "code": "RESIDENTIAL_INSTITUTION",
+            "name": "Residential institution",
+            "id": "YckcNUdYaWK",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Rezidenční instituce"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Établissement résidentiel"
+                }
+            ]
+        },
+        {
+            "code": "ruptured_uterus",
+            "name": "Ruptured uterus",
+            "id": "vB4e0FodCpR",
+            "sortOrder": 7,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Prasklá děloha"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Rupture utérine"
+                }
+            ]
+        },
+        {
+            "code": "INSTITUTION",
+            "name": "School, other institution, public administrative area",
+            "id": "Ohg7AX7x72u",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Škola, jiná instituce, oblast veřejné správy"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "École, autre établissement, zone administrative publique"
+                }
+            ]
+        },
+        {
+            "code": "seizures",
+            "name": "Seizures",
+            "id": "IIJAy2dUpna",
+            "sortOrder": 11,
+            "optionSet": {
+                "id": "BkfhWe2Tvnu"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Záchvaty"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Crises"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Seizures"
+                }
+            ]
+        },
+        {
+            "code": "SPORT_ATHLETIC_AREA",
+            "name": "Sports and atheltics area",
+            "id": "vl1QKwF88J9",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Sportovní a atletická oblast"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Espace sports et athlétisme"
+                }
+            ]
+        },
+        {
+            "code": "STREET_HIGHWAY",
+            "name": "Street and highway",
+            "id": "WnL0uYrLzkV",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Ulice a dálnice"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Rue et route "
+                }
+            ]
+        },
+        {
+            "code": "TRADE_SERVICE_AREA",
+            "name": "Trade and service area",
+            "id": "uonHD40ye1Q",
+            "sortOrder": 6,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Oblast obchodu a služeb"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Zone commerciale et de services "
+                }
+            ]
+        },
+        {
+            "code": "UNKNOWN",
+            "name": "Unknown",
+            "id": "KHEb0BqMIvf",
+            "sortOrder": 10,
+            "optionSet": {
+                "id": "OBWvuP2i2EB"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "DEsconocido"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Inconnu"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Neznámý"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Ukjent"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Noaniq"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "غير معروف"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "неизвестный"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Ноаниқ"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Desconhecido"
+                }
+            ]
+        },
+        {
+            "code": "UNKNOWN",
+            "name": "Unknown",
+            "id": "k0vPpHylQEg",
+            "sortOrder": 8,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "DEsconocido"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Inconnu"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Neznámý"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Ukjent"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Noaniq"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "غير معروف"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "неизвестный"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Ноаниқ"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Desconhecido"
+                }
+            ]
+        },
+        {
+            "code": "UNKNOWN",
+            "name": "Unknown",
+            "id": "mDjfEVVxu8d",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "GqmQvJGc5PV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "DEsconocido"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Inconnu"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Neznámý"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Ukjent"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Noaniq"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "غير معروف"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "неизвестный"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Ноаниқ"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Desconhecido"
+                }
+            ]
+        },
+        {
+            "code": "UNKNOWN",
+            "name": "Unknown",
+            "id": "pWRiZczgIK4",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "dhiyfHmX1P8"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Inconnu"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "Desconocido"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Neznámý"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Ukjent"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Noaniq"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "غير معروف"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "неизвестный"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Ноаниқ"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Desconhecido"
+                }
+            ]
+        },
+        {
+            "code": "WAR",
+            "name": "War",
+            "id": "zojDWKY5iYc",
+            "sortOrder": 6,
+            "optionSet": {
+                "id": "I8MkB7Ex96h"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Válka"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Guerre"
+                }
+            ]
+        },
+        {
+            "code": "WEEKS",
+            "name": "Weeks",
+            "id": "R8umFJzLLEU",
+            "sortOrder": 3,
+            "optionSet": {
+                "id": "ITHzuJgBuS6"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Semaines"
+                }
+            ]
+        },
+        {
+            "code": "WITHIN_42_DAYS",
+            "name": "Within 42 days before death",
+            "id": "zLssGFYYTkd",
+            "sortOrder": 2,
+            "optionSet": {
+                "id": "GqmQvJGc5PV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Do 42 dnů před smrtí"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Dans les 42 jours avant le décès"
+                }
+            ]
+        },
+        {
+            "code": "YEARS",
+            "name": "Years",
+            "id": "xVsbk2Kk5P4",
+            "sortOrder": 5,
+            "optionSet": {
+                "id": "ITHzuJgBuS6"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Yillar"
+                },
+                {
+                    "locale": "fr",
+                    "property": "NAME",
+                    "value": "Années"
+                }
+            ]
+        },
+        {
+            "code": "YES",
+            "name": "Yes",
+            "id": "qEtCYWsKCXb",
+            "sortOrder": 1,
+            "optionSet": {
+                "id": "dhiyfHmX1P8"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Oui"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz_UZ",
+                    "value": "Ha"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "cs",
+                    "value": "Ano"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "pt",
+                    "value": "Sim"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "nb",
+                    "value": "Ja"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ru",
+                    "value": "да"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "es",
+                    "value": "Sí"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "uz",
+                    "value": "Ҳа"
+                },
+                {
+                    "property": "NAME",
+                    "locale": "ar",
+                    "value": "نعم"
+                }
+            ]
+        }
+    ]
+}

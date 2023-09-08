@@ -1,0 +1,512 @@
+{
+  "trackedEntityAttributes": [
+    {
+      "id": "BfkIayM14MF",
+      "name": "COD System ID",
+      "shortName": "Unique System Identifier",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": true,
+      "publicAccess": "r-------",
+      "pattern": "RANDOM(XX######)",
+      "description": "System-generated unique ID following randomly generated pattern (XX######)",
+      "skipSynchronization": false,
+      "generated": true,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "formName": "COD System ID",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": true,
+      "inherit": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "ID du système de cas "
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "ID du système de cas "
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "ID du système de cas "
+        }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "UpxiqwM8BTC",
+      "name": "Address (current)",
+      "shortName": "Address (current)",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Current home address of the patient/case ",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "LONG_TEXT",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Adresse de domicile actuelle du patient/cas "
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "uz",
+          "value": "Манзили (ҳозирги)"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "es",
+          "value": "Dirección actual del paciente / Caso"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Adresse (actuelle)"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Adresa (aktuální)"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Adresa (aktuální)" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "pt",
+          "value": "Endereço (atual)"
+        },
+        { "property": "NAME", "locale": "es", "value": "Dirección (actual)" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "es",
+          "value": "Dirección (actual)"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Aktuální domácí adresa pacienta / případu"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "uz",
+          "value": "Пациент/ҳолатнинг ҳозирги уй манзили"
+        },
+        { "property": "NAME", "locale": "fr", "value": "Adresse (actuelle)" },
+        { "property": "NAME", "locale": "pt", "value": "Endereço (atual)" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "pt",
+          "value": "Current home address of the patient/case "
+        },
+        { "property": "NAME", "locale": "uz", "value": "Манзили (ҳозирги)" }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "z4jIMvqs0ff",
+      "name": "Age (years)",
+      "shortName": "Age (years)",
+      "aggregationType": "AVERAGE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Age in years",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        { "property": "SHORT_NAME", "locale": "km", "value": "អាយុ" },
+        { "property": "DESCRIPTION", "locale": "km", "value": "អាយុ" },
+        { "property": "NAME", "locale": "km", "value": "អាយុ" },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Âge (ans)"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Âge en années"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Âge en années"
+        }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "revZcilpJvK",
+      "name": "Date of birth",
+      "shortName": "Date of birth",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Date patient was born",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "DATE",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Date de naissance" },
+        { "property": "NAME", "locale": "nb", "value": "Fødselsdato" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Datum narození pacienta"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Date de naissance"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "es",
+          "value": "Fecha de Nacimiento"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "uz_UZ",
+          "value": "Tugʼilgan sana"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Datum narození" },
+        { "property": "NAME", "locale": "es", "value": "Fecha de Nacimiento" },
+        { "property": "NAME", "locale": "pt", "value": "Data de nascimento" },
+        { "property": "NAME", "locale": "ru", "value": "Дата рождения" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "pt",
+          "value": "Data em que o paciente nasceu"
+        },
+        { "property": "SHORT_NAME", "locale": "ru", "value": "Дата рождения" },
+        { "property": "SHORT_NAME", "locale": "ar", "value": "تاريخ الميلاد" },
+        { "property": "NAME", "locale": "uz_UZ", "value": "Tugʼilgan sana" },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Datum narození" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "pt",
+          "value": "Data de nascimento"
+        },
+        { "property": "NAME", "locale": "ar", "value": "تاريخ الميلاد" },
+        { "property": "SHORT_NAME", "locale": "nb", "value": "Fødselsdato" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Date de naissance du patient"
+        }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "X5p19VIeYyW",
+      "name": "Date of birth is estimated",
+      "shortName": "Estimated DoB",
+      "aggregationType": "SUM",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TRUE_ONLY",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Date de naissance" },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Datum narození je odhadnuto"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "es",
+          "value": "Fecha de nacimiento estimada"
+        },
+        { "property": "SHORT_NAME", "locale": "pt", "value": "DoB estimado" },
+        {
+          "property": "NAME",
+          "locale": "uz_UZ",
+          "value": "Tugʼilgan yili taxminiy"
+        },
+        {
+          "property": "NAME",
+          "locale": "uz",
+          "value": "Туғилган йили тахминий"
+        },
+        {
+          "property": "NAME",
+          "locale": "pt",
+          "value": "Data de nascimento foi estimada"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Odhad dat. naroz. "
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "uz",
+          "value": "Ҳисобланган туғилган йили"
+        },
+        {
+          "property": "NAME",
+          "locale": "ru",
+          "value": "Приблизительная дата рождения"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Estimation de la date de naissance"
+        },
+        {
+          "property": "NAME",
+          "locale": "es",
+          "value": "Fecha de nacimiento es estimada"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "uz_UZ",
+          "value": "Hisoblangan tugʼilgan yili"
+        }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "j1yPic5cJUo",
+      "name": "Family name",
+      "shortName": "Family name",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Family name",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "formName": "Family name",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        { "property": "NAME", "locale": "uz", "value": "Фамилия" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "pt",
+          "value": "Family name of the patient"
+        },
+        { "property": "NAME", "locale": "fr", "value": "Nom de famille" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Příjmení pacienta"
+        },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Příjmení" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Nom de famille du malade"
+        },
+        { "property": "NAME", "locale": "pt", "value": "Sobrenome" },
+        { "property": "SHORT_NAME", "locale": "pt", "value": "Sobrenome" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "uz",
+          "value": "Пациент Фамилияси"
+        },
+        { "property": "SHORT_NAME", "locale": "es", "value": "Apellidos" },
+        { "property": "NAME", "locale": "es", "value": "Apellidos" },
+        { "property": "SHORT_NAME", "locale": "uz", "value": "Фамилия" },
+        { "property": "NAME", "locale": "cs", "value": "Příjmení" },
+        { "property": "SHORT_NAME", "locale": "fr", "value": "Nom de famille" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "es",
+          "value": "Apellidos del paciente"
+        }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "A9yzNTl9G0f",
+      "name": "Middle name",
+      "shortName": "Middle name",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "pattern": "",
+      "description": "Middle name",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "formName": "Middle name",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "sharing": {
+        "public": "r-------"
+      },
+      "translations": [],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "lDKfAjYyQcN",
+      "name": "Given name",
+      "shortName": "Given name",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Given name",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "formName": "Given name",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [
+        {
+          "property": "DESCRIPTION",
+          "locale": "es",
+          "value": "El nombre del paciente o las iniciales"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "pt",
+          "value": "Nome do paciente ou iniciais"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Křestní jméno" },
+        { "property": "SHORT_NAME", "locale": "es", "value": "Nombre" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Jméno pacienta nebo iniciály"
+        },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Křestní jméno" },
+        { "property": "SHORT_NAME", "locale": "fr", "value": "Prénom" },
+        { "property": "SHORT_NAME", "locale": "pt", "value": "Nome dado" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Le nom du patient ou ses initiales"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "uz_UZ",
+          "value": "Patsient ismi yoki bosh harflari"
+        },
+        { "property": "NAME", "locale": "es", "value": "Nombre" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "uz",
+          "value": "Қизлик фаимилияси"
+        },
+        { "property": "NAME", "locale": "uz", "value": "Қизлик фаимилияси" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "uz",
+          "value": "Пациент исми ёки бош ҳарфлари"
+        },
+        { "property": "NAME", "locale": "fr", "value": "Prénom" },
+        { "property": "NAME", "locale": "pt", "value": "Nome dado" }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    },
+    {
+      "id": "F6qFXT44qay",
+      "name": "Sex",
+      "shortName": "Sex",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "r-------",
+      "pattern": "",
+      "description": "Sex of Person",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "optionSet": { "id": "z7EvKyu3I65" },
+      "translations": [
+        { "property": "NAME", "locale": "uz", "value": "Жинси" },
+        { "property": "NAME", "locale": "pt", "value": "Sexo" },
+        { "property": "SHORT_NAME", "locale": "de", "value": "Sexo" },
+        { "property": "NAME", "locale": "fr", "value": "Sexe" },
+        { "property": "SHORT_NAME", "locale": "uz", "value": "Жинси" },
+        { "property": "SHORT_NAME", "locale": "pt", "value": "Sexo" },
+        { "property": "NAME", "locale": "de", "value": "Sexo" },
+        { "property": "NAME", "locale": "cs", "value": "Pohlaví" },
+        { "property": "NAME", "locale": "ru", "value": "Пол" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "pt",
+          "value": "Sexo da pessoa"
+        },
+        { "property": "DESCRIPTION", "locale": "cs", "value": "Pohlaví osoby" },
+        { "property": "NAME", "locale": "es", "value": "Sexo" },
+        { "property": "NAME", "locale": "ar", "value": "الجنس" },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Pohlaví" },
+        { "property": "SHORT_NAME", "locale": "ar", "value": "الجنس" },
+        { "property": "NAME", "locale": "id", "value": "Jenis Kelamin" },
+        { "property": "SHORT_NAME", "locale": "fr", "value": "Sexe" },
+        { "property": "SHORT_NAME", "locale": "uz_UZ", "value": "Jinsi" },
+        { "property": "DESCRIPTION", "locale": "uz", "value": "Шахс жинси" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Sexe de la personne"
+        },
+        { "property": "SHORT_NAME", "locale": "id", "value": "Jenis Kelamin" },
+        { "property": "SHORT_NAME", "locale": "nb", "value": "Kjønn" },
+        { "property": "SHORT_NAME", "locale": "es", "value": "Sexo" },
+        { "property": "NAME", "locale": "uz_UZ", "value": "Jinsi" },
+        { "property": "NAME", "locale": "nb", "value": "Kjønn" },
+        { "property": "SHORT_NAME", "locale": "ru", "value": "Пол" }
+      ],
+      "attributeValues": [],
+      "legendSets": []
+    }
+  ]
+}

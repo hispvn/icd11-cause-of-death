@@ -1,0 +1,27 @@
+.dashboard-container {
+  width: 100%;
+  height: calc(100% - 50px);
+  overflow: hidden;
+  padding-top: 5px;
+}
+.page-selector {
+  padding-left: 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+.page-selector-cod {
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.layout-container {
+  height: calc(100% - 40px) !important;
+  overflow: hidden;
+}
+.layout {
+  height: 100% !important;
+  overflow: auto;
+  position: relative;
+}

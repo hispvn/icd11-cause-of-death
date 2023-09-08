@@ -1,0 +1,174 @@
+{
+  "optionSets": [
+    {
+      "name": "CoD - ICD 11 Cause Group",
+      "id": "T2wD6jsdZze",
+      "publicAccess": "r-------",
+      "version": 165,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "name": "CoD - ICD 11 Chapter",
+      "id": "fDaHPG8FrYV",
+      "publicAccess": "r-------",
+      "version": 25,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "code": "icd11",
+      "name": "CoD - ICD 11 Revision - Mortality and Morbidity Statistics",
+      "id": "Cot7SuEeNuk",
+      "publicAccess": "r-------",
+      "version": 33951,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
+      "code": "MANNER_DEATH",
+      "name": "CoD - Manner of death",
+      "id": "I8MkB7Ex96h",
+      "publicAccess": "r-------",
+      "version": 18,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Façon de mourir" },
+        { "property": "NAME", "locale": "cs", "value": "Způsob smrti" }
+      ],
+      "userAccesses": []
+    },
+    {
+      "code": "PLACE_OCCURENCE",
+      "name": "CoD - Place of occurence",
+      "id": "OBWvuP2i2EB",
+      "publicAccess": "r-------",
+      "version": 20,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Místo výskytu" },
+        {
+					"locale": "fr",
+					"property": "NAME",
+					"value": "Lieu de la cause externe"
+				}
+      ],
+      "userAccesses": []
+    },
+    {
+      "code": "Pregnancy_Complications",
+      "name": "CoD - Pregnancy Complications",
+      "id": "BkfhWe2Tvnu",
+      "publicAccess": "r-------",
+      "version": 22,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Těhotenské komplikace" },
+        {
+					"locale": "fr",
+					"property": "NAME",
+					"value": "Complications de la grossesse"
+				}
+      ],
+      "userAccesses": []
+    },
+    {
+      "name": "CoD - Sex",
+      "id": "z7EvKyu3I65",
+      "publicAccess": "r-------",
+      "version": 4,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "uz", "value": "Жинси" },
+        { "property": "NAME", "locale": "pt", "value": "Sexo" },
+        { "property": "NAME", "locale": "de", "value": "Sexo" },
+        { "property": "NAME", "locale": "es", "value": "Sexo" },
+        { "property": "NAME", "locale": "id", "value": "Jenis Kelamin" },
+        { "property": "NAME", "locale": "cs", "value": "Pohlaví" },
+        { "property": "NAME", "locale": "ru", "value": "Пол" },
+        { "property": "NAME", "locale": "ar", "value": "الجنس" },
+        { "property": "NAME", "locale": "nb", "value": "Kjønn" },
+        { "property": "NAME", "locale": "fr", "value": "Sexe" },
+        { "property": "NAME", "locale": "uz_UZ", "value": "Jinsi" }
+      ],
+      "userAccesses": []
+    },
+    {
+      "code": "PREGNANCY_TIME",
+      "name": "CoD - Time from pregnancy",
+      "id": "GqmQvJGc5PV",
+      "publicAccess": "r-------",
+      "version": 8,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Čas od těhotenství" },
+        { "property": "NAME", "locale": "fr", "value": "Durée de la grossesse" }
+      ],
+      "userAccesses": []
+    },
+    {
+      "code": "TIME_INTERVAL",
+      "name": "CoD - Time interval",
+      "id": "ITHzuJgBuS6",
+      "publicAccess": "r-------",
+      "version": 10,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Časový interval" },
+        {
+					"locale": "fr",
+					"property": "NAME",
+					"value": "Intervalle de temps"
+				}
+      ],
+      "userAccesses": []
+    },
+    {
+      "code": "YES_NO_UNKNOWN",
+      "name": "CoD - Yes/No/Unknown_CoD",
+      "id": "dhiyfHmX1P8",
+      "publicAccess": "r-------",
+      "version": 6,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [
+        { "property": "NAME", "locale": "ar", "value": "نعم/لا/غير معروف" },
+        { "property": "NAME", "locale": "uz_UZ", "value": "Ha/Yoʼq/Noaniq" },
+        { "property": "NAME", "locale": "pt", "value": "Sim/Não/Desconhecido" },
+        {
+          "property": "NAME",
+          "locale": "ru",
+          "value": "Да / Нет / Неизвестно"
+        },
+        { "property": "NAME", "locale": "fr", "value": "Oui/Non/Inconnu" },
+        { "property": "NAME", "locale": "es", "value": "Si/No/Desconocido" },
+        { "property": "NAME", "locale": "uz", "value": "Ҳа/Йўқ/Ноаниқ" },
+        { "property": "NAME", "locale": "nb", "value": "Ja/Nei/Ukjent" },
+        { "property": "NAME", "locale": "cs", "value": "Ano / Ne / Neznámý" }
+      ],
+      "userAccesses": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "indicatorTypes": [
+    {
+      "name": "CoD - 1",
+      "id": "zex8WwITxQu",
+      "number": false,
+      "factor": 1,
+      "translations": []
+    },
+    {
+      "name": "CoD - 100",
+      "id": "pFltEzYP0dI",
+      "number": false,
+      "factor": 100,
+      "translations": []
+    }
+  ]
+}

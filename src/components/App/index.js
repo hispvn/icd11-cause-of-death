@@ -1,0 +1,283 @@
+import { useEffect, useState } from "react";
+import "./index.css";
+import HeaderBarContainer from "../HeaderBar";
+import ControlBar from "../ControlBar";
+import RegisteredTeiList from "../RegisteredTeiList";
+import SearchForm from "../Search";
+import Administration from "../Administration";
+import Form from "../Form";
+import Export from "../Export";
+import Dashboard from "../Dashboard";
+import Translation from "../Translation";
+import { Hooks, Components } from "tracker-capture-app-core";
+import { InitTranslation, InitTranslationDataStore } from "../../locale/i18n";
+
+/* REDUX */
+import { connect } from "react-redux";
+import {
+  setTrackerDataElements,
+  setProgramMetadata,
+  setTeas,
+  setUsers,
+  setOrgUnitGroups,
+  setOrgUnitLevels,
+  setOrgUnits,
+  getICD11Options,
+  getTrackedEntityTypes,
+  setUserGroups,
+  setFormMapping,
+  setCertificateTemplate,
+  setFemaleCode,
+  setFullnameOption,
+  setUILocale,
+  setIcdApiToken
+} from "../../redux/actions/metadata";
+import {
+  setFemaleOption,
+  changeCerticateTemplate,
+  setCertificateLogo,
+} from "../../redux/actions/admin";
+import { setUserRole } from "../../redux/actions/user";
+import { changeRoute } from "../../redux/actions/route";
+/*       */
+
+
+const { useApi } = Hooks;
+const { LoadingMask } = Components;
+
+const App = ({
+  route,
+  setProgramMetadata,
+  setTeas,
+  setTrackerDataElements,
+  setUsers,
+  setOrgUnitGroups,
+  setOrgUnitLevels,
+  setOrgUnits,
+  getICD11Options,
+  getTrackedEntityTypes,
+  setUserGroups,
+  // setFemaleOption,
+  // changeCerticateTemplate,
+  setCertificateLogo,
+  setFormMapping,
+  setCertificateTemplate,
+  setFemaleCode,
+  setFullnameOption,
+  setUserRole,
+  changeRoute,
+  setUILocale,
+  setIcdApiToken
+}) => {
+  const { metadataApi } = useApi();
+  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    setLoading(true);
+    (async () => {
+      await InitTranslationDataStore();
+      Promise.all([
+        metadataApi.get("/api/dataStore/WHO_ICD11_COD/program"),
+        metadataApi.getOrgUnitGroups(),
+        metadataApi.getOrgUnitLevels(),
+        metadataApi.get(
+          "/api/trackedEntityAttributes.json",
+          { paging: false },
+          ["fields=id,displayName,valueType,optionSet,formName"]
+        ),
+        metadataApi.getTrackerDataElements(),
+        metadataApi.get("/api/users.json", { paging: false }, [
+          "fields=id,displayName,organisationUnits~size",
+        ]),
+        metadataApi.get("/api/organisationUnits.json", { paging: false }, [
+          "fields=id,displayName,path,level",
+        ]),
+        metadataApi.get("/api/trackedEntityTypes.json", { paging: false }, [
+          "fields=id,displayName",
+        ]),
+        metadataApi.get("/api/userGroups.json", { paging: false }, [
+          "fields=id,displayName",
+        ]),
+        metadataApi.getMe()
+      ]).then( async (results) => {
+
+        await InitTranslation(results[9].settings.keyUiLocale);
+        setUILocale(results[9].settings.keyUiLocale)
+
+        // for admin module
+        setOrgUnitGroups(results[1].organisationUnitGroups);
+        setOrgUnitLevels(results[2].organisationUnitLevels);
+        setTeas(results[3].trackedEntityAttributes);
+        setTrackerDataElements(results[4].dataElements);
+        setUsers(results[5].users);
+        setOrgUnits(results[6].organisationUnits);
+        getTrackedEntityTypes(results[7].trackedEntityTypes);
+        setUserGroups(results[8].userGroups);
+
+        // for entry module
+        if (results[0].status) {
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/program", {
+            id: null,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/icdOptionSet", {
+            id: null,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/femaleOption", {
+            code: null,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/fullnameOption", {
+            fullnameOption: false,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/certificateTemplate", {
+            certificate: null,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/formMapping", {
+            formMapping: null,
+          });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/fullnameOption", {
+            fullnameOption: false,
+          });
+          changeRoute("administration");
+          setLoading(false);
+        } else {
+          if (results[0].id !== null) {
+            Promise.all([
+              metadataApi.getProgramMetadata(results[0].id),
+              metadataApi.get("/api/dataStore/WHO_ICD11_COD/femaleOption"),
+              metadataApi.get("/api/dataStore/WHO_ICD11_COD/icdOptionSet"),
+              metadataApi.get(
+                "/api/dataStore/WHO_ICD11_COD/certificateTemplate"
+              ),
+              metadataApi.get("/api/dataStore/WHO_ICD11_COD/formMapping"),
+              metadataApi.get("/api/dataStore/WHO_ICD11_COD/fullnameOption"),
+            ]).then( async (res) => {
+              console.log(res[0])
+              // Set userRoles
+              let roles = {
+                admin: false,
+                data: false,
+                view: false
+              };
+              results[9].userGroups.forEach( userGroup => {
+                const role = res[0].userGroupAccesses.find( ({id}) => id === userGroup.id );
+                if ( role ) {
+                  if ( role.access.charAt(1) === 'w' ) {
+                    roles = {
+                      ...roles,
+                      admin: true
+                    }
+                  }
+                  if ( role.access.charAt(3) === 'w' ) {
+                    roles = {
+                      ...roles,
+                      data: true
+                    }
+                  }
+                  if ( role.access.charAt(0) === 'r' && role.access.charAt(2) === 'r'  ) {
+                    roles = {
+                      ...roles,
+                      view: true
+                    }
+                  }
+                }
+              });
+              setUserRole(roles);
+
+
+              // Set other states
+              setProgramMetadata(res[0]);
+              setFemaleCode(res[1].code);
+              setFullnameOption(res[5].fullnameOption);
+              if (res[3].certificate !== null) setCertificateTemplate(res[3].certificate);
+              setFormMapping(res[4]);
+              changeRoute("list");
+
+              await metadataApi.get("/api/options.json", { paging: false }, [
+                "fields=id,name,code,attributeValues[value,attribute[id]]",
+                "filter=optionSet.id:eq:" + res[2].id,
+              ])
+              .then(({ options }) => {
+                console.log("options",options);
+                getICD11Options(options);
+              });
+              
+
+              // Get Token for ICD11 API
+              await fetch("https://dhis2.world/services/icd11", {
+                method: "POST"
+              })
+              .then(response => response.json())
+              .then(result => {
+                setIcdApiToken(result.token);
+              })
+              .catch(error => console.log('error', error));
+
+              setLoading(false);
+
+            });
+          } else {
+            changeRoute("administration");
+            setLoading(false);
+          }
+        }
+      });
+    })();
+  }, []);
+
+  return (
+    <div className="App">
+      <div className="header-bar-container">
+        <HeaderBarContainer />
+      </div>
+      {loading ? (
+        <LoadingMask />
+      ) : (
+        <div className="app-content">
+          {!loading && <ControlBar />}
+          {route === "list" && <RegisteredTeiList />}
+          {route === "search" && <SearchForm />}
+          {route === "form" && <Form />}
+          {route === "administration" && <Administration />}
+          {route === "export" && <Export />}
+          {route === "dashboard" && <Dashboard />}
+          {route === "translation" && <Translation />}
+        </div>
+      )}
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => {
+  return {
+    route: state.route,
+  };
+};
+
+const mapDispatchToProps = {
+  changeRoute,
+  setUserRole,
+
+  // for admin module
+  setTeas,
+  setTrackerDataElements,
+  setUsers,
+  setUserGroups,
+  setOrgUnitGroups,
+  setOrgUnitLevels,
+  setOrgUnits,
+  getTrackedEntityTypes,
+
+  // for entry module
+  setProgramMetadata,
+  getICD11Options,
+  setFemaleOption,
+  changeCerticateTemplate,
+  setCertificateLogo,
+  setFormMapping,
+  setCertificateTemplate,
+  setFemaleCode,
+  setFullnameOption,
+  setUILocale,
+  setIcdApiToken
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

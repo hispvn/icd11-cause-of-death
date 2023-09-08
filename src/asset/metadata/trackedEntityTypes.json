@@ -1,0 +1,35 @@
+{
+  "trackedEntityTypes": [
+    {
+      "code": "Person",
+      "id": "RQrHOJGKT5H",
+      "name": "Person",
+      "publicAccess": "r-------",
+      "description": "Person",
+      "allowAuditLog": false,
+      "featureType": "NONE",
+      "minAttributesRequiredToSearch": 1,
+      "maxTeiCountToReturn": 0,
+      "trackedEntityTypeAttributes": [],
+      "translations": [
+        { "property": "DESCRIPTION", "locale": "es", "value": "Persona" },
+        { "property": "DESCRIPTION", "locale": "fr", "value": "Personne" },
+        { "property": "NAME", "locale": "id", "value": "Nama Belakang" },
+        { "property": "DESCRIPTION", "locale": "cs", "value": "Osoba" },
+        { "property": "DESCRIPTION", "locale": "nb", "value": "Person" },
+        { "property": "NAME", "locale": "nb", "value": "Person" },
+        { "property": "NAME", "locale": "pt", "value": "Pessoa" },
+        { "property": "DESCRIPTION", "locale": "id", "value": "Nama Belakang" },
+        { "property": "NAME", "locale": "es", "value": "Persona" },
+        { "property": "NAME", "locale": "fr", "value": "Personne" },
+        { "property": "DESCRIPTION", "locale": "pt", "value": "Pessoa" },
+        { "property": "NAME", "locale": "uz_UZ", "value": "Shaxs" },
+        { "property": "DESCRIPTION", "locale": "uz_UZ", "value": "Shaxs" },
+        { "property": "DESCRIPTION", "locale": "uz", "value": "Шахс" },
+        { "property": "NAME", "locale": "cs", "value": "Osoba" },
+        { "property": "NAME", "locale": "uz", "value": "Шахс" }
+      ],
+      "attributeValues": []
+    }
+  ]
+}

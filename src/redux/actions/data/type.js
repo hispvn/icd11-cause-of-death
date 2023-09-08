@@ -1,0 +1,8 @@
+export const MUTATE_TEI = "MUTATE_TEI";
+export const MUTATE_ATTRIBUTE = "MUTATE_ATTRIBUTE";
+export const MUTATE_ENROLLMENT = "MUTATE_ENROLLMENT";
+export const MUTATE_EVENT = "MUTATE_EVENT";
+export const MUTATE_DATAVALUE = "MUTATE_DATAVALUE";
+export const INIT_NEW_DATA = "INIT_NEW_DATA";
+export const INIT_DATA = "INIT_DATA";
+export const INIT_NEW_EVENT = "INIT_NEW_EVENT";

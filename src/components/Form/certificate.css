@@ -1,0 +1,5 @@
+@media print {
+  .certificate-modal .ant-modal-header {
+    display: none !important;
+  }
+}

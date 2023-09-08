@@ -1,0 +1,21 @@
+.map-tooltip {
+  /* font-weight: bold; */
+  font-size: 15px;
+}
+.control-container {
+  bottom: 0px;
+  position: absolute;
+}
+.thematic-legend-container {
+  background-color: #ffffff;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 3px;
+  width: 200px;
+  font-size: 13px;
+}
+.thematic-legend-row {
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}

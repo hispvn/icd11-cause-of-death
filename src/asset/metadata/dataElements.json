@@ -1,0 +1,1880 @@
+{
+  "dataElements": [
+    {
+      "id": "vRT1wJGTvje",
+      "name": "CoD - Autopsy conducted",
+      "shortName": "CoD - Autopsy conducted",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "BOOLEAN",
+      "formName": "Was an autopsy conducted?",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "pt",
+          "value": "EAPV - Autópsia realizada"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "AEFI - Provedena pitva"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "MAPI - Autopsie pratiquée"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Byla provedena pitva?"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "AEFI - Provedena pitva"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "pt",
+          "value": "Foi realizada uma autópsia?"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "fr",
+          "value": "A-t-on pratiqué une autopsie ?"
+        },
+        {
+          "property": "NAME",
+          "locale": "pt",
+          "value": "EAPV - Autópsia realizada"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "MAPI - Autopsie pratiquée"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "SvdMvylfTRD",
+      "name": "CoD - Age of mother in years",
+      "shortName": "CoD - Age of mother in years",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Věk matky v letech"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Âge de la mère en années"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Věk matky v letech" },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Âge de la mère en années"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "AfPenosN9MU",
+      "name": "CoD - Autopsy findings used in certification",
+      "shortName": "CoD - Autopsy findings used",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "If yes were the findings used in the certification",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Les résultats d'autopsie utilisés dans la certification"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Utilisation des résultats d'autopsie"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Použité pitevní nálezy"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Pokud ano, byla zjištění použita při certifikaci"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "fr",
+          "value": "Si oui, les résultats ont été utilisés dans la certification"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Nálezy pitvy použité při certifikaci"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "GTYimatiqtP",
+      "name": "CoD - Birth weight in grams",
+      "shortName": "CoD - Birth weight in grams",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Poids à la naissance en grammes"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Poids à la naissance en grammes"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Porodní hmotnost v gramech"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Porodní hmotnost v gramech"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "xBZ2VsHFHVG",
+      "name": "CoD - Cause A is underlying cause",
+      "shortName": "CoD - Cause A is underlying",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TRUE_ONLY",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina A je základní"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina A je základní příčinou"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "La cause A est la cause sous-jacente"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "La cause A est sous-jacente"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "zm11IWgxKgX",
+      "name": "CoD - Cause B is underlying cause",
+      "shortName": "CoD - Cause B is underlying",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TRUE_ONLY",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina B je základní příčinou"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina B je základní"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "La cause B est la cause sous-jacente"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "La cause B est sous-jacente"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "vDoCf56L9wb",
+      "name": "CoD - Cause C is underlying cause",
+      "shortName": "CoD - Cause C is underlying",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TRUE_ONLY",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "La cause C est la cause sous-jacente"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina C je základní příčinou"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "La cause C est sous-jacente"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina C je základní"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "ohxcCCUJRmJ",
+      "name": "CoD - Cause D is underlying cause",
+      "shortName": "CoD - Cause D is underlying",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TRUE_ONLY",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina D je základní příčinou"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "La cause D est la cause sous-jacente"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina D je základní"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "La cause D est sous-jacente"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "IMMEDIATE_COD",
+      "id": "RU1KXNWlT6S",
+      "name": "CoD - Cause of death A (immediate)",
+      "shortName": "CoD - Cause of death A (immediate)",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Cause A",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "Cot7SuEeNuk" },
+      "translations": [
+        { "property": "FORM_NAME", "locale": "cs", "value": "Příčina A" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti A (okamžitá)"
+        },
+        { "property": "FORM_NAME", "locale": "fr", "value": "Cause A" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Cause du décès A (immédiate)"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina smrti A (okamžitá)"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Cause du décès A (immédiate)"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "pO3tWD7kne8",
+      "name": "CoD - Cause of death A (immediate) - specified",
+      "shortName": "CoD - Cause of death A (immediate) - specified",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina smrti A (okamžitá) - upřesněno"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Cause du décès A (immédiatement) - Spécifié "
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Cause du décès A (immédiatement) - Spécifié "
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti A (okamžitá) - upřesněno"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_B",
+      "id": "QjFzlJHUD9Y",
+      "name": "CoD - Cause of death B",
+      "shortName": "CoD - Cause of death B",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Cause B",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "Cot7SuEeNuk" },
+      "translations": [
+        { "property": "FORM_NAME", "locale": "cs", "value": "Příčina B" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti B"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Příčina smrti B" },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Cause B"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Cause du décès B"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Cause du décès B"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "UvMMMp7rH6a",
+      "name": "CoD - Cause of death B - specified",
+      "shortName": "CoD - Cause of death B - specified",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Cause du décès B - précisé"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti B - upřesněno"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina smrti B - upřesněno"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Cause du décès B - précisé"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_C",
+      "id": "eRMha7cwC1R",
+      "name": "CoD - Cause of death C",
+      "shortName": "CoD - Cause of death C",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Cause C",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "Cot7SuEeNuk" },
+      "translations": [
+        { "property": "FORM_NAME", "locale": "cs", "value": "Příčina C" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti C."
+        },
+        { "property": "NAME", "locale": "cs", "value": "Příčina smrti C." },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Cause C"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Cause du décès C"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Cause du décès C"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "uCd0fusEBzm",
+      "name": "CoD - Cause of death C - specified",
+      "shortName": "CoD - Cause of death C - specified",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Cause du décès C - précisé"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti C - uvedeno"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Cause du décès C - précisé"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina smrti C - uvedeno"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_D",
+      "id": "SzLlhusJK6R",
+      "name": "CoD - Cause of death D",
+      "shortName": "CoD - Cause of death D",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Cause D",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "Cot7SuEeNuk" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti D"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Příčina smrti D" },
+        { "property": "FORM_NAME", "locale": "fr", "value": "Cause D" },
+        { "property": "FORM_NAME", "locale": "cs", "value": "Příčina D" },
+        { "property": "NAME", "locale": "fr", "value": "Cause du décès D" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Cause du décès D"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "zbd0YIKpila",
+      "name": "CoD - Cause of death D - specified",
+      "shortName": "CoD - Cause of death D - specified",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Příčina smrti D - specifikováno"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Příčina smrti D - specifikováno"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Cause du décès D - spécifiée"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Cause du décès D - spécifiée"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "gskFsDUUv3s",
+      "name": "CoD - Completed weeks of pregnancy",
+      "shortName": "CoD - Completed weeks of pregnancy",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Dokončené týdny těhotenství"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Dokončené týdny těhotenství"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Semaines de grossesse terminées"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Semaines de grossesse terminées"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "O2HZAuxH8RH",
+      "name": "CoD - Date of injury",
+      "shortName": "CoD - Date of injury",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "description": "Date of injury if external cause or poisoning",
+      "valueType": "DATE",
+      "formName": "If external cause or poisoning, date of injury",
+      "zeroIsSignificant": false,
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Datum úrazu" },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Datum poranění při vnější příčině nebo otravě"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "V případě vnější příčiny nebo otravy, datum poranění"
+        },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Datum úrazu" },
+        {
+          "locale": "fr",
+          "property": "DESCRIPTION",
+          "value": "Date de la blessure en cas de cause externe ou d'empoisonnement"
+        },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "En cas de cause externe ou d'empoisonnement, date de la blessure"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Date de la blessure"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Date de la blessure"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "f3DaU224GDr",
+      "name": "CoD - Date of surgery",
+      "shortName": "CoD - Date of surgery",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "DATE",
+      "formName": "If yes please specify date of surgery",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Pokud ano, uveďte datum operace"
+        },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Datum operace" },
+        { "property": "NAME", "locale": "cs", "value": "Datum operace" },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Si oui, veuillez préciser la date de la chirurgie"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Date de la chirurgie"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Date de la chirurgie"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "HHSCjcfEoKa",
+      "name": "CoD - Deceased person was pregnant within the last year",
+      "shortName": "CoD - Pregnancy in the last year",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "description": "For women only. Whether the deceased was pregnant, or had been pregnant within the last year.",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Zemřelá osoba byla těhotná během posledního roku"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Těhotenství v posledním roce"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "La personne décédée était enceinte au cours de la dernière année"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Pour les femmes uniquement. Si la défunte était enceinte, ou l'avait été au cours de l'année précédente."
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Pouze pro ženy. Zda byla zesnulá těhotná nebo byla těhotná během posledního roku."
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Grossesse au cours de la dernière année"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "xfrRGCTrsbg",
+      "name": "CoD - Description of external cause",
+      "shortName": "CoD - Description of external cause",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "LONG_TEXT",
+      "formName": "Please describe how external cause occurred (if poisoning, please specify poisoning agent)",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Popište prosím, jak došlo k vnější příčině (v případě otravy uveďte látku otravy)"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Popis vnější příčiny"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Description de la cause externe"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "fr",
+          "value": "Veuillez décrire comment la cause externe s'est produite (en cas d'empoisonnement, veuillez préciser l'agent d'empoisonnement)"
+        },
+        { "property": "NAME", "locale": "cs", "value": "Popis vnější příčiny" },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Description de la cause externe"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "lVXgG5rdRxY",
+      "name": "CoD - Hours newborn survived",
+      "shortName": "CoD - Hours newborn survived",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Heures de survie des nouveau-nés"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Hodin přežití novorozence"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Hodin přežití novorozence"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Heures de survie des nouveau-nés"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "BaO1pJKhZJc",
+      "name": "CoD - Manner of death",
+      "shortName": "CoD - Manner of death",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "I8MkB7Ex96h" },
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Façon de mourir" },
+        { "property": "NAME", "locale": "cs", "value": "Způsob smrti" },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Façon de mourir"
+        },
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Způsob smrti" }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "UO2nkQCl91t",
+      "name": "CoD - Multiple pregnancies",
+      "shortName": "CoD - Multiple pregnancies",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Vícenásobná těhotenství"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Vícenásobná těhotenství"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Grossesses multiples"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Grossesses multiples"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_OTHER_CONDITIONS",
+      "id": "NOKiM5Isd5J",
+      "name": "CoD - Other significant conditions contributing to death",
+      "shortName": "CoD - Other conditions contributing to death",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "LONG_TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Další významné podmínky přispívající k smrti"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Další významné podmínky přispívající k smrti"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Autres conditions importantes contribuant à la mort"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Autres conditions importantes contribuant à la mort"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_TYPE_A",
+      "id": "dEvMi21KHHh",
+      "name": "CoD - Periodtype - onset to death - cause A",
+      "shortName": "CoD - Periodtype - onset to death - cause A",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "ITHzuJgBuS6" },
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina A"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina A"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Type de période - du début à la mort - cause A"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Type de période - du début à la mort - cause A"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_TYPE_B",
+      "id": "HLf4M23Yxop",
+      "name": "CoD - Periodtype - onset to death - cause B",
+      "shortName": "CoD - Periodtype - onset to death - cause B",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "ITHzuJgBuS6" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina B"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina B"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Type de période - du début à la mort - cause B"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Type de période - du début à la mort - cause B"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_TYPE_C",
+      "id": "TgO3vRHCaNV",
+      "name": "CoD - Periodtype - onset to death - cause C",
+      "shortName": "CoD - Periodtype - onset to death - cause C",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "ITHzuJgBuS6" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina C"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina C"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Type de période - du début à la mort - cause C"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Type de période - du début à la mort - cause C"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_TYPE_D",
+      "id": "PgkDvnP4oZH",
+      "name": "CoD - Periodtype - onset to death - cause D",
+      "shortName": "CoD - Periodtype - onset to death - cause D",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "ITHzuJgBuS6" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina D"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Typ období - od propuknutí do smrti - příčina D"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Type de période - du début à la mort - cause D"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Type de période - du début à la mort - cause D"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "do9ClTIpO5Q",
+      "name": "CoD - Place of occurence of external cause",
+      "shortName": "CoD - Place of occurence of external cause",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Place of occurence of the external cause",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "OBWvuP2i2EB" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Místo výskytu vnější příčiny"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Místo výskytu vnější příčiny"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Místo výskytu vnější příčiny"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "xJaJXE64Mwr",
+      "name": "CoD - Place of occurence of external cause - specify",
+      "shortName": "CoD - Place of occurence of external causeå",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Please specify place of occurence of external cause",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Místo výskytu vnější příčiny - upřesněte"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Uveďte místo výskytu vnější příčiny"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Místo výskytu vnější příčiny - upřesněte"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "emRklq26SUZ",
+      "name": "CoD - Pregnancy conditions",
+      "shortName": "CoD - Pregnancy conditions",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Were there any conditions in pregnancy?",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "BkfhWe2Tvnu" },
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Podmínky těhotenství" },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Existovaly nějaké podmínky v těhotenství?"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Podmínky těhotenství"
+        },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Classification des mot-nés"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Conditions de grossesse"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Conditions de grossesse"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "LbWJoDtfDn7",
+      "name": "CoD - Pregnancy contributed to death",
+      "shortName": "CoD - Pregnancy contributed to death",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Těhotenství přispělo ke smrti"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Těhotenství přispělo ke smrti"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "La grossesse a contribué au décès"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "La grossesse a contribué au décès"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "YXJsdoaszh3",
+      "name": "CoD - Reason for surgery (disease or condition)",
+      "shortName": "CoD - Reason for surgery",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "LONG_TEXT",
+      "formName": "If yes please specify reason for surgery (disease or condition)",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Důvod pro operaci"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Pokud ano, uveďte důvod operace (nemoc nebo stav)"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Důvod operace (nemoc nebo stav)"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Motif de l'opération"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Raison de l'opération (maladie ou état)"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "fr",
+          "value": "Si oui, veuillez préciser la raison de l'opération (maladie ou état)"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "dzGpRK1w7sN",
+      "name": "CoD - Surgery performed last 4 weeks",
+      "shortName": "CoD - Surgery last 4 weeks",
+      "aggregationType": "COUNT",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "description": "Was surgery performed on the deceased in the last 4 weeks.",
+      "valueType": "TEXT",
+      "formName": "Was surgery performed within the last 4 weeks?",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Operace v posledních 4 týdnech"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Operace byla provedena v posledních 4 týdnech"
+        },
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Byla operace provedena za poslední 4 týdny?"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "Byla operace provedena na zesnulém v posledních 4 týdnech."
+        },
+        {
+          "locale": "fr",
+          "property": "DESCRIPTION",
+          "value": "Une intervention chirurgicale a-t-elle été effectuée sur le défunt au cours des 4 dernières semaines."
+        },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "La chirurgie a-t-elle été effectuée au cours des 4 dernières semaines?"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Chirurgie effectuée au cours des 4 dernières semaines"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Chirurgie 4 dernières semaines"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_A",
+      "id": "QyTACRjivAo",
+      "name": "CoD - Time from onset to death - cause A",
+      "shortName": "CoD - Time from onset to death - cause A",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina A"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina A"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Délai entre le début et la mort - cause A"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Délai entre le début et la mort - cause A"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_B",
+      "id": "Apnx0pnzMUq",
+      "name": "CoD - Time from onset to death - cause B",
+      "shortName": "CoD - Time from onset to death - cause B",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina B"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Délai entre l'apparition et la mort - cause B"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina B"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Délai entre l'apparition et la mort - cause B"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_C",
+      "id": "ZhbIetKpHtd",
+      "name": "CoD - Time from onset to death - cause C",
+      "shortName": "CoD - Time from onset to death - cause C",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina C"
+        },
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Délai entre l'apparition et la mort - cause C"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Délai entre l'apparition et la mort - cause C"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina C"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "code": "COD_INTERVAL_D",
+      "id": "cQTtzqf81UY",
+      "name": "CoD - Time from onset to death - cause D",
+      "shortName": "CoD - Time from onset to death - cause D",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "INTEGER_ZERO_OR_POSITIVE",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina D"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Čas od propuknutí do smrti - příčina D"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Délai entre le début et le décès - cause D"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Délai entre le début et le décès - cause D"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "Z7yQ9Rm1y4a",
+      "name": "CoD - Time from pregnancy",
+      "shortName": "CoD - Time from pregnancy",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "description": "For women that were pregnant, how long was the interval between the end of the pregnancy and the death.",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "GqmQvJGc5PV" },
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "fr",
+          "value": "Durée de la grossesse"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "fr",
+          "value": "Pour les femmes qui étaient enceintes, combien de temps s'est écoulé entre la fin de la grossesse et le décès."
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Čas od těhotenství"
+        },
+        {
+          "property": "DESCRIPTION",
+          "locale": "cs",
+          "value": "U žen, které byly těhotné, jaký byl interval mezi koncem těhotenství a úmrtím."
+        },
+        { "property": "NAME", "locale": "cs", "value": "Čas od těhotenství" },
+        { "property": "NAME", "locale": "fr", "value": "Durée de la grossesse" }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "D1DfTA9Sttb",
+      "name": "CoD - Underlying cause of death",
+      "shortName": "CoD - Underlying cause of death",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "formName": "Underlying cause",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "Cot7SuEeNuk" },
+      "translations": [
+        {
+          "property": "FORM_NAME",
+          "locale": "cs",
+          "value": "Základní příčina"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Základní příčina smrti"
+        },
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Základní příčina smrti"
+        },
+        {
+          "locale": "fr",
+          "property": "FORM_NAME",
+          "value": "Cause sous-jacente"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Cause sous-jacente de décès"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Cause sous-jacente de décès"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "Iu7raZhcHn9",
+      "name": "CoD - Underlying cause of death - ICD-10",
+      "shortName": "CoD - Underlying cause of death - ICD-10",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "translations": [
+        {
+          "property": "SHORT_NAME",
+          "locale": "cs",
+          "value": "Základní příčina smrti - ICD-10"
+        },
+        {
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Základní příčina smrti - ICD-10"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Cause sous-jacente de décès - CIM-10"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Cause sous-jacente de décès - CIM-10"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "zwFVJMwggaH",
+      "name": "CoD - Underlying cause of death - ICD-11 Cause Group",
+      "shortName": "CoD - Underlying CoD - ICD-11 Cause Group",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "T2wD6jsdZze" },
+      "translations": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "W4lXedV97kG",
+      "name": "CoD - Underlying cause of death - ICD-11 Chapter",
+      "shortName": "CoD - Underlying cause of death - ICD-11 Chapter",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "fDaHPG8FrYV" },
+      "translations": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "QselLsJcB7Z",
+      "name": "CoD - Was stillborn",
+      "shortName": "CoD - Stillborn",
+      "aggregationType": "SUM",
+      "domainType": "TRACKER",
+      "publicAccess": "r-------",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
+      "translations": [
+        { "property": "SHORT_NAME", "locale": "cs", "value": "Mrtvě narozený" },
+        { "property": "NAME", "locale": "cs", "value": "Byl mrtvě narozený" },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Était mort-né"
+        },
+        {
+          "locale": "fr",
+          "property": "SHORT_NAME",
+          "value": "Mort-né"
+        }
+      ],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "okahaacYKqO",
+      "name": "Cause of death A (immediate) - others",
+      "shortName": "Cause of death A (immediate) - others",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "MSYrx2z1f8p",
+      "name": "Cause of death B - others",
+      "shortName": "Cause of death B - others",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "UboyGYmr19j",
+      "name": "Cause of death C - others",
+      "shortName": "Cause of death C - others",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "Pd5bZxTS4ql",
+      "name": "Cause of death D - others",
+      "shortName": "Cause of death D - others",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "zeroIsSignificant": false,
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "cH9NADGoNwU",
+      "name": "Underlying cause of death - ICD-11 Result Report from Doris API",
+      "shortName": "Underlying cause of death - Report from Doris API",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "LONG_TEXT",
+      "formName": "Underlying cause of death - ICD-11 Result Report from Doris API",
+      "zeroIsSignificant": false,
+      "categoryCombo": { "id": "bjDvmb4bfuf" },
+      "translations": [],
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "userAccesses": [],
+      "legendSets": [],
+      "aggregationLevels": []
+    },
+    {
+      "id": "Ovu3nxFVwRB",
+      "name": "Cause of death A (immediate) - entity identify",
+      "shortName": "Cause of death A (immediate) - entity identify",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "formName": "Cause A - entity identify",
+      "zeroIsSignificant": false,
+      "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+      },
+      "translations": [ ],
+      "userGroupAccesses": [],
+      "attributeValues": [ ],
+      "userAccesses": [ ],
+      "legendSets": [ ],
+      "aggregationLevels": [ ]
+    },
+    {
+      "id": "draFmNEP1ID",
+      "name": "Cause of death B - entity identify",
+      "shortName": "Cause of death B - entity identify",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "formName": "Cause B - entity identify",
+      "zeroIsSignificant": false,
+      "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+      },
+      "translations": [ ],
+      "userGroupAccesses": [],
+      "attributeValues": [ ],
+      "userAccesses": [ ],
+      "legendSets": [ ],
+      "aggregationLevels": [ ]
+    },
+    {
+      "id": "GMiHyYq3JlY",
+      "name": "Cause of death C - entity identify",
+      "shortName": "Cause of death C - entity identify",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "formName": "Cause C - entity identify",
+      "zeroIsSignificant": false,
+      "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+      },
+      "translations": [ ],
+      "userGroupAccesses": [],
+      "attributeValues": [ ],
+      "userAccesses": [ ],
+      "legendSets": [ ],
+      "aggregationLevels": [ ]
+    },
+    {
+      "id": "ddohQFXWz6e",
+      "name": "Cause of death D - entity identify",
+      "shortName": "Cause of death D - entity identify",
+      "aggregationType": "NONE",
+      "domainType": "TRACKER",
+      "publicAccess": "r-r-----",
+      "valueType": "TEXT",
+      "formName": "Cause D - Entity Identify",
+      "zeroIsSignificant": false,
+      "categoryCombo": {
+        "id": "bjDvmb4bfuf"
+      },
+      "translations": [ ],
+      "userGroupAccesses": [],
+      "attributeValues": [ ],
+      "userAccesses": [ ],
+      "legendSets": [ ],
+      "aggregationLevels": [ ]
+    }
+  ]
+}

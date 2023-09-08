@@ -1,0 +1,307 @@
+.administration-wrapper {
+  padding: 5px;
+  width: 100%;
+  height: calc(100% - 50px);
+}
+.administration-container {
+  overflow: auto;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  height: 100%;
+}
+
+.administration-stepper {
+  width: 100%;
+  padding: 10px;
+  height: 50px;
+}
+.administration-navigation-buttons-container {
+  width: 100%;
+  padding: 5px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-content-container {
+  height: calc(100% - 90px);
+  width: 100%;
+  padding: 5px;
+}
+
+/* Selection component */
+.administration-selections-container {
+  height: 100%;
+  width: 100%;
+}
+.administration-selections-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #2c6693;
+  padding: 6px;
+}
+.administration-icdtool-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-icdtool-selector-container .ant-input {
+  width: 230px;
+}
+.administration-selections-buttons-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-selections-buttons-container > div {
+  height: 250px;
+  width: 250px;
+  margin: 5px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.5);
+  transition: all 0.1s; /* Animation */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.administration-selections-buttons-container > div:hover {
+  transform: scale(1.02);
+  box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.8);
+}
+.administration-selections-buttons-container > div:nth-child(1) {
+  background-color: #22a35c;
+}
+.administration-selections-buttons-container > div:nth-child(2) {
+  background-color: #2c6693;
+}
+.administration-selection {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+.administration-selection-info {
+  color: #ffffff;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+/* Attribute Component */
+.administration-transfer-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-transfer-container > div {
+  width: 50%;
+  height: 100%;
+  margin: 10px;
+}
+.administration-transfer-container .ant-card {
+  /* height: 100%; */
+}
+.administration-transfer-container .ant-card-body {
+  /* height: calc(100% - 58px);
+  overflow: auto; */
+}
+.administration-tet {
+  display: flex;
+  align-items: center;
+}
+.administration-tet > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.administration-attribute {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+.administration-attribute > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.administration-femaleOption {
+  display: flex;
+  align-items: center;
+}
+.administration-femaleOption > div {
+  width: 50%;
+  display: flex;
+  align-items: center;
+}
+.administration-femaleOption-name{
+  padding-left: 1rem;
+  font-style: italic;
+  font-size: 14px;
+}
+.administration-fullnameOption {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  justify-content: space-between;
+  /* padding-bottom: 10px; */
+  /* border-bottom: 1px solid #f2f2f2; */
+}
+.administration-fullnameOption > div {
+  /* width: 50%; */
+  display: flex;
+  align-items: center;
+}
+.administration-fullnameOption-nameinput {
+  padding-left: 1rem;
+  font-size: 14px;
+}
+.administration-fullnameOption-inputs {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.administration-fullnameOption-inputs > div {
+  width: 33.3%;
+  display: flex;
+  align-items: center;
+}
+
+.administration-customcertificate-modal {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+}
+
+.administration-orgunit-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-multiorgunit-selector-container {
+  height: 100%;
+  width: 500px;
+  border: 1px solid #f2f2f2;
+  padding: 5px;
+  overflow: auto;
+}
+.administration-multiorgunit-selection-container {
+  height: 100%;
+  border: 1px solid #f2f2f2;
+  padding: 5px;
+  margin-left: 10px;
+}
+.administration-multiorgunit-selection-container > div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.administration-multiorgunit-selection-container > div > div {
+  margin-right: 10px;
+  display: flex;
+}
+.administration-multiorgunit-selection-container > div > div:nth-child(1) {
+  width: 170px;
+  font-weight: bold;
+}
+.administration-multiorgunit-selection-container > div > div:nth-child(2) {
+  width: 250px;
+}
+.administration-multiorgunit-selection-container > div > div:nth-child(3) {
+  width: 160px;
+}
+.administration-users-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.administration-reviewfinish-container {
+  width: 100%;
+  height: 100%;
+  /*display: grid;*/
+  /*grid-template-columns: repeat(auto-fill, 25%);*/
+  /* grid-gap: 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Certificate Component */
+.administration-certificate-container {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.administration-certificate-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 16px;
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+  transition: all .2s;
+  padding: 30px 20px 35px;
+}
+
+.administration-certificate-title-setup {
+  display: flex;
+}
+
+.administration-certificate-title-setup > div {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.administration-certificate-logo > img{
+  width: 100%;
+}
+
+.administration-certificate-modal {
+  padding: 10px
+}
+
+.administration-certificate-modal-box {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  /* height: 60vh; */
+  border: 1px solid #f0f0f0;
+  border-radius: 2px;
+}
+
+.administration-certificate-modal-list {
+  height: 40vh;
+  width: 100%;
+  /* position: relative;
+  display: inline-block; */
+  overflow: auto;
+}
+
+.administration-certificate-modal-item {
+  padding: 0 5px;
+  width: 100%;
+}
+
+.ant-list-item {
+  padding: 4px 16px !important;
+}
+
+.ant-list-item:hover {
+  background-color: #f5f5f5;
+}

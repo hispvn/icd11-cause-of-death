@@ -1,0 +1,36 @@
+@font-face {
+  font-family: Phetsarath;
+  src: url("./asset/Phetsarath/Phetsarath.ttf");
+}
+
+html {
+  width: 100;
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+:lang(en) *,
+:lang(en) * * {
+  font-family: "Roboto" !important;
+}
+:lang(lo) *,
+:lang(lo) * * {
+  font-family: "Phetsarath" !important;
+}
+svg {
+  vertical-align: baseline !important;
+}
+div {
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+}

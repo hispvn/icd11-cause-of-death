@@ -1,0 +1,142 @@
+.medical-data-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.medical-data-table td {
+  padding: 3px;
+  border: 1px solid #d4d4d4;
+  /* vertical-align: center; */
+  text-align: center;
+  font-size: 12px;
+}
+.results-compute {
+  margin-top: 10px;
+}
+.results-compute div {
+  font-size: 12px;
+  font-style: italic;
+}
+.results-table {
+  border-collapse: collapse;
+  width: 70%;
+}
+.results-table td:nth-child(2) {
+  width: 75%;
+}
+.results-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+  /* text-align: center; */
+}
+/* .results-table tr:nth-child(2) td .input-container, 
+.results-table tr:nth-child(3) td .input-container, */
+.results-table tr:nth-child(4) td .input-container {
+  width: 150px;
+}
+.other-section-table {
+  border-collapse: collapse;
+  width: 70%;
+}
+.other-section-table td:nth-child(2) {
+  width: 75%;
+}
+.other-section-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+}
+
+.surgery-table {
+  border-collapse: collapse;
+}
+.surgery-table td:nth-child(2) {
+  width: 200px;
+}
+.surgery-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+}
+.surgery-table tr:nth-child(2) td .input-container,
+.surgery-table tr:nth-child(3) td .input-container,
+.surgery-table tr:nth-child(4) td .input-container {
+  width: 300px;
+}
+
+.manner-death-table {
+  border-collapse: collapse;
+}
+.manner-death-table td:nth-child(2) {
+  width: 300px;
+}
+.manner-death-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+}
+.manner-death-table tr:nth-child(2) td .input-container,
+.manner-death-table tr:nth-child(3) td .input-container,
+.manner-death-table tr:nth-child(4) td .input-container {
+  width: 300px;
+}
+
+.infant-death-table {
+  border-collapse: collapse;
+}
+.infant-death-table td:nth-child(2) {
+  width: 300px;
+}
+.infant-death-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+}
+.infant-death-table tr:nth-child(2) td .input-container,
+.infant-death-table tr:nth-child(3) td .input-container,
+.infant-death-table tr:nth-child(4) td .input-container {
+  width: 300px;
+}
+
+.maternal-death-table {
+  border-collapse: collapse;
+}
+.maternal-death-table td:nth-child(2) {
+  width: 300px;
+}
+.maternal-death-table td {
+  border: 1px solid #d4d4d4;
+  padding: 3px 3px 3px 10px;
+  font-size: 12px;
+}
+.maternal-death-table tr:nth-child(2) td .input-container,
+.maternal-death-table tr:nth-child(3) td .input-container,
+.maternal-death-table tr:nth-child(4) td .input-container {
+  width: 300px;
+}
+
+.two-fields-container {
+  display: flex;
+  width: 100%;
+}
+.two-fields-container > .input-container {
+  width: 50%;
+}
+
+.tab-container {
+  width: 100%;
+  overflow: auto;
+}
+.stage-save-button-container {
+  /* position: absolute;
+  right: 30px;
+  top: 145px; */
+  padding: 5px;
+  margin-top: 5px;
+  height: 40px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+}
+.stage-sections-container > .ant-tabs {
+  height: calc(100% - 45px);
+  overflow: auto;
+}

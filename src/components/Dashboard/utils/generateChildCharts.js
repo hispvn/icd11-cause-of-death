@@ -1,6 +1,8 @@
+/** Transform to chart data */
 import { AGE_RANGES, SEXES, AGE_RANGES_ID, EXPANDED_AGE_RANGES, EXPANDED_AGE_RANGES_ID, AGE_RANGES_SHORT, AGE_RANGES_SHORT_ID, MONTHS } from "../pages/utils";
 
-const generateChildCharts = ( chartid, data, template ) => {
+const generateChildCharts = ( chartid, data, template, femaleCode ) => {
+    const FEMALE_CODE = femaleCode;
     let convert;
     switch ( chartid ) {
         case "0.1": 
@@ -146,7 +148,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         borderColor: template.data.datasets[index].borderColor,
                         tension: 0.1,
                         data: AGE_RANGES_ID.map( ageG => {
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0
                         })
                     }
@@ -160,7 +162,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: AGE_RANGES_ID.map( ageG => {
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0
                         })
                     }
@@ -177,7 +179,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -192,7 +194,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -209,7 +211,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -224,7 +226,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -241,7 +243,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -256,7 +258,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -273,7 +275,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -288,7 +290,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -362,7 +364,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -381,7 +383,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -395,7 +397,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                     backgroundColor: template.data.datasets[0].backgroundColor,
                     borderColor: template.data.datasets[0].borderColor,
                     data: SEXES.map( sex => {
-                        const val = data.rows.find(row => row[0] === sex.toUpperCase());
+                        const val = ( sex === "Female" ) ? data.rows.find(row => row[0] === FEMALE_CODE) : data.rows.find(row => row[0] !== FEMALE_CODE);
                         return val ? parseInt(val[1]) : 0
                     })
                 }]
@@ -455,7 +457,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -474,7 +476,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val =( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -488,7 +490,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                     backgroundColor: template.data.datasets[0].backgroundColor,
                     borderColor: template.data.datasets[0].borderColor,
                     data: SEXES.map( sex => {
-                        const val = data.rows.find(row => row[0] === sex.toUpperCase());
+                        const val = ( sex === "Female" ) ? data.rows.find(row => row[0] === FEMALE_CODE) : data.rows.find(row => row[0] !== FEMALE_CODE);
                         return val ? parseInt(val[1]) : 0
                     })
                 }]
@@ -548,7 +550,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -567,7 +569,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
                             // ageG
-                            const val = data.rows.find( row => row[0] === sex.toUpperCase() && row[1] === ageG );
+                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
                         })
                     }
@@ -581,7 +583,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                     backgroundColor: template.data.datasets[0].backgroundColor,
                     borderColor: template.data.datasets[0].borderColor,
                     data: SEXES.map( sex => {
-                        const val = data.rows.find(row => row[0] === sex.toUpperCase());
+                        const val = ( sex === "Female" ) ? data.rows.find(row => row[0] === FEMALE_CODE) : data.rows.find(row => row[0] !== FEMALE_CODE);
                         return val ? parseInt(val[1]) : 0
                     })
                 }]
@@ -665,7 +667,7 @@ const generateChildCharts = ( chartid, data, template ) => {
                         label: `${sex} - ${causeGroup.split(" - ")[1]}`,
                         stack: sex,
                         data: AGE_RANGES_SHORT_ID.map( pe => {
-                            const val =  data.rows.find( row => row[0] === causeGroup.split(" - ")[0] && row[1] === sex.toUpperCase() && row[2] === pe );
+                            const val =  ( sex === "Female" ) ? data.rows.find( row => row[0] === causeGroup.split(" - ")[0] && row[1] === FEMALE_CODE && row[2] === pe ) : data.rows.find( row => row[0] === causeGroup.split(" - ")[0] && row[1] !== FEMALE_CODE && row[2] === pe );
                             return !val ? 0 : sex === "Male" ? -1*val[3] : val[3]
                         })
                     })

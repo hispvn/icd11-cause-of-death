@@ -10,7 +10,7 @@ import Export from "../Export";
 import Dashboard from "../Dashboard";
 import Translation from "../Translation";
 import { Hooks, Components } from "tracker-capture-app-core";
-import { InitTranslation, InitTranslationDataStore } from "../../locale/i18n";
+import { InitTranslation } from "../../locale/i18n";
 
 /* REDUX */
 import { connect } from "react-redux";
@@ -39,6 +39,7 @@ import {
 } from "../../redux/actions/admin";
 import { setUserRole } from "../../redux/actions/user";
 import { changeRoute } from "../../redux/actions/route";
+import localeFile from "../../locale/locale";
 /*       */
 
 
@@ -74,7 +75,49 @@ const App = ({
   useEffect(() => {
     setLoading(true);
     (async () => {
-      await InitTranslationDataStore();
+      /** FOR TRANSLATION */
+      const translationData = await metadataApi.get("/api/dataStore/WHO_ICD11_COD/translation");
+      console.log("init translation DataStore");
+      if (translationData.status) {
+        let array = [];
+        let arrayLanguages = [
+          {
+            label: "English",
+            key: "en",
+          },
+        ];
+        Object.entries(localeFile.en.translation).forEach((value) => {
+          let object = {
+            key: value[0],
+            translation: { en: value[1] },
+          };
+          array.push(object);
+        });
+        await metadataApi.push("/api/dataStore/WHO_ICD11_COD/translation", {
+          translations: array,
+          languages: arrayLanguages,
+        });
+      }else{
+        Object.entries(localeFile.en.translation).forEach((value) => {
+          let findKey = translationData.translations.find(e=>e.key === value[0]);
+          if(!findKey){
+            let object = {
+              key: value[0],
+              translation: { en: value[1] },
+            };
+            translationData.translations.push(object);
+          }else{
+            findKey.translation.en = value[1]
+          }
+        })
+        await metadataApi.push("/api/dataStore/WHO_ICD11_COD/translation", {
+          translations: translationData.translations,
+          languages: translationData.languages,
+        },"PUT");
+      }
+
+
+
       Promise.all([
         metadataApi.get("/api/dataStore/WHO_ICD11_COD/program"),
         metadataApi.getOrgUnitGroups(),
@@ -100,7 +143,7 @@ const App = ({
         metadataApi.getMe()
       ]).then( async (results) => {
 
-        await InitTranslation(results[9].settings.keyUiLocale);
+        await InitTranslation(translationData,results[9].settings.keyUiLocale);
         setUILocale(results[9].settings.keyUiLocale)
 
         // for admin module

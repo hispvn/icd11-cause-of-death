@@ -1,3 +1,4 @@
+/** Build data template */
 import { generateDataChartJS, generateDataPieChartJS, generateDataCombinedChartJS, generateDataDoubleStackedBarChartJS } from "../pages/utils";
 
 const generateChildChart = (type, { title, colors, dataSets, dataLabels, codes }, types) => { 

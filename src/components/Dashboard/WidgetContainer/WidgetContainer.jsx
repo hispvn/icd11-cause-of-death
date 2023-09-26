@@ -14,7 +14,7 @@ import { Hooks } from "tracker-capture-app-core";
 const { useApi } = Hooks;
 
 //Why using forward ref: https://github.com/react-grid-layout/react-grid-layout#custom-child-components-and-draggable-handles
-const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, ...props }, ref) => {
+const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, formMapping, femaleCode, ...props }, ref) => {
   const { metadataApi } = useApi();
   
   const [selectedChild, setSelectedChild] = useState(0);
@@ -26,7 +26,10 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
   useEffect(() => {
     (async () => {
       setLoading(true);
+
+      // Generate template
       const result = await currentChild.getData();
+      console.log(femaleCode);
 
       let flag = true;
       if ( analyticData[`page${props.widget.i.split(".")[0]}`] ) {
@@ -40,13 +43,20 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
                 data: generateChildCharts(
                   props.widget.i,
                   null,
-                  result
+                  result,
+                  femaleCode
                 )
               }
             })
           }
           else {
-            const url = currentChild["codes"] ? page[props.widget.i].replace("[CAUSE_GROUP_CODE]",currentChild["codes"]).replaceAll("[YEAR]",props.period) : page[props.widget.i].replaceAll("[YEAR]",props.period);
+            let url = currentChild["codes"] ? page[props.widget.i].replace("[CAUSE_GROUP_CODE]",currentChild["codes"]).replaceAll("[YEAR]",props.period) : page[props.widget.i].replaceAll("[YEAR]",props.period);
+            if (url.includes("[ATTRIBUTE_SEX]")) {
+              url = url.replace("[ATTRIBUTE_SEX]",formMapping.attributes["sex"]);
+            }
+            if (url.includes("[ATTRIBUTE_AGE]")) {
+              url = url.replace("[ATTRIBUTE_AGE]",formMapping.attributes["age"]);
+            }
             const data = await metadataApi.pull(url.replace("[ORG]",selectedOrgUnit ? selectedOrgUnit.id : "USER_ORGUNIT"));
 
             setData({ 
@@ -54,7 +64,8 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
                 data: generateChildCharts(
                   props.widget.i,
                   data,
-                  result
+                  result,
+                  femaleCode
                 ),
                 colors: result.colors
               } 
@@ -63,7 +74,13 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
         } else if ( props.widget.i.split(".")[0] === "2" ) {
           flag = false;
 
-          const url = currentChild["codes"] ? analyticData.page2["2.1"].replace("[CAUSE_GROUP_CODE]",currentChild["codes"]).replaceAll("[YEAR]",props.period) : page[props.widget.i].replaceAll("[YEAR]",props.period);
+          let url = currentChild["codes"] ? analyticData.page2["2.1"].replace("[CAUSE_GROUP_CODE]",currentChild["codes"]).replaceAll("[YEAR]",props.period) : page[props.widget.i].replaceAll("[YEAR]",props.period);
+          if (url.includes("[ATTRIBUTE_SEX]")) {
+            url = url.replace("[ATTRIBUTE_SEX]",formMapping.attributes["sex"]);
+          }
+          if (url.includes("[ATTRIBUTE_AGE]")) {
+            url = url.replace("[ATTRIBUTE_AGE]",formMapping.attributes["age"]);
+          }
           const data = await metadataApi.pull(url.replace("[ORG]",selectedOrgUnit ? selectedOrgUnit.id : "USER_ORGUNIT"));
 
           setData({ 
@@ -71,7 +88,8 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
               data: generateChildCharts(
                 "2.1",
                 data,
-                result
+                result,
+                femaleCode
               ),
               colors: result.colors
             } 
@@ -166,7 +184,9 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, .
 
 const mapStateToProps = state => {
   return {
-    selectedOrgUnit: state.metadata.selectedOrgUnit
+    selectedOrgUnit: state.metadata.selectedOrgUnit,
+    formMapping: state.metadata.formMapping,
+    femaleCode: state.metadata.femaleCode
   }
 }
 

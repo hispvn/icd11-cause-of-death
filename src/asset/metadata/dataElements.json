@@ -323,7 +323,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "IMMEDIATE_COD",
       "id": "RU1KXNWlT6S",
       "name": "CoD - Cause of death A (immediate)",
       "shortName": "CoD - Cause of death A (immediate)",
@@ -400,7 +399,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_B",
       "id": "QjFzlJHUD9Y",
       "name": "CoD - Cause of death B",
       "shortName": "CoD - Cause of death B",
@@ -477,7 +475,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_C",
       "id": "eRMha7cwC1R",
       "name": "CoD - Cause of death C",
       "shortName": "CoD - Cause of death C",
@@ -554,7 +551,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_D",
       "id": "SzLlhusJK6R",
       "name": "CoD - Cause of death D",
       "shortName": "CoD - Cause of death D",
@@ -937,7 +933,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_OTHER_CONDITIONS",
       "id": "NOKiM5Isd5J",
       "name": "CoD - Other significant conditions contributing to death",
       "shortName": "CoD - Other conditions contributing to death",
@@ -974,7 +969,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_TYPE_A",
       "id": "dEvMi21KHHh",
       "name": "CoD - Periodtype - onset to death - cause A",
       "shortName": "CoD - Periodtype - onset to death - cause A",
@@ -1012,7 +1006,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_TYPE_B",
       "id": "HLf4M23Yxop",
       "name": "CoD - Periodtype - onset to death - cause B",
       "shortName": "CoD - Periodtype - onset to death - cause B",
@@ -1050,7 +1043,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_TYPE_C",
       "id": "TgO3vRHCaNV",
       "name": "CoD - Periodtype - onset to death - cause C",
       "shortName": "CoD - Periodtype - onset to death - cause C",
@@ -1088,7 +1080,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_TYPE_D",
       "id": "PgkDvnP4oZH",
       "name": "CoD - Periodtype - onset to death - cause D",
       "shortName": "CoD - Periodtype - onset to death - cause D",
@@ -1378,7 +1369,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_A",
       "id": "QyTACRjivAo",
       "name": "CoD - Time from onset to death - cause A",
       "shortName": "CoD - Time from onset to death - cause A",
@@ -1415,7 +1405,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_B",
       "id": "Apnx0pnzMUq",
       "name": "CoD - Time from onset to death - cause B",
       "shortName": "CoD - Time from onset to death - cause B",
@@ -1452,7 +1441,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_C",
       "id": "ZhbIetKpHtd",
       "name": "CoD - Time from onset to death - cause C",
       "shortName": "CoD - Time from onset to death - cause C",
@@ -1489,7 +1477,6 @@
       "aggregationLevels": []
     },
     {
-      "code": "COD_INTERVAL_D",
       "id": "cQTtzqf81UY",
       "name": "CoD - Time from onset to death - cause D",
       "shortName": "CoD - Time from onset to death - cause D",

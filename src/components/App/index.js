@@ -97,7 +97,9 @@ const App = ({
           translations: array,
           languages: arrayLanguages,
         });
-      }else{
+      }
+      else{
+        console.log(translationData);
         Object.entries(localeFile.en.translation).forEach((value) => {
           let findKey = translationData.translations.find(e=>e.key === value[0]);
           if(!findKey){

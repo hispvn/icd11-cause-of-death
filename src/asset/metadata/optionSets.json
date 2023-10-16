@@ -35,7 +35,6 @@
       "userAccesses": []
     },
     {
-      "code": "MANNER_DEATH",
       "name": "CoD - Manner of death",
       "id": "I8MkB7Ex96h",
       "publicAccess": "r-------",
@@ -111,7 +110,6 @@
       "userAccesses": []
     },
     {
-      "code": "PREGNANCY_TIME",
       "name": "CoD - Time from pregnancy",
       "id": "GqmQvJGc5PV",
       "publicAccess": "r-------",
@@ -126,7 +124,6 @@
       "userAccesses": []
     },
     {
-      "code": "TIME_INTERVAL",
       "name": "CoD - Time interval",
       "id": "ITHzuJgBuS6",
       "publicAccess": "r-------",
@@ -145,7 +142,6 @@
       "userAccesses": []
     },
     {
-      "code": "YES_NO_UNKNOWN",
       "name": "CoD - Yes/No/Unknown_CoD",
       "id": "dhiyfHmX1P8",
       "publicAccess": "r-------",

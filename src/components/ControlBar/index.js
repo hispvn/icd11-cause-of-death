@@ -233,6 +233,10 @@ const ControlBar = ({
             <ul>
               <li>2.35</li>
               <li>2.36</li>
+              <li>2.37</li>
+              <li>2.38</li>
+              <li>2.39</li>
+              <li>2.40</li>
             </ul>
         </DialogContent>
       </Dialog>

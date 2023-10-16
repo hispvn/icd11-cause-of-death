@@ -2,6 +2,7 @@ import { generateCode } from ".";
 
 const jsonFiles = [
     "attributes",
+    "legendSets",
     "optionSets",
     "trackedEntityAttributes",
     "trackedEntityTypes",
@@ -15,8 +16,7 @@ const jsonFiles = [
     "sqlViews",
     "options",
     "optionGroups",
-    "optionGroupSets",
-    "legendSets"
+    "optionGroupSets"
 ]; // should order from child to parent dependenvies
 
 const replaceUID = (mapping, data) => {
@@ -71,7 +71,7 @@ export const generateDefaultMetadata = (fullnameOption, newUID) => {
     };
 }
 
-export const generateCustomMetadata = ( admin, newUID ) => {
+export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
     /** 
      * WHAT THIS FUNCTION DOES
      * 
@@ -129,6 +129,29 @@ export const generateCustomMetadata = ( admin, newUID ) => {
 
     // add system_id
     metadata["trackedEntityAttributes"] = require(`../asset/metadata/trackedEntityAttributes.json`)["trackedEntityAttributes"].slice(0,1);
+    metadata["trackedEntityAttributes"].push({
+        ...ageAttribute,
+        legendSets: [
+            ...ageAttribute.legendSets,
+            ...[
+                {
+                    id: "bHqcKIS01OI"
+                },
+                {
+                    id: "S0CP6RzDx4c"
+                },
+                {
+                    id: "McFG08e1aEd"
+                },
+                {
+                    id: "YVz7lS5F4So"
+                },
+                {
+                    id: "VVnrNTCrxB1"
+                }
+            ]
+        ]
+    });
 
     // const admin = require("./admin.json");
     let dataElements = [];
@@ -381,3 +404,21 @@ export const generateCustomMetadata = ( admin, newUID ) => {
         formMapping: formMapping
     };
 }
+
+export const updateProgramIndicators = (programIndicators, dobAttribute, sexAttribute, femaleCode) => programIndicators.map( pi => {
+    return {
+        ...pi,
+        filter: pi["filter"].replaceAll("revZcilpJvK",dobAttribute)
+            .replaceAll("F6qFXT44qay",sexAttribute)
+            .replaceAll("FEMALE",femaleCode)
+    }
+});
+
+export const updateSQLViews = (sqlViews, ageAttribute, sexAttribute, femaleCode) => sqlViews.map( sv => {
+    return {
+        ...sv,
+        sqlQuery: sv["sqlQuery"].replaceAll("z4jIMvqs0ff",ageAttribute)
+        .replaceAll("F6qFXT44qay",sexAttribute)
+        .replaceAll("FEMALE",femaleCode)
+    }
+});

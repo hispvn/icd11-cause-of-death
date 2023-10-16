@@ -7,17 +7,17 @@ import {
   Switch,
   // Checkbox
 } from "antd";
-import { Components } from "tracker-capture-app-core";
+import { Hooks, Components } from "tracker-capture-app-core";
 /* REDUX */
 import { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { defaultAttributes } from "../../utils/const";
-import { generateDefaultMetadata, generateCustomMetadata } from "../../utils/generateMetadata";
+import { generateDefaultMetadata, generateCustomMetadata, updateProgramIndicators, updateSQLViews } from "../../utils/generateMetadata";
 import { setInstallingFile } from "../../redux/actions/admin";
 import { setFormMapping } from "../../redux/actions/metadata";
 import { useTranslation } from "react-i18next";
 /*       */
-
+const { useApi } = Hooks;
 const { LoadingMask } = Components;
 
 // Temporally here
@@ -32,7 +32,8 @@ const Review = ({
     assignedOrgUnits,
     users,
     type: installType,
-    fullnameOption
+    fullnameOption,
+    femaleOption
     // installingFile: metadata
   },
   allTeas,
@@ -42,6 +43,7 @@ const Review = ({
   setFormMapping
 }) => {
   const { t } = useTranslation();
+  const { metadataApi } = useApi();
 
   const [metadata, setMetadata] = useState(null);
   const [generateNewUID, setgenerateNewUID] = useState(false);
@@ -75,25 +77,38 @@ const Review = ({
   }
     
   useEffect( () => {
-    setMetadata(null);
+    (async () => {
+      setMetadata(null);
+      let data = {};
 
-    // generate metadata (base on setting stored in redux)
-    let data = (installType === "custom") ? generateCustomMetadata({trackedEntityAttributes,dataElements,trackedEntityType,fullnameOption}, generateNewUID) : generateDefaultMetadata(false,generateNewUID);
-    data.metadata = {
-      ...data.metadata,
-      programs: [{
-        ...data.metadata.programs[0],
-        organisationUnits: assignedOrgUnits.map( o => {return { id : o.substring(o.length-11,o.length) }}),
-        userGroupAccesses: getUserGroupAccesses()
-      }]
-    };
+      // generate metadata (base on setting stored in redux)
+      if (installType === "custom") {
+        console.log(trackedEntityAttributes);
+        const ageAttribute = await metadataApi.get(`/api/trackedEntityAttributes.json`, { paging: false }, [`filter=id:eq:${trackedEntityAttributes.find(([,name]) => name === "Age in years")[0]}`,"fields=:owner,!created,!lastUpdated,!createdBy,!lastUpdatedBy"]);
+        data = generateCustomMetadata({trackedEntityAttributes,dataElements,trackedEntityType,fullnameOption}, generateNewUID,ageAttribute.trackedEntityAttributes[0]);
+        data.metadata.programIndicators = updateProgramIndicators(data.metadata.programIndicators,trackedEntityAttributes.find(([,name]) => name === "Date of Birth")[0],trackedEntityAttributes.find(([,name]) => name === "Sex")[0],femaleOption);
+        data.metadata.sqlViews = updateSQLViews(data.metadata.sqlViews,trackedEntityAttributes.find(([,name]) => name === "Age in years")[0],trackedEntityAttributes.find(([,name]) => name === "Sex")[0],femaleOption);
+      }
+      else {
+        data = generateDefaultMetadata(false,generateNewUID);
+      }
 
-    // local state
-    setMetadata(data.metadata);
+      data.metadata = {
+        ...data.metadata,
+        programs: [{
+          ...data.metadata.programs[0],
+          organisationUnits: assignedOrgUnits.map( o => {return { id : o.substring(o.length-11,o.length) }}),
+          userGroupAccesses: getUserGroupAccesses()
+        }]
+      };
 
-    // redux
-    setInstallingFile(data.metadata);
-    setFormMapping(data.formMapping);
+      // local state
+      setMetadata(data.metadata);
+
+      // redux
+      setInstallingFile(data.metadata);
+      setFormMapping(data.formMapping);
+    })();
   }, [generateNewUID]);
   
   const getSwitchValue = section => {

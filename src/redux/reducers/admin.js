@@ -19,7 +19,7 @@ const initialState = {
   type: null,
   trackedEntityAttributes: [],
   trackedEntityType: null,
-  femaleOption: "FEMALE",
+  femaleOption: null,
   fullnameOption: "firstlastname",
   dataElements: {
     frameA: { 

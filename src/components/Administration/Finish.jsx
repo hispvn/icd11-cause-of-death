@@ -57,6 +57,17 @@ const Finish = ({
                 setResults(temp);
             });
         }
+        if (metadata["legendSets"]) {
+            setStatus({...status, subTitle: t("legendSets")});
+            await metadataApi.push(`/api/metadata`, { legendSets: metadata["legendSets"]})
+            .then(response => {
+                temp = {
+                    ...temp,
+                    legendSets: response
+                };
+                setResults(temp);
+            });
+        }
         if (metadata["optionSets"]) {
             setStatus({...status, subTitle: t("importOptionSets")});
             await metadataApi.push(`/api/metadata`, { optionSets: metadata["optionSets"]})
@@ -242,17 +253,6 @@ const Finish = ({
                 setResults(temp);
             });
         }
-        if (metadata["legendSets"]) {
-            setStatus({...status, subTitle: t("legendSets")});
-            await metadataApi.push(`/api/metadata`, { legendSets: metadata["legendSets"]})
-            .then(response => {
-                temp = {
-                    ...temp,
-                    legendSets: response
-                };
-                setResults(temp);
-            });
-        }
     }
 
     useEffect(() => {
@@ -286,14 +286,6 @@ const Finish = ({
                 {
                     label: "COD System ID",
                     trackedEntityAttribute: formMapping.attributes["system_id"]
-                },
-                {
-                    label: "Family Name",
-                    trackedEntityAttribute: formMapping.attributes["given_name"]
-                },
-                {
-                    label: "Last Name",
-                    trackedEntityAttribute: formMapping.attributes["family_name"]
                 },
                 {
                     label: "Date of Birth",

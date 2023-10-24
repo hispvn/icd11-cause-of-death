@@ -15,6 +15,7 @@ const TRANSLATION_KEYS_MAPPING = {
     "selectOrgUnit",
     "newRegistration",
     "search",
+    "list",
     "exit",
     "page",
     "profile",

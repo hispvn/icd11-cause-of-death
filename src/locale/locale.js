@@ -60,7 +60,8 @@ const resources = {
       step5OUs: "5 - Assign OrgUnits",
       step6Users: "6 - Assign Users",
       step7Review: "7 - Review & Finish",
-      errorMissingTET: "ERROR Please select ALL default attributes and Tracked Entity Type.",
+      errorMissingTET:
+        "ERROR Please select ALL default attributes and Tracked Entity Type.",
       step1Attributes: "1 - Attributes",
       step2Certificate: "2 - Certificate",
       saveSuccessful: "Successfully Save!",
@@ -68,12 +69,15 @@ const resources = {
       globalICDTool: "Use global WHO ICD Tool url",
       otherICDTool: "Use other ICD Tool url",
       defaultInstallation: "Default Installation",
-      defaultInstallationInfo: "Use default MCCOD program with minimum configurations",
+      defaultInstallationInfo:
+        "Use default MCCOD program with minimum configurations",
       customInstallation: "Custom Installation",
-      customInstallationInfo: "Use default MCCOD program with additional metadata as you need",
+      customInstallationInfo:
+        "Use default MCCOD program with additional metadata as you need",
       installWithDocker: "How to install ICD-11 API Server using Docker:",
       installationWarning: "COD app could not start the installation process.",
-      installationWarningTitle: "The app setup requires Organisation Units and assigned Users. Please check whether they created.",
+      installationWarningTitle:
+        "The app setup requires Organisation Units and assigned Users. Please check whether they created.",
       backToMaintenance: "Go to Maintenance app",
       trackedEntityType: "Tracked Entity Type",
       systemID: "COD System ID (auto-generated)",
@@ -129,9 +133,11 @@ const resources = {
       timeFromOnsetToDeath: "Time from onset to death",
       underlying: "Underlying",
       immediate: "Immediate",
-      reportDirection: "Report chain of events in 'due to' order (B - C - D) if applicable. State the underlying cause on the lowest used line, and tick the checkbox for 'Underlying'",
+      reportDirection:
+        "Report chain of events in 'due to' order (B - C - D) if applicable. State the underlying cause on the lowest used line, and tick the checkbox for 'Underlying'",
       dueTo: "Due to",
-      otherReasonLeadingToDeath: "Other significant conditions contributing to death (time intervals can be included in brackets after the condition)",
+      otherReasonLeadingToDeath:
+        "Other significant conditions contributing to death (time intervals can be included in brackets after the condition)",
       underlyingCOD: "Underlying cause of death",
       icd11Chapter: "ICD-11 Chapter",
       icd11Grouping: "ICD-11 Grouping",
@@ -139,29 +145,37 @@ const resources = {
       icd11: "ICD-11",
       surgeryWithin4months: "Was surgery performed within the last 4 weeks?",
       surgeryDate: "If yes, please specify date of surgery",
-      surgeryReason: "If yes, please specify reason for surgery (disease or condition)",
+      surgeryReason:
+        "If yes, please specify reason for surgery (disease or condition)",
       autopsy: "Was an autopsy requested?",
       findings: "If yes, were the findings used in the certification?",
       posisoning: "If external cause or posisoning, date of injury",
-      describe: "Please describe how external cause occurred (if poisoning, please specify poisoning agent)",
+      describe:
+        "Please describe how external cause occurred (if poisoning, please specify poisoning agent)",
       occurrencePlace: "Place of occurrence of the external cause",
-      occurrenceSpecifyPlace: "Specify place of occurence of the external cause",
+      occurrenceSpecifyPlace:
+        "Specify place of occurence of the external cause",
       pregnant: "Multiple pregnancy?",
       stillborn: "Stillborn?",
       hoursSurvived: "If death within 24hrs specify number of hours survived",
       birthWeight: "Birth weight (in grams)",
       pregnantWeeks: "Number of completed weeks of pregnancy",
       motherAge: "Age of mother (in years)",
-      perinatal: "If death was perinatal, state conditions of mother that affected the fetus and newborn",
+      perinatal:
+        "If death was perinatal, state conditions of mother that affected the fetus and newborn",
       maternal: "Maternal death",
-      pregnancyLastYear: "For women, was the deceased pregnant within the past year?",
+      pregnancyLastYear:
+        "For women, was the deceased pregnant within the past year?",
       timePregnancy: "If yes, time from pregnancy",
       pregnancyToDeath: "Did the pregnancy contribute to the death?",
       // Dashboard
       mortalityFromBoardCausesOfDeath: "Mortality from broad causes of death",
-      proportionOfDeathFromBroadCausesAll: "Proportion of deaths from broad causes (all sexes, all ages)",
-      distributionOfDeathByBroadCausesAndAgeGroups: "Distribution of deaths by broad causes and age groups",
-      overViewDistributionOfDeath: "Overview of the distribution of causes of total deaths grouped by category",
+      proportionOfDeathFromBroadCausesAll:
+        "Proportion of deaths from broad causes (all sexes, all ages)",
+      distributionOfDeathByBroadCausesAndAgeGroups:
+        "Distribution of deaths by broad causes and age groups",
+      overViewDistributionOfDeath:
+        "Overview of the distribution of causes of total deaths grouped by category",
       clickOnBubleForDetail: "Click on each buble for details",
       communicable: "communicable",
       nonCommunicable: "non-communicable",
@@ -169,7 +183,8 @@ const resources = {
       illDefined: "ill-defined",
       numberOfDeathBy: "Number of Death by",
       tuberculosis: "Tuberculosis",
-      sexuallyTransmittedDiseasesExcludingHiv: "Sexually transmitted diseases excluding HIV",
+      sexuallyTransmittedDiseasesExcludingHiv:
+        "Sexually transmitted diseases excluding HIV",
       hiv: "HIV",
       diarrhoealDiseases: "Diarrhoeal diseases",
       pertussis: "Pertussis",
@@ -184,7 +199,8 @@ const resources = {
       tropicalClusterDiseases: "Tropical-cluster diseases",
       lowerRespiratoryInfections: "Lower respiratory infections",
       maternalConditions: "Maternal conditions",
-      conditionsArisingDuringThePerinatalPeriod: "Conditions arising during the perinatal period",
+      conditionsArisingDuringThePerinatalPeriod:
+        "Conditions arising during the perinatal period",
       nutritionalDeficiencies: "Nutritional deficiencies",
       mouthAndOropharynxCancers: "Mouth and oropharynx cancers",
       oesophagusCancer: "Oesophagus cancer",
@@ -207,7 +223,8 @@ const resources = {
       hypertensiveDisease: "Hypertensive disease",
       ischaemicHeartDisease: "Ischaemic heart disease",
       cerebrovascularDisease: "Cerebrovascular disease",
-      chronicObstructivePulmonaryDisease: "Chronic obstructive pulmonary disease",
+      chronicObstructivePulmonaryDisease:
+        "Chronic obstructive pulmonary disease",
       asthma: "Asthma",
       digestiveDiseases: "Digestive diseases",
       genitoUrinaryDiseases: "Genito-urinary diseases",
@@ -223,63 +240,92 @@ const resources = {
       numberOfDeathBySexAndAge: "Number of deaths by sex and age",
       numberOfDeathByMonth: "Number of deaths by month",
       pneumonia: "Pneumonia",
-      otherDiseasesOfTheDigestiveSystem: "Other diseases of the digestive system",
+      otherDiseasesOfTheDigestiveSystem:
+        "Other diseases of the digestive system",
       otherDirectObstetricDeaths: "Other direct obstetric deaths",
       prematurity: "Prematurity",
-      symptomsSignAndAbnormalClinicalAndLaboratoryFindingsNotElsewhereClassified: "Symptoms sign and abnormal clinical and laboratory findings, not elsewhere classified",
-      otherAndUnspecifiedCongenitalMalformations: "Other and unspecified congenital malformations",
-      otherAndUnspecifiedPerinatalConditions: "Other and unspecified perinatal conditions",
-      intrauterineHypoxiaAndBirthAsphyxia: "Intrauterine hypoxia and birth asphyxia",
+      symptomsSignAndAbnormalClinicalAndLaboratoryFindingsNotElsewhereClassified:
+        "Symptoms sign and abnormal clinical and laboratory findings, not elsewhere classified",
+      otherAndUnspecifiedCongenitalMalformations:
+        "Other and unspecified congenital malformations",
+      otherAndUnspecifiedPerinatalConditions:
+        "Other and unspecified perinatal conditions",
+      intrauterineHypoxiaAndBirthAsphyxia:
+        "Intrauterine hypoxia and birth asphyxia",
       name: "Name",
       points: "Points",
-      certainInfectiousOrParasiticDiseases: "Certain infectious or parasitic diseases",
+      certainInfectiousOrParasiticDiseases:
+        "Certain infectious or parasitic diseases",
       neoplasms: "Neoplasms",
-      diseasesOfTheBloodOrBloodFormingOrgans: "Diseases of the blood or blood-forming organs",
+      diseasesOfTheBloodOrBloodFormingOrgans:
+        "Diseases of the blood or blood-forming organs",
       diseasesOfTheImmuneSystem: "Diseases of the immune system",
-      endocrineNutritionalOrMetabolicDiseases: "Endocrine, nutritional or metabolic diseases",
-      mentalBehaviouralOrNeurodevelopmentalDisorders: "Mental, behavioural or neurodevelopmental disorders",
+      endocrineNutritionalOrMetabolicDiseases:
+        "Endocrine, nutritional or metabolic diseases",
+      mentalBehaviouralOrNeurodevelopmentalDisorders:
+        "Mental, behavioural or neurodevelopmental disorders",
       sleepWakeDisorders: "Sleep-wake disorders",
       diseasesOfTheNervousSystem: "Diseases of the nervous system",
       diseasesOfTheVisualSystem: "Diseases of the visual system",
-      diseasesOfTheEarOrMastoidProcess: "Diseases of the ear or mastoid process",
+      diseasesOfTheEarOrMastoidProcess:
+        "Diseases of the ear or mastoid process",
       diseasesOfTheCirculatorySystem: "Diseases of the circulatory system",
       diseasesOfTheRespiratorySystem: "Diseases of the respiratory system",
       diseasesOfTheDigestiveSystem: "Diseases of the digestive system",
       diseasesOfTheSkin: "Diseases of the skin",
-      diseasesOfTheMusculoskeletalSystemOrConnectiveTissue: "Diseases of the musculoskeletal system or connective tissue",
+      diseasesOfTheMusculoskeletalSystemOrConnectiveTissue:
+        "Diseases of the musculoskeletal system or connective tissue",
       diseasesOfTheGenitourinarySystem: "Diseases of the genitourinary system",
       conditionsRelatedToSexualHealth: "Conditions related to sexual health",
-      pregnancyChildbirthOrThePuerperium: "Pregnancy, childbirth or the puerperium",
-      certainConditionsOriginatingInThePerinatalPeriod: "Certain conditions originating in the perinatal period",
+      pregnancyChildbirthOrThePuerperium:
+        "Pregnancy, childbirth or the puerperium",
+      certainConditionsOriginatingInThePerinatalPeriod:
+        "Certain conditions originating in the perinatal period",
       developmentalAnomalies: "Developmental anomalies",
-      symptomsSignsOrClinicalFindingsNotElsewhereClassified: "Symptoms, signs or clinical findings, not elsewhere classified",
-      injuryPoisoningOrCertainOtherConsequencesOfExternalCauses: "Injury, poisoning or certain other consequences of external causes",
-      externalCausesOfMorbidityOrMortality: "External causes of morbidity or mortality",
-      factorsInfluencingHealthStatusOrContactWithHealthServices: "Factors influencing health status or contact with health services",
+      symptomsSignsOrClinicalFindingsNotElsewhereClassified:
+        "Symptoms, signs or clinical findings, not elsewhere classified",
+      injuryPoisoningOrCertainOtherConsequencesOfExternalCauses:
+        "Injury, poisoning or certain other consequences of external causes",
+      externalCausesOfMorbidityOrMortality:
+        "External causes of morbidity or mortality",
+      factorsInfluencingHealthStatusOrContactWithHealthServices:
+        "Factors influencing health status or contact with health services",
       codesForSpecialPurposes: "Codes for special purposes",
       numberOfMalariaDeathsByMonth: "Number of malaria deaths by month",
-      numberOfMalariaDeathsPlaceOfDeath: "Number of malaria deaths - place of death",
+      numberOfMalariaDeathsPlaceOfDeath:
+        "Number of malaria deaths - place of death",
       numberOfMalariaDeathsBySex: "Number of malaria deaths by sex",
-      numberOfMalariaDeathsBySexAndDetailedAgeGroup: "Number of malaria deaths by sex and detailed age-group",
-      numberOfMalariaDeathsAndPercentOfAllMalariaDeathsByBroadAgeGroup: "Number of malaria deaths and percent of all malaria deaths by broad age-group",
-      numberOfMalariaDeathsComparedWithOtherCausesOfDeaths: "Number of malaria deaths compared with other causes of deaths",
+      numberOfMalariaDeathsBySexAndDetailedAgeGroup:
+        "Number of malaria deaths by sex and detailed age-group",
+      numberOfMalariaDeathsAndPercentOfAllMalariaDeathsByBroadAgeGroup:
+        "Number of malaria deaths and percent of all malaria deaths by broad age-group",
+      numberOfMalariaDeathsComparedWithOtherCausesOfDeaths:
+        "Number of malaria deaths compared with other causes of deaths",
       percentOfTotalMalariaDeaths: "% of total malaria deaths",
       numberOfMalariaDeaths: "Number of malaria deaths",
       otherCauses: "Other causes",
-      numberOfTuberculosisDeathsByMonth: "Number of tuberculosis deaths by month",
-      numberOfTuberculosisDeathsByPlaceOfDeath: "Number of tuberculosis deaths by place of death",
+      numberOfTuberculosisDeathsByMonth:
+        "Number of tuberculosis deaths by month",
+      numberOfTuberculosisDeathsByPlaceOfDeath:
+        "Number of tuberculosis deaths by place of death",
       numberOfTuberculosisDeathsBySex: "Number of tuberculosis deaths by sex",
-      numberOfTuberculosisDeathsBySexAndDetailedAgeGroup: "Number of tuberculosis deaths by sex and detailed age-group",
-      numberOfTuberculosisDeathsAndPercentOfAllTuberculosisDeathsByBroadAgeGroup: "Number of tuberculosis deaths and percent of all tuberculosis deaths by broad age-group",
-      numberOfTuberculosisDeathsComparedWithOtherCausesOfDeaths: "Number of tuberculosis deaths compared with other causes of deaths",
+      numberOfTuberculosisDeathsBySexAndDetailedAgeGroup:
+        "Number of tuberculosis deaths by sex and detailed age-group",
+      numberOfTuberculosisDeathsAndPercentOfAllTuberculosisDeathsByBroadAgeGroup:
+        "Number of tuberculosis deaths and percent of all tuberculosis deaths by broad age-group",
+      numberOfTuberculosisDeathsComparedWithOtherCausesOfDeaths:
+        "Number of tuberculosis deaths compared with other causes of deaths",
       percentOfTotalTuberculosisDeaths: "% of total tuberculosis deaths",
       numberOfTuberculosisDeaths: "Number of tuberculosis deaths",
       numberOfAidsDeathsByMonth: "Number of AIDS deaths by month",
       numberOfAidsDeathsPlaceOfDeath: "Number of AIDS deaths - place of death",
       numberOfAidsDeathsBySex: "Number of AIDS deaths by sex",
-      numberOfAidsDeathsBySexAndDetailedAgeGroup: "Number of AIDS deaths by sex and detailed age-group",
-      numberOfAidsDeathsAndPercentOfAllAidsDeathsByBroadAgeGroup: "Number of AIDS deaths and percent of all AIDS deaths by broad age-group",
-      numberOfAidsDeathsComparedWithOtherCausesOfDeaths: "Number of AIDS deaths compared with other causes of deaths",
+      numberOfAidsDeathsBySexAndDetailedAgeGroup:
+        "Number of AIDS deaths by sex and detailed age-group",
+      numberOfAidsDeathsAndPercentOfAllAidsDeathsByBroadAgeGroup:
+        "Number of AIDS deaths and percent of all AIDS deaths by broad age-group",
+      numberOfAidsDeathsComparedWithOtherCausesOfDeaths:
+        "Number of AIDS deaths compared with other causes of deaths",
       aids: "AIDS",
       percentOfTotalAidsDeaths: "% of total AIDS deaths",
       numberOfAidsDeaths: "Number of AIDS deaths",
@@ -287,10 +333,24 @@ const resources = {
       other: "Other",
       numberOfDeath: "% of Deaths",
       percentOfTotalDeathAllCauses: "% of total deaths all causes",
-      numberOfDeathsFromTbAidsMalariaAndOtherCausesAgeGroup: "Number of deaths from TB, AIDS, malaria and other causes - age-group",
-      distributionOfDeathsByTbAidsAndMalariaBySexAndAge: "Distribution of deaths by TB, AIDS and malaria by sex and age",
-      percentageOfDeathsFromTbAidsAndMalariaOutOfAllDeathsFromCommunicableDiseases: "Percentage of deaths from TB, AIDS and malaria out of all deaths from communicable diseases",
-      numberOfTbAndAidsDeathsAndPercentOfTheseDeathsOutOfAllDeaths15YearsAndAbove: "Number of TB and AIDS deaths  and percent of these  deaths out of all deaths: 15 years and above",
+      numberOfDeathsFromTbAidsMalariaAndOtherCausesAgeGroup:
+        "Number of deaths from TB, AIDS, malaria and other causes - age-group",
+      distributionOfDeathsByTbAidsAndMalariaBySexAndAge:
+        "Distribution of deaths by TB, AIDS and malaria by sex and age",
+      percentageOfDeathsFromTbAidsAndMalariaOutOfAllDeathsFromCommunicableDiseases:
+        "Percentage of deaths from TB, AIDS and malaria out of all deaths from communicable diseases",
+      numberOfTbAndAidsDeathsAndPercentOfTheseDeathsOutOfAllDeaths15YearsAndAbove:
+        "Number of TB and AIDS deaths  and percent of these  deaths out of all deaths: 15 years and above",
+      //Search
+      list: "List",
+      uniqueField: "Unique Field",
+      searchableFields: "Searchable fields",
+      //Help
+      help: "Help",
+      userManual: "User Manual",
+      causeOfDeathVersion: "Cause of Death App (version 1.0.1)",
+      appFeatures: "App features",
+      installation: "Installation",
     },
   },
 };

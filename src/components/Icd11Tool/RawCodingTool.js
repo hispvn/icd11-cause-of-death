@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { connect } from "react-redux";
+import { useTranslation } from "react-i18next";
 import * as ECT from "@whoicd/icd11ect";
 import "@whoicd/icd11ect/style.css";
 import "./index.css";
@@ -12,6 +13,7 @@ const { Search } = Input;
 let apiUrl = process.env.REACT_APP_ICD11_API_URL;
 
 const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) => {
+  const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState("");
   const [selectedEntity, setSelectedEntity] = useState(null);
 
@@ -78,7 +80,7 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) =>
             allowClear
             onSearch={ectSearch(searchValue)}
             value={searchValue}
-            placeholder="Type for start searching"
+            placeholder={t("type_to_start_searching")}
             onChange={(event) => {
               setSearchValue(event.target.value);
             }}
@@ -87,7 +89,7 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) =>
         <Col xs={12}>
           <Row wrap={false} justify="center" align="center" gutter={6}>
             <Col xs={6}>
-              <div style={{ lineHeight: 2, float: "right" }}>Your selection is:</div>
+              <div style={{ lineHeight: 2, float: "right" }}>{t("your_selection")}</div>
             </Col>
             <Col xs={18}>
               <Input

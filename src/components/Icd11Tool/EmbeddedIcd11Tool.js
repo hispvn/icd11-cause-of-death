@@ -1,9 +1,11 @@
 import { Modal } from "antd";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import "./index.css";
 import RawCodingTool from "./RawCodingTool";
 
 const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue }) => {
+  const { t } = useTranslation();
   const [selectedCod, setSelectedCod] = useState(null);
   const [isClear, setIsClear] = useState(false);
 
@@ -21,7 +23,7 @@ const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue }) => {
 
   return (
     <Modal
-      title="ICD 11 Coding Tool"
+      title={t("icd11_tool")}
       maskClosable={false}
       centered
       open={visible}

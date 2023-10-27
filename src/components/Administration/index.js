@@ -71,16 +71,16 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                   // changeStep(step === 4 && type === "default" ? 0 : step >= 1 ? step - 1 : 0);
                   changeStep(step === 4 && type === "default" ? 0 : step - 1);
                 }}
-              >
-                Back
-              </Button>
+              >{
+                t("back")
+              }</Button>
               { (step===6) ? 
                 <Button type="primary"
                   style={{ marginLeft: 10 }}
                   onClick={() => setOpen(true)}
-                >
-                  Install
-                </Button> 
+                >{
+                  t("install")
+                }</Button> 
                 :
                 <Button
                   onClick={() => {
@@ -116,9 +116,9 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                     else changeStep(step < 6 ? step + 1 : 6);
                   }}
                   style={{ marginLeft: 10 }}
-                >
-                  Next
-                </Button>
+                >{
+                  t("next")
+                }</Button>
               }
             </div>
           )}
@@ -299,14 +299,14 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                               // update program in dataStore
                               setProgramMetadata(metadata);
                               setSpinning(false);
-                              message.success('Successfully Save!');
+                              message.success(t("saveSuccessful"));
                             })
                           });
                         })
                       }}
-                    >
-                      Save
-                    </Button>
+                    >{
+                      t("save")
+                    }</Button>
                   </>
               }
             </div>

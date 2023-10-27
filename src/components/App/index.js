@@ -76,7 +76,7 @@ const App = ({
     setLoading(true);
     (async () => {
       /** FOR TRANSLATION */
-      const translationData = await metadataApi.get("/api/dataStore/WHO_ICD11_COD/translation");
+      let translationData = await metadataApi.get("/api/dataStore/WHO_ICD11_COD/translation");
       console.log("init translation DataStore");
       if (translationData.status) {
         let array = [];
@@ -97,6 +97,10 @@ const App = ({
           translations: array,
           languages: arrayLanguages,
         });
+        translationData = {
+          translations: array,
+          languages: arrayLanguages,
+        }
       }
       else{
         console.log(translationData);

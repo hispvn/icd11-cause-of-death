@@ -3,15 +3,17 @@ import {
     Dialog, DialogTitle, DialogContent, DialogActions,
     Divider
   } from "@mui/material";
+  import { useTranslation } from "react-i18next";
 
   const WarningDialog= ({open, handleOk, handleCancel}) => {
+    const { t } = useTranslation();
     return <Dialog
         open={open}
         fullWidth
         maxWidth="sm"
     >
-        <DialogTitle>Warning!!!</DialogTitle>
-        <DialogContent>Changes you made may not be saved.</DialogContent>
+        <DialogTitle>{t("warning")}</DialogTitle>
+        <DialogContent>{t("changes_you_made_may_not_be_saved")}</DialogContent>
         <Divider />
         <DialogActions>
             <Button
@@ -20,18 +22,18 @@ import {
                 onClick={() => {
                     handleCancel();
                 }}
-            >
-                Stay
-            </Button>
+            >{
+                t("stay")
+            }</Button>
             <Button
                 variant="contained"
                 size="large"
                 onClick={() => {
                     handleOk();
                 }}
-            >
-                Leave
-            </Button>
+            >{
+                t("leave")
+            }</Button>
         </DialogActions>
     </Dialog>
   }

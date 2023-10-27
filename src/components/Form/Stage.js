@@ -55,7 +55,7 @@ const Stage = ({
     currentTei: { attributes },
     currentEnrollment: { enrollmentDate: currentTeiDateOfDeath }
   } = data;
-  const { programMetadata, formMapping, icd11Options, femaleCode, icdApi_clientToken } = metadata;
+  const { programMetadata, formMapping, icd11Options, femaleCode, icdApi_clientToken, keyUiLocale } = metadata;
   const currentTeiSexAttributeValue = attributes[formMapping.attributes["sex"]];
   const currentTeiDateOfBirthAttributeValue = attributes[formMapping.attributes["dob"]];
   const currentTeiAgeAttributeValue = attributes[formMapping.attributes["age"]];
@@ -367,7 +367,7 @@ const Stage = ({
     let headers = new Headers();
     headers.append("accept", "application/json");
     headers.append("API-Version", "v2");
-    headers.append("Accept-Language", "en");
+    headers.append("Accept-Language", keyUiLocale);
     headers.append("Authorization", `Bearer ${icdApi_clientToken}`);
     const icdApiUrl = `https://id.who.int/icd/release/11/2023-01/doris?causeOfDeathCodeA=${causeOfDeaths[formMapping.dataElements["codA"]].code}&causeOfDeathCodeB=${causeOfDeaths[formMapping.dataElements["codB"]].code}&causeOfDeathCodeC=${causeOfDeaths[formMapping.dataElements["codC"]].code}&causeOfDeathCodeD=${causeOfDeaths[formMapping.dataElements["codD"]].code}`;
     const result = await fetch(icdApiUrl, {
@@ -410,7 +410,7 @@ const Stage = ({
     };
   }
 
-  const getUcodResult = () => currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] : "* Note: WHO Digital Open Rule Integrated cause of death Selection (DORIS)";
+  const getUcodResult = () => currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] : t("note_WHO_digital_open_rule_integrated_cause_of_death_selection_Doris");
 
   return (
     <div className="stage-section-container">
@@ -642,9 +642,9 @@ const Stage = ({
                     </tbody>
                   </table>
                   <div className="results-compute">
-                    <Button onClick={() => detectUnderlyingCauseOfDeath()}>
-                      Compute
-                    </Button> 
+                    <Button onClick={() => detectUnderlyingCauseOfDeath()}>{
+                      t("compute")
+                    }</Button> 
                     <div><pre>{getUcodResult()}</pre></div>
                   </div>
                 </div>
@@ -800,9 +800,9 @@ const Stage = ({
                 mutateEvent(currentEvents[0].event,"dataValues",{});
                 setLoading(false);
               }}
-            >
-              Clear
-            </Button>
+            >{
+              t("clear")
+            }</Button>
           </ButtonGroup>
         </div>
       </div>

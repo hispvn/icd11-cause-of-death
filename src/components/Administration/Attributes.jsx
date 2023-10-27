@@ -116,7 +116,7 @@ const Attributes = ({
                 style={{
                   width: "100%"
                 }}
-                placeholder="Select tracked entity type"
+                placeholder={t("selectTrackedEntityType")}
                 value={selectedTrackedEntityType}
                 onChange={(value) => changeTrackedEntityType(value)}
                 disabled={programMetadata}
@@ -148,7 +148,7 @@ const Attributes = ({
             programMetadata === null ? 
             <>
               <div className="administration-fullnameOption">
-                <div><strong>* Select Name Option</strong></div>
+                <div><strong>{t("selectNameOption")}</strong></div>
                 <div>
                   
                 </div>
@@ -184,11 +184,11 @@ const Attributes = ({
                   >
                     <Space direction="vertical">
                       <Space>
-                        <Radio value="noname">No Name</Radio>
-                        <Radio value="fullname">Fullname</Radio>
-                        <Radio value="firstlastname">First & Last Name</Radio>
+                        <Radio value="noname">{t("noname")}</Radio>
+                        <Radio value="fullname">{t("fullname")}</Radio>
+                        <Radio value="firstlastname">{t("fisrtlastname")}</Radio>
                       </Space>
-                      <Radio value="firstmidlastname">First, Middle & Last Name</Radio>
+                      <Radio value="firstmidlastname">{t("firstmiddlelastname")}</Radio>
                     </Space>
                   </Radio.Group>
                 }
@@ -220,7 +220,7 @@ const Attributes = ({
                             changeTrackedEntityTypes(newSelectedAttributes);
                           }}
                           value={getSelectValue("First Name")}
-                          placeholder="First Name"
+                          placeholder={t("firstname")}
                           disabled={selectedFullnameOption === "noname" }
                         >
                           {showedTrackedEntityAttributes("First Name")
@@ -257,7 +257,7 @@ const Attributes = ({
                           changeTrackedEntityTypes(newSelectedAttributes);
                         }}
                         value={getSelectValue("Middle Name")}
-                        placeholder="Middle Name"
+                        placeholder={t("middlename")}
                         disabled={selectedFullnameOption === "noname" || selectedFullnameOption === "fullname" || selectedFullnameOption === "firstlastname"}
                       >
                         {showedTrackedEntityAttributes("Middle Name")
@@ -294,7 +294,7 @@ const Attributes = ({
                           changeTrackedEntityTypes(newSelectedAttributes);
                         }}
                         value={getSelectValue("Last Name")}
-                        placeholder="Last Name"
+                        placeholder={t("lastname")}
                         disabled={selectedFullnameOption === "noname" || selectedFullnameOption === "fullname"}
                       >
                         {showedTrackedEntityAttributes("Last Name")
@@ -372,7 +372,7 @@ const Attributes = ({
                         changeTrackedEntityTypes(newSelectedAttributes);
                       }}
                       value={getSelectValue(attribute.name)}
-                      placeholder="Select attribute"
+                      placeholder={t("selectAttribute")}
                       disabled={programMetadata}
                     >
                       {showedTrackedEntityAttributes(attribute.name)
@@ -388,14 +388,14 @@ const Attributes = ({
           })}
           {
             (selectedTrackedEntityAttributes.filter( ([,source]) => source === "Sex" ).length > 0) && <div className="administration-femaleOption">
-              <div className="administration-femaleOption-name">* Female Option</div>
+              <div className="administration-femaleOption-name">{t("femaleOption")}</div>
               <div>
                 {
                   <Select
                     style={{
                       width: "100%"
                     }}
-                    placeholder="Select option"
+                    placeholder={t("selectOption")}
                     value={selectedFemaleOption}
                     onChange={(value) => setFemaleOption(value)}
                     disabled={programMetadata}
@@ -410,7 +410,7 @@ const Attributes = ({
           }
           {
             (type === 'default' && programMetadata === null) && <div className="administration-femaleOption">
-              <div className="administration-femaleOption-name">* Female Option</div>
+              <div className="administration-femaleOption-name">{t("femaleOption")}</div>
               <div>
               {
                 getDefaultTEAName("Female Option")
@@ -463,9 +463,9 @@ const Attributes = ({
                       size="small"
                       type="primary"
                       disabled={type === 'default' && programMetadata === null}
-                    >
-                      Add
-                    </Button>
+                    >{
+                      t("add")
+                    }</Button>
                     <Button
                       loading={isReloading}
                       size="small"
@@ -476,9 +476,9 @@ const Attributes = ({
                         setTeas(trackedEntityAttributes);
                       }}
                       disabled={type === 'default' && programMetadata === null}
-                    >
-                      Reload
-                    </Button>
+                    >{
+                      t("reload")
+                    }</Button>
                   </div>
                 );
               return null;

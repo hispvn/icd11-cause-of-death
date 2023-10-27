@@ -65,6 +65,7 @@ const Profile = ({
 
   const [loading,setLoading]=useState(false);
   const [exitWarning,setExitWarning]=useState(false);
+  const [certificate,setCertificate]=useState(false);
 
   useEffect(() => {
     if ( getTeaValue(formMapping.attributes["system_id"]) === "" ) {
@@ -81,6 +82,12 @@ const Profile = ({
         message.error("ERROR!!! Reported Date must be greater than incidentDate")
       }
     }
+
+    setCertificate (
+      currentEvents[0] &&
+      currentEvents[0].dataValues &&
+      currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD"]]
+    );
   }, [data])
 
   const getTeaMetadata = (attribute) =>
@@ -108,6 +115,7 @@ const Profile = ({
     );
   };
 
+  /*
   const hasUnderlying = () => {
     const currentEvent = data.currentEvents.find((event) => {
       return event.programStage === formMapping.programStage;
@@ -118,6 +126,7 @@ const Profile = ({
       currentEvent.dataValues[formMapping.dataElements["underlyingCOD"]]
     );
   };
+  */
 
   const renderDOBGroup = () => {
     const dob = getTeaMetadata(formMapping.attributes["dob"]);
@@ -307,7 +316,7 @@ const Profile = ({
               t("cancel")
             }
             </Button>
-            <Button disabled={!hasUnderlying()} onClick={openCertificateModal}>
+            <Button disabled={!certificate} onClick={openCertificateModal}>
             {
               t("printCertificate")
             }

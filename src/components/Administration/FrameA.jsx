@@ -174,7 +174,7 @@ const FrameA = ({
             onChange={(e) =>
               setTempSection([e.target.value, tempSection[1] || []])
             }
-            placeholder="Section name"
+            placeholder={t("selectName")}
           />
         }
         visible={isModalVisible}

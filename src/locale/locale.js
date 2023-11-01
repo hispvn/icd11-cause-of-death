@@ -133,7 +133,7 @@ const resources = {
       selectAttribute: "Select attribute",
       noname: "No Name",
       fullname: "Fullname",
-      fisrtlastname: "First & Last Name",
+      firstlastname: "First & Last Name",
       firstmiddlelastname: "First, Middle & Last Name",
       firstname: "First Name",
       middlename: "Middle Name",

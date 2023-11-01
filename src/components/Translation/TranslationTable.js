@@ -28,6 +28,7 @@ const TranslationTable = ({ type, translations, changeTranslation, languages }) 
   });
 
   const data = TRANSLATION_KEYS_MAPPING[type].map((key) => {
+    console.log(key);
     const foundTranslation = translations.find((t) => t.key === key);
     const object = { key };
     languages.forEach((lang) => {

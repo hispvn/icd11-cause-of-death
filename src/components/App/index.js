@@ -103,7 +103,6 @@ const App = ({
         }
       }
       else{
-        console.log(translationData);
         Object.entries(localeFile.en.translation).forEach((value) => {
           let findKey = translationData.translations.find(e=>e.key === value[0]);
           if(!findKey){
@@ -199,7 +198,6 @@ const App = ({
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/formMapping"),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/fullnameOption"),
             ]).then( async (res) => {
-              console.log(res[0])
               // Set userRoles
               let roles = {
                 admin: false,
@@ -245,7 +243,6 @@ const App = ({
                 "filter=optionSet.id:eq:" + res[2].id,
               ])
               .then(({ options }) => {
-                console.log("options",options);
                 getICD11Options(options);
               });
               

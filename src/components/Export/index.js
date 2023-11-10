@@ -59,16 +59,6 @@ const Export = ({ route }) => {
               {OPTIONS}
             </Select>
           </Col>
-          {/* <Col>
-            <D2PeriodPicker
-              selectedPeriod={selectedPeriod ? selectedPeriod : null}
-              openFuturePeriods={0}
-              periodType={periodType}
-              onPickPeriod={(value) => {
-                selectPeriod(parsePeriod(value));
-              }}
-            />
-          </Col> */}
           <Col>
             <Button
               loading={isRunning}
@@ -81,23 +71,6 @@ const Export = ({ route }) => {
                   const year = selectedPeriods[i];
                   data[year] = await getData(year);
                 }
-                // const totalRows = _(data).toPairs().map(([year, yearlyData]) => yearlyData.listGrid.rows).map()
-                // data.total = Object.values(data).map(([year, yearlyData]) =>
-                //   _(data).toPairs()
-                //     .groupBy(function ([code]) {
-                //       return code;
-                //     })
-                //     .map(
-                //       (values, code) =>
-                //         console.log("values", values) ||
-                //         _.zipWith(...values, function (...params) {
-                //           return _.sum(params);
-                //         })
-                //     )
-                //     .value()
-                // );
-                // console.log("data", data);
-                // await new Promise((rs) => setTimeout(() => rs(), 1000));
                 setData(data);
                 setIsRunning(false);
                 setIsEnableExport(true);

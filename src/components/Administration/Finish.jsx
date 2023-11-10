@@ -448,7 +448,6 @@ const Finish = ({
 }
 
 const mapStateToProps = (state) => {
-    // console.log(state)
     return {
         metadata: state.admin.installingFile,
         formMapping: state.metadata.formMapping,

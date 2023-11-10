@@ -14,7 +14,6 @@ const GeoJsonLayer = ({ layer }) => {
 };
 
 const ThematicLayer = ({ layer }) => {
-  console.log(layer);
   const map = useMap();
   const geoJson = useRef();
 
@@ -88,7 +87,6 @@ const Map = ({ data }) => {
         controls.push(<ThematicLegendControl layer={layer} />);
       }
     });
-    console.log(controls);
     return controls;
   };
 

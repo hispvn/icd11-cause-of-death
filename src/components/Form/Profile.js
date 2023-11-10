@@ -43,25 +43,6 @@ const Profile = ({
   const { currentTei, currentEnrollment, currentEvents } = data;
   const { programMetadata, formMapping, fullnameOption
   } = metadata;
-  // const attributes = fullnameOption ? [
-  //   formMapping.attributes["system_id"],
-  //   formMapping.attributes["given_name"],
-  //   formMapping.attributes["sex"],
-  //   formMapping.attributes["address"]
-  // ] : 
-  // [
-  //   formMapping.attributes["system_id"],
-  //   formMapping.attributes["given_name"],
-  //   formMapping.attributes["family_name"],
-  //   formMapping.attributes["sex"],
-  //   formMapping.attributes["address"]
-  // ];
-
-  // const { run } = useRuleEngine(data, programMetadata);
-
-  // const result = run();
-
-  // console.log(result);
 
   const [loading,setLoading]=useState(false);
   const [exitWarning,setExitWarning]=useState(false);
@@ -303,7 +284,6 @@ const Profile = ({
             <Button
               type="danger"
               onClick={() => {
-                console.log(currentTei,currentEnrollment,currentEvents);
                 if ( currentTei.isDirty || currentEnrollment.isDirty || currentEvents[0].isDirty ) {
                   setExitWarning(true);
                 }

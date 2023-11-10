@@ -66,7 +66,6 @@ const Icd11Tool = ({ visible, setVisible, onSelect }) => {
       visible={visible}
       onOk={() => {
         setVisible(false);
-        // getEntity(selectedCod.id).then((json) => console.log(json));
         onSelect(selectedCod);
       }}
       onCancel={() => setVisible(false)}

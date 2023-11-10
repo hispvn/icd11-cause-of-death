@@ -107,7 +107,6 @@ const Certificate = props => {
 
     return (
         <div className="administration-certificate-container">
-            {/* {console.log(props.certificateTemplate)} */}
             {(props.certificateTemplateAdmin) && <Stepper nonLinear activeStep={type} orientation="vertical">
                 <Step>
                     <StepButton onClick={() => setType(0)}>{t("defaultCertificate")}</StepButton>

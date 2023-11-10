@@ -79,11 +79,6 @@ const Stage = ({
   const isShowMaternalDeath = () => currentTeiSexAttributeValue === femaleCode && age >= 10;
   const isShowFetalOrInfantDeath = () => age <= 1;
 
-  // TESTING
-  useEffect(() => {
-    console.log("Event changed", data.currentEvents[0]);
-  },[data.currentEvents[0]])
-
   useEffect(() => {
     if (currentEvent && !isShowFetalOrInfantDeath()) {
       [

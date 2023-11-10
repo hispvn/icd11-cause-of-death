@@ -24,19 +24,6 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) =>
   const debounceSearch = useCallback(debounce(search, 275), []);
 
   useEffect(() => {
-    // console.log("Tool",defaultValue);
-    // if (isClear) {
-    //   setSearchValue("");
-    //   setSelectedEntity(null);
-    //   ECT.Handler.clear(iNo);
-    // } else {
-    //   setSearchValue(defaultValue ? defaultValue.title : "");
-    //   search(defaultValue ? defaultValue.title : "");
-    //   setSelectedEntity(defaultValue || null);
-    // }
-  }, [isClear]);
-
-  useEffect(() => {
     if (defaultValue.code === "") {
       setSearchValue("");
       setSelectedEntity(null);

@@ -553,12 +553,9 @@ class PeriodPicker extends React.Component {
     ) {
       future = this.getYearOfFutureWeekly() - currentYear;
     }
-    console.log("currentYear", currentYear);
-    console.log("currentYear", future);
     for (let year = 1970; year <= currentYear + future; year++) {
       years[year] = year;
     }
-    console.log("years", years);
 
     return this.renderOptionPicker("year", years);
   }

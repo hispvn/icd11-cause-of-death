@@ -66,9 +66,6 @@ const ControlBar = ({
   const [doc, setDoc] = useState(null);
   const [exitWarning, setExitWarning] = useState(false);
 
-  useEffect(() => {
-    console.log(userRoles);
-  }, [userRoles]);
 
   return (
     <div className="control-bar-container">
@@ -90,17 +87,9 @@ const ControlBar = ({
             />
           </div>
         }
-        onVisibleChange={(visible) => {
-          console.log(visible);
-        }}
-        // onCancel={() => {
-        //   setSelectedOrgUnit(null);
+        // onVisibleChange={(visible) => {
+        //   console.log(visible);
         // }}
-        // onConfirm={() => {
-        //   console.log("confirm");
-        // }}
-        // okText={t("ok")}
-        // cancelText={t("cancel")}
       >
         <div className="button-container">
           <Button variant="outlined" disabled={!programMetadata}>

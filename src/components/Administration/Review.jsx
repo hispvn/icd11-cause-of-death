@@ -83,7 +83,6 @@ const Review = ({
 
       // generate metadata (base on setting stored in redux)
       if (installType === "custom") {
-        console.log(trackedEntityAttributes);
         const ageAttribute = await metadataApi.get(`/api/trackedEntityAttributes.json`, { paging: false }, [`filter=id:eq:${trackedEntityAttributes.find(([,name]) => name === "Age in years")[0]}`,"fields=:owner,!created,!lastUpdated,!createdBy,!lastUpdatedBy"]);
         data = generateCustomMetadata({trackedEntityAttributes,dataElements,trackedEntityType,fullnameOption}, generateNewUID,ageAttribute.trackedEntityAttributes[0]);
         data.metadata.programIndicators = updateProgramIndicators(data.metadata.programIndicators,trackedEntityAttributes.find(([,name]) => name === "Date of Birth")[0],trackedEntityAttributes.find(([,name]) => name === "Sex")[0],femaleOption);
@@ -344,7 +343,6 @@ const Review = ({
                                   fixedDEs.find(
                                     ({ id }) => id === de.id
                                   ).name
-                                  // console.log(de)
                                 }
                               </div>
                             ))}
@@ -464,7 +462,6 @@ const Review = ({
 };
 
 const mapStateToProps = state => {
-  console.log(state);
   return {
     admin: state.admin,
     allTeas: state.metadata.trackedEntityAttributes,

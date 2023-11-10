@@ -10,9 +10,6 @@ const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue }) => {
   const [isClear, setIsClear] = useState(false);
 
   useEffect(() => {
-    console.log("Modal");
-    console.log(defaultValue);
-    console.log(visible);
     if (!visible) {
       setIsClear(true);
     } else {

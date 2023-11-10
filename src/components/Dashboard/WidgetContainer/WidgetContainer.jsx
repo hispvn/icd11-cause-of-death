@@ -29,7 +29,6 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, f
 
       // Generate template
       const result = await currentChild.getData();
-      console.log(femaleCode);
 
       let flag = true;
       if ( analyticData[`page${props.widget.i.split(".")[0]}`] ) {

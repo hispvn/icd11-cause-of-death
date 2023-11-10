@@ -102,7 +102,7 @@ const AssignUsers = ({
                 pageSize: 20,
               }}
               listStyle={{
-                width: "100%",
+                width: "50%",
                 height: "63vh"
               }}
               dataSource={existedUserGroups.map(({ id, displayName }) => ({
@@ -144,7 +144,7 @@ const AssignUsers = ({
                 pageSize: 20,
               }}
               listStyle={{
-                width: "100%",
+                width: "50%",
                 height: "63vh"
               }}
               dataSource={showedUsers("capture").map(({ id, displayName }) => ({
@@ -185,7 +185,7 @@ const AssignUsers = ({
                 pageSize: 20,
               }}
               listStyle={{
-                width: "100%",
+                width: "50%",
                 height: "63vh"
               }}
               dataSource={showedUsers("view").map(({ id, displayName }) => ({

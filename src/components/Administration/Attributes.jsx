@@ -69,6 +69,7 @@ const Attributes = ({
         setFemaleOptions(json.optionSet.options)
       })
     }
+    console.log(selectedTrackedEntityAttributes);
   },[selectedTrackedEntityAttributes])
 
   useEffect(() => {

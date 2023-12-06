@@ -2,7 +2,7 @@ import moment from "moment";
 /* REDUX */
 import { connect } from "react-redux";
 /*       */
-import { Button, Col, Row, Select } from "antd";
+import { Button, Col, Row, Select, message } from "antd";
 import { CaretRightOutlined, FileExcelOutlined } from "@ant-design/icons";
 import "./index.css";
 import { useState } from "react";
@@ -67,13 +67,22 @@ const Export = ({ route }) => {
                 setIsRunning(true);
                 setData(null);
                 const data = {};
+                let error = false;
                 for (let i = 0; i < selectedPeriods.length; i++) {
                   const year = selectedPeriods[i];
                   data[year] = await getData(year);
+                  if ( data[year].status && data[year].status === "ERROR" ) {
+                    error = true;
+                  }
                 }
-                setData(data);
+                if( error ) {
+                  message.error("ERROR!!! Please run analytics before using ANACoD")
+                }
+                else {
+                  setData(data);
+                  setIsEnableExport(true);
+                }
                 setIsRunning(false);
-                setIsEnableExport(true);
               }}
               type="primary"
               icon={<CaretRightOutlined />}

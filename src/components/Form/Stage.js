@@ -195,7 +195,7 @@ const Stage = ({
     if (currentEvent) {
       if (result) {
         if ( result.code !== currentUnderlyingCoD ) {
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD"], result.label);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD"], result.code);
           mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_code"], result.code);
           mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_chapter"], icd11Options.find( option => option.code === result.code).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["chapter"] ).value);
           mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_group"], icd11Options.find( option => option.code === result.code).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["group"] ).value);

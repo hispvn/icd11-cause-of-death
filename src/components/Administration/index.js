@@ -44,6 +44,7 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
     if ( programMetadata !== null ) { 
       setOpen(false);
       changeStep(0);
+      console.log(admin.fullnameOption);
     }
   },[programMetadata])
 
@@ -197,103 +198,34 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                             trackedEntityType: {
                               id: admin.trackedEntityType
                             },
-                            programTrackedEntityAttributes: [
-                              {
+                            programTrackedEntityAttributes: admin.trackedEntityAttributes.filter( ([destination,]) => destination !== undefined ).map( ([destination,],index) => 
+                              ({
                                 "mandatory": true,
                                 "searchable": true,
                                 "renderOptionsAsRadio": false,
                                 "displayInList": true,
-                                "sortOrder": 1,
+                                "sortOrder": index + 1,
                                 "program": { "id": programMetadata.id },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[0][0] },
+                                "trackedEntityAttribute": { "id": destination },
                                 "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": true,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": true,
-                                "sortOrder": 2,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[1][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": true,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": true,
-                                "sortOrder": 3,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[2][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": true,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": true,
-                                "sortOrder": 4,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[3][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": false,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": false,
-                                "sortOrder": 5,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[4][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": false,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": false,
-                                "sortOrder": 6,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[5][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": true,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": true,
-                                "sortOrder": 7,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[6][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              },
-                              {
-                                "mandatory": false,
-                                "searchable": false,
-                                "renderOptionsAsRadio": false,
-                                "displayInList": false,
-                                "sortOrder": 8,
-                                "program": { "id": programMetadata.id  },
-                                "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[7][0] },
-                                "programTrackedEntityAttributeGroups": []
-                              }
-                            ]
+                              })
+                            )
                           };
                           //other attributes
-                          admin.trackedEntityAttributes.slice(8,admin.trackedEntityAttributes.length).forEach( (tea, index) => {
+                          admin.trackedEntityAttributes.slice(10,admin.trackedEntityAttributes.length).forEach( (tea, index) => {
                             program.programTrackedEntityAttributes.push({
                               "mandatory": false,
                               "searchable": false,
                               "renderOptionsAsRadio": false,
                               "displayInList": false,
-                              "sortOrder": (9 + index),
+                              "sortOrder": program.programTrackedEntityAttributes.length + 1,
                               "program": { "id": programMetadata.id  },
                               "trackedEntityAttribute": { "id": tea[0] },
                               "programTrackedEntityAttributeGroups": []
                             })
                           });
                           // update program in DHIS2
+                          console.log(program.programTrackedEntityAttributes);
                           metadataApi.push(`/api/metadata?importStrategy=IMPORT_AND_UPDATE`, { programs: [program]}).then( res => {
                             metadataApi.getProgramMetadata(programMetadata.id).then( metadata => {
                               // update program in dataStore

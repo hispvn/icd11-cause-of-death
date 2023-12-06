@@ -1706,7 +1706,6 @@
       "publicAccess": "r-r-----",
       "valueType": "TEXT",
       "zeroIsSignificant": false,
-      "categoryCombo": { "id": "bjDvmb4bfuf" },
       "translations": [],
       "userGroupAccesses": [],
       "attributeValues": [],
@@ -1723,7 +1722,6 @@
       "publicAccess": "r-r-----",
       "valueType": "TEXT",
       "zeroIsSignificant": false,
-      "categoryCombo": { "id": "bjDvmb4bfuf" },
       "translations": [],
       "userGroupAccesses": [],
       "attributeValues": [],
@@ -1740,7 +1738,6 @@
       "publicAccess": "r-r-----",
       "valueType": "TEXT",
       "zeroIsSignificant": false,
-      "categoryCombo": { "id": "bjDvmb4bfuf" },
       "translations": [],
       "userGroupAccesses": [],
       "attributeValues": [],
@@ -1757,7 +1754,6 @@
       "publicAccess": "r-r-----",
       "valueType": "TEXT",
       "zeroIsSignificant": false,
-      "categoryCombo": { "id": "bjDvmb4bfuf" },
       "translations": [],
       "userGroupAccesses": [],
       "attributeValues": [],
@@ -1775,7 +1771,6 @@
       "valueType": "LONG_TEXT",
       "formName": "Underlying cause of death - ICD-11 Result Report from Doris API",
       "zeroIsSignificant": false,
-      "categoryCombo": { "id": "bjDvmb4bfuf" },
       "translations": [],
       "userGroupAccesses": [],
       "attributeValues": [],
@@ -1793,9 +1788,6 @@
       "valueType": "TEXT",
       "formName": "Cause A - entity identify",
       "zeroIsSignificant": false,
-      "categoryCombo": {
-        "id": "bjDvmb4bfuf"
-      },
       "translations": [ ],
       "userGroupAccesses": [],
       "attributeValues": [ ],
@@ -1813,9 +1805,6 @@
       "valueType": "TEXT",
       "formName": "Cause B - entity identify",
       "zeroIsSignificant": false,
-      "categoryCombo": {
-        "id": "bjDvmb4bfuf"
-      },
       "translations": [ ],
       "userGroupAccesses": [],
       "attributeValues": [ ],
@@ -1833,9 +1822,6 @@
       "valueType": "TEXT",
       "formName": "Cause C - entity identify",
       "zeroIsSignificant": false,
-      "categoryCombo": {
-        "id": "bjDvmb4bfuf"
-      },
       "translations": [ ],
       "userGroupAccesses": [],
       "attributeValues": [ ],
@@ -1853,9 +1839,6 @@
       "valueType": "TEXT",
       "formName": "Cause D - Entity Identify",
       "zeroIsSignificant": false,
-      "categoryCombo": {
-        "id": "bjDvmb4bfuf"
-      },
       "translations": [ ],
       "userGroupAccesses": [],
       "attributeValues": [ ],

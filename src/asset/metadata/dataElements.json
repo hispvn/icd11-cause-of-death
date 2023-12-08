@@ -1602,8 +1602,8 @@
     },
     {
       "id": "Iu7raZhcHn9",
-      "name": "CoD - Underlying cause of death - ICD-10",
-      "shortName": "CoD - Underlying cause of death - ICD-10",
+      "name": "CoD - Underlying cause of death - ICD-11",
+      "shortName": "CoD - Underlying cause of death - ICD-11",
       "aggregationType": "SUM",
       "domainType": "TRACKER",
       "publicAccess": "r-------",
@@ -1613,12 +1613,12 @@
         {
           "property": "SHORT_NAME",
           "locale": "cs",
-          "value": "Základní příčina smrti - ICD-10"
+          "value": "Základní příčina smrti - ICD-11"
         },
         {
           "property": "NAME",
           "locale": "cs",
-          "value": "Základní příčina smrti - ICD-10"
+          "value": "Základní příčina smrti - ICD-11"
         },
         {
           "locale": "fr",

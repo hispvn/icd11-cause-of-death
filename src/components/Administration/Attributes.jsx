@@ -69,7 +69,6 @@ const Attributes = ({
         setFemaleOptions(json.optionSet.options)
       })
     }
-    console.log(selectedTrackedEntityAttributes);
   },[selectedTrackedEntityAttributes])
 
   useEffect(() => {
@@ -187,7 +186,7 @@ const Attributes = ({
                       <Space>
                         <Radio value="noname">{t("noname")}</Radio>
                         <Radio value="fullname">{t("fullname")}</Radio>
-                        <Radio value="firstlastname">{t("fisrtlastname")}</Radio>
+                        <Radio value="firstlastname">{t("firstlastname")}</Radio>
                       </Space>
                       <Radio value="firstmidlastname">{t("firstmiddlelastname")}</Radio>
                     </Space>

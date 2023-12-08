@@ -44,7 +44,6 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
     if ( programMetadata !== null ) { 
       setOpen(false);
       changeStep(0);
-      console.log(admin.fullnameOption);
     }
   },[programMetadata])
 
@@ -225,7 +224,6 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                             })
                           });
                           // update program in DHIS2
-                          console.log(program.programTrackedEntityAttributes);
                           metadataApi.push(`/api/metadata?importStrategy=IMPORT_AND_UPDATE`, { programs: [program]}).then( res => {
                             metadataApi.getProgramMetadata(programMetadata.id).then( metadata => {
                               // update program in dataStore

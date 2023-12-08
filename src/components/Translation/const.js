@@ -19,7 +19,6 @@ const TRANSLATION_KEYS_MAPPING = {
     "exit",
     "page",
     "profile",
-    "save",
     "clear",
     "cancel",
     "exitApp",
@@ -34,7 +33,6 @@ const TRANSLATION_KEYS_MAPPING = {
     "mannerOfDeath",
     "fetalOrInfantDeath",
     "lastUpdated",
-    "causeOfDeathApp",
     "inputSearchText",
     "select",
     "triggerDesc",
@@ -84,7 +82,9 @@ const TRANSLATION_KEYS_MAPPING = {
     "note_WHO_digital_open_rule_integrated_cause_of_death_selection_Doris",
     "icd11_tool",
     "your_selection",
-    "type_to_start_searching"
+    "type_to_start_searching",
+    "uniqueField",
+    "searchableFields"
   ],
   anacodExport: ["pleaseSelectYear", "run", "anacodExportExcel"],
   dashboard: [
@@ -312,7 +312,12 @@ const TRANSLATION_KEYS_MAPPING = {
     "firstmiddlelastname",
     "firstname",
     "middlename",
-    "lastname"
+    "lastname",
+    "help",
+    "userManual",
+    "causeOfDeathVersion",
+    "appFeatures",
+    "installation"
   ],
   translation: [
     "translation",

@@ -9,6 +9,7 @@ import Form from "../Form";
 import Export from "../Export";
 import Dashboard from "../Dashboard";
 import Translation from "../Translation";
+import { TRANSLATIONS } from "../Translation/const";
 import { Hooks, Components } from "tracker-capture-app-core";
 import { InitTranslation } from "../../locale/i18n";
 
@@ -85,11 +86,20 @@ const App = ({
             label: "English",
             key: "en",
           },
+          {
+            label: "French",
+            key: "fr",
+          },
         ];
+        
         Object.entries(localeFile.en.translation).forEach((value) => {
+          const findKey = TRANSLATIONS.find( ({key}) => key === value[0] );
           let object = {
             key: value[0],
-            translation: { en: value[1] },
+            translation: findKey ? {
+              en: findKey.translation.en,
+              fr: findKey.translation.fr
+            } : { en: value[1] }
           };
           array.push(object);
         });
@@ -111,8 +121,6 @@ const App = ({
               translation: { en: value[1] },
             };
             translationData.translations.push(object);
-          }else{
-            findKey.translation.en = value[1]
           }
         })
         await metadataApi.push("/api/dataStore/WHO_ICD11_COD/translation", {

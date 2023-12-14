@@ -28,7 +28,6 @@ const resources = {
       mostFrequentCauseOfDeath: "Most frequent cause of death",
       deathsByIcd11Chapter: "Deaths by ICD-11 Chapter",
       next: "Next",
-      femaleOption: "Female option",
       add: "Add",
       reload: "Reload",
       translation: "Translation",

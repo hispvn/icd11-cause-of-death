@@ -4,7 +4,7 @@ import { initReactI18next } from "react-i18next";
 
 
 const InitTranslation = async (result,language) => {
-  console.log("init translation", language);
+  console.log("init translation", language, result);
   const resources = convertTranslationFormat(result);
   await i18n
     .use(initReactI18next) // passes i18n down to react-i18next

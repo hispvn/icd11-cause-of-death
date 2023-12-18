@@ -328,7 +328,7 @@ const Translation = () => {
                   setSelectedExportLanguage(value);
                 }}
               >
-                {Object.keys(LOCALES).map((key) => {
+                {Object.keys(LOCALES).filter( key => languages.find( ({key: languageKey}) => languageKey === key ) ).map((key) => {
                   return <Option value={key}>{LOCALES[key]}</Option>;
                 })}
               </Select>

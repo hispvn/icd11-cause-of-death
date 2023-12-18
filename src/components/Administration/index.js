@@ -210,19 +210,19 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                               })
                             )
                           };
-                          //other attributes
-                          admin.trackedEntityAttributes.slice(10,admin.trackedEntityAttributes.length).forEach( (tea, index) => {
-                            program.programTrackedEntityAttributes.push({
-                              "mandatory": false,
-                              "searchable": false,
-                              "renderOptionsAsRadio": false,
-                              "displayInList": false,
-                              "sortOrder": program.programTrackedEntityAttributes.length + 1,
-                              "program": { "id": programMetadata.id  },
-                              "trackedEntityAttribute": { "id": tea[0] },
-                              "programTrackedEntityAttributeGroups": []
-                            })
-                          });
+                          // //other attributes
+                          // admin.trackedEntityAttributes.slice(10,admin.trackedEntityAttributes.length).forEach( (tea, index) => {
+                          //   program.programTrackedEntityAttributes.push({
+                          //     "mandatory": false,
+                          //     "searchable": false,
+                          //     "renderOptionsAsRadio": false,
+                          //     "displayInList": false,
+                          //     "sortOrder": program.programTrackedEntityAttributes.length + 1,
+                          //     "program": { "id": programMetadata.id  },
+                          //     "trackedEntityAttribute": { "id": tea[0] },
+                          //     "programTrackedEntityAttributeGroups": []
+                          //   })
+                          // });
                           // update program in DHIS2
                           metadataApi.push(`/api/metadata?importStrategy=IMPORT_AND_UPDATE`, { programs: [program]}).then( res => {
                             metadataApi.getProgramMetadata(programMetadata.id).then( metadata => {

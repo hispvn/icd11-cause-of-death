@@ -246,7 +246,8 @@ const App = ({
               setFormMapping(res[4]);
               changeRoute("list");
 
-              await metadataApi.get("/api/options.json", { paging: false }, [
+              await getICD11Options(require("../../asset/metadata/icd11_options.json"));
+              metadataApi.get("/api/options.json", { paging: false }, [
                 "fields=id,name,code,attributeValues[value,attribute[id]]",
                 "filter=optionSet.id:eq:" + res[2].id,
               ])

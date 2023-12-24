@@ -2,10 +2,10 @@ import moment from "moment";
 /* REDUX */
 import { connect } from "react-redux";
 /*       */
-import { Button, Col, Row, Select, message } from "antd";
+import { Button, Col, Row, Select, message, Modal } from "antd";
 import { CaretRightOutlined, FileExcelOutlined } from "@ant-design/icons";
 import "./index.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { writeFile } from "../../utils/excel.utility";
 import { Hooks } from "tracker-capture-app-core";
 import Content from "./Content";
@@ -20,7 +20,9 @@ for (let i = moment().year(); i >= 1970; i--) {
   OPTIONS.push(<Option key={i}>{i}</Option>);
 }
 
-const Export = ({ route }) => {
+const countryCodes = require("../../asset/metadata/iso3_code.json");
+
+const Export = ({ route, orgUnits }) => {
   const { t } = useTranslation();
   const { dataApi } = useApi();
   const getData = async (year) =>
@@ -32,6 +34,29 @@ const Export = ({ route }) => {
   const [isRunning, setIsRunning] = useState(false);
   const [data, setData] = useState(null);
   const [isEnableExport, setIsEnableExport] = useState(false);
+  const [countryCode, setCountryCode] = useState(null);
+  const [countryCodeModal,setCountryCodeModal] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      const countryCodeFromDataStore = await dataApi.pull("/api/dataStore/WHO_ICD11_COD/countryCode");
+      if (countryCodeFromDataStore.status) {
+        const cc = orgUnits.find( ({level}) => level === 1 ) ? orgUnits.find( ({level}) => level === 1 ).code : undefined;
+        const isValid = cc && countryCodes.find(({code}) => code === cc);
+        if ( isValid ) {
+          setCountryCode(isValid);
+          await dataApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", isValid);
+        }
+        else {
+          setCountryCodeModal(true);
+        }
+      }
+      else {
+        setCountryCode(countryCodeFromDataStore);
+      }
+    })();
+  }, []);
+
   return (
     <div className="export-wrapper">
       <div className="export-container">
@@ -128,7 +153,45 @@ const Export = ({ route }) => {
             </Button>
           </Col>
         </Row>
-        <Content loading={isRunning} loaded={!!data} data={data} />
+        { countryCode && <Content loading={isRunning} loaded={!!data} data={data} countryCode={countryCode} /> }
+        <Modal
+          title="Select the country code"
+          visible={countryCodeModal}
+          okText={"Select"}
+          onOk={() => {
+            dataApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", countryCode);
+            setCountryCodeModal(false);
+          }}
+          okButtonProps={{
+            disabled: countryCode === null
+          }}
+          cancelButtonProps={{
+            disabled: true
+          }}
+        >
+          <p>Can't find the country code from the root orgUnit or the code is invalid.</p>
+          <p>Please select the country code from the list here. This selection will be stored for next times, and this popup won't show again.</p>
+          <div>
+            <Select 
+              showSearch
+              style={{
+                width: "100%",
+              }}
+              placeholder="Select a country code"
+              options={countryCodes.map( countryCode => ({
+                value: countryCode.code,
+                label: `${countryCode.code} | ${countryCode.country}`
+              }) )}
+              onChange={(value) => {
+                setCountryCode(countryCodes.find(({code}) => code === value));
+              }}
+              optionFilterProp="label"
+              filterOption={(input, option) =>
+                (option?.label ?? '').toLowerCase().includes(input.toLowerCase())
+              }
+            />
+          </div>
+        </Modal>
       </div>
     </div>
   );
@@ -137,6 +200,7 @@ const Export = ({ route }) => {
 const mapStateToProps = (state) => {
   return {
     route: state.route,
+    orgUnits: state.metadata.orgUnits
   };
 };
 

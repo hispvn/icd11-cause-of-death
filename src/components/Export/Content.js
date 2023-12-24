@@ -4,7 +4,7 @@ import withLoading from "../../hocs/withLoading";
 
 const { TabPane } = Tabs;
 
-const Content = ({ data }) => {
+const Content = ({ data, countryCode }) => {
   return (
     <Tabs type="card">
       {Object.keys(data)
@@ -30,7 +30,15 @@ const Content = ({ data }) => {
                   x: "max-content",
                   y: "calc(100vh - 245px)",
                 }}
-                dataSource={yearlyData.listGrid.rows}
+                dataSource={yearlyData.listGrid.rows.map( row => {
+                  return [
+                    ...[
+                      countryCode.country,
+                      countryCode.code
+                    ],
+                    ...row.slice(2,row.length)
+                  ]
+                })}
               />
             </TabPane>
           );

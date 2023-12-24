@@ -37,6 +37,10 @@ const DeathCertificate = ({
       bodyStyle={{
         height: "100%",
       }}
+      style={{
+        top: 20,
+      }}
+      width={1000}
       visible={open}
       footer={false}
       closable={false}
@@ -67,7 +71,7 @@ const DeathCertificate = ({
               transform: "translateY(-50%)",
             }}
           >
-            <img src={certificateTemplate.logo} alt="logo" style={{width: "10%"}} />
+            <img src={certificateTemplate.logo} alt="logo" style={{width: "20%"}} />
           </div>
           <Typography.Title
             style={{ marginBottom: 0, textAlign: "center" }}
@@ -80,10 +84,12 @@ const DeathCertificate = ({
         {
           certificateTemplate.info.map( row => 
             <Row>
-              <Col span={10}>
-                <strong>{row.label}:</strong>
+              <Col span={8}>
+                <div style={{fontSize: 20}}><strong>{row.label}:</strong></div>
               </Col>
-              <Col span={14}>{getVal(row)}</Col>
+              <Col span={16}>
+                <div style={{fontSize: 20}}>{getVal(row)}</div>
+              </Col>
             </Row>
           )
         }
@@ -92,11 +98,11 @@ const DeathCertificate = ({
         {
           certificateTemplate.footer.map( row => 
             <Row gutter={8}>
-              <Col style={{ textAlign: "right" }} offset={10} span={8}>
-                <strong>{row.label}:</strong>
+              <Col style={{ textAlign: "right" }} offset={8} span={8}>
+                <div style={{fontSize: 20}}><strong>{row.label}:</strong></div>
               </Col>
-              <Col style={{ textAlign: "right" }} span={6}>
-                {getVal(row)}
+              <Col style={{ textAlign: "right" }} span={8}>
+                <div style={{fontSize: 20}}>{getVal(row)}</div>
               </Col>
             </Row>
           )

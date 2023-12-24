@@ -145,7 +145,7 @@ const App = ({
           "fields=id,displayName,organisationUnits~size",
         ]),
         metadataApi.get("/api/organisationUnits.json", { paging: false }, [
-          "fields=id,displayName,path,level",
+          "fields=id,displayName,path,level,code",
         ]),
         metadataApi.get("/api/trackedEntityTypes.json", { paging: false }, [
           "fields=id,displayName",

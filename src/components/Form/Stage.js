@@ -336,9 +336,9 @@ const Stage = ({
     );
   };
 
+  // This works with the Maternal Death rule once the section has attribute "programRule" with value "MaternalDeath" in data store
   const renderOtherSection = section => {
-    return (
-      <div className="stage-section">
+    return section.programRule !== "MaternalDeath" || isShowMaternalDeath() ? <div className="stage-section">
         <div className="stage-section-title">{section.name}</div>
         <div className="stage-section-content">
           <table className="other-section-table">
@@ -354,8 +354,7 @@ const Stage = ({
             </tbody>
           </table>
         </div>
-      </div>
-    )
+      </div> : <></>
   }
 
   const detectUnderlyingCauseOfDeath = async () => {

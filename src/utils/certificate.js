@@ -1,9 +1,15 @@
 import { PDFDocument, StandardFonts } from "pdf-lib";
 
-async function fillPdf(pdfFileTemplate) {
+async function fillPdf(pdfFileTemplate,labels) {
     const reponsePDFBuffer = await pdfFileTemplate.arrayBuffer();
 
     const pdfDoc = await PDFDocument.load(reponsePDFBuffer);
+
+    const pages = pdfDoc.getPages();
+
+    const PAGE_HEIGHT = pages[0].getSize().height;
+
+    const Helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
 
     // const HelveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
     // const FONT_SIZE = 12;
@@ -25,6 +31,31 @@ async function fillPdf(pdfFileTemplate) {
     //     height: layout.qr.height,
     // });
 
+    // const checkboxImageUrl = 'check-mark.jpg';
+    // const checkboxImageBytes = await fetch(checkboxImageUrl).then( res => res.arrayBuffer() );
+    // console.log(checkboxImageBytes);
+    // const checkboxImage = await pdfDoc.embedPng(checkboxImageBytes);
+    // console.log("image");
+    // const checkmarkSymbol = '✓';
+    Object.values(labels).map(({ label, value, page, valueType, coordinates, size }) => {
+        if ( valueType === "text" ) {
+            pages[page - 1].drawText( label, {
+                x: coordinates[0],
+                y: PAGE_HEIGHT - coordinates[1],
+                size,
+                font: Helvetica
+            });
+        }
+        else if ( valueType === "check" ) {
+            pages[page - 1].drawText( "X", {
+                x: coordinates[0],
+                y: PAGE_HEIGHT - coordinates[1],
+                size,
+                font: Helvetica
+            });
+        }
+    });
+
     return pdfDoc;
 }
 
@@ -45,6 +76,9 @@ const showPage = async (pdfDoc, page_no) => {
         } catch (e) {
             console.log(e);
         }
+
+
+
         const _CANVAS = document.querySelector("#pdf-canvas");
         var page = await _PDF_DOC.getPage(page_no);
 
@@ -66,8 +100,8 @@ const showPage = async (pdfDoc, page_no) => {
 
         
 
-        var page_2 = await _PDF_DOC.getPage(2);
         const _CANVAS_2 = document.querySelector("#pdf-canvas-2");
+        var page_2 = await _PDF_DOC.getPage(2);
         
         // original width of the pdf page at scale 1
         var pdf_original_width_2 = page_2.getViewport({ scale: 1 }).width;
@@ -76,12 +110,16 @@ const showPage = async (pdfDoc, page_no) => {
 
         // get viewport to render the page at required scale
         var viewport_2 = page_2.getViewport({ scale: scale_required_2 });
+
+        // set canvas height same as viewport height
         _CANVAS_2.height = viewport_2.height;
 
         var render_context_2 = {
             canvasContext: _CANVAS_2.getContext("2d"),
             viewport: viewport_2,
         };
+
+
 
         // render the page contents in the canvas
         try {

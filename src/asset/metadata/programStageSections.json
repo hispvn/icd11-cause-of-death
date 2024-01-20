@@ -1,1 +1,186 @@
-{"programStageSections":[{"name":"Cause of death - A","id":"mWTxwAojsOz","sortOrder":0,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Cause du décès - A"}],"dataElements":[{"id":"RU1KXNWlT6S"},{"id":"Ovu3nxFVwRB"},{"id":"pO3tWD7kne8"},{"id":"okahaacYKqO"},{"id":"QyTACRjivAo"},{"id":"dEvMi21KHHh"},{"id":"xBZ2VsHFHVG"}]},{"name":"Cause of death - B","id":"vOl0J0Gkdzh","sortOrder":1,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Cause du décès - B"}],"dataElements":[{"id":"QjFzlJHUD9Y"},{"id":"draFmNEP1ID"},{"id":"UvMMMp7rH6a"},{"id":"MSYrx2z1f8p"},{"id":"Apnx0pnzMUq"},{"id":"HLf4M23Yxop"},{"id":"zm11IWgxKgX"}]},{"name":"Cause of death - C","id":"WZVsq0kBU0m","sortOrder":2,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Cause de décès - C"}],"dataElements":[{"id":"eRMha7cwC1R"},{"id":"GMiHyYq3JlY"},{"id":"uCd0fusEBzm"},{"id":"UboyGYmr19j"},{"id":"ZhbIetKpHtd"},{"id":"TgO3vRHCaNV"},{"id":"vDoCf56L9wb"}]},{"name":"Cause of death - D","id":"O70C05Pw7IF","sortOrder":3,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Cause du décès - D"}],"dataElements":[{"id":"SzLlhusJK6R"},{"id":"ddohQFXWz6e"},{"id":"zbd0YIKpila"},{"id":"Pd5bZxTS4ql"},{"id":"cQTtzqf81UY"},{"id":"PgkDvnP4oZH"},{"id":"ohxcCCUJRmJ"}]},{"name":"Cause of death - Other factors","id":"QF3F2U2tafH","sortOrder":4,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Cause du décès - Autres facteurs"}],"dataElements":[{"id":"NOKiM5Isd5J"}]},{"name":"Fetal or infant death","id":"pQO3ASP2YI2","sortOrder":8,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Mort fœtale ou infantile"}],"dataElements":[{"id":"UO2nkQCl91t"},{"id":"QselLsJcB7Z"},{"id":"lVXgG5rdRxY"},{"id":"GTYimatiqtP"},{"id":"gskFsDUUv3s"},{"id":"SvdMvylfTRD"},{"id":"emRklq26SUZ"}]},{"name":"Manner of death","id":"w8XS7XLXMTW","sortOrder":7,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"cs","value":"Způsob smrti"},{"property":"NAME","locale":"fr","value":"Façon de mourir"}],"dataElements":[{"id":"BaO1pJKhZJc"},{"id":"O2HZAuxH8RH"},{"id":"xfrRGCTrsbg"},{"id":"do9ClTIpO5Q"},{"id":"xJaJXE64Mwr"}]},{"name":"Maternal death","id":"VPFiJEEWEom","sortOrder":9,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Décès maternel"}],"dataElements":[{"id":"HHSCjcfEoKa"},{"id":"Z7yQ9Rm1y4a"},{"id":"LbWJoDtfDn7"}]},{"name":"Results","id":"p3vMzXMHNad","sortOrder":5,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"ru","value":"Результаты"},{"property":"NAME","locale":"fr","value":"Résultats"}],"dataElements":[{"id":"D1DfTA9Sttb"},{"id":"Iu7raZhcHn9"},{"id":"zwFVJMwggaH"},{"id":"W4lXedV97kG"},{"id":"cH9NADGoNwU"}]},{"name":"Surgery","id":"AO3f6foRt2A","sortOrder":6,"programStage":{"id":"WlWJt4lVSWw"},"programIndicators":[],"translations":[{"property":"NAME","locale":"fr","value":"Chirurgie"}],"dataElements":[{"id":"dzGpRK1w7sN"},{"id":"f3DaU224GDr"},{"id":"YXJsdoaszh3"},{"id":"vRT1wJGTvje"},{"id":"AfPenosN9MU"}]}]}
+{
+  "programStageSections": [
+    {
+      "name": "Cause of death - A",
+      "id": "mWTxwAojsOz",
+      "sortOrder": 0,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Cause du décès - A" }
+      ],
+      "dataElements": [
+        { "id": "RU1KXNWlT6S" },
+        { "id": "Ovu3nxFVwRB" },
+        { "id": "pO3tWD7kne8" },
+        { "id": "okahaacYKqO" },
+        { "id": "QyTACRjivAo" },
+        { "id": "dEvMi21KHHh" },
+        { "id": "xBZ2VsHFHVG" }
+      ]
+    },
+    {
+      "name": "Cause of death - B",
+      "id": "vOl0J0Gkdzh",
+      "sortOrder": 1,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Cause du décès - B" }
+      ],
+      "dataElements": [
+        { "id": "QjFzlJHUD9Y" },
+        { "id": "draFmNEP1ID" },
+        { "id": "UvMMMp7rH6a" },
+        { "id": "MSYrx2z1f8p" },
+        { "id": "Apnx0pnzMUq" },
+        { "id": "HLf4M23Yxop" },
+        { "id": "zm11IWgxKgX" }
+      ]
+    },
+    {
+      "name": "Cause of death - C",
+      "id": "WZVsq0kBU0m",
+      "sortOrder": 2,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Cause de décès - C" }
+      ],
+      "dataElements": [
+        { "id": "eRMha7cwC1R" },
+        { "id": "GMiHyYq3JlY" },
+        { "id": "uCd0fusEBzm" },
+        { "id": "UboyGYmr19j" },
+        { "id": "ZhbIetKpHtd" },
+        { "id": "TgO3vRHCaNV" },
+        { "id": "vDoCf56L9wb" }
+      ]
+    },
+    {
+      "name": "Cause of death - D",
+      "id": "O70C05Pw7IF",
+      "sortOrder": 3,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Cause du décès - D" }
+      ],
+      "dataElements": [
+        { "id": "SzLlhusJK6R" },
+        { "id": "ddohQFXWz6e" },
+        { "id": "zbd0YIKpila" },
+        { "id": "Pd5bZxTS4ql" },
+        { "id": "cQTtzqf81UY" },
+        { "id": "PgkDvnP4oZH" },
+        { "id": "ohxcCCUJRmJ" }
+      ]
+    },
+    {
+      "name": "Cause of death - Other factors",
+      "id": "QF3F2U2tafH",
+      "sortOrder": 4,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Cause du décès - Autres facteurs"
+        }
+      ],
+      "dataElements": [{ "id": "NOKiM5Isd5J" }]
+    },
+    {
+      "name": "Results",
+      "id": "p3vMzXMHNad",
+      "sortOrder": 5,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "ru", "value": "Результаты" },
+        { "property": "NAME", "locale": "fr", "value": "Résultats" }
+      ],
+      "dataElements": [
+        { "id": "D1DfTA9Sttb" },
+        { "id": "Iu7raZhcHn9" },
+        { "id": "zwFVJMwggaH" },
+        { "id": "W4lXedV97kG" },
+        { "id": "cH9NADGoNwU" }
+      ]
+    },
+    {
+      "name": "Surgery",
+      "id": "AO3f6foRt2A",
+      "sortOrder": 6,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Chirurgie" }
+      ],
+      "dataElements": [
+        { "id": "dzGpRK1w7sN" },
+        { "id": "f3DaU224GDr" },
+        { "id": "YXJsdoaszh3" },
+        { "id": "vRT1wJGTvje" },
+        { "id": "AfPenosN9MU" }
+      ]
+    },
+    {
+      "name": "Manner of death",
+      "id": "w8XS7XLXMTW",
+      "sortOrder": 7,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "cs", "value": "Způsob smrti" },
+        { "property": "NAME", "locale": "fr", "value": "Façon de mourir" }
+      ],
+      "dataElements": [
+        { "id": "BaO1pJKhZJc" },
+        { "id": "O2HZAuxH8RH" },
+        { "id": "xfrRGCTrsbg" },
+        { "id": "do9ClTIpO5Q" },
+        { "id": "xJaJXE64Mwr" }
+      ]
+    },
+    {
+      "name": "Fetal or infant death",
+      "id": "pQO3ASP2YI2",
+      "sortOrder": 8,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        {
+          "property": "NAME",
+          "locale": "fr",
+          "value": "Mort fœtale ou infantile"
+        }
+      ],
+      "dataElements": [
+        { "id": "UO2nkQCl91t" },
+        { "id": "QselLsJcB7Z" },
+        { "id": "lVXgG5rdRxY" },
+        { "id": "GTYimatiqtP" },
+        { "id": "gskFsDUUv3s" },
+        { "id": "SvdMvylfTRD" },
+        { "id": "emRklq26SUZ" }
+      ]
+    },
+    {
+      "name": "Maternal death",
+      "id": "VPFiJEEWEom",
+      "sortOrder": 9,
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "programIndicators": [],
+      "translations": [
+        { "property": "NAME", "locale": "fr", "value": "Décès maternel" }
+      ],
+      "dataElements": [
+        { "id": "HHSCjcfEoKa" },
+        { "id": "Z7yQ9Rm1y4a" },
+        { "id": "LbWJoDtfDn7" }
+      ]
+    }
+  ]
+}

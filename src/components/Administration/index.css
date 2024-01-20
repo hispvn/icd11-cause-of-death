@@ -183,6 +183,12 @@
   padding-bottom: 10px;
 }
 
+.administration-customcertificate-modal-2half {
+  display: flex;
+  align-items: center;
+  gap: 10px
+}
+
 .administration-orgunit-container {
   width: 100%;
   height: 100%;

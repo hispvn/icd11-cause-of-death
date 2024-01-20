@@ -133,11 +133,11 @@ const Review = ({
       },
       (_, index) => {
         const defaultAttr = defAttrs[index];
-        const defaultAttrName = (defaultAttr[1] === 'First Name' && fullnameOption) ? "Full Name" : defaultAttr[1];
+        const defaultAttrName = !defaultAttr ? "" : (defaultAttr[1] === 'First Name' && fullnameOption === "fullname") ? "Full Name" : defaultAttr[1];
         return {
           key: index,
           default: defaultAttrName,
-          name: getAttr(defaultAttr[0]) ? getAttr(defaultAttr[0]).displayName : "",
+          name: defaultAttr && getAttr(defaultAttr[0]) ? getAttr(defaultAttr[0]).displayName : "",
           other: otherAttributes[index]
             ? getAttr(otherAttributes[index][0]).displayName
             : "",

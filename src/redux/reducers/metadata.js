@@ -14,6 +14,7 @@ import {
   SET_FORM_MAPPING,
   SET_FORM_MAPPING_TEAS,
   SET_CERTIFICATE_TEMPLATE,
+  SET_CUSTOM_CERTIFICATE,
   SET_FEMALE_CODE,
   SET_UI_LOCALE,
   CHANGE_FULLNAMEOPTION,
@@ -46,6 +47,7 @@ const initialState = {
       enrollment: "enrollmentDate"
     }]
   },
+  customCertificate: null,
   femaleCode: "",
   fullnameOption: false,
   keyUiLocale: "en",
@@ -139,6 +141,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         certificateTemplate: action.payload.certificateTemplate
+      }
+    }
+    case SET_CUSTOM_CERTIFICATE: {
+      return {
+        ...state,
+        customCertificate: action.payload.customCertificate
       }
     }
     case SET_FEMALE_CODE: {

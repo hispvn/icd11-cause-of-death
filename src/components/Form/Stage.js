@@ -79,8 +79,12 @@ const Stage = ({
   const isShowMaternalDeath = () => currentTeiSexAttributeValue === femaleCode && age >= 10;
   const isShowFetalOrInfantDeath = () => age <= 1;
 
+  useEffect(()=>{
+    console.log(currentEvent)
+  },[currentEvent]);
+
   useEffect(() => {
-    if (currentEvent && !isShowFetalOrInfantDeath()) {
+    if (formMapping.sections.find(({name}) => name === "Fetal or infant death") && currentEvent && !isShowFetalOrInfantDeath()) {
       [
         formMapping.dataElements["multiple_pregnancies"],
         formMapping.dataElements["stillborn"],
@@ -89,20 +93,22 @@ const Stage = ({
         formMapping.dataElements["completedWeeks_pregnancy"],
         formMapping.dataElements["age_mother"],
         formMapping.dataElements["pregnancy_conditions"],
-      ].map((deId) => mutateDataValue(currentEvent.event, deId, ""));
+      ].map((deId) => {
+        mutateDataValue(currentEvent.event, deId, "");
+      });
       mutateEvent(currentEvent.event, "isDirty", false);
     }
   }, [age]);
 
   useEffect(() => {
-    if (currentEvent && !isShowMaternalDeath()) {
+    if (formMapping.sections.find(({name}) => name === "Maternal death") && currentEvent && !isShowMaternalDeath()) {
       [
         formMapping.dataElements["pregnancy_inLastYear"], 
         formMapping.dataElements["time_from_pregnancy"], 
         formMapping.dataElements["pregnancy_contributed_to_death"]
-      ].map((deId) =>
-        mutateDataValue(currentEvent.event, deId, "")
-      );
+      ].map((deId) => {
+        mutateDataValue(currentEvent.event, deId, "");
+      });
       mutateEvent(currentEvent.event, "isDirty", false);
     }
   }, [currentTeiSexAttributeValue, age]);

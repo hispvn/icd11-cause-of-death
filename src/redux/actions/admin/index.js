@@ -11,7 +11,8 @@ import {
   CHANGE_TRACKED_ENTITY_TYPE,
   SET_FEMALE_SECTION,
   SET_INSTALLING_FILE,
-  CHANGE_FULLNAMEOPTION
+  CHANGE_FULLNAMEOPTION,
+  CHANGE_CUSTOM_CERTIFICATE
 } from "./type";
 
 export const changeStep = (step) => ({
@@ -77,6 +78,13 @@ export const setCertificateLogo = image => ({
   type: SET_CERTIFICATE_LOGO,
   payload: {
     image
+  }
+})
+
+export const changeCustomCertificate = customCertificate => ({
+  type: CHANGE_CUSTOM_CERTIFICATE,
+  payload: {
+    customCertificate
   }
 })
 

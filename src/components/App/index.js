@@ -31,7 +31,8 @@ import {
   setFemaleCode,
   setFullnameOption,
   setUILocale,
-  setIcdApiToken
+  setIcdApiToken,
+  setCustomCertificate
 } from "../../redux/actions/metadata";
 import {
   setFemaleOption,
@@ -69,7 +70,8 @@ const App = ({
   setUserRole,
   changeRoute,
   setUILocale,
-  setIcdApiToken
+  setIcdApiToken,
+  setCustomCertificate
 }) => {
   const { metadataApi } = useApi();
   const [loading, setLoading] = useState(false);
@@ -186,6 +188,9 @@ const App = ({
           metadataApi.push("/api/dataStore/WHO_ICD11_COD/certificateTemplate", {
             certificate: null,
           });
+          metadataApi.push("/api/dataStore/WHO_ICD11_COD/customCertificate", {
+            certificate: null,
+          });
           metadataApi.push("/api/dataStore/WHO_ICD11_COD/formMapping", {
             formMapping: null,
           });
@@ -205,6 +210,7 @@ const App = ({
               ),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/formMapping"),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/fullnameOption"),
+              metadataApi.get("/api/dataStore/WHO_ICD11_COD/customCertificate")
             ]).then( async (res) => {
               // Set userRoles
               let roles = {
@@ -243,6 +249,7 @@ const App = ({
               setFemaleCode(res[1].code);
               setFullnameOption(res[5].fullnameOption);
               if (res[3].certificate !== null) setCertificateTemplate(res[3].certificate);
+              if (res[6].certificate !== null) setCustomCertificate(res[6].certificate);
               setFormMapping(res[4]);
               changeRoute("list");
 
@@ -329,6 +336,7 @@ const mapDispatchToProps = {
   setCertificateLogo,
   setFormMapping,
   setCertificateTemplate,
+  setCustomCertificate,
   setFemaleCode,
   setFullnameOption,
   setUILocale,

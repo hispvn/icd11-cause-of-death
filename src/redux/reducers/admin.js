@@ -11,7 +11,8 @@ import {
   CHANGE_TRACKED_ENTITY_TYPE,
   SET_FEMALE_SECTION,
   SET_INSTALLING_FILE,
-  CHANGE_FULLNAMEOPTION
+  CHANGE_FULLNAMEOPTION,
+  CHANGE_CUSTOM_CERTIFICATE
 } from "../actions/admin/type";
 
 const initialState = {
@@ -42,6 +43,7 @@ const initialState = {
     url: "https://icd11restapi-developer-test.azurewebsites.net/icd/"
   },
   certificateTemplate: null,
+  customCertificate: null,
   installingFile: null
 };
 
@@ -120,6 +122,13 @@ export default function (state = initialState, action) {
           ...state.certificateTemplate,
           logo: action.payload.image.image
         }
+      }
+    }
+
+    case CHANGE_CUSTOM_CERTIFICATE: {
+      return {
+        ...state,
+        customCertificate: action.payload.customCertificate
       }
     }
 

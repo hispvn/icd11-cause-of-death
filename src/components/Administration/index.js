@@ -14,7 +14,7 @@ import { Hooks } from "tracker-capture-app-core";
 /* REDUX */
 import { connect } from "react-redux";
 import { changeStep } from "../../redux/actions/admin";
-import { setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setFemaleCode } from "../../redux/actions/metadata";
+import { setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setCustomCertificate, setFemaleCode } from "../../redux/actions/metadata";
 /*       */
 import "./index.css";
 import { useTranslation } from "react-i18next";
@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 const { Step } = Steps;
 const { useApi } = Hooks;
 
-const Administration = ({ admin, programMetadata, formMapping, changeStep, setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setFemaleCode }) => {
+const Administration = ({ admin, programMetadata, formMapping, changeStep, setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setFemaleCode, setCustomCertificate }) => {
   const { t } = useTranslation();
   
   const [open, setOpen] = useState(false);
@@ -35,7 +35,8 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
     trackedEntityType,
     certificateTemplate,
     femaleOption,
-    fullnameOption
+    fullnameOption,
+    customCertificate
   } = admin;
 
   const antIcon = <LoadingOutlined style={{ fontSize: 102 }} />;
@@ -149,6 +150,14 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                     <Button type="primary"
                       style={{ marginLeft: 10 }}
                       onClick={() => {
+                        if ( customCertificate ) {
+                          setSpinning(true);
+                          metadataApi.push("/api/dataStore/WHO_ICD11_COD/customCertificate", {certificate: customCertificate}, "PUT").then( res => {
+                            setCustomCertificate(customCertificate);
+                            message.success(t("saveSuccessful"));
+                            setSpinning(false);
+                          });
+                        }
                         setSpinning(true);
                         metadataApi.push("/api/dataStore/WHO_ICD11_COD/certificateTemplate", {certificate: certificateTemplate}, "PUT").then( res => {
                           setCertificateTemplate(certificateTemplate);
@@ -265,6 +274,7 @@ const mapDispatchToProps = {
   setFormMapping_TEAs,
   setProgramMetadata,
   setCertificateTemplate,
-  setFemaleCode
+  setFemaleCode,
+  setCustomCertificate
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Administration);

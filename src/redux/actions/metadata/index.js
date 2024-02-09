@@ -16,7 +16,8 @@ import {
   SET_FEMALE_CODE,
   SET_UI_LOCALE,
   CHANGE_FULLNAMEOPTION,
-  GET_ICD_API_CLIENT_TOKEN
+  GET_ICD_API_CLIENT_TOKEN,
+  SET_CUSTOM_CERTIFICATE
 } from "./type";
 
 export const setProgramMetadata = (programMetadata) => ({
@@ -114,6 +115,13 @@ export const setCertificateTemplate = certificateTemplate => ({
   type: SET_CERTIFICATE_TEMPLATE,
   payload: {
     certificateTemplate
+  }
+})
+
+export const setCustomCertificate = customCertificate => ({
+  type: SET_CUSTOM_CERTIFICATE,
+  payload: {
+    customCertificate
   }
 })
 

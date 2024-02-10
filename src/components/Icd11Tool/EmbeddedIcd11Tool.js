@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import "./index.css";
 import RawCodingTool from "./RawCodingTool";
 
-const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue }) => {
+const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue, freeText }) => {
   const { t } = useTranslation();
   const [selectedCod, setSelectedCod] = useState(null);
   const [isClear, setIsClear] = useState(false);
@@ -36,6 +36,7 @@ const Icd11Tool = ({ visible, setVisible, onSelect, defaultValue }) => {
         isClear={isClear}
         iNo={1}
         onSelect={setSelectedCod}
+        freeText={freeText}
       />
     </Modal>
   );

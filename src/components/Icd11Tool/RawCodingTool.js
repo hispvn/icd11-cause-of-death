@@ -12,7 +12,7 @@ const { Search } = Input;
 
 let apiUrl = process.env.REACT_APP_ICD11_API_URL;
 
-const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) => {
+const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILocale }) => {
   const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState("");
   const [selectedEntity, setSelectedEntity] = useState(null);
@@ -25,9 +25,16 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, keyUILocale }) =>
 
   useEffect(() => {
     if (defaultValue.code === "") {
-      setSearchValue("");
-      setSelectedEntity(null);
-      ECT.Handler.clear(iNo);
+      if (freeText === "") {
+        setSearchValue("");
+        setSelectedEntity(null);
+        ECT.Handler.clear(iNo);
+      }
+      else {
+        setSearchValue(freeText);
+        search(freeText);
+        setSelectedEntity(defaultValue || null);
+      }
     }
     else {
       setSearchValue(defaultValue ? defaultValue.title : "");

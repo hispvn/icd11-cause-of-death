@@ -79,10 +79,6 @@ const Stage = ({
   const isShowMaternalDeath = () => currentTeiSexAttributeValue === femaleCode && age >= 10;
   const isShowFetalOrInfantDeath = () => age <= 1;
 
-  useEffect(()=>{
-    console.log(currentEvent)
-  },[currentEvent]);
-
   useEffect(() => {
     if (formMapping.sections.find(({name}) => name === "Fetal or infant death") && currentEvent && !isShowFetalOrInfantDeath()) {
       [
@@ -275,11 +271,7 @@ const Stage = ({
               default:
                 break;
             }
-            // if (value) {
-            //   setCheckBoxUnderlying(de);
-            // } else {
-            //   setCheckBoxUnderlying("");
-            // }
+            
             // set underlying
             if (id) {
               for (const [key, val] of Object.entries(currentCauseOfDeath)) {
@@ -289,7 +281,7 @@ const Stage = ({
                   val.underlying = false;
                 }
               }
-              // setFlagUnderlying(!flagUnderlying);
+              
               setCauseOfDeaths({
                 ...causeOfDeaths,
                 ...currentCauseOfDeath
@@ -307,7 +299,7 @@ const Stage = ({
     );
   };
 
-  const renderCauseOfDeathsInputField = (codCode, codName, codEntityId, codUnderlying) => {
+  const renderCauseOfDeathsInputField = (codCode, codName, codEntityId, codUnderlying, freeText) => {
     return (
       <InputField
         addonBefore={
@@ -321,7 +313,8 @@ const Stage = ({
             label: codName,
             code: codCode,
             entityId: codEntityId,
-            underlying: codUnderlying
+            underlying: codUnderlying,
+            freeText: freeText
           });
           setIcdTool(true);
         }}
@@ -443,6 +436,7 @@ const Stage = ({
           title: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.label]) || "",
           code: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.code]) || ""
         }}
+        freeText={(currentEvent && currentEvent.dataValues[activeCauseOfDeath.freeText]) || ""}
       />
       <div className="section-title section-title-stage">
         <FontAwesomeIcon icon={faNotesMedical} style={{ fontSize: 15 }} />
@@ -489,7 +483,8 @@ const Stage = ({
                               formMapping.dataElements["codA"],
                               formMapping.dataElements["codA_name"],
                               formMapping.dataElements["codA_entityId"],
-                              formMapping.dataElements["codA_underlying"]
+                              formMapping.dataElements["codA_underlying"],
+                              formMapping.dataElements["codA_other_name"]
                             )}
                           </div>
                         </td>
@@ -531,7 +526,8 @@ const Stage = ({
                               formMapping.dataElements["codB"],
                               formMapping.dataElements["codB_name"],
                               formMapping.dataElements["codB_entityId"],
-                              formMapping.dataElements["codB_underlying"]
+                              formMapping.dataElements["codB_underlying"],
+                              formMapping.dataElements["codB_other_name"]
                             )}
                           </div>
                         </td>
@@ -554,7 +550,8 @@ const Stage = ({
                               formMapping.dataElements["codC"],
                               formMapping.dataElements["codC_name"],
                               formMapping.dataElements["codC_entityId"],
-                              formMapping.dataElements["codC_underlying"]
+                              formMapping.dataElements["codC_underlying"],
+                              formMapping.dataElements["codC_other_name"]
                             )}
                           </div>
                         </td>
@@ -577,7 +574,8 @@ const Stage = ({
                               formMapping.dataElements["codD"],
                               formMapping.dataElements["codD_name"],
                               formMapping.dataElements["codD_entityId"],
-                              formMapping.dataElements["codD_underlying"]
+                              formMapping.dataElements["codD_underlying"],
+                              formMapping.dataElements["codD_other_name"]
                             )}
                           </div>
                         </td>

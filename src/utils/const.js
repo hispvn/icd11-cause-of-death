@@ -53,7 +53,7 @@ const analyticData = {
     6.3: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&dimension=pe:[YEAR]01;[YEAR]02;[YEAR]03;[YEAR]04;[YEAR]05;[YEAR]06;[YEAR]07;[YEAR]08;[YEAR]09;[YEAR]10;[YEAR]11;[YEAR]12&filter=zwFVJMwggaH:IN:0200&filter=ou:[ORG]&stage=WlWJt4lVSWw",
     6.4: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&filter=zwFVJMwggaH:IN:0200&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
     6.5: "/api/analytics.json?dimension=dx:fWFVTD4s9Pv;ZlMRBfKhr3A;YQFDlHHciZ9;F7UC9N85W6E;IhGq1T65Mrp;FHbcZH9eP8C;sqvAUlq3ViV;VZA8VH6tg4M;lXN7Y9UXua2;FTvpuNNXaU6;BIShzUuR59L;D8Ywph4iBu8&filter=pe:[YEAR]&filter=ou:[ORG]",
-    6.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
+    6.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=WlWJt4lVSWw.zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
   },
   page7: {
     7.1: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&dimension=[ATTRIBUTE_AGE]-S0CP6RzDx4c&filter=ou:[ORG]&filter=pe:[YEAR]&filter=WlWJt4lVSWw.zwFVJMwggaH:IN:0030&stage=WlWJt4lVSWw",
@@ -61,7 +61,7 @@ const analyticData = {
     7.3: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&dimension=pe:[YEAR]01;[YEAR]02;[YEAR]03;[YEAR]04;[YEAR]05;[YEAR]06;[YEAR]07;[YEAR]08;[YEAR]09;[YEAR]10;[YEAR]11;[YEAR]12&filter=zwFVJMwggaH:IN:0030&filter=ou:[ORG]&stage=WlWJt4lVSWw",
     7.4: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&filter=zwFVJMwggaH:IN:0030&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
     7.5: "/api/analytics.json?dimension=dx:IblX3RCMH8R;xGxqMonswYK;Cbgjb32yCqi;tRKZecNOlsl;Nv7F18RRTdw;mrTNAVALUjV;vQ0cyDYopLi;DxIQUD9sAZ5&filter=pe:[YEAR]&filter=ou:[ORG]",
-    7.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
+    7.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=WlWJt4lVSWw.zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
   },
   page8: {
     8.1: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&dimension=[ATTRIBUTE_AGE]-S0CP6RzDx4c&filter=ou:[ORG]&filter=pe:[YEAR]&filter=zwFVJMwggaH:IN:0090&stage=WlWJt4lVSWw",
@@ -69,11 +69,11 @@ const analyticData = {
     8.3: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&dimension=pe:[YEAR]01;[YEAR]02;[YEAR]03;[YEAR]04;[YEAR]05;[YEAR]06;[YEAR]07;[YEAR]08;[YEAR]09;[YEAR]10;[YEAR]11;[YEAR]12&filter=zwFVJMwggaH:IN:0090&filter=ou:[ORG]&stage=WlWJt4lVSWw",
     8.4: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_SEX]&filter=zwFVJMwggaH:IN:0090&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
     8.5: "/api/analytics.json?dimension=dx:dKAoE64Dman;LNliw80Ru5X;ki2tP2eB6uA;aTswq8brgOw;jDA2MDrb11c;LzTSVWcHcUt;odV5MLupr0l;i9Bw8Avpdya&filter=ou:[ORG]&filter=pe:[YEAR]",
-    8.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
+    8.6: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-bHqcKIS01OI&dimension=WlWJt4lVSWw.zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw"
   },
   page9: {
-    9.1: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-YVz7lS5F4So&dimension=zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
-    9.2: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=zwFVJMwggaH:IN:0200;0090;0030&dimension=[ATTRIBUTE_SEX]&dimension=[ATTRIBUTE_AGE]-YVz7lS5F4So&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
+    9.1: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=[ATTRIBUTE_AGE]-YVz7lS5F4So&dimension=WlWJt4lVSWw.zwFVJMwggaH&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
+    9.2: "/api/analytics/events/aggregate/ogrOUKoSaWA.json?dimension=WlWJt4lVSWw.zwFVJMwggaH:IN:0200;0090;0030&dimension=[ATTRIBUTE_SEX]&dimension=[ATTRIBUTE_AGE]-YVz7lS5F4So&filter=ou:[ORG]&filter=pe:[YEAR]&stage=WlWJt4lVSWw",
     9.3: "/api/analytics.json?dimension=dx:DHxwdMnnEhp;nG4ITg8hrrF;bKLqFfc6ZIk;iooUsQINIYk;B1zBU8cKFRo&filter=ou:[ORG]&filter=pe:[YEAR]",
     9.4: "/api/analytics.json?dimension=dx:WIEflTHNHGt;HLHHkjZzhZr;fXR85loNh4h;lTm1yRk1TdN;RDnflh6o7NF;lgQVrvXnLNM;GJZcNMT4GDr;IsdEecWYvms;MT3y6VcNRLZ;tILCmBOMDFD;LkFHyAbyAe4;VlPmjKpZ3Py;QYC7R2wvmZW;muZMnbzlTkO&filter=ou:[ORG]&filter=pe:[YEAR]"
   }

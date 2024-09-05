@@ -241,7 +241,7 @@ const ControlBar = ({
         <Divider />
         <DialogContent>
           <div>
-            <strong>Cause of Death App</strong> <i>(version 1.0.1)</i>
+            <strong>Cause of Death App</strong> <i>(version 1.0.2)</i>
           </div>
           <div>
             Developed of HISP Vietnam in collaboration with University of Oslo

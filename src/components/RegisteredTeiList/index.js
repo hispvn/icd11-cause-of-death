@@ -60,6 +60,7 @@ const RegisteredTeiList = ({ metadata, data, initData, changeRoute }) => {
         "",
         sortTable
       );
+      console.log(instanceList);
       setupUI(instanceList);
     })();
   }, [
@@ -176,6 +177,7 @@ const RegisteredTeiList = ({ metadata, data, initData, changeRoute }) => {
         rowObject[column.dataIndex] =
           columnIndex !== -1 ? row[columnIndex] : "";
       });
+      rowObject["rZSVLUfgHlD"] = (rowObject["rZSVLUfgHlD"] !== "Completed") ? "Pending" : "Completed";
       return rowObject;
     });
 

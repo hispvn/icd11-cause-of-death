@@ -3,10 +3,7 @@
 import { useState, useEffect } from "react";
 import { connect } from "react-redux";
 
-import { 
-  Button,
-  Modal
-} from "antd";
+import { Button } from "antd";
 
 /* Styling tools */
 import { useTranslation } from "react-i18next";
@@ -42,15 +39,10 @@ const Stage = ({
   const [checkBoxUnderlying, setCheckBoxUnderlying] = useState("");
   const [flagUnderlying, setFlagUnderlying] = useState(false);
 
-  const [underlyingSelections,setUnderlyingSelections] = useState([]);
-  const [underlyingResult, setUnderlyingResult] = useState("");
-  const [underlyingModal, setUnderlyingModal] = useState(false);
-
   const {
     currentEnrollment,
     currentTei: { attributes },
-    currentEnrollment: { enrollmentDate: currentTeiDateOfDeath },
-    currentEnrollment: { status: enrollmentStatus }
+    currentEnrollment: { enrollmentDate: currentTeiDateOfDeath }
   } = data;
   const { programMetadata, formMapping, icd11Options, femaleCode, icdApi_clientToken, keyUiLocale } = metadata;
   const currentTeiSexAttributeValue = attributes[formMapping.attributes["sex"]];
@@ -116,35 +108,34 @@ const Stage = ({
       // Dirty Check
       mutateEvent(eventId, "isDirty", false);
     }
-    setUnderlyingResult(returnInitValue(formMapping.dataElements["underlyingCOD"]));
     const cods = {
       [formMapping.dataElements["codA"]]: {
         code: returnInitValue(formMapping.dataElements["codA"]),
-        // label: returnInitValue(formMapping.dataElements["codA_name"]),
+        label: returnInitValue(formMapping.dataElements["codA_name"]),
         underlying: returnInitValue(formMapping.dataElements["codA_underlying"]),
         entityId: returnInitValue(formMapping.dataElements["codA_entityId"])
       },
       [formMapping.dataElements["codB"]]: {
         code: returnInitValue(formMapping.dataElements["codB"]),
-        // label: returnInitValue(formMapping.dataElements["codB_name"]),
+        label: returnInitValue(formMapping.dataElements["codB_name"]),
         underlying: returnInitValue(formMapping.dataElements["codB_underlying"]),
         entityId: returnInitValue(formMapping.dataElements["codB_entityId"])
       },
       [formMapping.dataElements["codC"]]: {
         code: returnInitValue(formMapping.dataElements["codC"]),
-        // label: returnInitValue(formMapping.dataElements["codC_name"]),
+        label: returnInitValue(formMapping.dataElements["codC_name"]),
         underlying: returnInitValue(formMapping.dataElements["codC_underlying"]),
         entityId: returnInitValue(formMapping.dataElements["codC_entityId"])
       },
       [formMapping.dataElements["codD"]]: {
         code: returnInitValue(formMapping.dataElements["codD"]),
-        // label: returnInitValue(formMapping.dataElements["codD_name"]),
+        label: returnInitValue(formMapping.dataElements["codD_name"]),
         underlying: returnInitValue(formMapping.dataElements["codD_underlying"]),
         entityId: returnInitValue(formMapping.dataElements["codD_entityId"])
       },
       [formMapping.dataElements["codO"]]: {
         code: returnInitValue(formMapping.dataElements["codO"]),
-        // label: returnInitValue(formMapping.dataElements["codO_name"]),
+        label: returnInitValue(formMapping.dataElements["codO_name"]),
         underlying: returnInitValue(formMapping.dataElements["codO_underlying"]),
         entityId: returnInitValue(formMapping.dataElements["codO_entityId"])
       },
@@ -178,16 +169,10 @@ const Stage = ({
     }
   }, [flagUnderlying]);
 
-  useEffect(() => {
-    if ( underlyingResult !== "" ) {
-      fillUpUnderlying(causeOfDeaths);
-    }
-  }, [underlyingResult]);
-
   const setValueIcdField = (cod) => {
     if (activeCauseOfDeath !== "") {
       mutateDataValue(currentEvent.event, activeCauseOfDeath.code, cod[activeCauseOfDeath.code].code);
-      // mutateDataValue(currentEvent.event, activeCauseOfDeath.label, cod[activeCauseOfDeath.code].label);
+      mutateDataValue(currentEvent.event, activeCauseOfDeath.label, cod[activeCauseOfDeath.code].label);
       mutateDataValue(currentEvent.event, activeCauseOfDeath.underlying, cod[activeCauseOfDeath.code].underlying);
       mutateDataValue(currentEvent.event, activeCauseOfDeath.entityId, cod[activeCauseOfDeath.code].entityId);
 
@@ -200,19 +185,19 @@ const Stage = ({
     let result = null;
     for (const [key, value] of Object.entries(cod)) {
       if (value.underlying) {
-        result = underlyingResult;
+        result = value;
       }
     }
 
     const currentUnderlyingCoD = currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_code"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_code"]] : "";
     // Save values of underlying
     if (currentEvent) {
-      if (result && result !== "") {
-        if ( result !== currentUnderlyingCoD ) {
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD"], result);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_code"], result);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_chapter"], icd11Options.find( option => option.code === result).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["chapter"] ).value);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_group"], icd11Options.find( option => option.code === result).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["group"] ).value);
+      if (result) {
+        if ( result.code !== currentUnderlyingCoD ) {
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD"], result.code);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_code"], result.code);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_chapter"], icd11Options.find( option => option.code === result.code).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["chapter"] ).value);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_group"], icd11Options.find( option => option.code === result.code).attributeValues.find( attrVal => attrVal.attribute.id === formMapping.optionAttributes["group"] ).value);
         }
       } else {
         if (currentEvent.isDirty) {
@@ -242,22 +227,11 @@ const Stage = ({
       return null;
     }
     let disable = false;
-    if (
-      currentEvent 
-      && de === formMapping.dataElements["reason_of_manual_COD_selection"]
-      && (
-        (currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] 
-        && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] === "DORIS")
-      || !currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] )
-    ) {
-      disable = true;
-    }
-    if (
-      currentEvent 
-      && de === formMapping.dataElements["underlyingCOD_processed_by"]
-      && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] !== "Manual"
-      && checkBoxUnderlying === ""
-    ) {
+    if (de === formMapping.dataElements["underlyingCOD"] || 
+        de === formMapping.dataElements["underlyingCOD_chapter"] || 
+        de === formMapping.dataElements["underlyingCOD_group"] || 
+        de === formMapping.dataElements["underlyingCOD_code"]) 
+    {
       disable = true;
     }
     if (
@@ -273,13 +247,10 @@ const Stage = ({
       if (currentEvent && !currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] && checkBoxUnderlying === "") {
         disable = true;
       }
-      if (currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] === "DORIS") {
-        disable = true;
-      }
     }
     return (
       <InputField
-        value={currentEvent && currentEvent.dataValues[de] ? currentEvent.dataValues[de] : de === formMapping.dataElements["underlyingCOD_processed_by"] ? "DORIS" : ""}
+        value={currentEvent && currentEvent.dataValues[de] ? currentEvent.dataValues[de] : ""}
         change={(value) => {
           // check if input is underlying checkbox
           if (extraFunction) {
@@ -306,20 +277,6 @@ const Stage = ({
             }
             
             // set underlying
-            if (value) {
-              if ( currentCauseOfDeath[id].code.split(",").length === 1 ) {
-                setUnderlyingResult(currentCauseOfDeath[id].code);
-              }
-              else {
-                setUnderlyingSelections(currentCauseOfDeath[id].code.split(",").map(selection => ({label: selection, value: selection})));
-                setUnderlyingModal(true);
-              }
-            }
-            else {
-              setUnderlyingResult("");
-              setUnderlyingSelections([]);
-            }
-
             if (id) {
               for (const [key, val] of Object.entries(currentCauseOfDeath)) {
                 if (key === id) {
@@ -333,75 +290,53 @@ const Stage = ({
                 ...causeOfDeaths,
                 ...currentCauseOfDeath
               });
-            }
 
-            
-          }
-          // set DORIS
-          if (currentEvent && de === formMapping.dataElements["underlyingCOD_processed_by"] && value === "DORIS") {
-            mutateDataValue(currentEvent.event, formMapping.dataElements["reason_of_manual_COD_selection"], "");
+              mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "Manual");
+            }
           }
           mutateDataValue(currentEvent.event, de, value);
         }}
         valueType={foundDe.valueType}
         // label={foundDe.displayFormName}
         valueSet={foundDe.valueSet}
-        disabled={disable || enrollmentStatus === "COMPLETED"}
+        disabled={disable}
         placeholder={placeholder}
       />
     );
   };
 
-  // const renderCauseOfDeathsInputField = (codCode, codName, codEntityId, codUnderlying) => {
-  const renderCauseOfDeathsInputField = (codCode, codEntityId, codUnderlying) => {
+  const renderCauseOfDeathsInputField = (codCode, codName, codEntityId, codUnderlying, freeText) => {
     return (
       <InputField
-        // addonBefore={
-        //   currentEvent ? currentEvent.dataValues[codCode] ? <b>{currentEvent.dataValues[codCode]}</b> : "" : ""
-        // }
-        // value={currentEvent ? (currentEvent.dataValues[codCode] ? currentEvent.dataValues[codCode] : "") : ""}
-        value={currentEvent ? (currentEvent.dataValues[codCode] ? currentEvent.dataValues[codCode].split(",") : []) : []}
-        valueSet={currentEvent ? (currentEvent.dataValues[codCode] ? currentEvent.dataValues[codCode].split(",") : []) : []}
-        selectMode={"multiple"}
+        addonBefore={
+          currentEvent ? currentEvent.dataValues[codCode] ? <b>{currentEvent.dataValues[codCode]}</b> : "" : ""
+        }
+        value={currentEvent ? (currentEvent.dataValues[codName] ? currentEvent.dataValues[codName] : "") : ""}
         valueType="TEXT"
         click={() => {
           setActiveCauseOfDeath({
             // ...activeCauseOfDeath,
-            // label: codName,
+            label: codName,
             code: codCode,
             entityId: codEntityId,
             underlying: codUnderlying,
-            // freeText: freeText
+            freeText: freeText
           });
           setIcdTool(true);
         }}
         placeholder={"Click here for ICD 11 code"}
-        // allowClear={true}
+        allowClear={true}
         change={ value => {
-          console.log(value);
           if ( value === "" ) {
             mutateDataValue(currentEvent.event, codCode, "");
-            // mutateDataValue(currentEvent.event, codName, "");
+            mutateDataValue(currentEvent.event, codName, "");
             mutateDataValue(currentEvent.event, codUnderlying, false);
             causeOfDeaths[codCode].code = "";
-            // causeOfDeaths[codCode].label = "";
+            causeOfDeaths[codCode].label = "";
             causeOfDeaths[codCode].underlying = false;
             setCauseOfDeaths({ ...causeOfDeaths });
           }
-
-          let dataValues_codEntityId = currentEvent.dataValues[codEntityId].split(",");
-          currentEvent.dataValues[codCode].split(",").forEach( (c,i) => {
-            if ( !value.find( v => c === v ) ) {
-              console.log(c,i);
-              // dataValues_codEntityId = dataValues_codEntityId.splice(i,1);
-              console.log(dataValues_codEntityId.splice(i,1));
-            }
-          })
-
-          mutateDataValue(currentEvent.event, codCode, value.join(","));
-          mutateDataValue(currentEvent.event, codEntityId, dataValues_codEntityId.join(","));
-        }}
-        disabled={enrollmentStatus === "COMPLETED"}
+        } }
       />
     );
   };
@@ -448,23 +383,23 @@ const Stage = ({
       const cods = {
         [formMapping.dataElements["codA"]]: {
           ...causeOfDeaths[formMapping.dataElements["codA"]],
-          underlying: causeOfDeaths[formMapping.dataElements["codA"]].code.includes(underlyingCode),
+          underlying: underlyingCode === causeOfDeaths[formMapping.dataElements["codA"]].code,
         },
         [formMapping.dataElements["codB"]]: {
           ...causeOfDeaths[formMapping.dataElements["codB"]],
-          underlying: causeOfDeaths[formMapping.dataElements["codB"]].code.includes(underlyingCode),
+          underlying: underlyingCode === causeOfDeaths[formMapping.dataElements["codB"]].code,
         },
         [formMapping.dataElements["codC"]]: {
           ...causeOfDeaths[formMapping.dataElements["codC"]],
-          underlying: causeOfDeaths[formMapping.dataElements["codC"]].code.includes(underlyingCode),
+          underlying: underlyingCode === causeOfDeaths[formMapping.dataElements["codC"]].code,
         },
         [formMapping.dataElements["codD"]]: {
           ...causeOfDeaths[formMapping.dataElements["codD"]],
-          underlying: causeOfDeaths[formMapping.dataElements["codD"]].code.includes(underlyingCode),
+          underlying: underlyingCode === causeOfDeaths[formMapping.dataElements["codD"]].code,
         },
         [formMapping.dataElements["codO"]]: {
           ...causeOfDeaths[formMapping.dataElements["codO"]],
-          underlying: causeOfDeaths[formMapping.dataElements["codO"]].code.includes(underlyingCode),
+          underlying: underlyingCode === causeOfDeaths[formMapping.dataElements["codO"]].code,
         }
       };
 
@@ -478,9 +413,6 @@ const Stage = ({
       mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "DORIS");
       mutateDataValue(currentEvent.event, formMapping.dataElements["reason_of_manual_COD_selection"], ""); // For clearing the value of reason for the manual selection
 
-      mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_DORIS"], underlyingCode);
-
-      setUnderlyingResult(underlyingCode);
       setCauseOfDeaths(cods);
     };
   }
@@ -490,68 +422,36 @@ const Stage = ({
 
   return (
     <>
-      <Modal 
-        style={{ top: 250 }}
-        closable={false}
-        title="Select underlying cause of death" 
-        open={underlyingModal} 
-        footer={[
-          <Button 
-            onClick={() => {
-              setUnderlyingModal(false);
-
-            }}
-            disabled={underlyingResult===""}
-          >
-            Close
-          </Button>
-        ]}
+      {/* <Backdrop
+        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        open={loading}
       >
-        <InputField
-          valueType="TEXT"
-          valueSet={underlyingSelections}
-          value={underlyingResult}
-          change={selected => {
-            setUnderlyingResult(selected);
-          }}
-        />
-      </Modal>
+        <CircularProgress color="inherit" />
+      </Backdrop> */}
       <Icd11Tool
         visible={icdTool}
         setVisible={setIcdTool}
         onSelect={(cod) => {
           const selectedCod = {
             code: cod.code,
-            // label: cod.title
-            //   .replace(/<em class='found'>/g, "")
-            //   .replace(/<em class='nonwbe'>/g, "")
-            //   .replace(/<[/]em>/g, ""),
+            label: cod.title
+              .replace(/<em class='found'>/g, "")
+              .replace(/<em class='nonwbe'>/g, "")
+              .replace(/<[/]em>/g, ""),
             uri: cod.foundationUri
           };
-          causeOfDeaths[activeCauseOfDeath.code].code = causeOfDeaths[activeCauseOfDeath.code].code === "" ? selectedCod.code : `${causeOfDeaths[activeCauseOfDeath.code].code},${selectedCod.code}`;
-          // causeOfDeaths[activeCauseOfDeath.code].label = selectedCod.label;
-          causeOfDeaths[formMapping.dataElements["codA"]].underlying = false;
-          causeOfDeaths[formMapping.dataElements["codB"]].underlying = false;
-          causeOfDeaths[formMapping.dataElements["codC"]].underlying = false;
-          causeOfDeaths[formMapping.dataElements["codD"]].underlying = false;
-          causeOfDeaths[formMapping.dataElements["codO"]].underlying = false;
-          mutateDataValue(currentEvent.event, formMapping.dataElements["codA_underlying"], false);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["codB_underlying"], false);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["codC_underlying"], false);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["codD_underlying"], false);
-          mutateDataValue(currentEvent.event, formMapping.dataElements["codO_underlying"], false);
-          causeOfDeaths[activeCauseOfDeath.code].entityId = causeOfDeaths[activeCauseOfDeath.code].entityId === "" ? selectedCod.uri.split("/")[selectedCod.uri.split("/").length - 1] : `${causeOfDeaths[activeCauseOfDeath.code].entityId},${selectedCod.uri.split("/")[selectedCod.uri.split("/").length - 1]}`;
+          causeOfDeaths[activeCauseOfDeath.code].code = selectedCod.code;
+          causeOfDeaths[activeCauseOfDeath.code].label = selectedCod.label;
+          causeOfDeaths[activeCauseOfDeath.code].underlying = false;
+          causeOfDeaths[activeCauseOfDeath.code].entityId = selectedCod.uri.split("/")[selectedCod.uri.split("/").length - 1];
           setValueIcdField(causeOfDeaths);
           setCauseOfDeaths({ ...causeOfDeaths });
-          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "DORIS");
         }}
         defaultValue={{
-          // title: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.label]) || "",
-          // code: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.code]) || ""
-          title: "",
-          code: ""
+          title: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.label]) || "",
+          code: (currentEvent && currentEvent.dataValues[activeCauseOfDeath.code]) || ""
         }}
-        // freeText={(currentEvent && currentEvent.dataValues[activeCauseOfDeath.freeText]) || ""}
+        freeText={(currentEvent && currentEvent.dataValues[activeCauseOfDeath.freeText]) || ""}
       />
       <div>
         {/* <Tabs defaultActiveKey="1" type="card">
@@ -589,9 +489,10 @@ const Stage = ({
                         <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codA_other_name"],undefined,"A")}
+                            {/* {renderInputField(formMapping.dataElements["codA_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codA"],
-                              // formMapping.dataElements["codA_name"],
+                              formMapping.dataElements["codA_name"],
                               formMapping.dataElements["codA_entityId"],
                               formMapping.dataElements["codA_underlying"],
                               formMapping.dataElements["codA_other_name"]
@@ -606,13 +507,35 @@ const Stage = ({
                         </td>
                         <td>{renderInputField(formMapping.dataElements["codA_underlying"], "underlying")}</td>
                       </tr>
+                      {/* <tr>
+                        <td
+                          colSpan="5"
+                          style={{
+                            fontWeight: "bold",
+                            textAlign: "left",
+                            backgroundColor: "#f5f5f5"
+                          }}
+                        >
+                        {
+                          t("reportDirection")
+                        }
+                        </td>
+                      </tr>
                       <tr>
+                        <td colSpan="3">{t("causeOfDeath")}</td>
+                        <td>{t("timeFromOnsetToDeath")}</td>
+                        <td>{t("underlying")}</td>
+                      </tr> */}
+                      <tr>
+                        {/* <td>{t("dueTo")}</td>
+                        <td>B</td> */}
                         <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codB_other_name"],undefined,"B")}
+                            {/* {renderInputField(formMapping.dataElements["codB_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codB"],
-                              // formMapping.dataElements["codB_name"],
+                              formMapping.dataElements["codB_name"],
                               formMapping.dataElements["codB_entityId"],
                               formMapping.dataElements["codB_underlying"],
                               formMapping.dataElements["codB_other_name"]
@@ -636,7 +559,7 @@ const Stage = ({
                             {/* {renderInputField(formMapping.dataElements["codC_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codC"],
-                              // formMapping.dataElements["codC_name"],
+                              formMapping.dataElements["codC_name"],
                               formMapping.dataElements["codC_entityId"],
                               formMapping.dataElements["codC_underlying"],
                               formMapping.dataElements["codC_other_name"]
@@ -660,7 +583,7 @@ const Stage = ({
                             {/* {renderInputField(formMapping.dataElements["codD_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codD"],
-                              // formMapping.dataElements["codD_name"],
+                              formMapping.dataElements["codD_name"],
                               formMapping.dataElements["codD_entityId"],
                               formMapping.dataElements["codD_underlying"],
                               formMapping.dataElements["codD_other_name"]
@@ -684,7 +607,7 @@ const Stage = ({
                             {/* {renderInputField(formMapping.dataElements["codD_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codO"],
-                              // formMapping.dataElements["codO_name"],
+                              formMapping.dataElements["codO_name"],
                               formMapping.dataElements["codO_entityId"],
                               formMapping.dataElements["codO_underlying"],
                               formMapping.dataElements["codO_other_name"]
@@ -716,27 +639,8 @@ const Stage = ({
                       <tr>
                         <td colSpan="5">{renderInputField(formMapping.dataElements["codOther"])}</td>
                       </tr> */}
-
                       <tr>
                         <td
-                          colSpan="2"
-                          style={{
-                            // fontWeight: "bold",
-                            backgroundColor: "#f5f5f5",
-                            textAlign: "right",
-                          }}>
-                          <strong>Underlying Cause of Death processed by:</strong> </td>
-                        <td
-                          style={{
-                            // fontWeight: "bold",
-                            backgroundColor: "#f5f5f5"
-                          }}
-                        >
-                          {renderInputField(formMapping.dataElements["underlyingCOD_processed_by"])}
-                        </td>
-                      </tr>
-                      <tr>
-                      <td
                           colSpan="2"
                           style={{
                             // fontWeight: "bold",
@@ -744,7 +648,14 @@ const Stage = ({
                             backgroundColor: "#f5f5f5"
                           }}
                         >
-                          <strong>DORIS tool:</strong>
+                          <strong>DORIS tool</strong>
+                          <br/>
+                          <div style={{width: "350px", float: "right"}}>
+                            <i>
+                              <u>Note</u>:&nbsp;
+                              The underlying checkboxes will be enabled after processing DORIS tool for manually selecting the CoD underlying.
+                            </i>
+                          </div>
                         </td>
                         <td
                           style={{
@@ -755,9 +666,6 @@ const Stage = ({
                             onClick={() => {
                               detectUnderlyingCauseOfDeath();
                             }}
-                            disabled={(currentEvent 
-                              && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] 
-                              && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] === "Manual") || enrollmentStatus === "COMPLETED"}
                           > 
                           {t("compute")}
                           </Button>
@@ -772,8 +680,9 @@ const Stage = ({
                             backgroundColor: "#f5f5f5"
                           }}
                         >
-                          Reason of not using the result from DORIS tool: 
-                          {renderInputField(formMapping.dataElements["reason_of_manual_COD_selection"])}
+                          Reason of not using the result from DORIS tool
+                          <br/>
+                          <div style={{width: "280px", float: "right"}}>{renderInputField(formMapping.dataElements["reason_of_manual_COD_selection"])}</div>
                         </td>
                       </tr>
                     </tbody>

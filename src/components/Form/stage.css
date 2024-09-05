@@ -13,15 +13,16 @@
   margin-top: 10px;
 }
 .results-compute div {
-  font-size: 12px;
-  font-style: italic;
+  font-size: 14px;
+  /* font-style: italic; */
+  font-weight: 400;
 }
 .results-table {
   border-collapse: collapse;
-  width: 70%;
+  width: 100%;
 }
 .results-table td:nth-child(2) {
-  width: 75%;
+  width: 60%;
 }
 .results-table td {
   border: 1px solid #d4d4d4;
@@ -32,7 +33,7 @@
 /* .results-table tr:nth-child(2) td .input-container, 
 .results-table tr:nth-child(3) td .input-container, */
 .results-table tr:nth-child(4) td .input-container {
-  width: 150px;
+  /* width: 150px; */
 }
 .other-section-table {
   border-collapse: collapse;
@@ -139,4 +140,8 @@
 .stage-sections-container > .ant-tabs {
   height: calc(100% - 45px);
   overflow: auto;
+}
+
+.stage-section-content {
+  padding-bottom: 5px;
 }

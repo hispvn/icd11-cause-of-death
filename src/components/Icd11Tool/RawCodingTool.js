@@ -25,16 +25,16 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILo
 
   useEffect(() => {
     if (defaultValue.code === "") {
-      if (freeText === "") {
+      // if (freeText === "") {
         setSearchValue("");
         setSelectedEntity(null);
         ECT.Handler.clear(iNo);
-      }
-      else {
-        setSearchValue(freeText);
-        search(freeText);
-        setSelectedEntity(defaultValue || null);
-      }
+      // }
+      // else {
+      //   setSearchValue(freeText);
+      //   search(freeText);
+      //   setSelectedEntity(defaultValue || null);
+      // }
     }
     else {
       setSearchValue(defaultValue ? defaultValue.title : "");

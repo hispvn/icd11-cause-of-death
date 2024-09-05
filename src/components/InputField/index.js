@@ -21,7 +21,8 @@ const InputField = (props) => {
     date_limit,
     placeholder,
     allowClear,
-    disabledDate
+    disabledDate,
+    selectMode
   } = props;
 
   // function disabledDate(d) {
@@ -31,12 +32,31 @@ const InputField = (props) => {
 
   const generateField = () => {
     if (valueSet) {
-      return (
+      return selectMode ? 
+      (
+        <Select
+          value={value}
+          // allowClear
+          showSearch
+          style={{ width: "100%" }}
+          onChange={(selected) => {
+            change(selected);
+          }}
+          disabled={disabled}
+          mode={selectMode}
+          onClick={click}
+        >
+          {valueSet.map((set) => (
+            <Option value={set.value}>{set.label}</Option>
+          ))}
+        </Select>
+      ) : 
+      (
         <Select
           value={value}
           allowClear
           showSearch
-          style={{ width: "100%" }}
+          style={{ width: "100%", maxWidth: "260px" }}
           onChange={(selected) => {
             change(selected);
           }}
@@ -79,6 +99,7 @@ const InputField = (props) => {
             onChange={(event) => {
               change(event.target.value);
             }}
+            disabled={disabled}
           />
         );
       case "DATE":
@@ -88,6 +109,7 @@ const InputField = (props) => {
             onChange={(momentObject) => {
               change(momentObject.format("YYYY-MM-DD"));
             }}
+            disabled={disabled}
           />
         );
       case "DATE_WITH_RANGE":
@@ -98,6 +120,7 @@ const InputField = (props) => {
               change(momentObject.format("YYYY-MM-DD"));
             }}
             disabledDate={disabledDate}
+            disabled={disabled}
           />
         );
       case "DATETIME":
@@ -111,6 +134,7 @@ const InputField = (props) => {
             onChange={(event) => {
               change(event.target.value);
             }}
+            disabled={disabled}
           >
             <Radio value="true" style={{ fontSize: "13.5px" }}>
               Yes
@@ -137,6 +161,7 @@ const InputField = (props) => {
             onChange={(momentObject) => {
               change(momentObject);
             }}
+            disabled={disabled}
           />
         );
       default:

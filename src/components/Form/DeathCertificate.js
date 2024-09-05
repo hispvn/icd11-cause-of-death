@@ -42,10 +42,10 @@ const DeathCertificate = ({
   const convertToValue = (val,valType) => {
     if (valType === "text") {
       return val.split("#{").map( str => {
-        if( str.startsWith("de.") ) {
+        if( currentEvent && str.startsWith("de.") ) {
           return str.replace(`de.${str.slice(3,14)}}`,currentEvent.dataValues[str.slice(3,14)] ? currentEvent.dataValues[str.slice(3,14)] : "");
         }
-        else if( str.startsWith("tea.") ) {
+        else if( currentTei && str.startsWith("tea.") ) {
           return str.replace(`tea.${str.slice(4,15)}}`,currentTei.attributes[str.slice(4,15)] ? currentTei.attributes[str.slice(4,15)] : "");
         }
         else if( str.startsWith("orgUnitName") ) {
@@ -64,16 +64,16 @@ const DeathCertificate = ({
     }
     else if (valType === "check") {
       if( val.startsWith("#{de.") ) {
-        if(currentEvent[val.slice(5,16)]) {
-          return currentEvent[val.slice(5,16)] === val.slice(18) ? "X" : ""
+        if(currentEvent.dataValues[val.slice(5,16)]) {
+          return currentEvent.dataValues[val.slice(5,16)] === val.slice(18) ? "X" : ""
         }
         else {
           return "";
         }
       }
       else if( val.startsWith("#{tea.") ) {
-        if(currentTei[val.slice(6,17)]) {
-          return currentTei[val.slice(6,17)] === val.slice(19) ? "X" : ""
+        if(currentTei.attributes[val.slice(6,17)]) {
+          return currentTei.attributes[val.slice(6,17)] === val.slice(19) ? "X" : ""
         }
         else {
           return "";

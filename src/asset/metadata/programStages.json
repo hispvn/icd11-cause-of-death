@@ -442,6 +442,17 @@
           "dataElement": { "id": "D1DfTA9Sttb" }
         },
         {
+          "id": "Fnf3QOwLECR",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "RbHkIAJNO7p" }
+        },
+        {
           "id": "HJTEmqXtLQ3",
           "displayInReports": false,
           "skipSynchronization": false,
@@ -627,6 +638,105 @@
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "SvdMvylfTRD" }
+        },
+        {
+          "id": "eOHdH5zvolY",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "F7tgJi4Mrh2" }
+        },
+        {
+          "id": "XGWmdMTKFTQ",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "lgqnByA6upc" }
+        },
+        {
+          "id": "HDjcbPZc5ES",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "vVU9TucLNL1" }
+        },
+        {
+          "id": "IwGpnITgDQP",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "D1SL1fg5woI" }
+        },
+        {
+          "id": "oDxQhaAdXSN",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "rdYmAWuty2c" }
+        },
+        {
+          "id": "wPl8seD5EQ6",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "pM2nSQ1qRct" }
+        },
+        {
+          "id": "CryHFfRlg9b",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "CdspXgp2mWz" }
+        },
+        {
+          "id": "l4iJbsZVWXu",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "sJfmq3ueBBI" }
+        },
+        {
+          "id": "H80CyEYjav5",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "YZeiZFyQWKs" }
         }
       ],
       "translations": [

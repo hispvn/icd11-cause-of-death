@@ -71,7 +71,7 @@ const ALL_CAUSES = [
 const Dashboard = () => {
   const { t } = useTranslation();
   const [pages, setPages] = useState(run(t));
-  const [selectedPeriods, selectPeriod] = useState("2021");
+  const [selectedPeriods, selectPeriod] = useState(moment().year());
   const [selectedPage, setSelectedPage] = useState(pages[0] ? pages[0].id : "");
   const page = pages.find((page) => page.id === selectedPage);
 

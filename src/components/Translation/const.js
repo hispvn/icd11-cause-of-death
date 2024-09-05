@@ -442,8 +442,8 @@ const TRANSLATIONS = [
     key: "anacodExportExcel",
     translation: {
       ar: "تصدير تحليل الوفيات وأسبابها بصيغة إكسل",
-      en: "Anacod Export (Excel)",
-      fr: "Export Anacode (Excel)"
+      en: "Anacod Export (CSV)",
+      fr: "Export Anacode (CSV)"
     }
   },
   {
@@ -2460,7 +2460,7 @@ const TRANSLATIONS = [
       en: "* Note: WHO Digital Open Rule Integrated cause of death Selection (DORIS)"
     }
   },
-  { key: "compute", translation: { en: "Compute", fr: "Calculer" } },
+  { key: "compute", translation: { en: "Process", fr: "Calculer" } },
   { key: "icd11_tool", translation: { en: "ICD 11 Coding Tool" } },
   {
     key: "your_selection",

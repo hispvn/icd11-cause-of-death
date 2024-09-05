@@ -1,5 +1,170 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "sections": [
+    {
+      "name": "Cause of death - A",
+      "sortOrder": 1,
+      "dataElements": [
+        { "id": "RU1KXNWlT6S" },
+        { "id": "pO3tWD7kne8" },
+        { "id": "QyTACRjivAo" },
+        { "id": "dEvMi21KHHh" },
+        { "id": "xBZ2VsHFHVG" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Cause du décès - A", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Cause of death - B",
+      "sortOrder": 2,
+      "dataElements": [
+        { "id": "QjFzlJHUD9Y" },
+        { "id": "UvMMMp7rH6a" },
+        { "id": "Apnx0pnzMUq" },
+        { "id": "HLf4M23Yxop" },
+        { "id": "zm11IWgxKgX" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Cause du décès - B", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Cause of death - C",
+      "sortOrder": 3,
+      "dataElements": [
+        { "id": "eRMha7cwC1R" },
+        { "id": "uCd0fusEBzm" },
+        { "id": "ZhbIetKpHtd" },
+        { "id": "TgO3vRHCaNV" },
+        { "id": "vDoCf56L9wb" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Cause de décès - C", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Cause of death - D",
+      "sortOrder": 4,
+      "dataElements": [
+        { "id": "SzLlhusJK6R" },
+        { "id": "zbd0YIKpila" },
+        { "id": "cQTtzqf81UY" },
+        { "id": "PgkDvnP4oZH" },
+        { "id": "ohxcCCUJRmJ" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Cause du décès - D", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Cause of death - Other factors",
+      "sortOrder": 5,
+      "dataElements": [{ "id": "NOKiM5Isd5J" }],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        {
+          "value": "Cause du décès - Autres facteurs",
+          "locale": "fr",
+          "property": "NAME"
+        }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Results",
+      "sortOrder": 6,
+      "dataElements": [
+        { "id": "D1DfTA9Sttb" },
+        { "id": "Iu7raZhcHn9" },
+        { "id": "zwFVJMwggaH" },
+        { "id": "W4lXedV97kG" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Résultats", "locale": "fr", "property": "NAME" },
+        { "value": "Результаты", "locale": "ru", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Surgery",
+      "sortOrder": 7,
+      "dataElements": [
+        { "id": "dzGpRK1w7sN" },
+        { "id": "f3DaU224GDr" },
+        { "id": "YXJsdoaszh3" },
+        { "id": "vRT1wJGTvje" },
+        { "id": "AfPenosN9MU" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Chirurgie", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Manner of death",
+      "sortOrder": 8,
+      "dataElements": [
+        { "id": "BaO1pJKhZJc" },
+        { "id": "O2HZAuxH8RH" },
+        { "id": "xfrRGCTrsbg" },
+        { "id": "do9ClTIpO5Q" },
+        { "id": "xJaJXE64Mwr" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Způsob smrti", "locale": "cs", "property": "NAME" },
+        { "value": "Façon de mourir", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Fetal or infant death",
+      "sortOrder": 9,
+      "dataElements": [
+        { "id": "UO2nkQCl91t" },
+        { "id": "QselLsJcB7Z" },
+        { "id": "lVXgG5rdRxY" },
+        { "id": "GTYimatiqtP" },
+        { "id": "gskFsDUUv3s" },
+        { "id": "SvdMvylfTRD" },
+        { "id": "emRklq26SUZ" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        {
+          "value": "Mort fœtale ou infantile",
+          "locale": "fr",
+          "property": "NAME"
+        }
+      ],
+      "programIndicators": []
+    },
+    {
+      "name": "Maternal death",
+      "sortOrder": 10,
+      "dataElements": [
+        { "id": "HHSCjcfEoKa" },
+        { "id": "Z7yQ9Rm1y4a" },
+        { "id": "LbWJoDtfDn7" }
+      ],
+      "programStage": { "id": "WlWJt4lVSWw" },
+      "translations": [
+        { "value": "Décès maternel", "locale": "fr", "property": "NAME" }
+      ],
+      "programIndicators": []
+    }
+  ],
   "attributes": {
     "age": "z4jIMvqs0ff",
     "dob": "revZcilpJvK",
@@ -7,51 +172,59 @@
     "address": "UpxiqwM8BTC",
     "system_id": "BfkIayM14MF",
     "given_name": "lDKfAjYyQcN",
-    "middle_name": "A9yzNTl9G0f",
     "family_name": "j1yPic5cJUo",
-    "estimated_dob": "X5p19VIeYyW"
+    "estimated_dob": "X5p19VIeYyW",
+    "status": "rZSVLUfgHlD"
   },
   "dataElements": {
     "codA": "RU1KXNWlT6S",
     "codB": "QjFzlJHUD9Y",
     "codC": "eRMha7cwC1R",
     "codD": "SzLlhusJK6R",
+    "codO": "F7tgJi4Mrh2",
     "autopsy": "vRT1wJGTvje",
     "surgery": "dzGpRK1w7sN",
     "codOther": "NOKiM5Isd5J",
-    "codA_entityId": "Ovu3nxFVwRB",
     "codA_name": "pO3tWD7kne8",
-    "codA_other_name": "okahaacYKqO",
     "codA_time": "QyTACRjivAo",
-    "codB_entityId": "draFmNEP1ID",
     "codB_name": "UvMMMp7rH6a",
-    "codB_other_name": "MSYrx2z1f8p",
     "codB_time": "Apnx0pnzMUq",
-    "codC_entityId": "GMiHyYq3JlY",
     "codC_name": "uCd0fusEBzm",
-    "codC_other_name": "UboyGYmr19j",
     "codC_time": "ZhbIetKpHtd",
-    "codD_entityId": "ddohQFXWz6e",
     "codD_name": "zbd0YIKpila",
-    "codD_other_name": "Pd5bZxTS4ql",
     "codD_time": "cQTtzqf81UY",
+    "codO_name": "D1SL1fg5woI",
+    "codO_time": "CdspXgp2mWz",
     "stillborn": "QselLsJcB7Z",
     "age_mother": "SvdMvylfTRD",
     "birth_weight": "GTYimatiqtP",
     "dateOfInjury": "O2HZAuxH8RH",
     "surgery_date": "f3DaU224GDr",
+    "codA_entityId": "Ovu3nxFVwRB",
+    "codB_entityId": "draFmNEP1ID",
+    "codC_entityId": "GMiHyYq3JlY",
+    "codD_entityId": "ddohQFXWz6e",
+    "codO_entityId": "lgqnByA6upc",
     "externalCause": "xfrRGCTrsbg",
     "mannerOfDeath": "BaO1pJKhZJc",
     "underlyingCOD": "D1DfTA9Sttb",
+    "underlyingCOD_DORIS": "RbHkIAJNO7p",
     "surgery_reason": "YXJsdoaszh3",
+    "codA_other_name": "okahaacYKqO",
     "codA_periodType": "dEvMi21KHHh",
     "codA_underlying": "xBZ2VsHFHVG",
+    "codB_other_name": "MSYrx2z1f8p",
     "codB_periodType": "HLf4M23Yxop",
     "codB_underlying": "zm11IWgxKgX",
+    "codC_other_name": "UboyGYmr19j",
     "codC_periodType": "TgO3vRHCaNV",
     "codC_underlying": "vDoCf56L9wb",
+    "codD_other_name": "Pd5bZxTS4ql",
     "codD_periodType": "PgkDvnP4oZH",
     "codD_underlying": "ohxcCCUJRmJ",
+    "codO_other_name": "vVU9TucLNL1",
+    "codO_periodType": "pM2nSQ1qRct",
+    "codO_underlying": "rdYmAWuty2c",
     "autopsy_specified": "AfPenosN9MU",
     "underlyingCOD_code": "Iu7raZhcHn9",
     "externalCause_place": "do9ClTIpO5Q",
@@ -60,13 +233,16 @@
     "multiple_pregnancies": "UO2nkQCl91t",
     "pregnancy_conditions": "emRklq26SUZ",
     "pregnancy_inLastYear": "HHSCjcfEoKa",
+    "underlyingCOD_report": "cH9NADGoNwU",
     "underlyingCOD_chapter": "W4lXedV97kG",
     "hours_newborn_survived": "lVXgG5rdRxY",
     "completedWeeks_pregnancy": "gskFsDUUv3s",
+    "underlyingCOD_processed_by": "YZeiZFyQWKs",
     "externalCause_specifiedPlace": "xJaJXE64Mwr",
     "pregnancy_contributed_to_death": "LbWJoDtfDn7",
-    "underlyingCOD_report": "cH9NADGoNwU"
+    "reason_of_manual_COD_selection": "sJfmq3ueBBI"
   },
   "programStage": "WlWJt4lVSWw",
+  "otherSections": {},
   "optionAttributes": { "group": "UBT4QSKzYo4", "chapter": "QUYTAqoXnje" }
 }

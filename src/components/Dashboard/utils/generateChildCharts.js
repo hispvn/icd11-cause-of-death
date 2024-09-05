@@ -381,7 +381,7 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
+                        data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
                             const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
@@ -474,7 +474,7 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
+                        data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
                             const val =( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;
@@ -567,7 +567,7 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: ["202101","202102","202103","202104","202105","202106","202107","202108","202109","202110","202111","202112"].map( ageG => {
+                        data: data.metaData.dimensions.pe.map( ageG => {
                             // ageG
                             const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
                             return val ? parseInt(val[2]) : 0;

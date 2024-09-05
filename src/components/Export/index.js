@@ -135,7 +135,7 @@ const Export = ({ route, orgUnits }) => {
                       const ws = XLSX.utils.json_to_sheet(
                         rows.map((row) =>
                           row.reduce((result, cell, index) => {
-                            result[heads[index]] = cell;
+                            result[heads[index]] = index === 0 ? countryCode.country : index === 1 ? countryCode.code : cell;
                             return result;
                           }, {})
                         ),
@@ -146,7 +146,7 @@ const Export = ({ route, orgUnits }) => {
                       return XLSX.utils.book_append_sheet(wb, ws, year);
                     }
                   );
-                writeFile(wb, "ANACOD.xlsx");
+                writeFile(wb, "ANACOD.csv");
               }}
             >
               {t("anacodExportExcel")}

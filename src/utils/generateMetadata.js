@@ -128,7 +128,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
     metadata["legendSets"] = require(`../asset/metadata/legendSets.json`)["legendSets"];
 
     // add system_id
-    metadata["trackedEntityAttributes"] = require(`../asset/metadata/trackedEntityAttributes.json`)["trackedEntityAttributes"].slice(0,1);
+    metadata["trackedEntityAttributes"] = require(`../asset/metadata/trackedEntityAttributes.json`)["trackedEntityAttributes"].slice(0,2);
     metadata["trackedEntityAttributes"].push({
         ...ageAttribute,
         legendSets: [
@@ -263,7 +263,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
             "programTrackedEntityAttributeGroups": []
           }],
           ...admin.trackedEntityAttributes.filter( ([des,]) => des !== '' ).map( (tea,index) => ({
-            "mandatory": false,
+            "mandatory": tea[1] === "Sex",
             "searchable": tea[1] === "First Name" || tea[1] === "Last Name" || tea[1] === "Date of Birth" || tea[1] === "Address",
             "renderOptionsAsRadio": false,
             "displayInList": tea[1] === "First Name" || tea[1] === "Last Name" || tea[1] === "Date of Birth" || tea[1] === "Address",
@@ -271,7 +271,18 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
             "program": { "id": metadata.programs[0].id  },
             "trackedEntityAttribute": { "id": tea[0] },
             "programTrackedEntityAttributeGroups": []
-          }))
+          })),
+          ...[{
+            "mandatory": true,
+            "searchable": true,
+            "renderOptionsAsRadio": false,
+            "displayInList": true,
+            "sortOrder": admin.trackedEntityAttributes.filter( ([des,]) => des !== '' ).length + 2,
+            "program": { "id": metadata.programs[0].id },
+            // "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[0][0] },
+            "trackedEntityAttribute": { "id": metadata["trackedEntityAttributes"][1].id },
+            "programTrackedEntityAttributeGroups": []
+          }]
         //   ...[{
         //     "mandatory": false,
         //     "searchable": true,

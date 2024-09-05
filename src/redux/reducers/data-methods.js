@@ -90,8 +90,8 @@ export const initNewData = (state, action) => {
 export const initData = (state, action) => {
   const { trackedEntityInstance, programMetadata } = action.payload;
   const currentTei = trackedEntityInstance;
-  const currentEnrollment = trackedEntityInstance.enrollments[0];
-  const currentEvents = trackedEntityInstance.enrollments[0].events;
+  const currentEnrollment = trackedEntityInstance.enrollments.find( ({program}) => program === programMetadata.id );
+  const currentEvents = currentEnrollment ? currentEnrollment.events : [];
   delete currentTei.enrollments;
   delete currentEnrollment.events;
   currentTei.isNew = false;

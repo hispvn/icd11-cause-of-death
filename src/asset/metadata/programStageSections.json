@@ -89,7 +89,16 @@
           "value": "Cause du décès - Autres facteurs"
         }
       ],
-      "dataElements": [{ "id": "NOKiM5Isd5J" }]
+      "dataElements": [
+        { "id": "NOKiM5Isd5J" },
+        { "id": "F7tgJi4Mrh2" },
+        { "id": "lgqnByA6upc" },
+        { "id": "D1SL1fg5woI" },
+        { "id": "vVU9TucLNL1" },
+        { "id": "CdspXgp2mWz" },
+        { "id": "pM2nSQ1qRct" },
+        { "id": "rdYmAWuty2c" }
+      ]
     },
     {
       "name": "Results",
@@ -103,10 +112,13 @@
       ],
       "dataElements": [
         { "id": "D1DfTA9Sttb" },
+        { "id": "RbHkIAJNO7p" },
         { "id": "Iu7raZhcHn9" },
         { "id": "zwFVJMwggaH" },
         { "id": "W4lXedV97kG" },
-        { "id": "cH9NADGoNwU" }
+        { "id": "cH9NADGoNwU" },
+        { "id": "YZeiZFyQWKs" },
+        { "id": "sJfmq3ueBBI" }
       ]
     },
     {

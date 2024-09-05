@@ -39,6 +39,27 @@
       "legendSets": []
     },
     {
+      "id": "rZSVLUfgHlD",
+      "name": "COD Status",
+      "shortName": "COD Status",
+      "aggregationType": "NONE",
+      "displayInListNoProgram": false,
+      "publicAccess": "--------",
+      "pattern": "",
+      "skipSynchronization": false,
+      "generated": false,
+      "displayOnVisitSchedule": false,
+      "valueType": "TEXT",
+      "formName": "Status",
+      "confidential": false,
+      "orgunitScope": false,
+      "unique": false,
+      "inherit": false,
+      "translations": [ ],
+      "attributeValues": [ ],
+      "legendSets": [ ]
+    },
+    {
       "id": "UpxiqwM8BTC",
       "name": "Address (current)",
       "shortName": "Address (current)",

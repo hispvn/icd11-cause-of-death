@@ -110,7 +110,7 @@
           "programTrackedEntityAttributeGroups": []
         },
         {
-          "mandatory": false,
+          "mandatory": true,
           "searchable": true,
           "renderOptionsAsRadio": false,
           "displayInList": true,
@@ -127,6 +127,16 @@
           "sortOrder": 9,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "X5p19VIeYyW" },
+          "programTrackedEntityAttributeGroups": []
+        },
+        {
+          "mandatory": false,
+          "searchable": false,
+          "renderOptionsAsRadio": false,
+          "displayInList": false,
+          "sortOrder": 10,
+          "program": { "id": "ogrOUKoSaWA" },
+          "trackedEntityAttribute": { "id": "rZSVLUfgHlD" },
           "programTrackedEntityAttributeGroups": []
         }
       ],

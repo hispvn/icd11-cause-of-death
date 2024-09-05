@@ -85,7 +85,9 @@ export const convertValueBack = (valueType, value) => {
 export const generateDhis2Payload = (data, programMetadata) => {
   const newData = JSON.parse(JSON.stringify(data));
   let { currentTei, currentEnrollment, currentEvents } = newData;
-  currentTei.attributes = Object.keys(currentTei.attributes).map((attribute) => {
+  currentTei.attributes = Object.keys(currentTei.attributes)
+    .filter(attribute => programMetadata.trackedEntityAttributes.find((attr) => attr.id === attribute) )
+    .map((attribute) => {
     const attributeMetadata = programMetadata.trackedEntityAttributes.find((attr) => attr.id === attribute);
     return {
       attribute,

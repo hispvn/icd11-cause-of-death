@@ -1,9 +1,6 @@
-import { useEffect, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import { useEffect } from "react";
 import InputField from "../InputField";
-import { Button, Col, Row, message } from "antd";
-import { Backdrop, CircularProgress } from '@mui/material';
+import { Col, Row, message } from "antd";
 import moment from "moment";
 /* REDUX */
 import { connect } from "react-redux";
@@ -13,40 +10,25 @@ import {
   mutateEnrollment,
   mutateEvent,
 } from "../../redux/actions/data";
-import { changeRoute } from "../../redux/actions/route";
 
 import { useTranslation } from "react-i18next";
 
 /*       */
 import { Hooks } from "tracker-capture-app-core";
-import { generateDhis2Payload } from "../../utils";
 
-// Leave page
-import WarningDialog from "./WarningDialog";
-
-const ButtonGroup = Button.Group;
-const { useApi
-  // , useRuleEngine 
-} = Hooks;
+const { useApi } = Hooks;
 const Profile = ({
-  changeRoute,
-  mutateTei,
   mutateAttribute,
   mutateEnrollment,
   mutateEvent,
   metadata,
   data,
-  openCertificateModal
 }) => {
   const { t } = useTranslation();
-  const { dataApi, metadataApi } = useApi();
-  const { currentTei, currentEnrollment, currentEvents } = data;
-  const { programMetadata, formMapping, fullnameOption
-  } = metadata;
+  const { metadataApi } = useApi();
+  const { currentTei, currentEnrollment, currentEvents, currentEnrollment: { status: enrollmentStatus } } = data;
+  const { programMetadata, formMapping, fullnameOption } = metadata;
 
-  const [loading,setLoading]=useState(false);
-  const [exitWarning,setExitWarning]=useState(false);
-  const [certificate,setCertificate]=useState(false);
 
   useEffect(() => {
     if ( getTeaValue(formMapping.attributes["system_id"]) === "" ) {
@@ -63,12 +45,6 @@ const Profile = ({
         message.error("ERROR!!! Reported Date must be greater than incidentDate")
       }
     }
-
-    setCertificate (
-      currentEvents[0] &&
-      currentEvents[0].dataValues &&
-      currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD"]]
-    );
   }, [data])
 
   const getTeaMetadata = (attribute) =>
@@ -91,7 +67,7 @@ const Profile = ({
         change={(value) => {
           mutateAttribute(tea.id, value);
         }}
-        disabled={attribute === formMapping.attributes["system_id"]}
+        disabled={attribute === formMapping.attributes["system_id"] || enrollmentStatus === "COMPLETED"}
       />
     );
   };
@@ -125,6 +101,7 @@ const Profile = ({
               change={(value) => {
                 mutateAttribute(isEstimated.id, value);
               }}
+              disabled={enrollmentStatus === "COMPLETED"}
             />
           </Col>
           <Col>
@@ -154,6 +131,7 @@ const Profile = ({
                   mutateAttribute(age.id, age_cal);
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
+              disabled={enrollmentStatus === "COMPLETED"}
             />
           </Col>
           <Col>
@@ -169,6 +147,7 @@ const Profile = ({
                     message.error("Age can't be negative number")
                     : mutateAttribute(age.id, Math.round(value));
               }}
+              disabled={enrollmentStatus === "COMPLETED"}
             />
           </Col>
         </Row>
@@ -177,14 +156,14 @@ const Profile = ({
   };
 
   return (
-    <div className="profile-section-container">
-      <Backdrop
+    <div>
+      {/* <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
         open={loading}
       >
         <CircularProgress color="inherit" />
-      </Backdrop>
-      <WarningDialog 
+      </Backdrop> */}
+      {/* <WarningDialog 
         open={exitWarning}
         handleCancel={() => {
           setExitWarning(false);
@@ -195,115 +174,48 @@ const Profile = ({
           mutateEvent(currentEvents[0].event, "isDirty", false);
           changeRoute("list");
         }}
-      ></WarningDialog>
-      <div className="section-title section-title-profile">
-        <FontAwesomeIcon icon={faUserEdit} style={{ fontSize: 15 }} />
-        &nbsp; {t("profile")}
-      </div>
-      <div className="profile-section">
-        <div className="profile-content">
-          <InputField
-            value={currentEnrollment.enrollmentDate || ""}
-            label={t("reportedDate")}
-            valueType={"DATE_WITH_RANGE"}
-            disabledDate={current => current && current >= moment().startOf('day')}
-            change={(value) => {
-              mutateEnrollment("enrollmentDate", value);
-            }}
-          />
-          <InputField
-            value={currentEnrollment.incidentDate || ""}
-            label={t("incidentDate")}
-            valueType={"DATE_WITH_RANGE"}
-            disabledDate={current => current && current >= moment().startOf('day')}
-            change={(value) => {
-              mutateEnrollment("incidentDate", value);
-              currentEvents.forEach((event) => {
-                mutateEvent(event.event, "eventDate", value);
-                mutateEvent(event.event, "dueDate", value);
-              });
-            }}
-          />
-          {/* {attributes
-            .slice(0, 3)
-            .map((attribute) => populateInputField(attribute))} */}
-          {populateInputField(formMapping.attributes["system_id"])}
-          {fullnameOption !== "noname" && populateInputField(formMapping.attributes["given_name"])}
-          {fullnameOption === "firstmidlastname" && populateInputField(formMapping.attributes["middle_name"])}
-          {(fullnameOption !== "noname" && fullnameOption !== "fullname") && populateInputField(formMapping.attributes["family_name"])}
-          {renderDOBGroup()}
-          {/* {attributes.slice(3).map((attribute) => populateInputField(attribute))} */}
-          {populateInputField(formMapping.attributes["sex"])}
-          {populateInputField(formMapping.attributes["address"])}
+      ></WarningDialog> */}
+      <InputField
+        value={currentEnrollment.enrollmentDate || ""}
+        label={t("reportedDate")}
+        valueType={"DATE_WITH_RANGE"}
+        disabledDate={current => current && current > moment().endOf('day')}
+        change={(value) => {
+          mutateEnrollment("enrollmentDate", value);
+        }}
+        disabled={enrollmentStatus === "COMPLETED"}
+      />
+      <InputField
+        value={currentEnrollment.incidentDate || ""}
+        label={t("incidentDate")}
+        valueType={"DATE_WITH_RANGE"}
+        disabledDate={current => current && current > moment().endOf('day')}
+        change={(value) => {
+          mutateEnrollment("incidentDate", value);
+          currentEvents.forEach((event) => {
+            mutateEvent(event.event, "eventDate", value);
+            mutateEvent(event.event, "dueDate", value);
+          });
+        }}
+        disabled={enrollmentStatus === "COMPLETED"}
+      />
+      {/* {attributes
+        .slice(0, 3)
+        .map((attribute) => populateInputField(attribute))} */}
+      {populateInputField(formMapping.attributes["system_id"])}
+      {fullnameOption !== "noname" && populateInputField(formMapping.attributes["given_name"])}
+      {fullnameOption === "firstmidlastname" && populateInputField(formMapping.attributes["middle_name"])}
+      {(fullnameOption !== "noname" && fullnameOption !== "fullname") && populateInputField(formMapping.attributes["family_name"])}
+      {renderDOBGroup()}
+      {/* {attributes.slice(3).map((attribute) => populateInputField(attribute))} */}
+      {populateInputField(formMapping.attributes["sex"])}
+      {populateInputField(formMapping.attributes["address"])}
 
 
-          {/* For other attributes */}
-          {programMetadata.trackedEntityAttributes.filter( 
-            ({id}) => !Object.values(formMapping.attributes).find( tea => tea === id ) 
-          ).map( tea => populateInputField(tea.id) )}
-        </div>
-        <div className="profile-button">
-          <ButtonGroup
-            style={{
-              // float: "right",
-              padding: "5px",
-            }}
-          >
-            <Button
-              type="primary"
-              onClick={async () => {
-                setLoading(true);
-                const { currentTei, currentEnrollment } = generateDhis2Payload(
-                  data,
-                  programMetadata
-                );
-                await dataApi.pushTrackedEntityInstance(
-                  currentTei,
-                  programMetadata.id
-                );
-                await dataApi.pushEnrollment(
-                  currentEnrollment,
-                  programMetadata.id
-                );
-                mutateTei("isSaved", true);
-
-                // Dirty Check
-                mutateTei("isDirty", false);
-                mutateEnrollment("isDirty", false);
-
-
-                // Notification
-                setLoading(false);
-                message.success("Profile is saved successfully!")
-              }}
-            >
-            {
-              t("save")
-            }
-            </Button>
-            <Button
-              type="danger"
-              onClick={() => {
-                if ( currentTei.isDirty || currentEnrollment.isDirty || currentEvents[0].isDirty ) {
-                  setExitWarning(true);
-                }
-                else {
-                  changeRoute("list");
-                }
-              }}
-            >
-            {
-              t("cancel")
-            }
-            </Button>
-            <Button disabled={!certificate} onClick={openCertificateModal}>
-            {
-              t("printCertificate")
-            }
-            </Button>
-          </ButtonGroup>
-        </div>
-      </div>
+      {/* For other attributes */}
+      {programMetadata.trackedEntityAttributes.filter( 
+        ({id}) => !Object.values(formMapping.attributes).find( tea => tea === id ) 
+      ).map( tea => populateInputField(tea.id) )}
     </div>
   );
 };
@@ -315,7 +227,6 @@ const mapStateToProps = (state) => {
   };
 };
 const mapDispatchToProps = {
-  changeRoute,
   mutateTei,
   mutateAttribute,
   mutateEnrollment,

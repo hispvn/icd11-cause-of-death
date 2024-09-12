@@ -650,7 +650,7 @@ const TRANSLATIONS = [
     key: "step3FrameA",
     translation: {
       ar: "3 - إطار أ",
-      en: "3 - Frame A",
+      en: "3 - Form",
       fr: "3 - Cadre A"
     }
   },

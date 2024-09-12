@@ -151,12 +151,12 @@ const Form = ({
                       data,
                       programMetadata
                     );
-                    await dataApi.pushTrackedEntityInstance(
-                      currentTei,
-                      programMetadata.id
-                    );
                     await dataApi.pushEnrollment(
                       currentEnrollment,
+                      programMetadata.id
+                    );
+                    await dataApi.pushTrackedEntityInstance(
+                      currentTei,
                       programMetadata.id
                     );
                     mutateTei("isSaved", true);
@@ -283,12 +283,12 @@ const Form = ({
                         data,
                         programMetadata
                       );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
-                      );
                       await dataApi.pushEnrollment(
                         currentEnrollment,
+                        programMetadata.id
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
                         programMetadata.id
                       );
                       mutateTei("isSaved", true);
@@ -320,12 +320,12 @@ const Form = ({
                         data,
                         programMetadata
                       );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
-                      );
                       await dataApi.pushEnrollment(
                         currentEnrollment,
+                        programMetadata.id
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
                         programMetadata.id
                       );
                       await dataApi.pushEvents({ events: currentEvents });

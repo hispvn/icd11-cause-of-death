@@ -72,6 +72,7 @@ export const generateDefaultMetadata = (fullnameOption, newUID) => {
 }
 
 export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
+    console.log(admin);
     /** 
      * WHAT THIS FUNCTION DOES
      * 
@@ -96,7 +97,8 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
         version: "",
         dataElements: {},
         attributes: {
-          system_id: "BfkIayM14MF"
+          system_id: "BfkIayM14MF",
+          status: "rZSVLUfgHlD"
         },
         programStage: "WlWJt4lVSWw",
         optionAttributes: {
@@ -164,7 +166,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
                 ...dataElements,
                 ...section.dataElements.map( de => {
                     const findedDE = metadata.dataElements.find( ({id}) => de.id === id )
-                    if ( findedDE.optionSet ) {
+                    if ( findedDE.optionSet && findedDE.optionSet.id ) {
                         if ( !optionSets.find( ({id}) => id === findedDE.optionSet.id ) )  {
                             optionSets.push(metadata.optionSets.find( ({id}) => id === findedDE.optionSet.id ));
                             options = [
@@ -197,10 +199,11 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
 
 
     // 2. Remove DEs from programStages, TEAs/TE_Type from programs, and programStageSections
-    metadata.programStageSections = [
-        ...admin.dataElements.frameA.defaultSections,
-        ...admin.dataElements.frameB.defaultSections,
-    ];
+    // metadata.programStageSections = [
+    //     ...admin.dataElements.frameA.defaultSections,
+    //     ...admin.dataElements.frameB.defaultSections,
+    // ];
+    metadata.programStageSections = admin.dataElements.form.defaultSections;
 
     delete metadata.programs[0].trackedEntityType;
     metadata.programs[0].programTrackedEntityAttributes = [];

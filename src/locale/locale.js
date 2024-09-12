@@ -49,7 +49,7 @@ const resources = {
       // Administration
       step1Installation: "1 - Installation",
       step2Attribute: "2 - Attributes",
-      step3FrameA: "3 - Frame A",
+      step3FrameA: "3 - Form",
       step4FrameB: "4 - Frame B",
       step5OUs: "5 - Assign OrgUnits",
       step6Users: "6 - Assign Users",

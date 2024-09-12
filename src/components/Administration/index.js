@@ -59,7 +59,7 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
               <Step title={t("step1Installation")} disabled={true} />
               <Step title={t("step2Attribute")} />
               <Step title={t("step3FrameA")} />
-              <Step title={t("step4FrameB")} />
+              {/* <Step title={t("step4FrameB")} /> */}
               <Step title={t("step5OUs")} />
               <Step title={t("step6Users")} />
               <Step title={t("step7Review")} />
@@ -75,7 +75,7 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
               >{
                 t("back")
               }</Button>
-              { (step===6) ? 
+              { (step===5) ? 
                 <Button type="primary"
                   style={{ marginLeft: 10 }}
                   onClick={() => setOpen(true)}
@@ -127,10 +127,10 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
             {step === 0 && <Selections />}
             {step === 1 && <Attributes />}
             {step === 2 && <FrameA />}
-            {step === 3 && <FrameB />}
-            {step === 4 && <AssignOrgUnits />}
-            {step === 5 && <AssignUsers />}
-            {step === 6 && <Review />}
+            {/* {step === 3 && <FrameB />} */}
+            {step === 3 && <AssignOrgUnits />}
+            {step === 4 && <AssignUsers />}
+            {step === 5 && <Review />}
           </div>
         </div>
         : 

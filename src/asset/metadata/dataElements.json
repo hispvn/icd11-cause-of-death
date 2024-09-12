@@ -332,7 +332,6 @@
       "valueType": "TEXT",
       "formName": "Cause A",
       "zeroIsSignificant": false,
-      "optionSet": { "id": "Cot7SuEeNuk" },
       "translations": [
         { "property": "FORM_NAME", "locale": "cs", "value": "Příčina A" },
         {
@@ -363,42 +362,6 @@
       "aggregationLevels": []
     },
     {
-      "id": "pO3tWD7kne8",
-      "name": "CoD - Cause of death A (immediate) - specified",
-      "shortName": "CoD - Cause of death A (immediate) - specified",
-      "aggregationType": "SUM",
-      "domainType": "TRACKER",
-      "publicAccess": "r-------",
-      "valueType": "TEXT",
-      "zeroIsSignificant": false,
-      "translations": [
-        {
-          "property": "NAME",
-          "locale": "cs",
-          "value": "Příčina smrti A (okamžitá) - upřesněno"
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "fr",
-          "value": "Cause du décès A (immédiatement) - Spécifié "
-        },
-        {
-          "property": "NAME",
-          "locale": "fr",
-          "value": "Cause du décès A (immédiatement) - Spécifié "
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "cs",
-          "value": "Příčina smrti A (okamžitá) - upřesněno"
-        }
-      ],
-      "attributeValues": [],
-      "userAccesses": [],
-      "legendSets": [],
-      "aggregationLevels": []
-    },
-    {
       "id": "QjFzlJHUD9Y",
       "name": "CoD - Cause of death B",
       "shortName": "CoD - Cause of death B",
@@ -408,7 +371,6 @@
       "valueType": "TEXT",
       "formName": "Cause B",
       "zeroIsSignificant": false,
-      "optionSet": { "id": "Cot7SuEeNuk" },
       "translations": [
         { "property": "FORM_NAME", "locale": "cs", "value": "Příčina B" },
         {
@@ -439,42 +401,6 @@
       "aggregationLevels": []
     },
     {
-      "id": "UvMMMp7rH6a",
-      "name": "CoD - Cause of death B - specified",
-      "shortName": "CoD - Cause of death B - specified",
-      "aggregationType": "SUM",
-      "domainType": "TRACKER",
-      "publicAccess": "r-------",
-      "valueType": "TEXT",
-      "zeroIsSignificant": false,
-      "translations": [
-        {
-          "property": "NAME",
-          "locale": "fr",
-          "value": "Cause du décès B - précisé"
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "cs",
-          "value": "Příčina smrti B - upřesněno"
-        },
-        {
-          "property": "NAME",
-          "locale": "cs",
-          "value": "Příčina smrti B - upřesněno"
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "fr",
-          "value": "Cause du décès B - précisé"
-        }
-      ],
-      "attributeValues": [],
-      "userAccesses": [],
-      "legendSets": [],
-      "aggregationLevels": []
-    },
-    {
       "id": "eRMha7cwC1R",
       "name": "CoD - Cause of death C",
       "shortName": "CoD - Cause of death C",
@@ -484,7 +410,6 @@
       "valueType": "TEXT",
       "formName": "Cause C",
       "zeroIsSignificant": false,
-      "optionSet": { "id": "Cot7SuEeNuk" },
       "translations": [
         { "property": "FORM_NAME", "locale": "cs", "value": "Příčina C" },
         {
@@ -515,42 +440,6 @@
       "aggregationLevels": []
     },
     {
-      "id": "uCd0fusEBzm",
-      "name": "CoD - Cause of death C - specified",
-      "shortName": "CoD - Cause of death C - specified",
-      "aggregationType": "SUM",
-      "domainType": "TRACKER",
-      "publicAccess": "r-------",
-      "valueType": "TEXT",
-      "zeroIsSignificant": false,
-      "translations": [
-        {
-          "property": "SHORT_NAME",
-          "locale": "fr",
-          "value": "Cause du décès C - précisé"
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "cs",
-          "value": "Příčina smrti C - uvedeno"
-        },
-        {
-          "property": "NAME",
-          "locale": "fr",
-          "value": "Cause du décès C - précisé"
-        },
-        {
-          "property": "NAME",
-          "locale": "cs",
-          "value": "Příčina smrti C - uvedeno"
-        }
-      ],
-      "attributeValues": [],
-      "userAccesses": [],
-      "legendSets": [],
-      "aggregationLevels": []
-    },
-    {
       "id": "SzLlhusJK6R",
       "name": "CoD - Cause of death D",
       "shortName": "CoD - Cause of death D",
@@ -560,7 +449,6 @@
       "valueType": "TEXT",
       "formName": "Cause D",
       "zeroIsSignificant": false,
-      "optionSet": { "id": "Cot7SuEeNuk" },
       "translations": [
         {
           "property": "SHORT_NAME",
@@ -575,42 +463,6 @@
           "property": "SHORT_NAME",
           "locale": "fr",
           "value": "Cause du décès D"
-        }
-      ],
-      "attributeValues": [],
-      "userAccesses": [],
-      "legendSets": [],
-      "aggregationLevels": []
-    },
-    {
-      "id": "zbd0YIKpila",
-      "name": "CoD - Cause of death D - specified",
-      "shortName": "CoD - Cause of death D - specified",
-      "aggregationType": "SUM",
-      "domainType": "TRACKER",
-      "publicAccess": "r-------",
-      "valueType": "TEXT",
-      "zeroIsSignificant": false,
-      "translations": [
-        {
-          "property": "SHORT_NAME",
-          "locale": "cs",
-          "value": "Příčina smrti D - specifikováno"
-        },
-        {
-          "property": "NAME",
-          "locale": "cs",
-          "value": "Příčina smrti D - specifikováno"
-        },
-        {
-          "locale": "fr",
-          "property": "NAME",
-          "value": "Cause du décès D - spécifiée"
-        },
-        {
-          "locale": "fr",
-          "property": "SHORT_NAME",
-          "value": "Cause du décès D - spécifiée"
         }
       ],
       "attributeValues": [],
@@ -925,42 +777,6 @@
           "locale": "fr",
           "property": "SHORT_NAME",
           "value": "Grossesses multiples"
-        }
-      ],
-      "attributeValues": [],
-      "userAccesses": [],
-      "legendSets": [],
-      "aggregationLevels": []
-    },
-    {
-      "id": "NOKiM5Isd5J",
-      "name": "CoD - Other significant conditions contributing to death",
-      "shortName": "CoD - Other conditions contributing to death",
-      "aggregationType": "SUM",
-      "domainType": "TRACKER",
-      "publicAccess": "r-------",
-      "valueType": "LONG_TEXT",
-      "zeroIsSignificant": false,
-      "translations": [
-        {
-          "property": "NAME",
-          "locale": "cs",
-          "value": "Další významné podmínky přispívající k smrti"
-        },
-        {
-          "property": "SHORT_NAME",
-          "locale": "cs",
-          "value": "Další významné podmínky přispívající k smrti"
-        },
-        {
-          "locale": "fr",
-          "property": "NAME",
-          "value": "Autres conditions importantes contribuant à la mort"
-        },
-        {
-          "locale": "fr",
-          "property": "SHORT_NAME",
-          "value": "Autres conditions importantes contribuant à la mort"
         }
       ],
       "attributeValues": [],
@@ -1876,9 +1692,6 @@
       "valueType": "TEXT",
       "formName": "Other Cause",
       "zeroIsSignificant": false,
-      "optionSet": {
-        "id": "Cot7SuEeNuk"
-      },
       "translations": [ ],
       "userGroupAccesses": [],
       "attributeValues": [ ],
@@ -1907,22 +1720,6 @@
       "id": "vVU9TucLNL1",
       "name": "CoD - Cause of death Other - others",
       "shortName": "CoD - Other cause of death - others",
-      "aggregationType": "NONE",
-      "domainType": "TRACKER",
-      "publicAccess": "r-r-----",
-      "valueType": "TEXT",
-      "zeroIsSignificant": false,
-      "translations": [ ],
-      "userGroupAccesses": [],
-      "attributeValues": [ ],
-      "userAccesses": [ ],
-      "legendSets": [ ],
-      "aggregationLevels": [ ]
-    },
-    {
-      "id": "D1SL1fg5woI",
-      "name": "CoD - Cause of death Other - specified",
-      "shortName": "CoD - Other cause of death - specified",
       "aggregationType": "NONE",
       "domainType": "TRACKER",
       "publicAccess": "r-r-----",

@@ -4453,6 +4453,72 @@
                     "value": "نعم"
                 }
             ]
-        }
+        },
+        {
+            "code": "Certificate already distributed",
+            "name": "Certificate already distributed",
+            "id": "KVYchH8UBNA",
+            "sortOrder": 1,
+            "optionSet": {
+              "id": "fcEG5Pd7jKG"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+          },
+          {
+            "code": "DORIS",
+            "name": "DORIS",
+            "id": "dkUCA8WOnWt",
+            "sortOrder": 1,
+            "optionSet": {
+              "id": "poG5iRzoLn7"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+          },
+          {
+            "code": "DORIS given wrong underlying cause",
+            "name": "DORIS given wrong underlying cause",
+            "id": "iuO3AfwamMA",
+            "sortOrder": 3,
+            "optionSet": {
+              "id": "fcEG5Pd7jKG"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+          },
+          {
+            "code": "Manual",
+            "name": "Manual",
+            "id": "UlazGJvf829",
+            "sortOrder": 2,
+            "optionSet": {
+              "id": "poG5iRzoLn7"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+          },
+          {
+            "code": "Medical officer not agreed",
+            "name": "Medical officer not agreed",
+            "id": "izt6wVcUDr0",
+            "sortOrder": 2,
+            "optionSet": {
+              "id": "fcEG5Pd7jKG"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+          },
+          {
+            "code": "Others",
+            "name": "Others",
+            "id": "YdeXncR3Ysc",
+            "sortOrder": 4,
+            "optionSet": {
+              "id": "fcEG5Pd7jKG"
+            },
+            "attributeValues": [ ],
+            "translations": [ ]
+        }      
     ]
 }

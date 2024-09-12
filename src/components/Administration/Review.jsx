@@ -242,7 +242,8 @@ const Review = ({
                       // style={{ height: 500, overflow: "auto" }}
                       defaultActiveKey={[]}
                     >
-                      {metadata.programStageSections.slice(0,6).map( section => {
+                      {/* {metadata.programStageSections.slice(0,6).map( section => { */}
+                      {metadata.programStageSections.map( section => {
                         return (
                           <Collapse.Panel
                             key={section.id}
@@ -284,7 +285,8 @@ const Review = ({
                   >
                     {(installType === "custom" ) && 
                       <Collapse defaultActiveKey={["1"]}>
-                        {dataElements.frameA.otherSections.map(([name, des], index) => (
+                        {/* {dataElements.frameA.otherSections.map(([name, des], index) => ( */}
+                        {dataElements.form.otherSections.map(([name, des], index) => (
                           <Collapse.Panel key={index} header={name}>
                             <Table
                               size="small"
@@ -306,7 +308,7 @@ const Review = ({
                 </Col>
               </Row>
             </Card>
-            <Card style={{ marginBottom: 10 }} type="inner" title={t("step4FrameB")}>
+            {/* <Card style={{ marginBottom: 10 }} type="inner" title={t("step4FrameB")}>
               <Row>
                 <Col xs={12}>
                   <Card
@@ -386,7 +388,7 @@ const Review = ({
                   </Card>
                 </Col>
               </Row>
-            </Card>
+            </Card> */}
             <Card
               style={{ marginBottom: 10 }}
               type="inner"

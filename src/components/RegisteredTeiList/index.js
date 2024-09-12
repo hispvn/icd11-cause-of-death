@@ -106,7 +106,7 @@ const RegisteredTeiList = ({ metadata, data, initData, changeRoute }) => {
         if (sorter.order === "ascend") {
           orderString = `order=${sorter.columnKey}:asc`;
         } else {
-          orderString = `order=lastupdated:desc`;
+          orderString = `order=created:desc`;
         }
       }
       setSortTable(orderString);

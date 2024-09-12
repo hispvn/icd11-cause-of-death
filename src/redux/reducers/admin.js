@@ -23,13 +23,17 @@ const initialState = {
   femaleOption: null,
   fullnameOption: "firstlastname",
   dataElements: {
-    frameA: { 
+    // frameA: { 
+    //   otherSections: [], 
+    //   defaultSections: require(`../../asset/metadata/programStageSections.json`).programStageSections.slice(0,6) 
+    // },
+    // frameB: { 
+    //   otherSections: [], 
+    //   defaultSections: require(`../../asset/metadata/programStageSections.json`).programStageSections.slice(6,10) 
+    // },
+    form: { 
       otherSections: [], 
-      defaultSections: require(`../../asset/metadata/programStageSections.json`).programStageSections.slice(0,6) 
-    },
-    frameB: { 
-      otherSections: [], 
-      defaultSections: require(`../../asset/metadata/programStageSections.json`).programStageSections.slice(6,10) 
+      defaultSections: require(`../../asset/metadata/programStageSections.json`).programStageSections
     }
   },
   users: {

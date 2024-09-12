@@ -17,8 +17,9 @@ const dataElements = require("../../asset/metadata/dataElements.json").dataEleme
 const FrameA = ({
   admin: {
     dataElements: {
-      frameA: { defaultSections, otherSections },
-      frameB: { otherSections: frameBOtherSections },
+      // frameA: { defaultSections, otherSections },
+      // frameB: { otherSections: frameBOtherSections },
+      form: { defaultSections, otherSections },
     },
   },
   allExistedDataElements,
@@ -196,11 +197,11 @@ const FrameA = ({
             height: 500,
           }}
           dataSource={allExistedDataElements
-            .filter(({ id }) =>
-              frameBOtherSections.every(
-                ([name, dataElements]) => !dataElements.includes(id)
-              )
-            )
+            // .filter(({ id }) =>
+            //   frameBOtherSections.every(
+            //     ([name, dataElements]) => !dataElements.includes(id)
+            //   )
+            // )
             .filter(({ id }) => {
               if (isEditingIndex === null) {
                 return otherSections.every(
@@ -271,7 +272,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = {
-  changeDataElements: changeDataElements("frameA"),
+  changeDataElements: changeDataElements("form"),
   setTrackerDataElements,
 };
 

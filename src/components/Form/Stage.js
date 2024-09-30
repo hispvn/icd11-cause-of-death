@@ -198,11 +198,11 @@ const Stage = ({
 
   const fillUpUnderlying = (cod) => {
     let result = null;
-    for (const [key, value] of Object.entries(cod)) {
-      if (value.underlying) {
+    // for (const [key, value] of Object.entries(cod)) {
+    //   if (value.underlying) {
         result = underlyingResult;
-      }
-    }
+    //   }
+    // }
 
     const currentUnderlyingCoD = currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_code"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_code"]] : "";
     // Save values of underlying
@@ -256,7 +256,7 @@ const Stage = ({
       currentEvent 
       && de === formMapping.dataElements["underlyingCOD_processed_by"]
       && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] !== "Manual"
-      && checkBoxUnderlying === ""
+      && underlyingResult === ""
     ) {
       disable = true;
     }
@@ -375,7 +375,7 @@ const Stage = ({
           });
           setIcdTool(true);
         }}
-        placeholder={"Click here for ICD 11 code"}
+        placeholder={"ICD-11 Coding Tool"}
         // allowClear={true}
         change={ value => {
           console.log(value);
@@ -543,6 +543,7 @@ const Stage = ({
           causeOfDeaths[activeCauseOfDeath.code].entityId = causeOfDeaths[activeCauseOfDeath.code].entityId === "" ? selectedCod.uri.split("/")[selectedCod.uri.split("/").length - 1] : `${causeOfDeaths[activeCauseOfDeath.code].entityId},${selectedCod.uri.split("/")[selectedCod.uri.split("/").length - 1]}`;
           setValueIcdField(causeOfDeaths);
           setCauseOfDeaths({ ...causeOfDeaths });
+          setUnderlyingResult("");
           mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "DORIS");
         }}
         defaultValue={{
@@ -588,7 +589,7 @@ const Stage = ({
                         <td>A</td> */}
                         <td>
                           <div className="two-fields-container">
-                            {renderInputField(formMapping.dataElements["codA_other_name"],undefined,"A")}
+                            {renderInputField(formMapping.dataElements["codA_other_name"],undefined,"A (Free Text)")}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codA"],
                               // formMapping.dataElements["codA_name"],
@@ -609,7 +610,7 @@ const Stage = ({
                       <tr>
                         <td>
                           <div className="two-fields-container">
-                            {renderInputField(formMapping.dataElements["codB_other_name"],undefined,"B")}
+                            {renderInputField(formMapping.dataElements["codB_other_name"],undefined,"B (Free Text)")}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codB"],
                               // formMapping.dataElements["codB_name"],
@@ -632,7 +633,7 @@ const Stage = ({
                         <td>C</td> */}
                         <td>
                           <div className="two-fields-container">
-                            {renderInputField(formMapping.dataElements["codC_other_name"],undefined,"C")}
+                            {renderInputField(formMapping.dataElements["codC_other_name"],undefined,"C (Free Text)")}
                             {/* {renderInputField(formMapping.dataElements["codC_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codC"],
@@ -656,7 +657,7 @@ const Stage = ({
                         <td>D</td> */}
                         <td>
                           <div className="two-fields-container">
-                            {renderInputField(formMapping.dataElements["codD_other_name"],undefined,"D")}
+                            {renderInputField(formMapping.dataElements["codD_other_name"],undefined,"D (Free Text)")}
                             {/* {renderInputField(formMapping.dataElements["codD_other_name"])} */}
                             {renderCauseOfDeathsInputField(
                               formMapping.dataElements["codD"],

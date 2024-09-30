@@ -146,10 +146,13 @@ const Form = ({
 
                   onClick={async () => {
                     setLoading(true);
-                    console.log("save", data, programMetadata);
-                    const { currentTei, currentEnrollment } = generateDhis2Payload(
+                    const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
                       data,
                       programMetadata
+                    );
+                    await dataApi.pushTrackedEntityInstance(
+                      currentTei,
+                      programMetadata.id
                     );
                     await dataApi.pushEnrollment(
                       currentEnrollment,
@@ -207,7 +210,7 @@ const Form = ({
             <div className="result-content">
               <Result />
             </div>
-            <div className="result-button">
+            {/* <div className="result-button">
               <ButtonGroup
                 style={{
                   float: "right",
@@ -225,7 +228,7 @@ const Form = ({
                   Certificate
                 </Button>
               </ButtonGroup>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className={sideBar ? "stage-section-container" : "stage-section-container-fullscreen"}>
@@ -244,6 +247,17 @@ const Form = ({
                 onClick={() => {setSideBar(!sideBar)}}
               >
                 {sideBar ? "Collapse" : "Expand"}
+              </Button>
+              <Button
+                type="primary" 
+                style={{
+                  width: "110px",
+                  marginLeft: "3px",
+                }}
+                disabled={!certificate}
+                onClick={() => { setOpenCertificate(true); }}
+              >
+                Certificate
               </Button>
             </ButtonGroup>
             <ButtonGroup
@@ -311,32 +325,46 @@ const Form = ({
                       color: "white"
                     }}
                     onClick={async () => {
-                      setLoading(true);
+                      if (
+                        currentEvents[0] &&
+                        currentEvents[0].dataValues &&
+                        currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] &&
+                        currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] === "Manual" &&
+                        (( 
+                          currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]] && 
+                          currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]] === "" 
+                        ) || !currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]])
+                      ) {
+                        message.error("ERROR!!! Please select reason of not using the result from DORIS tool");
+                      }
+                      else {
+                        setLoading(true);
 
-                      mutateEnrollment("status", "COMPLETED");
-                      mutateAttribute(formMapping.attributes["status"], "Completed");
+                        mutateEnrollment("status", "COMPLETED");
+                        mutateAttribute(formMapping.attributes["status"], "Completed");
 
-                      const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
-                        data,
-                        programMetadata
-                      );
-                      await dataApi.pushEnrollment(
-                        currentEnrollment,
-                        programMetadata.id
-                      );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
-                      );
-                      await dataApi.pushEvents({ events: currentEvents });
-                      mutateTei("isSaved", true);
+                        const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
+                          data,
+                          programMetadata
+                        );
+                        await dataApi.pushEnrollment(
+                          currentEnrollment,
+                          programMetadata.id
+                        );
+                        await dataApi.pushTrackedEntityInstance(
+                          currentTei,
+                          programMetadata.id
+                        );
+                        await dataApi.pushEvents({ events: currentEvents });
+                        mutateTei("isSaved", true);
 
-                      // Dirty Check
-                      mutateTei("isDirty", false);
-                      mutateEnrollment("isDirty", false);
-                      mutateEvent(currentEvents[0].event,"isDirty",false);
-                      
-                      setLoading(false);
+                        // Dirty Check
+                        mutateTei("isDirty", false);
+                        mutateEnrollment("isDirty", false);
+                        mutateEvent(currentEvents[0].event,"isDirty",false);
+                        
+                        setLoading(false);
+                      }
                     }}
                   >
                     Complete
@@ -349,16 +377,30 @@ const Form = ({
                     marginLeft: "3px"
                   }}
                   onClick={async () => {
-                    setLoading(true);
-                    const { currentEvents } = generateDhis2Payload(data, programMetadata);
-                    await dataApi.pushEvents({ events: currentEvents });
-    
-                    // Dirty Check
-                    mutateEvent(currentEvents[0].event,"isDirty",false);
-    
-                    // Notification
-                    setLoading(false);
-                    message.success("Saved Successfully!");
+                    if (
+                      currentEvents[0] &&
+                        currentEvents[0].dataValues &&
+                        currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] &&
+                        currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD_processed_by"]] === "Manual" &&
+                        (( 
+                          currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]] && 
+                          currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]] === "" 
+                        ) || !currentEvents[0].dataValues[formMapping.dataElements["reason_of_manual_COD_selection"]])
+                    ) {
+                      message.error("ERROR!!! Please select reason of not using the result from DORIS tool");
+                    }
+                    else {
+                      setLoading(true);
+                      const { currentEvents } = generateDhis2Payload(data, programMetadata);
+                      await dataApi.pushEvents({ events: currentEvents });
+      
+                      // Dirty Check
+                      mutateEvent(currentEvents[0].event,"isDirty",false);
+      
+                      // Notification
+                      setLoading(false);
+                      message.success("Saved Successfully!");
+                    }
                   }}
                 >
                   Save

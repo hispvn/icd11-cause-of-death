@@ -54,12 +54,13 @@ const Attributes = ({
     defaultName === "Female Option" ? "Female" :
     defaultName === "Person" ? "Person" : "";
 
-  const showedTrackedEntityAttributes = (attribute) =>
-    allExistedTrackedEntityAttributes.filter(({ id }) =>
+  const showedTrackedEntityAttributes = (attribute) => {
+    return allExistedTrackedEntityAttributes.filter(({ id }) =>
       selectedTrackedEntityAttributes.every(
         ([des, source]) => des !== id || source === null || (attribute ? source === attribute : false)
       )
-    );
+    )
+  };
 
   useEffect(() => {
     if ( (selectedTrackedEntityAttributes.filter( ([,source]) => source === "Sex" ).length > 0) ) {
@@ -471,7 +472,11 @@ const Attributes = ({
                       size="small"
                       onClick={async () => {
                         setIsReloading(true);
-                        const { trackedEntityAttributes } = await metadataApi.getTrackedEntityAttributes();
+                        const { trackedEntityAttributes } = await metadataApi.get(
+                          "/api/trackedEntityAttributes.json",
+                          { paging: false },
+                          ["fields=id,displayName,valueType,optionSet,formName"]
+                        );
                         setIsReloading(false);
                         setTeas(trackedEntityAttributes);
                       }}

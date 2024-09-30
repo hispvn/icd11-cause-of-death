@@ -102,7 +102,7 @@ const DeathCertificate = ({
           // await showPage(pdfDoc, 1);
 
       });
-  }
+    }
   }, [])
 
   return (

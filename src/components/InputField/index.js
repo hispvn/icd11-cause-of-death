@@ -38,13 +38,14 @@ const InputField = (props) => {
           value={value}
           // allowClear
           showSearch
-          style={{ width: "100%" }}
+          style={{ width: "100%", textAlign: "left" }}
           onChange={(selected) => {
             change(selected);
           }}
           disabled={disabled}
           mode={selectMode}
           onClick={click}
+          placeholder={placeholder}
         >
           {valueSet.map((set) => (
             <Option value={set.value}>{set.label}</Option>
@@ -56,7 +57,7 @@ const InputField = (props) => {
           value={value}
           allowClear
           showSearch
-          style={{ width: "100%", maxWidth: "260px" }}
+          style={{ width: "100%", maxWidth: "260px", textAlign: "left" }}
           onChange={(selected) => {
             change(selected);
           }}

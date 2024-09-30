@@ -203,7 +203,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
     //     ...admin.dataElements.frameA.defaultSections,
     //     ...admin.dataElements.frameB.defaultSections,
     // ];
-    metadata.programStageSections = admin.dataElements.form.defaultSections;
+    metadata.programStageSections = admin.dataElements.form.defaultSections.map( section => section );
 
     delete metadata.programs[0].trackedEntityType;
     metadata.programs[0].programTrackedEntityAttributes = [];
@@ -392,7 +392,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
 
             metadata.programStageSections.push({
                 "name": section[0],
-                "sortOrder": 11 + index,
+                "sortOrder": 10 + index,
                 "programStage": { "id": metadata.programStages[0].id },
                 "dataElements": section[1].map( de => {
                     return {

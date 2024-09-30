@@ -107,6 +107,8 @@ const Review = ({
       // redux
       setInstallingFile(data.metadata);
       setFormMapping(data.formMapping);
+
+      console.log(data)
     })();
   }, [generateNewUID]);
   
@@ -243,7 +245,7 @@ const Review = ({
                       defaultActiveKey={[]}
                     >
                       {/* {metadata.programStageSections.slice(0,6).map( section => { */}
-                      {metadata.programStageSections.map( section => {
+                      {metadata.programStageSections.slice(0,10).map( section => {
                         return (
                           <Collapse.Panel
                             key={section.id}

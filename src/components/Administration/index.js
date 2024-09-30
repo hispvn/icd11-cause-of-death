@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Selections from "./Selections";
 import Attributes from "./Attributes";
 import FrameA from "./FrameA";
-import FrameB from "./FrameB";
+// import FrameB from "./FrameB";
 import AssignOrgUnits from "./AssignOrgUnits";
 import AssignUsers from "./AssignUsers";
 import Certificate from "./Certificate";

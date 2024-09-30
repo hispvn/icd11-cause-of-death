@@ -297,7 +297,9 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                 })
             }
         case "4.1": 
-            convert = data.rows.sort((a, b) => {
+            convert = data.rows
+            .filter( r => r[0] !== "")
+            .sort((a, b) => {
                 return parseInt(b[1]) - parseInt(a[1])
             }).slice(0,10);
             return {
@@ -313,7 +315,9 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                 }]
             }
         case "4.2":
-            convert = data.rows.sort((a, b) => {
+            convert = data.rows
+            .filter( r => r[0] !== "")
+            .sort((a, b) => {
                 return parseInt(b[1]) - parseInt(a[1])
             }).slice(0,10);
             return (

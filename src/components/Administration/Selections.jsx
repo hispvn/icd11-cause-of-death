@@ -53,7 +53,7 @@ const Selections = ({
               <div
                 onClick={() => {
                   changeInstallationType("default");
-                  changeStep(4);
+                  changeStep(3);
                 }}
               >
                 <div className="administration-selection">{t("defaultInstallation")}</div>

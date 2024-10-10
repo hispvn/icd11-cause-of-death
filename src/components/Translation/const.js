@@ -665,25 +665,25 @@ const TRANSLATIONS = [
   {
     key: "step5OUs",
     translation: {
-      ar: "5 - تعيين وحدات تنظيمية",
-      en: "5 - Assign OrgUnits",
-      fr: "5 - Attribuer des unités d'organisation"
+      ar: "4 - تعيين وحدات تنظيمية",
+      en: "4 - Assign OrgUnits",
+      fr: "4 - Attribuer des unités d'organisation"
     }
   },
   {
     key: "step6Users",
     translation: {
-      ar: "6 - تعيين مستخدمين",
-      en: "6 - Assign Users",
-      fr: "6 - Attribuer des utilisateurs"
+      ar: "5 - تعيين مستخدمين",
+      en: "5 - Assign Users",
+      fr: "5 - Attribuer des utilisateurs"
     }
   },
   {
     key: "step7Review",
     translation: {
-      ar: "7 - مراجعة وإنهاء",
-      en: "7 - Review & Finish",
-      fr: "7 - Réviser et terminer"
+      ar: "6 - مراجعة وإنهاء",
+      en: "6 - Review & Finish",
+      fr: "6 - Réviser et terminer"
     }
   },
   {

@@ -70,7 +70,7 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
               <Button
                 onClick={() => {
                   // changeStep(step === 4 && type === "default" ? 0 : step >= 1 ? step - 1 : 0);
-                  changeStep(step === 4 && type === "default" ? 0 : step - 1);
+                  changeStep(step === 3 && type === "default" ? 0 : step - 1);
                 }}
               >{
                 t("back")
@@ -87,7 +87,7 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                   onClick={() => {
                     if (step === 0) {
                       if ( type === "default" ) {
-                        changeStep(4);
+                        changeStep(3);
                       }
                     }
                     else if ( step === 1 ) {

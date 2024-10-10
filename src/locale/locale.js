@@ -51,9 +51,9 @@ const resources = {
       step2Attribute: "2 - Attributes",
       step3FrameA: "3 - Form",
       step4FrameB: "4 - Frame B",
-      step5OUs: "5 - Assign OrgUnits",
-      step6Users: "6 - Assign Users",
-      step7Review: "7 - Review & Finish",
+      step5OUs: "4 - Assign OrgUnits",
+      step6Users: "5 - Assign Users",
+      step7Review: "6 - Review & Finish",
       errorMissingTET:
         "ERROR Please select ALL default attributes and Tracked Entity Type.",
       step1Attributes: "1 - Attributes",

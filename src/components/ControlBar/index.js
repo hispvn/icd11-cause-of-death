@@ -302,7 +302,7 @@ const ControlBar = ({
                       setDoc({
                         label: "dataentry",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vT7is5PmIEG0jVWfnT7kGJrwu0Ihj0rGlBsMA8JZWmwFdkK8YHAAW-WxL6FkgbrGX5cAPpyVUChVDlJ/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vT2EbDPO-O-iLc-at1THnLzKTeYAiH1SAimzBvJNXOg3zL6fBupvT1ByPZ0N51uDH95xLVF54CjnI4D/pub?embedded=true",
                       });
                     }}
                   >
@@ -313,7 +313,7 @@ const ControlBar = ({
                       setDoc({
                         label: "anacod",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vQdr2wU1vpl_Aq0qR3tzx4_Ye2MeS4Vl5ngVw4_-URLG9P0y6zpLHtAJj4rJh47QGdN0az0XbbuZt6t/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vQpE5KDQQ8VdTVC_qbcwTTcZmrOX3hDx_L3tApw9yKGBVfZwIBWcHEluA1kl1bKzPhLSnEyZkOdjZLn/pub?embedded=true",
                       });
                     }}
                   >
@@ -324,7 +324,7 @@ const ControlBar = ({
                       setDoc({
                         label: "dashboard",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vRtwuTMcvKmUBWKoI1Cgt9WLjGLiuA9Ti_0ii9HVSpcMRRlh4rBd99GpalRytZp4N6P05K9QYvYOm62/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vQfDy60msYBy8k3UgqRHaDxe72tfrY6sLw2ggxGClCpnDaV-YzWYLajt9f4ZlqfZnTabKjlYxVKfct4/pub?embedded=true",
                       });
                     }}
                   >
@@ -335,7 +335,7 @@ const ControlBar = ({
                       setDoc({
                         label: "translation",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vRTLVO0CS8SyEo7U_WgGMpyZDwFanKJ0ov7nRRyW5p64q4HT563pS_ZgAbf7V2drkaeQlcojnsTQfb4/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vTMlCwOKSheM906LY7YgKHvbyqxtByq9cpWCcISXBbV0b7TuU7uhqxsRLJxkZKYq-0GGGXXuS4C4Tot/pub?embedded=true",
                       });
                     }}
                   >
@@ -346,7 +346,7 @@ const ControlBar = ({
                       setDoc({
                         label: "administration",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vSSVBG46xrDYjA1c8gkl3RdY3JcgLgLhf-rQPJHtvf67CnBMoSdlg14vxpKXb1yDpLB8sFTQo1JBJEf/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vSLEQHeu-PUH4qZBptfwR7Y1h1VX53iYBVC5ax2G9qe7EI4jQY5aACC2I6lsN6zOOhlHIxisCcCllsv/pub?embedded=true",
                       });
                     }}
                   >
@@ -357,7 +357,7 @@ const ControlBar = ({
                       setDoc({
                         label: "installation",
                         type: "googleDoc",
-                        url: "https://docs.google.com/document/d/e/2PACX-1vSQ1HmJ1_VpuKiuWd23N14kDbWLZwyqwqLmqLxAx_aFF5PIqw7w-iCDjIyeaa_O-A/pub?embedded=true",
+                        url: "https://docs.google.com/document/d/e/2PACX-1vSRv9lkjTR-1fYxaBzP3gsoBgsJZNpTEDzROoslAMgmI09H1CDNBh1k5umTnk3slg/pub?embedded=true",
                       });
                     }}
                   >

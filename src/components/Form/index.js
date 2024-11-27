@@ -20,6 +20,7 @@ import Stage from "./Stage";
 import Result from "./Result";
 
 import WarningDialog from "./WarningDialog";
+import DeleteDialog from "./DeleteDialog";
 
 import { changeRoute } from "../../redux/actions/route";
 import {
@@ -55,6 +56,7 @@ const Form = ({
 
   const [loading,setLoading]=useState(false);
   const [exitWarning,setExitWarning]=useState(false);
+  const [deleteWarning,setDeleteWarning]=useState(false);
 
   const { currentTei, currentEnrollment, currentEvents } = data;
   const { programMetadata, formMapping } = metadata;
@@ -65,6 +67,8 @@ const Form = ({
   // const [doris, setDoris] = useState(false);
 
   useEffect(() => {
+    console.log(data);
+    
     setCertificate (
       currentEvents[0] &&
       currentEvents[0].dataValues &&
@@ -92,6 +96,20 @@ const Form = ({
           changeRoute("list");
         }}
       ></WarningDialog>
+      <DeleteDialog 
+        open={deleteWarning}
+        handleCancel={() => {
+          setDeleteWarning(false);
+        }}
+        handleOk={async () => {
+          await dataApi.push(
+            `/api/enrollments/${currentEnrollment.enrollment}`,
+            {},
+            "DELETE"
+          );
+          changeRoute("list");
+        }}
+      ></DeleteDialog>
       <div className="form-container">
         <DeathCertificate
           open={openCertificate}
@@ -140,38 +158,62 @@ const Form = ({
               >
                 <Button
                   type="primary" 
+                  danger
                   style={{
                     width: "110px"
                   }}
+                  disabled={currentTei.isNew && !currentTei.isSaved}
+                  onClick={() => {
+                    setDeleteWarning(true);
+                  }}
+                >
+                  Delete
+                </Button>
+                <Button
+                  type="primary" 
+                  style={{
+                    width: "110px",
+                    marginLeft: "3px"
+                  }}
 
                   onClick={async () => {
-                    setLoading(true);
-                    const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
-                      data,
-                      programMetadata
-                    );
-                    await dataApi.pushTrackedEntityInstance(
-                      currentTei,
-                      programMetadata.id
-                    );
-                    await dataApi.pushEnrollment(
-                      currentEnrollment,
-                      programMetadata.id
-                    );
-                    await dataApi.pushTrackedEntityInstance(
-                      currentTei,
-                      programMetadata.id
-                    );
-                    mutateTei("isSaved", true);
+                    if ( 
+                      programMetadata.trackedEntityAttributes.filter( ({compulsory}) => compulsory )
+                      .every( ({id}) => currentTei.attributes[id] && currentTei.attributes[id] !== "" )
+                      && currentEnrollment['enrollmentDate'] && currentEnrollment.enrollmentDate !== ""
+                      && currentEnrollment['incidentDate'] && currentEnrollment['incidentDate'] !== ""
+                    ) {
+                      setLoading(true);
+                      const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
+                        data,
+                        programMetadata
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
+                        programMetadata.id
+                      );
+                      await dataApi.pushEnrollment(
+                        currentEnrollment,
+                        programMetadata.id
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
+                        programMetadata.id
+                      );
+                      mutateTei("isSaved", true);
 
-                    // Dirty Check
-                    mutateTei("isDirty", false);
-                    mutateEnrollment("isDirty", false);
+                      // Dirty Check
+                      mutateTei("isDirty", false);
+                      mutateEnrollment("isDirty", false);
 
 
-                    // Notification
-                    setLoading(false);
-                    message.success("Profile is saved successfully!")
+                      // Notification
+                      setLoading(false);
+                      message.success("Profile is saved successfully!")
+                    }
+                    else {
+                      message.error("All complusory fields must be fill!")
+                    }
                   }}
                 >
                   {t("save")}

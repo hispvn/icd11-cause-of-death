@@ -68,6 +68,7 @@ const Profile = ({
           mutateAttribute(tea.id, value);
         }}
         disabled={attribute === formMapping.attributes["system_id"] || enrollmentStatus === "COMPLETED"}
+        mandatory={tea.compulsory}
       />
     );
   };
@@ -117,8 +118,9 @@ const Profile = ({
               label={dob.displayFormName}
               valueSet={dob.valueSet}
               change={(value) => {
+                console.log(value)
                 mutateAttribute(dob.id, value);
-                const age_cal = Math.round(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+                const age_cal = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
                   moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
                   "years",
                   true
@@ -127,8 +129,8 @@ const Profile = ({
                   message.error("Age can't be greater than 150")
                 else if (age_cal < 0)
                   message.error("Age can't be negative number")
-                else 
-                  mutateAttribute(age.id, age_cal);
+                else if (!isNaN(age_cal))
+                  mutateAttribute(age.id, age_cal + "");
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
               disabled={enrollmentStatus === "COMPLETED"}
@@ -139,15 +141,20 @@ const Profile = ({
               value={getTeaValue(formMapping.attributes["age"])}
               valueType={age.valueType}
               label={age.displayFormName}
-              valueSet={age.valueSet}
               change={(value) => {
-                (value > 150) ?
+                if ( value !== "" ) {
+                  (parseInt(value) > 150) ?
                   message.error("Age can't be greater than 150")
-                  : (value < 0) ? 
+                  : (parseInt(value) < 0) ? 
                     message.error("Age can't be negative number")
-                    : mutateAttribute(age.id, Math.round(value));
+                    : mutateAttribute(age.id, value);
+                }
+                else {
+                  mutateAttribute(age.id, "");
+                }
               }}
               disabled={enrollmentStatus === "COMPLETED"}
+              mandatory={age.compulsory}
             />
           </Col>
         </Row>
@@ -184,6 +191,7 @@ const Profile = ({
           mutateEnrollment("enrollmentDate", value);
         }}
         disabled={enrollmentStatus === "COMPLETED"}
+        mandatory={true}
       />
       <InputField
         value={currentEnrollment.incidentDate || ""}
@@ -198,6 +206,7 @@ const Profile = ({
           });
         }}
         disabled={enrollmentStatus === "COMPLETED"}
+        mandatory={true}
       />
       {/* {attributes
         .slice(0, 3)

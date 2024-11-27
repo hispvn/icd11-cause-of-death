@@ -3,7 +3,7 @@
     {
       "id": "BfkIayM14MF",
       "name": "COD System ID",
-      "shortName": "Unique System Identifier",
+      "shortName": "Unique System Identifier (CoD)",
       "aggregationType": "NONE",
       "displayInListNoProgram": true,
       "publicAccess": "r-------",

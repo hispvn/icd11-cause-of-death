@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 
 import { 
   Button,
-  Modal
+  Modal,
+  Tooltip
 } from "antd";
 
 /* Styling tools */
@@ -352,6 +353,43 @@ const Stage = ({
     );
   };
 
+  const tagRender = (props) => {
+    const { label, value, closable, onClose } = props;
+    const option = icd11Options.find((item) => item.code === value);
+
+    return (
+      <Tooltip title={option?.name}>
+        <span
+          style={{
+            display: "inline-flex",
+            alignItems: "center",
+            background: "#f0f0f0",
+            padding: "4px 8px",
+            borderRadius: "4px",
+            margin: "2px",
+          }}
+        >
+          {label}
+          {closable && (
+            <span
+              onClick={(e) => {
+                e.preventDefault();
+                onClose();
+              }}
+              style={{
+                marginLeft: "8px",
+                cursor: "pointer",
+                color: "#999",
+              }}
+            >
+              ×
+            </span>
+          )}
+        </span>
+      </Tooltip>
+    )
+  }
+
   // const renderCauseOfDeathsInputField = (codCode, codName, codEntityId, codUnderlying) => {
   const renderCauseOfDeathsInputField = (codCode, codEntityId, codUnderlying) => {
     return (
@@ -363,6 +401,7 @@ const Stage = ({
         value={currentEvent ? (currentEvent.dataValues[codCode] ? currentEvent.dataValues[codCode].split(",") : []) : []}
         valueSet={currentEvent ? (currentEvent.dataValues[codCode] ? currentEvent.dataValues[codCode].split(",") : []) : []}
         selectMode={"multiple"}
+        tagRender={tagRender}
         valueType="TEXT"
         click={() => {
           setActiveCauseOfDeath({
@@ -433,7 +472,16 @@ const Stage = ({
     headers.append("API-Version", "v2");
     headers.append("Accept-Language", keyUiLocale);
     headers.append("Authorization", `Bearer ${icdApi_clientToken}`);
-    const icdApiUrl = `https://id.who.int/icd/release/11/2023-01/doris?causeOfDeathCodeA=${causeOfDeaths[formMapping.dataElements["codA"]].code}&causeOfDeathCodeB=${causeOfDeaths[formMapping.dataElements["codB"]].code}&causeOfDeathCodeC=${causeOfDeaths[formMapping.dataElements["codC"]].code}&causeOfDeathCodeD=${causeOfDeaths[formMapping.dataElements["codD"]].code}`;
+    const icdApiUrl = "https://id.who.int/icd/release/11/2023-01/doris?" 
+      + "sex=" + !currentTeiSexAttributeValue ? "-9" : currentTeiSexAttributeValue === "" ? "-9" : currentTeiSexAttributeValue === femaleCode ? "2" : "1"
+      + currentTeiAgeAttributeValue ? `&estimatedAge=P${currentTeiAgeAttributeValue}YD` : ""
+      + currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : ""
+      + currentTeiDateOfDeath ? `&dateDeath=${currentTeiDateOfDeath}` : ""
+      + "&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code 
+      + "&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code 
+      + "&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code 
+      + "&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code 
+      + "&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code;
     const result = await fetch(icdApiUrl, {
       headers: headers
     })

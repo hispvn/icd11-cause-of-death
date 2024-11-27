@@ -22,7 +22,9 @@ const InputField = (props) => {
     placeholder,
     allowClear,
     disabledDate,
-    selectMode
+    selectMode,
+    mandatory,
+    tagRender
   } = props;
 
   // function disabledDate(d) {
@@ -44,6 +46,7 @@ const InputField = (props) => {
           }}
           disabled={disabled}
           mode={selectMode}
+          tagRender={tagRender}
           onClick={click}
           placeholder={placeholder}
         >
@@ -108,7 +111,12 @@ const InputField = (props) => {
           <DatePicker
             value={value ? moment(value) : ""}
             onChange={(momentObject) => {
-              change(momentObject.format("YYYY-MM-DD"));
+              if( momentObject !== null ) {
+                change(momentObject.format("YYYY-MM-DD"));
+              }
+              else {
+                change("");
+              }
             }}
             disabled={disabled}
           />
@@ -118,7 +126,12 @@ const InputField = (props) => {
           <DatePicker 
             value={value ? moment(value) : ""}
             onChange={(momentObject) => {
-              change(momentObject.format("YYYY-MM-DD"));
+              if( momentObject !== null ) {
+                change(momentObject.format("YYYY-MM-DD"));
+              }
+              else {
+                change("");
+              }
             }}
             disabledDate={disabledDate}
             disabled={disabled}
@@ -172,7 +185,7 @@ const InputField = (props) => {
 
   return (
     <div className="input-container">
-      {label && <div className="input-label">{label}</div>}
+      {label && <div className="input-label">{`${label}${mandatory ? " *" : ""}`}</div>}
       <div className="input-field">{generateField()}</div>
       {error && <div className="input-error">{error}</div>}
       {helper && <div className="input-helper">{helper}</div>}

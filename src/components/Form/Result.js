@@ -55,6 +55,7 @@ const Result = ({
     };
 
     const getUcodResult = () => currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] : "";
+    const getUcodWarning = () => currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_warning"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_warning"]] : "";
 
     return (
         <div className="stage-section">
@@ -94,6 +95,14 @@ const Result = ({
                         <div>
                             {currentTei.attributes[formMapping.attributes["sex"]] ? currentTei.attributes[formMapping.attributes["sex"]] : ""}, {currentTei.attributes[formMapping.attributes["age"]] ? currentTei.attributes[formMapping.attributes["age"]] : ""}
                         </div>
+                        {
+                            getUcodWarning() !== "" && <>
+                                <div><strong>Warnings</strong></div>
+                                <div className="results-compute">
+                                    <div><pre style={{whiteSpace: "pre-wrap"}}>{getUcodWarning()}</pre></div>
+                                </div>
+                            </>
+                        }
                         <div><strong>Short Coding Report</strong></div>
                         <div className="results-compute">
                             {/* <p>

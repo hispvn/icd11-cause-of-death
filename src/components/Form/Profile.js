@@ -106,7 +106,7 @@ const Profile = ({
             />
           </Col>
           <Col>
-            <div className="input-label">{isEstimated.displayFormName}</div>
+            <div className="input-label">{`${isEstimated.displayFormName}${isEstimated.compulsory ? " *" : ""}`}</div>
           </Col>
         </Row>
         <Row>
@@ -134,6 +134,7 @@ const Profile = ({
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
               disabled={enrollmentStatus === "COMPLETED"}
+              mandatory={dob.compulsory}
             />
           </Col>
           <Col>

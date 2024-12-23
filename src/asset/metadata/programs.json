@@ -90,7 +90,7 @@
           "programTrackedEntityAttributeGroups": []
         },
         {
-          "mandatory": false,
+          "mandatory": true,
           "searchable": false,
           "renderOptionsAsRadio": false,
           "displayInList": false,

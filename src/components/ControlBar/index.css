@@ -8,6 +8,7 @@
   /* justify-content: center; */
 }
 .orgunit-selector-container {
+  margin-top: 10px;
   display: flex;
   width: 500px;
   min-height: 150px;

@@ -64,7 +64,8 @@ const InputField = (props) => {
           onChange={(selected) => {
             change(selected);
           }}
-            disabled={disabled}
+          disabled={disabled}
+          placeholder={placeholder}
         >
           {valueSet.map((set) => (
             <Option value={set.value}>{set.label}</Option>

@@ -46,6 +46,8 @@ const Stage = ({
   const [underlyingSelections,setUnderlyingSelections] = useState([]);
   const [underlyingResult, setUnderlyingResult] = useState("");
   const [underlyingModal, setUnderlyingModal] = useState(false);
+  const [timeToDeath, setTimeToDeath] = useState(null);
+  const [timeToDeathModal, setTimeToDeathModal] = useState(false);
 
   const {
     currentEnrollment,
@@ -312,7 +314,7 @@ const Stage = ({
                 setUnderlyingResult(currentCauseOfDeath[id].code);
               }
               else {
-                setUnderlyingSelections(currentCauseOfDeath[id].code.split(",").map(selection => ({label: selection, value: selection})));
+                setUnderlyingSelections(currentCauseOfDeath[id].code.split(",").map(selection => ({label: `${selection} - ${icd11Options.find(({code}) => code === selection.split(" (")[0])?.name}`, value: selection.split(" (")[0]})));
                 setUnderlyingModal(true);
               }
             }
@@ -355,10 +357,22 @@ const Stage = ({
 
   const tagRender = (props) => {
     const { label, value, closable, onClose } = props;
-    const option = icd11Options.find((item) => item.code === value);
+    const option = icd11Options.find((item) => item.code === value.split(" (")[0]);
+    const time = value.split(" (")[1]?.replace(")","");
+    const timeString = !time ? "unknown" 
+      : time[time.length - 1] === "Y" ? `${time.substring(1,time.length - 1)} year${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+      : time[time.length - 1] === "W" ? `${time.substring(1,time.length - 1)} week${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+      : time[time.length - 1] === "D" ? `${time.substring(1,time.length - 1)} day${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+      : time[time.length - 1] === "H" ? `${time.substring(2,time.length - 1)} hour${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}` 
+      : time[time.length - 1] === "S" ? `${time.substring(2,time.length - 1)} second${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}`
+      : time[time.length - 1] === "M" ? 
+        ( time.substring(0,2) === "PT" ? 
+          `${time.substring(2,time.length - 1)} minute${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}`
+          : `${time.substring(1,time.length - 1)} month${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` ) 
+      : "unknown"
 
     return (
-      <Tooltip title={option?.name}>
+      <Tooltip title={`${option?.name}\n${timeString}`} overlayInnerStyle={{ whiteSpace: "pre-line" }}>
         <span
           style={{
             display: "inline-flex",
@@ -467,21 +481,144 @@ const Stage = ({
   }
 
   const detectUnderlyingCauseOfDeath = async () => {
+    // const payload = {
+    //   "DeathCertificate": {
+    //     "CertificateKey": "",
+    //     "Issuer": "",
+    //     "Comments": "",
+    //     "FreeText": "",
+    //     "ICDVersion": "",
+    //     "ICDMinorVersion": "",
+    //     "UCStated": null,
+    //     "UCComputed": {
+    //       "RuleEngine": "",
+    //       "Reject": null,
+    //       "Validate": null,
+    //       "Timestamp": "",
+    //       "UC": null,
+    //       "UCComplete": null,
+    //       "Report": "",
+    //       "Errors": "",
+    //       "Warnings": ""
+    //     },
+    //     "AdministrativeData": {
+    //         "DateBirth": currentTeiDateOfBirthAttributeValue ? moment(currentTeiDateOfBirthAttributeValue, "YYYY-MM-DD").format("ddd MMM DD YYYY") : "",
+    //         "DateDeath": currentTeiDateOfDeath ? moment(currentTeiDateOfDeath, "YYYY-MM-DD").format("ddd MMM DD YYYY") : "",
+    //         "Sex": !currentTeiSexAttributeValue ? 9 : currentTeiSexAttributeValue === "" ? 9 : currentTeiSexAttributeValue === femaleCode ? 2 : 1,
+    //         "EstimatedAge": (currentTeiDateOfBirthAttributeValue && currentTeiDateOfDeath) ? `P${currentTeiAgeAttributeValue}Y` : ""
+    //     },
+    //     "Part1": [
+    //         {
+    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codA"]]?.split(",").map( codeSelection => ({
+    //               "Code": codeSelection.split(" (")[0],
+    //               "LinearizationURI": "",
+    //               "Text": "",
+    //               "FoundationURI": "",
+    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
+    //             })) ?? []
+    //         },
+    //         {
+    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codB"]]?.split(",").map( codeSelection => ({
+    //               "Code": codeSelection.split(" (")[0],
+    //               "LinearizationURI": "",
+    //               "Text": "",
+    //               "FoundationURI": "",
+    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
+    //             })) ?? []
+    //         },
+    //         {
+    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codC"]]?.split(",").map( codeSelection => ({
+    //               "Code": codeSelection.split(" (")[0],
+    //               "LinearizationURI": "",
+    //               "Text": "",
+    //               "FoundationURI": "",
+    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
+    //             })) ?? []
+    //         },
+    //         {
+    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codD"]]?.split(",").map( codeSelection => ({
+    //               "Code": codeSelection.split(" (")[0],
+    //               "LinearizationURI": "",
+    //               "Text": "",
+    //               "FoundationURI": "",
+    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
+    //             })) ?? []
+    //         },
+    //         {
+    //             "Conditions": []
+    //         }
+    //     ],
+    //     "Part2": {
+    //         "Conditions": currentEvent.dataValues[formMapping.dataElements["codO"]]?.split(",").map( codeSelection => ({
+    //           "Code": codeSelection.split(" (")[0],
+    //           "LinearizationURI": "",
+    //           "Text": "",
+    //           "FoundationURI": "",
+    //           "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
+    //         })) ?? []
+    //     },
+    //     "Surgery": {
+    //         "WasPerformed": null,
+    //         "Reason": "",
+    //         "Date": ""
+    //     },
+    //     "Autopsy": {
+    //         "WasRequested": null,
+    //         "Findings": null
+    //     },
+    //     "MannerOfDeath": {
+    //         "MannerOfDeath": null,
+    //         "DateOfExternalCauseOrPoisoning": "",
+    //         "DescriptionExternalCause": "",
+    //         "PlaceOfOccuranceExternalCause": null
+    //     },
+    //     "FetalOrInfantDeath": {
+    //         "MultiplePregnancy": null,
+    //         "Stillborn": null,
+    //         "DeathWithin24h": null,
+    //         "BirthHeight": null,
+    //         "PregnancyWeeks": null,
+    //         "AgeMother": null,
+    //         "PerinatalDescription": ""
+    //     },
+    //     "MaternalDeath": {
+    //         "WasPregnant": null,
+    //         "TimeFromPregnancy": null,
+    //         "PregnancyContribute": null
+    //     }
+    //   },
+    //   "DorisSettings": {
+    //     "fullyAutomatic": true,
+    //     "lang": keyUiLocale
+    //   }
+    // };
+
+    // const result = await fetch("https://icd.who.int/doris/api/ucod/underlyingcauseofdeath/", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json"
+    //   },
+    //   body: payload
+    // })
+    // .then(response => response.json());
+    // const underlyingCode = result.UCComputed.UCComplete?.code ?? "";
+
     let headers = new Headers();
     headers.append("accept", "application/json");
     headers.append("API-Version", "v2");
     headers.append("Accept-Language", keyUiLocale);
     headers.append("Authorization", `Bearer ${icdApi_clientToken}`);
     const icdApiUrl = "https://id.who.int/icd/release/11/2023-01/doris?" 
-      + "sex=" + !currentTeiSexAttributeValue ? "-9" : currentTeiSexAttributeValue === "" ? "-9" : currentTeiSexAttributeValue === femaleCode ? "2" : "1"
-      + currentTeiAgeAttributeValue ? `&estimatedAge=P${currentTeiAgeAttributeValue}YD` : ""
-      + currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : ""
-      + currentTeiDateOfDeath ? `&dateDeath=${currentTeiDateOfDeath}` : ""
-      + "&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code 
-      + "&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code 
-      + "&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code 
-      + "&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code 
-      + "&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code;
+      + "sex=" + (!currentTeiSexAttributeValue ? "9" : currentTeiSexAttributeValue === "" ? "9" : currentTeiSexAttributeValue === femaleCode ? "2" : "1")
+      + (currentTeiAgeAttributeValue ? `&estimatedAge=P${currentTeiAgeAttributeValue}YD` : "")
+      + (currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : "")
+      + (currentTeiDateOfDeath ? `&dateDeath=${currentTeiDateOfDeath}` : "")
+      + ( "&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[0] ).join(","))
+      + ( "&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
+      + ("&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
+      + ("&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
+      + ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(","));
+    console.log(icdApiUrl);
     const result = await fetch(icdApiUrl, {
       headers: headers
     })
@@ -492,6 +629,7 @@ const Stage = ({
       return err;
     });
     const underlyingCode = result.stemCode;
+
     if ( underlyingCode !== "" ) {
       const cods = {
         [formMapping.dataElements["codA"]]: {
@@ -522,6 +660,8 @@ const Stage = ({
       mutateDataValue(currentEvent.event, formMapping.dataElements["codD_underlying"], cods[formMapping.dataElements["codD"]].underlying);
       mutateDataValue(currentEvent.event, formMapping.dataElements["codO_underlying"], cods[formMapping.dataElements["codO"]].underlying);
       mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_report"], result.report);
+      mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_warning"], result.warning ?? "");
+      // mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_report"], result.UCComputed?.Report ?? result.UCComputed?.Errors ?? "");
 
       mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "DORIS");
       mutateDataValue(currentEvent.event, formMapping.dataElements["reason_of_manual_COD_selection"], ""); // For clearing the value of reason for the manual selection
@@ -563,6 +703,136 @@ const Stage = ({
             setUnderlyingResult(selected);
           }}
         />
+      </Modal>
+      <Modal
+        style={{ top: 250 }}
+        closable={false}
+        width={"40%"}
+        title={`${timeToDeath?.causeLabel} - Time from onset to death`}
+        open={timeToDeathModal}
+        footer={[
+          <Button
+            type="primary"
+            onClick={() => {
+              mutateDataValue(
+                currentEvent.event,
+                timeToDeath.causeId,
+                timeToDeath.timeInterval.reduce((accumulator, currentValue) => {
+                  return accumulator === "" ? `${currentValue.code} (${currentValue.time})` : `${accumulator},${currentValue.code} (${currentValue.time})`
+                }, "")
+              );
+              setTimeToDeathModal(false);
+            }}
+            style={{ width: "100px"}}
+          >
+            Set
+          </Button>,
+          <Button
+            onClick={() => {
+              setTimeToDeathModal(false);
+            }}
+            style={{ width: "100px"}}
+          >
+            Close
+          </Button>
+        ]}
+      >
+        <table width={"100%"}>
+        {
+          currentEvent && timeToDeath && timeToDeath.timeInterval.map( ({code, time}) => { 
+              // const selection = code.split(" (")[0];
+              // let selectionTime = code.split(" (")[1]?.replace(")","");
+
+              return <tr>
+              <td width={"50%"}>{`${code} - ${icd11Options.find((option) => option.code === code)?.name}`}</td>
+              <td width={"25%"}>
+                <InputField 
+                  valueSet={[
+                    {
+                      label: "Years",
+                      value: "year"
+                    },
+                    {
+                      label: "Months",
+                      value: "month"
+                    },
+                    {
+                      label: "Weeks",
+                      value: "week"
+                    },
+                    {
+                      label: "Days",
+                      value: "day"
+                    },
+                    {
+                      label: "Hours",
+                      value: "hour"
+                    },
+                    {
+                      label: "Minutes",
+                      value: "minute"
+                    },
+                    {
+                      label: "Seconds",
+                      value: "second"
+                    },
+                    {
+                      label: "Unknown",
+                      value: "unknown"
+                    }
+                  ]}
+                  placeholder="Time unit"
+                  valueType="TEXT"
+                  change={ value => {
+                    setTimeToDeath({
+                      ...timeToDeath,
+                      timeInterval: timeToDeath.timeInterval.map( t => {
+                        if (t.code === code) {
+                          return {
+                            ...t,
+                            time: value === "unknown" ? undefined : 
+                              value === "year" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}Y` : 
+                              value === "month" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}M` : 
+                              value === "week" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}W` : 
+                              value === "day" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}D` : 
+                              value === "hour" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}H` : 
+                              value === "minute" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}M` : 
+                              value === "second" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}S` : 
+                              undefined
+                          }
+                        }
+                        else return t;
+                      })
+                    })
+                  }}
+                  value={!time ? "unknown" : time[time.length - 1] === "Y" ? "year" : time[time.length - 1] === "W" ? "week" : time[time.length - 1] === "D" ? "day" : time[time.length - 1] === "H" ? "hour" : time[time.length - 1] === "S" ? "second" : time[time.length - 1] === "M" ? (time.substring(0,2) === "PT" ? "minute" : "month") : "unknown"}
+                />
+              </td>
+              <td width={"25%"}>
+                <InputField 
+                  valueType="INTEGER_POSITIVE"
+                  placeholder="Time interval"
+                  change={ value => {
+                    setTimeToDeath({
+                      ...timeToDeath,
+                      timeInterval: timeToDeath.timeInterval.map( t => {
+                        if (t.code === code) {
+                          return {
+                            ...t,
+                            time: !time ? undefined :  time.substring(0,2) === "PT" ? `PT${value}${time[time.length - 1]}` : `P${value}${time[time.length - 1]}`
+                          }
+                        }
+                        else return t;
+                      })
+                    })
+                  }}
+                  value={!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}
+                />
+              </td>
+            </tr>
+          })
+        }
+        </table>
       </Modal>
       <Icd11Tool
         visible={icdTool}
@@ -613,7 +883,7 @@ const Stage = ({
                     <tbody>
                       <tr>
                         <td
-                          colSpan="5"
+                          colSpan="3"
                           style={{
                             fontWeight: "bold",
                             textAlign: "left",
@@ -626,10 +896,10 @@ const Stage = ({
                         </td>
                       </tr>
                       <tr>
-                        <td style={{ width: "70%" }}>
+                        <td style={{ width: "90%" }}>
                         {t("causeOfDeath")}
                         </td>
-                        <td>{t("timeFromOnsetToDeath")}</td>
+                        {/* <td>{t("timeFromOnsetToDeath")}</td> */}
                         <td>{t("underlying")}</td>
                       </tr>
                       <tr>
@@ -645,14 +915,34 @@ const Stage = ({
                               formMapping.dataElements["codA_underlying"],
                               formMapping.dataElements["codA_other_name"]
                             )}
+                            <Button
+                              style={{
+                                width: "20%",
+                                margin: "5px"
+                              }}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codA"]]}
+                              onClick={ () => {
+                                setTimeToDeathModal(true);
+                                setTimeToDeath({
+                                  causeId: formMapping.dataElements["codA"],
+                                  causeLabel: "Cause of Death A",
+                                  timeInterval: currentEvent.dataValues[formMapping.dataElements["codA"]].split(",").map( codeSelection => { 
+                                    return {
+                                      code: codeSelection.split(" (")[0],
+                                      time: codeSelection.split(" (")[1]?.replace(")","")
+                                    }
+                                  })
+                                });
+                              }}
+                            >{t("timeFromOnsetToDeath")}</Button>
                           </div>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codA_time"])}
                             {renderInputField(formMapping.dataElements["codA_periodType"])}
                           </div>
-                        </td>
+                        </td> */}
                         <td>{renderInputField(formMapping.dataElements["codA_underlying"], "underlying")}</td>
                       </tr>
                       <tr>
@@ -666,14 +956,34 @@ const Stage = ({
                               formMapping.dataElements["codB_underlying"],
                               formMapping.dataElements["codB_other_name"]
                             )}
+                            <Button
+                              style={{
+                                width: "20%",
+                                margin: "5px"
+                              }}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codB"]]}
+                              onClick={ () => {
+                                setTimeToDeathModal(true);
+                                setTimeToDeath({
+                                  causeId: formMapping.dataElements["codB"],
+                                  causeLabel: "Cause of Death B",
+                                  timeInterval: currentEvent.dataValues[formMapping.dataElements["codB"]].split(",").map( codeSelection => { 
+                                    return {
+                                      code: codeSelection.split(" (")[0],
+                                      time: codeSelection.split(" (")[1]?.replace(")","")
+                                    }
+                                  })
+                                });
+                              }}
+                            >{t("timeFromOnsetToDeath")}</Button>
                           </div>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codB_time"])}
                             {renderInputField(formMapping.dataElements["codB_periodType"])}
                           </div>
-                        </td>
+                        </td> */}
                         <td>{renderInputField(formMapping.dataElements["codB_underlying"], "underlying")}</td>
                       </tr>
                       <tr>
@@ -690,14 +1000,34 @@ const Stage = ({
                               formMapping.dataElements["codC_underlying"],
                               formMapping.dataElements["codC_other_name"]
                             )}
+                            <Button
+                              style={{
+                                width: "20%",
+                                margin: "5px"
+                              }}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codC"]]}
+                              onClick={ () => {
+                                setTimeToDeathModal(true);
+                                setTimeToDeath({
+                                  causeId: formMapping.dataElements["codC"],
+                                  causeLabel: "Cause of Death C",
+                                  timeInterval: currentEvent.dataValues[formMapping.dataElements["codC"]].split(",").map( codeSelection => { 
+                                    return {
+                                      code: codeSelection.split(" (")[0],
+                                      time: codeSelection.split(" (")[1]?.replace(")","")
+                                    }
+                                  })
+                                });
+                              }}
+                            >{t("timeFromOnsetToDeath")}</Button>
                           </div>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codC_time"])}
                             {renderInputField(formMapping.dataElements["codC_periodType"])}
                           </div>
-                        </td>
+                        </td> */}
                         <td>{renderInputField(formMapping.dataElements["codC_underlying"], "underlying")}</td>
                       </tr>
                       <tr>
@@ -714,14 +1044,34 @@ const Stage = ({
                               formMapping.dataElements["codD_underlying"],
                               formMapping.dataElements["codD_other_name"]
                             )}
+                            <Button
+                              style={{
+                                width: "20%",
+                                margin: "5px"
+                              }}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codD"]]}
+                              onClick={ () => {
+                                setTimeToDeathModal(true);
+                                setTimeToDeath({
+                                  causeId: formMapping.dataElements["codD"],
+                                  causeLabel: "Cause of Death D",
+                                  timeInterval: currentEvent.dataValues[formMapping.dataElements["codD"]].split(",").map( codeSelection => { 
+                                    return {
+                                      code: codeSelection.split(" (")[0],
+                                      time: codeSelection.split(" (")[1]?.replace(")","")
+                                    }
+                                  })
+                                });
+                              }}
+                            >{t("timeFromOnsetToDeath")}</Button>
                           </div>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codD_time"])}
                             {renderInputField(formMapping.dataElements["codD_periodType"])}
                           </div>
-                        </td>
+                        </td> */}
                         <td>{renderInputField(formMapping.dataElements["codD_underlying"], "underlying")}</td>
                       </tr>
                       <tr>
@@ -738,14 +1088,34 @@ const Stage = ({
                               formMapping.dataElements["codO_underlying"],
                               formMapping.dataElements["codO_other_name"]
                             )}
+                            <Button
+                              style={{
+                                width: "20%",
+                                margin: "5px"
+                              }}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codO"]]}
+                              onClick={ () => {
+                                setTimeToDeathModal(true);
+                                setTimeToDeath({
+                                  causeId: formMapping.dataElements["codO"],
+                                  causeLabel: "Other Cause of Death",
+                                  timeInterval: currentEvent.dataValues[formMapping.dataElements["codO"]].split(",").map( codeSelection => { 
+                                    return {
+                                      code: codeSelection.split(" (")[0],
+                                      time: codeSelection.split(" (")[1]?.replace(")","")
+                                    }
+                                  })
+                                });
+                              }}
+                            >{t("timeFromOnsetToDeath")}</Button>
                           </div>
                         </td>
-                        <td>
+                        {/* <td>
                           <div className="two-fields-container">
                             {renderInputField(formMapping.dataElements["codO_time"])}
                             {renderInputField(formMapping.dataElements["codO_periodType"])}
                           </div>
-                        </td>
+                        </td> */}
                         <td>{renderInputField(formMapping.dataElements["codO_underlying"], "underlying")}</td>
                       </tr>
                       {/* <tr>
@@ -768,7 +1138,7 @@ const Stage = ({
 
                       <tr>
                         <td
-                          colSpan="2"
+                          // colSpan="2"
                           style={{
                             // fontWeight: "bold",
                             backgroundColor: "#f5f5f5",
@@ -786,7 +1156,7 @@ const Stage = ({
                       </tr>
                       <tr>
                       <td
-                          colSpan="2"
+                          // colSpan="2"
                           style={{
                             // fontWeight: "bold",
                             textAlign: "right",
@@ -814,14 +1184,14 @@ const Stage = ({
                       </tr>
                       <tr>
                         <td
-                          colSpan="3"
+                          colSpan="2"
                           style={{
                             // fontWeight: "bold",
                             textAlign: "right",
                             backgroundColor: "#f5f5f5"
                           }}
                         >
-                          Reason of not using the result from DORIS tool: 
+                          Reason for Manual Code: 
                           {renderInputField(formMapping.dataElements["reason_of_manual_COD_selection"])}
                         </td>
                       </tr>

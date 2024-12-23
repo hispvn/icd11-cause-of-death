@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import { Popover } from "antd";
+import { Popover, Input } from "antd";
 import {
   Button,
   Select,
@@ -58,34 +58,54 @@ const ControlBar = ({
 }) => {
   const [routeText, setRouteText] = useState("");
 
-  const { selectedOrgUnit, programMetadata } = metadata;
+  const { selectedOrgUnit, programMetadata, orgUnits } = metadata;
   const { t } = useTranslation();
 
   const [about, setAbout] = useState(false);
   const [help, setHelp] = useState(false);
   const [doc, setDoc] = useState(null);
   const [exitWarning, setExitWarning] = useState(false);
+  const [searchOU, setSearchOU] = useState("");
+  const [filterOU, setFiterOU] = useState([]);
 
+  useEffect(() => {
+    if (orgUnits && searchOU.length > 5) {
+        setFiterOU(
+        orgUnits
+          .filter( ({displayName}) => displayName.toLowerCase().includes(searchOU.toLocaleLowerCase()) )
+          .map(({id}) => id)
+      )
+    }
+  }, [searchOU]);
 
   return (
     <div className="control-bar-container">
       <Popover
         trigger="click"
         content={
-          <div className="orgunit-selector-container">
-            <OrgUnitSelector
-              selectedOrgUnit={selectedOrgUnit}
-              handleSelectOrgUnit={(orgUnit) => {
-                setSelectedOrgUnit(orgUnit);
-                if (isDirty) {
-                  setRouteText("list");
-                  setExitWarning(true);
-                } else {
-                  changeRoute("list");
-                }
-              }}
-            />
-          </div>
+          <>
+            <Input placeholder="Search" value={searchOU} onChange={e => { setSearchOU(e.target.value) }} />
+            <div className="orgunit-selector-container">
+              { 
+                  orgUnits && orgUnits.length > 0 && <OrgUnitSelector
+                    selectedOrgUnit={selectedOrgUnit}
+                    handleSelectOrgUnit={(orgUnit) => {
+                      setSelectedOrgUnit(orgUnit);
+                      if (isDirty) {
+                        setRouteText("list");
+                        setExitWarning(true);
+                      } else {
+                        changeRoute("list");
+                      }
+                    }}
+                    // filter={searchOU === "" ? [] : filterOU}
+                    // filter={orgUnits ? orgUnits.map( ({path}) => path ) : []}
+                    filter={searchOU === "" ? [] : filterOU}
+                    // filter={["/jjKIShO8MjG","/jjKIShO8MjG/zj9LoeErgkP"]}
+                  />
+              }
+            </div>
+          </>
         }
         // onVisibleChange={(visible) => {
         //   console.log(visible);

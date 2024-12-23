@@ -451,8 +451,26 @@ const Stage = ({
             }
           })
 
+          causeOfDeaths[formMapping.dataElements["codA"]].underlying = false;
+          causeOfDeaths[formMapping.dataElements["codB"]].underlying = false;
+          causeOfDeaths[formMapping.dataElements["codC"]].underlying = false;
+          causeOfDeaths[formMapping.dataElements["codD"]].underlying = false;
+          causeOfDeaths[formMapping.dataElements["codO"]].underlying = false;
+          mutateDataValue(currentEvent.event, formMapping.dataElements["codA_underlying"], false);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["codB_underlying"], false);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["codC_underlying"], false);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["codD_underlying"], false);
+          mutateDataValue(currentEvent.event, formMapping.dataElements["codO_underlying"], false);
+
+          causeOfDeaths[codCode].code = value.join(",");
+          causeOfDeaths[codCode].entityId = dataValues_codEntityId.join(",");
           mutateDataValue(currentEvent.event, codCode, value.join(","));
           mutateDataValue(currentEvent.event, codEntityId, dataValues_codEntityId.join(","));
+
+          setCauseOfDeaths({ ...causeOfDeaths });
+          setUnderlyingResult("");
+
+          mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_processed_by"], "DORIS");
         }}
         disabled={enrollmentStatus === "COMPLETED"}
       />
@@ -618,7 +636,6 @@ const Stage = ({
       + ("&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
       + ("&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
       + ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(","));
-    console.log(icdApiUrl);
     const result = await fetch(icdApiUrl, {
       headers: headers
     })
@@ -795,9 +812,9 @@ const Stage = ({
                               value === "month" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}M` : 
                               value === "week" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}W` : 
                               value === "day" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}D` : 
-                              value === "hour" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}H` : 
-                              value === "minute" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}M` : 
-                              value === "second" ? `P${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}S` : 
+                              value === "hour" ? `PT${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}H` : 
+                              value === "minute" ? `PT${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}M` : 
+                              value === "second" ? `PT${!time ? "" : time.substring(0,2) === "PT" ? time.substring(2,time.length - 1) : time.substring(1,time.length - 1)}S` : 
                               undefined
                           }
                         }
@@ -1365,6 +1382,7 @@ const Stage = ({
                 </div>
               </div>)}
               {formMapping.otherSections.frameB && formMapping.otherSections.frameB.map( section => renderOtherSection(section) )}
+              {formMapping.otherSections.form && formMapping.otherSections.form.map( section => renderOtherSection(section) )}
             {/* </div> */}
           {/* </TabPane>
         </Tabs> */}

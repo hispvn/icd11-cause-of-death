@@ -75,6 +75,35 @@ const Review = ({
     }
     return userGroupAccesses;
   }
+
+  const getUserSharing = () => {
+    let userAccesses = {};
+    for ( const group in users ) {
+      users[group].forEach( user => {
+        if ( !userAccesses[user] ) userAccesses[user] = [group];
+        else userAccesses[user].push(group);
+      });
+    }
+    let sharing = { 
+      "public": "r-------",
+      "users": {},
+      "external": false,
+      "userGroups": {} 
+    };
+    for ( const user in userAccesses ) {
+      let access = "r-------";
+      userAccesses[user].forEach( a => {
+        if ( a === "admin" ) access = access.substring(0,1) + "wr" + access.substring(3,8); 
+        if ( a === "capture" ) access = access.substring(0,2) + "rw" + access.substring(4,8);
+        if ( a === "view" ) access = access.substring(0,2) + "r" + access.substring(3,8);
+      })
+      sharing.userGroups[user] = {
+        id: user,
+        access: access
+      } 
+    }
+    return sharing;
+  }
     
   useEffect( () => {
     (async () => {
@@ -97,7 +126,8 @@ const Review = ({
         programs: [{
           ...data.metadata.programs[0],
           organisationUnits: assignedOrgUnits.map( o => {return { id : o.substring(o.length-11,o.length) }}),
-          userGroupAccesses: getUserGroupAccesses()
+          userGroupAccesses: getUserGroupAccesses(),
+          sharing: getUserSharing()
         }]
       };
 

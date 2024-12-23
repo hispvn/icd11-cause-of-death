@@ -16,7 +16,8 @@ const DeathCertificate = ({
   customCertificateTemplate,
   formMapping,
   open,
-  onCancel
+  onCancel,
+  onLoading
 }) => {
   const { metadataApi } = useApi();
   const [pdfURL, setPdfURL] = useState(null);
@@ -86,12 +87,12 @@ const DeathCertificate = ({
   }
 
   useEffect(() => {
-    if ( customCertificateTemplate ) {
-      Promise.all([
+    if ( open ) {
+      if ( customCertificateTemplate ) {
+        Promise.all([
           metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.template}/data.pdf`)
-      ])
-      .then( async (res) => {
-
+        ])
+        .then( async (res) => {
           const pdfDoc = await fillPdf(res[0],customCertificateTemplate.labels.map( l => ({
             ...l,
             value: convertToValue(l.value,l.valueType)
@@ -100,10 +101,14 @@ const DeathCertificate = ({
           const fileURL = await convertPdfDoc2FileURL(pdfDoc);
           setPdfURL(fileURL);
           // await showPage(pdfDoc, 1);
-
-      });
+          onLoading();
+        });
+      }
+      else {
+        onLoading();
+      }
     }
-  }, [])
+  }, [open])
 
   return (
     <Modal

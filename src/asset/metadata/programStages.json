@@ -32,6 +32,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 46,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "okahaacYKqO" }
@@ -43,6 +44,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 47,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "MSYrx2z1f8p" }
@@ -54,6 +56,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 48,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "UboyGYmr19j" }
@@ -65,6 +68,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 49,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "Pd5bZxTS4ql" }
@@ -76,6 +80,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 50,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "cH9NADGoNwU" }
@@ -87,6 +92,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 51,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "Ovu3nxFVwRB" }
@@ -98,6 +104,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 52,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "draFmNEP1ID" }
@@ -109,6 +116,7 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 53,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "GMiHyYq3JlY" }
@@ -120,42 +128,22 @@
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 54,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "ddohQFXWz6e" }
         },
         {
-          "id": "JGKiB8EFIwZ",
+          "id": "iVCP3axa8Np",
           "displayInReports": false,
           "skipSynchronization": false,
           "renderOptionsAsRadio": false,
           "compulsory": false,
           "allowProvidedElsewhere": false,
+          "sortOrder": 59,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "xBZ2VsHFHVG" }
-        },
-        {
-          "id": "x6fFmFkWVEJ",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "do9ClTIpO5Q" }
-        },
-        {
-          "id": "LqspMme7dXo",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "dEvMi21KHHh" }
+          "dataElement": { "id": "GGBSjMU7nt6" }
         },
         {
           "id": "xpm7HfVXQHD",
@@ -224,17 +212,6 @@
           "dataElement": { "id": "UO2nkQCl91t" }
         },
         {
-          "id": "Cg8LBLv88G0",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "QyTACRjivAo" }
-        },
-        {
           "id": "D9xEAiijznd",
           "displayInReports": false,
           "skipSynchronization": false,
@@ -244,6 +221,17 @@
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "LbWJoDtfDn7" }
+        },
+        {
+          "id": "oDxQhaAdXSN",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "rdYmAWuty2c" }
         },
         {
           "id": "H3m4HCXwnr7",
@@ -301,6 +289,17 @@
           "dataElement": { "id": "BaO1pJKhZJc" }
         },
         {
+          "id": "XGWmdMTKFTQ",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "lgqnByA6upc" }
+        },
+        {
           "id": "dSbWBBCL7hz",
           "displayInReports": false,
           "skipSynchronization": false,
@@ -334,17 +333,6 @@
           "dataElement": { "id": "eRMha7cwC1R" }
         },
         {
-          "id": "wItXffds7Re",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "TgO3vRHCaNV" }
-        },
-        {
           "id": "sD0NSv9OJCR",
           "displayInReports": false,
           "skipSynchronization": false,
@@ -354,28 +342,6 @@
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "f3DaU224GDr" }
-        },
-        {
-          "id": "XMvYxJtU3LZ",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "cQTtzqf81UY" }
-        },
-        {
-          "id": "y6ddLL6vyI3",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "Apnx0pnzMUq" }
         },
         {
           "id": "KOJEY9SFoIe",
@@ -411,17 +377,6 @@
           "dataElement": { "id": "D1DfTA9Sttb" }
         },
         {
-          "id": "Fnf3QOwLECR",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "RbHkIAJNO7p" }
-        },
-        {
           "id": "HJTEmqXtLQ3",
           "displayInReports": false,
           "skipSynchronization": false,
@@ -442,17 +397,6 @@
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "xfrRGCTrsbg" }
-        },
-        {
-          "id": "ivJqtYgI1Wv",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "HLf4M23Yxop" }
         },
         {
           "id": "imxSv6lDEjl",
@@ -477,7 +421,7 @@
           "dataElement": { "id": "xJaJXE64Mwr" }
         },
         {
-          "id": "N8gdsj8sq5c",
+          "id": "l4iJbsZVWXu",
           "displayInReports": false,
           "skipSynchronization": false,
           "renderOptionsAsRadio": false,
@@ -485,10 +429,10 @@
           "allowProvidedElsewhere": false,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "ZhbIetKpHtd" }
+          "dataElement": { "id": "sJfmq3ueBBI" }
         },
         {
-          "id": "eD75muQhQAS",
+          "id": "eOHdH5zvolY",
           "displayInReports": false,
           "skipSynchronization": false,
           "renderOptionsAsRadio": false,
@@ -496,7 +440,29 @@
           "allowProvidedElsewhere": false,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "PgkDvnP4oZH" }
+          "dataElement": { "id": "F7tgJi4Mrh2" }
+        },
+        {
+          "id": "Fnf3QOwLECR",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "RbHkIAJNO7p" }
+        },
+        {
+          "id": "HDjcbPZc5ES",
+          "displayInReports": false,
+          "skipSynchronization": false,
+          "renderOptionsAsRadio": false,
+          "compulsory": false,
+          "allowProvidedElsewhere": false,
+          "allowFutureDate": false,
+          "programStage": { "id": "WlWJt4lVSWw" },
+          "dataElement": { "id": "vVU9TucLNL1" }
         },
         {
           "id": "HwJANg69l44",
@@ -576,7 +542,7 @@
           "dataElement": { "id": "SvdMvylfTRD" }
         },
         {
-          "id": "eOHdH5zvolY",
+          "id": "JGKiB8EFIwZ",
           "displayInReports": false,
           "skipSynchronization": false,
           "renderOptionsAsRadio": false,
@@ -584,10 +550,10 @@
           "allowProvidedElsewhere": false,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "F7tgJi4Mrh2" }
+          "dataElement": { "id": "xBZ2VsHFHVG" }
         },
         {
-          "id": "XGWmdMTKFTQ",
+          "id": "x6fFmFkWVEJ",
           "displayInReports": false,
           "skipSynchronization": false,
           "renderOptionsAsRadio": false,
@@ -595,62 +561,7 @@
           "allowProvidedElsewhere": false,
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "lgqnByA6upc" }
-        },
-        {
-          "id": "HDjcbPZc5ES",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "vVU9TucLNL1" }
-        },
-        {
-          "id": "oDxQhaAdXSN",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "rdYmAWuty2c" }
-        },
-        {
-          "id": "wPl8seD5EQ6",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "pM2nSQ1qRct" }
-        },
-        {
-          "id": "CryHFfRlg9b",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "CdspXgp2mWz" }
-        },
-        {
-          "id": "l4iJbsZVWXu",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "sJfmq3ueBBI" }
+          "dataElement": { "id": "do9ClTIpO5Q" }
         },
         {
           "id": "H80CyEYjav5",
@@ -662,17 +573,6 @@
           "allowFutureDate": false,
           "programStage": { "id": "WlWJt4lVSWw" },
           "dataElement": { "id": "YZeiZFyQWKs" }
-        },
-        {
-          "id": "iVCP3axa8Np",
-          "displayInReports": false,
-          "skipSynchronization": false,
-          "renderOptionsAsRadio": false,
-          "compulsory": false,
-          "allowProvidedElsewhere": false,
-          "allowFutureDate": false,
-          "programStage": { "id": "WlWJt4lVSWw" },
-          "dataElement": { "id": "GGBSjMU7nt6" }
         }
       ],
       "translations": [

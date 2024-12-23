@@ -67,8 +67,6 @@ const Form = ({
   // const [doris, setDoris] = useState(false);
 
   useEffect(() => {
-    console.log(data);
-    
     setCertificate (
       currentEvents[0] &&
       currentEvents[0].dataValues &&
@@ -115,6 +113,9 @@ const Form = ({
           open={openCertificate}
           onCancel={() => {
             setOpenCertificate(false);
+          }}
+          onLoading={() => {
+            setLoading(false);
           }}
         />
         <div className={sideBar ? "profile-section-container" : "profile-section-container-hidden"}>
@@ -297,7 +298,10 @@ const Form = ({
                   marginLeft: "3px",
                 }}
                 disabled={!certificate}
-                onClick={() => { setOpenCertificate(true); }}
+                onClick={() => { 
+                  setOpenCertificate(true);
+                  setLoading(true);
+                }}
               >
                 Certificate
               </Button>

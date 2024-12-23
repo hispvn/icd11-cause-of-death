@@ -12,24 +12,47 @@ import {
         fullWidth
         maxWidth="sm"
     >
-        <DialogTitle>Delete enrollment</DialogTitle>
-        <DialogContent>Are you sure you want to delete the selected enrollment? This will delete all events associated with this enrollment.</DialogContent>
+        <DialogTitle>Delete Confirmation</DialogTitle>
+        <DialogContent>
+            <table>
+                <tr>
+                    <td width="30%"><strong>Unenrollment</strong></td>
+                    <td width="70%">Remove this profile from the program.</td>
+                </tr>
+                <tr>
+                    <td><strong>Delete</strong></td>
+                    <td>Permanently remove this profile.</td>
+                </tr>
+            </table>
+        </DialogContent>
         <Divider />
         <DialogActions>
             <Button
                 variant="outlined"
-                size="large"
+                size="small"
                 onClick={() => {
                     handleCancel();
                 }}
-            >No</Button>
+                style={{ width: "120px" }}
+            >Cancel</Button>
             <Button
-                variant="contained"
-                size="large"
+                variant="outlined"
+                size="small"
+                color="error"
                 onClick={() => {
                     handleOk();
                 }}
-            >Yes</Button>
+                style={{ width: "120px" }}
+            >Unenroll</Button>
+            <Button
+                variant="contained"
+                size="small"
+                color="error"
+                onClick={() => {
+                    
+                }}
+                style={{ width: "120px" }}
+            >Delete</Button>
         </DialogActions>
     </Dialog>
   }

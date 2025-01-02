@@ -20,6 +20,7 @@ yarn.lock
 !.vscode/extensions.json
 .idea
 .DS_Store
+.eslintcache
 *.suo
 *.ntvs*
 *.njsproj

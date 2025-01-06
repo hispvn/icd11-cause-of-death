@@ -1,13 +1,48 @@
+
+import { useState } from "react";
 import { 
     Button,
     Dialog, DialogTitle, DialogContent, DialogActions,
     Divider
   } from "@mui/material";
-  import { useTranslation } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
-  const DeleteDialog= ({open, handleOk, handleCancel}) => {
+  const DeleteTEIDialog = ({open,handleTEICancel,handleDeleteTEI}) => {
     const { t } = useTranslation();
     return <Dialog
+        open={open}
+    >
+        <DialogTitle>Delete Tracked Entity Instance</DialogTitle>
+        <DialogContent>
+            Delete this Tracked Entity Instance will delete its associate enrollments from other programs
+        </DialogContent>
+        <Divider />
+        <DialogActions>
+            <Button
+                variant="outlined"
+                size="small"
+                style={{ width: "120px" }}
+                onClick={() => {
+                    handleTEICancel()
+                }}
+            >Cancel</Button>
+            <Button
+                variant="contained"
+                size="small"
+                color="error"
+                style={{ width: "120px" }}
+                onClick={() => {
+                    handleDeleteTEI()
+                }}
+            >Delete</Button>
+        </DialogActions>
+    </Dialog>
+  }
+
+  const DeleteDialog= ({open, handleDeleteEnrollment, handleDeleteTEI, handleCancel}) => {
+    const { t } = useTranslation();
+    const [openTEI, setOpenTEI] = useState(false);
+    return <><Dialog
         open={open}
         fullWidth
         maxWidth="sm"
@@ -40,7 +75,7 @@ import {
                 size="small"
                 color="error"
                 onClick={() => {
-                    handleOk();
+                    handleDeleteEnrollment();
                 }}
                 style={{ width: "120px" }}
             >Unenroll</Button>
@@ -49,12 +84,18 @@ import {
                 size="small"
                 color="error"
                 onClick={() => {
-                    
+                    setOpenTEI(true)
                 }}
                 style={{ width: "120px" }}
             >Delete</Button>
         </DialogActions>
     </Dialog>
+    <DeleteTEIDialog 
+        open={openTEI}
+        handleTEICancel={() => setOpenTEI(false)}
+        handleDeleteTEI={handleDeleteTEI}
+    />
+    </>
   }
 
   export default DeleteDialog;

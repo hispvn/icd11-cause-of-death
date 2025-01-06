@@ -388,7 +388,12 @@ const Stage = ({
             <span
               onClick={(e) => {
                 e.preventDefault();
+                e.stopPropagation();
                 onClose();
+              }}
+              onMouseDown={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
               }}
               style={{
                 marginLeft: "8px",
@@ -431,7 +436,6 @@ const Stage = ({
         placeholder={"ICD-11 Coding Tool"}
         // allowClear={true}
         change={ value => {
-          console.log(value);
           if ( value === "" ) {
             mutateDataValue(currentEvent.event, codCode, "");
             // mutateDataValue(currentEvent.event, codName, "");

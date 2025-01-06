@@ -69,11 +69,11 @@ const ControlBar = ({
   const [filterOU, setFiterOU] = useState([]);
 
   useEffect(() => {
-    if (orgUnits && searchOU.length > 5) {
-        setFiterOU(
+    if (orgUnits && searchOU.length > 3) {
+      setFiterOU(
         orgUnits
           .filter( ({displayName}) => displayName.toLowerCase().includes(searchOU.toLocaleLowerCase()) )
-          .map(({id}) => id)
+          .map(({path}) => path)
       )
     }
   }, [searchOU]);

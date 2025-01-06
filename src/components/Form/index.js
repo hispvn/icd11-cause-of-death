@@ -72,6 +72,7 @@ const Form = ({
       currentEvents[0].dataValues &&
       currentEvents[0].dataValues[formMapping.dataElements["underlyingCOD"]]
     );
+    console.log(data)
   }, [data]);
 
   return (
@@ -99,9 +100,17 @@ const Form = ({
         handleCancel={() => {
           setDeleteWarning(false);
         }}
-        handleOk={async () => {
+        handleDeleteEnrollment={async () => {
           await dataApi.push(
             `/api/enrollments/${currentEnrollment.enrollment}`,
+            {},
+            "DELETE"
+          );
+          changeRoute("list");
+        }}
+        handleDeleteTEI={async () => {
+          await dataApi.push(
+            `/api/trackedEntityInstances/${currentEnrollment.trackedEntityInstance}`,
             {},
             "DELETE"
           );

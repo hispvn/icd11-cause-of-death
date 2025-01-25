@@ -6,3 +6,4 @@ export const MUTATE_DATAVALUE = "MUTATE_DATAVALUE";
 export const INIT_NEW_DATA = "INIT_NEW_DATA";
 export const INIT_DATA = "INIT_DATA";
 export const INIT_NEW_EVENT = "INIT_NEW_EVENT";
+export const INIT_NEW_ENROLLMENT = "INIT_NEW_ENROLLMENT";

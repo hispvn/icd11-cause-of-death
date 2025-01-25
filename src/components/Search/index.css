@@ -23,8 +23,19 @@
     align-items: center;
     justify-content: center;
 }
+.search-fulform-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 .search-form {
     width: 50%;
     height: 100%;
     margin: 50px 10px 10px 10px;
+}
+.search-fulform {
+    width: 100%;
+    margin: 10px 10px 10px 10px;
 }

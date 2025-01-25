@@ -46,6 +46,7 @@ const Form = ({
   mutateEvent,
   data,
   metadata,
+  userRoles,
 }) => {
   const { t } = useTranslation();
   const { dataApi } = useApi();
@@ -166,7 +167,7 @@ const Form = ({
                   padding: "1.5px",
                 }}
               >
-                <Button
+                {userRoles.admin && <Button
                   type="primary" 
                   danger
                   style={{
@@ -178,7 +179,7 @@ const Form = ({
                   }}
                 >
                   Delete
-                </Button>
+                </Button>}
                 <Button
                   type="primary" 
                   style={{
@@ -494,6 +495,7 @@ const mapStateToProps = (state) => {
   return {
     metadata: state.metadata,
     data: state.data,
+    userRoles: state.user.userRoles,
   };
 };
 

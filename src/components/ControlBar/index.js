@@ -22,6 +22,7 @@ import {
   faClose,
   faArrowLeft,
 } from "@fortawesome/free-solid-svg-icons";
+// import Registration from "../Registration";
 import { Components } from "tracker-capture-app-core";
 import { useTranslation } from "react-i18next";
 import "./index.css";
@@ -63,6 +64,7 @@ const ControlBar = ({
 
   const [about, setAbout] = useState(false);
   const [help, setHelp] = useState(false);
+  // const [registration, setRegistration] = useState(false);
   const [doc, setDoc] = useState(null);
   const [exitWarning, setExitWarning] = useState(false);
   const [searchOU, setSearchOU] = useState("");
@@ -91,11 +93,13 @@ const ControlBar = ({
                     selectedOrgUnit={selectedOrgUnit}
                     handleSelectOrgUnit={(orgUnit) => {
                       setSelectedOrgUnit(orgUnit);
-                      if (isDirty) {
-                        setRouteText("list");
-                        setExitWarning(true);
-                      } else {
-                        changeRoute("list");
+                      if (route !== "search") {
+                        if (isDirty) {
+                          setRouteText("list");
+                          setExitWarning(true);
+                        } else {
+                          changeRoute("list");
+                        }
                       }
                     }}
                     // filter={searchOU === "" ? [] : filterOU}
@@ -139,6 +143,7 @@ const ControlBar = ({
             } else {
               changeRoute("form");
               initNewData(selectedOrgUnit, programMetadata);
+              // setRegistration(true);
             }
           }}
         >
@@ -421,6 +426,7 @@ const ControlBar = ({
         handleOk={() => {
           if (routeText === "form") {
             initNewData(selectedOrgUnit, programMetadata);
+            // setRegistration(true);
           } else {
             mutateTei("isDirty", false);
             mutateEnrollment("isDirty", false);
@@ -432,6 +438,12 @@ const ControlBar = ({
           changeRoute(routeText);
         }}
       ></WarningDialog>
+      {/* <Registration 
+        openRegistration={registration} 
+        onClose={() => {
+          setRegistration(false);
+        }}
+      /> */}
     </div>
   );
 };

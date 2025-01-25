@@ -32,7 +32,10 @@ import {
   setFullnameOption,
   setUILocale,
   setIcdApiToken,
-  setCustomCertificate
+  setCustomCertificate,
+  setAllOptionSets,
+  getAllPrograms,
+  getTrackedEntityType
 } from "../../redux/actions/metadata";
 import {
   setFemaleOption,
@@ -71,7 +74,10 @@ const App = ({
   changeRoute,
   setUILocale,
   setIcdApiToken,
-  setCustomCertificate
+  setCustomCertificate,
+  setAllOptionSets,
+  getAllPrograms,
+  getTrackedEntityType
 }) => {
   const { metadataApi } = useApi();
   const [loading, setLoading] = useState(false);
@@ -155,7 +161,20 @@ const App = ({
         metadataApi.get("/api/userGroups.json", { paging: false }, [
           "fields=id,displayName",
         ]),
-        metadataApi.getMe()
+        metadataApi.getMe(),
+        metadataApi.get(
+          "/api/programs.json",
+          { paging: false },
+          [
+            "fields=:owner,!created,!lastUpdated,!user,!lastUpdatedBy,!organisationUnits,programTrackedEntityAttributes[:owner,!created,!lastUpdated]",
+            "filter=programType:eq:WITH_REGISTRATION"
+          ]
+        ),
+        // metadataApi.get(
+        //   "/api/optionSets.json",
+        //   { paging: false },
+        //   ["fields=id,displayName,options[id,displayName,code,sortOrder]"]
+        // )
       ]).then( async (results) => {
 
         await InitTranslation(translationData,results[9].settings.keyUiLocale);
@@ -170,6 +189,8 @@ const App = ({
         setOrgUnits(results[6].organisationUnits);
         getTrackedEntityTypes(results[7].trackedEntityTypes);
         setUserGroups(results[8].userGroups);
+        // setAllOptionSets(results[11].optionSets);
+        getAllPrograms(results[10].programs);
 
         // for entry module
         if (results[0].status) {
@@ -212,6 +233,12 @@ const App = ({
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/fullnameOption"),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/customCertificate")
             ]).then( async (res) => {
+              // Get TET info
+              await metadataApi.getTrackedEntityType(res[0].trackedEntityType)
+              .then(result => {
+                getTrackedEntityType(result);
+              });
+
               // Set userRoles
               let roles = {
                 admin: false,
@@ -328,6 +355,9 @@ const mapDispatchToProps = {
   setOrgUnitLevels,
   setOrgUnits,
   getTrackedEntityTypes,
+  setAllOptionSets,
+  getAllPrograms,
+  getTrackedEntityType,
 
   // for entry module
   setProgramMetadata,

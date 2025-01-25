@@ -87,6 +87,59 @@ export const initNewData = (state, action) => {
   return { ...state, currentTei, currentEnrollment, currentEvents };
 };
 
+export const initNewEnrollment = (state, action) => {
+  const { selectedOrgUnit, trackedEntityInstance, programMetadata } = action.payload;
+  const orgUnit = selectedOrgUnit.id;
+  const program = programMetadata.id;
+  const currentTei = trackedEntityInstance;
+  currentTei.isNew = false;
+  currentTei.isDirty = false;
+  currentTei.attributes = currentTei.attributes.reduce(
+    (previousValue, currentValue) => {
+      previousValue[currentValue.attribute] = convertValue(
+        currentValue.valueType,
+        currentValue.value
+      );
+      return previousValue;
+    },
+    {}
+  );
+  // const currentTei = {
+  //   trackedEntityInstance: generatedTeiId,
+  //   orgUnit,
+  //   isDirty: false,
+  //   isNew: true,
+  //   isSaved: false,
+  //   trackedEntityType: programMetadata.trackedEntityType,
+  //   attributes: {}
+  // };
+  
+  const generatedEnrollmentId = generateCode();
+  const currentEnrollment = {
+    enrollment: generatedEnrollmentId,
+    orgUnit,
+    program,
+    isDirty: false,
+    isNew: true,
+    trackedEntityInstance: currentTei.trackedEntityInstance
+  };
+  const currentEvents = programMetadata.programStages.map((ps) => {
+    return {
+      event: generateCode(),
+      orgUnit,
+      programStage: ps.id,
+      program,
+      isDirty: false,
+      isNew: true,
+      trackedEntityInstance: currentTei.trackedEntityInstance,
+      enrollment: generatedEnrollmentId,
+      dataValues: {}
+    };
+  });
+
+  return { ...state, currentTei, currentEnrollment, currentEvents };
+}
+
 export const initData = (state, action) => {
   const { trackedEntityInstance, programMetadata } = action.payload;
   const currentTei = trackedEntityInstance;

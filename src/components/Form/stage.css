@@ -145,3 +145,7 @@
 .stage-section-content {
   padding-bottom: 5px;
 }
+
+.custom-tooltip {
+  display: flex !important;
+}

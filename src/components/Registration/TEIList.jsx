@@ -1,20 +1,27 @@
-
-import { Hooks } from "tracker-capture-app-core";
 import {
     Modal,
     Table,
     Button
 } from "antd";
 import { connect } from "react-redux";
-import { initData, initNewEnrollment } from "../../redux/actions/data";
+import { initNewEnrollment, initData } from "../../redux/actions/data";
 import { changeRoute } from "../../redux/actions/route";
+import { Hooks } from "tracker-capture-app-core";
 
 const { useApi } = Hooks;
 
-const SearchResult = ({ 
-    open, data, metadata, pager, handleCancel, handleChangePage, 
-    programMetadata, trackedEntityType,
-    initData, initNewEnrollment, changeRoute
+const TEIList = ({
+    open, 
+    handleCancel, 
+    program, 
+    data, pager, 
+    handleChangePage, 
+    trackedEntityAttributes,
+    initNewEnrollment,
+    initData,
+    changeRoute,
+    selectedOrgUnit,
+    programMetadata
 }) => {
     const { dataApi } = useApi();
 
@@ -32,11 +39,11 @@ const SearchResult = ({
             visible={open}
             closable={false}
             footer={[
-                <Button key="back" onClick={handleCancel}>
+                <Button key="back" onClick={() => {handleCancel(0)}}>
                     Close
                 </Button>
             ]}
-            onCancel={handleCancel}
+            onCancel={() => {handleCancel(0)}}
         >
             <div 
                 style={{
@@ -55,21 +62,21 @@ const SearchResult = ({
                             dataIndex: "enrollDate",
                             key: "enrollDate"
                         }],
-                        ...programMetadata.trackedEntityAttributes
+                        ...program.programTrackedEntityAttributes
                             .filter( ({displayInList}) => displayInList )
-                            .map( tea => ({
-                                title: tea.displayFormName,
-                                dataIndex: tea.id,
-                                key: tea.id
+                            .map( ({trackedEntityAttribute}) => ({
+                                title: trackedEntityAttributes.find(({id}) => id === trackedEntityAttribute.id).displayName,
+                                dataIndex: trackedEntityAttribute.id,
+                                key: trackedEntityAttribute.id
                             }))
                     ]}
                     dataSource={
                         data.trackedEntityInstances.map( ({attributes,trackedEntityInstance, enrollments}, index) => 
-                            programMetadata.trackedEntityAttributes
+                            program.programTrackedEntityAttributes
                             .filter( ({displayInList}) => displayInList )
-                            .map( ({id}) => ({
-                                id,
-                                value: attributes.find( ({attribute}) => attribute === id ) ? attributes.find( ({attribute}) => attribute === id ).value : ""
+                            .map( ({trackedEntityAttribute}) => ({
+                                id: trackedEntityAttribute.id,
+                                value: attributes.find( ({attribute}) => attribute === trackedEntityAttribute.id ) ? attributes.find( ({attribute}) => attribute === trackedEntityAttribute.id ).value : ""
                             }) )
                             .reduce( (pre, cur) => ({
                                 ...pre,
@@ -83,8 +90,8 @@ const SearchResult = ({
                         )
                     }
                     pagination={{
-                        ...data.pager,
-                        // position: ["topRight"]
+                        ...pager,
+                        showSizeChanger: false
                     }}
                     onChange={handleTableChange}
                     onRow={(record, rowIndex) => {
@@ -94,7 +101,13 @@ const SearchResult = ({
                                     record.teiId,
                                     programMetadata.id
                                 );
-                                initData(result, programMetadata);
+                                handleCancel(1);
+                                if (result.enrollments.find( ({program}) => program === programMetadata.id )) {
+                                    initData(result, programMetadata);
+                                }
+                                else {
+                                    initNewEnrollment(selectedOrgUnit, result, programMetadata);
+                                }
                                 changeRoute("form");
                             },
                         };
@@ -107,15 +120,16 @@ const SearchResult = ({
 
 const mapStateToProps = state => {
     return {
+        trackedEntityAttributes: state.metadata.trackedEntityAttributes,
+        selectedOrgUnit: state.metadata.selectedOrgUnit,
         programMetadata: state.metadata.programMetadata,
-        trackedEntityType: state.metadata.trackedEntityType
     }
 }
 
 const mapDispatchToProps = {
-    initData,
     initNewEnrollment,
-    changeRoute
+    changeRoute,
+    initData,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchResult);
+export default connect(mapStateToProps,mapDispatchToProps)(TEIList);

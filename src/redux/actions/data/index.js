@@ -6,7 +6,8 @@ import {
   MUTATE_DATAVALUE,
   INIT_DATA,
   INIT_NEW_DATA,
-  INIT_NEW_EVENT
+  INIT_NEW_EVENT,
+  INIT_NEW_ENROLLMENT
 } from "./type";
 
 export const mutateTei = (property, value) => ({
@@ -54,6 +55,15 @@ export const initNewData = (selectedOrgUnit, programMetadata) => ({
   type: INIT_NEW_DATA,
   payload: {
     selectedOrgUnit,
+    programMetadata
+  }
+});
+
+export const initNewEnrollment = (selectedOrgUnit, trackedEntityInstance, programMetadata) => ({
+  type: INIT_NEW_ENROLLMENT,
+  payload: {
+    selectedOrgUnit,
+    trackedEntityInstance,
     programMetadata
   }
 });

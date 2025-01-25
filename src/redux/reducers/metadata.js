@@ -18,7 +18,10 @@ import {
   SET_FEMALE_CODE,
   SET_UI_LOCALE,
   CHANGE_FULLNAMEOPTION,
-  GET_ICD_API_CLIENT_TOKEN
+  GET_ICD_API_CLIENT_TOKEN,
+  SET_ALL_OPTIONSETS,
+  GET_ALL_PROGRAMS,
+  GET_TRACKED_ENTITY_TYPE
 } from "../actions/metadata/type";
 
 const initialState = {
@@ -51,7 +54,11 @@ const initialState = {
   femaleCode: "",
   fullnameOption: false,
   keyUiLocale: "en",
-  icdApi_clientToken: ""
+  icdApi_clientToken: "",
+  optionSets: [],
+  programs: [],
+  trackedEntityAttributes: [],
+  trackedEntityType: null
 };
 
 export default function (state = initialState, action) {
@@ -92,6 +99,18 @@ export default function (state = initialState, action) {
         trackedEntityAttributes: action.payload.trackedEntityAttributes
       };
     }
+    case SET_ALL_OPTIONSETS: {
+      return {
+        ...state,
+        optionSets: action.payload.optionSets
+      };
+    }
+    case GET_ALL_PROGRAMS: {
+      return {
+        ...state,
+        programs: action.payload.programs
+      };
+    }
     case SET_TRACKER_DATA_ELEMENTS: {
       return {
         ...state,
@@ -114,6 +133,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         trackedEntityTypes: action.payload.trackedEntityTypes
+      }
+    }
+    case GET_TRACKED_ENTITY_TYPE: {
+      return {
+        ...state,
+        trackedEntityType: action.payload.trackedEntityType
       }
     }
     case SET_USER_GROUPS: {

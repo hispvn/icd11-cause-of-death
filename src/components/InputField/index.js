@@ -24,7 +24,8 @@ const InputField = (props) => {
     disabledDate,
     selectMode,
     mandatory,
-    tagRender
+    tagRender,
+    style
   } = props;
 
   // function disabledDate(d) {
@@ -40,7 +41,7 @@ const InputField = (props) => {
           value={value}
           // allowClear
           showSearch
-          style={{ width: "100%", textAlign: "left" }}
+          style={style ? style : { width: "100%", textAlign: "left" }}
           onChange={(selected) => {
             change(selected);
           }}
@@ -60,7 +61,7 @@ const InputField = (props) => {
           value={value}
           allowClear
           showSearch
-          style={{ width: "100%", maxWidth: "260px", textAlign: "left" }}
+          style={style ? style : { width: "100%", maxWidth: "260px", textAlign: "left" }}
           onChange={(selected) => {
             change(selected);
           }}
@@ -95,6 +96,7 @@ const InputField = (props) => {
             disabled={disabled}
             placeholder={placeholder}
             allowClear={allowClear}
+            style={style}
           />
         );
       case "LONG_TEXT":
@@ -120,6 +122,7 @@ const InputField = (props) => {
               }
             }}
             disabled={disabled}
+            style={style}
           />
         );
       case "DATE_WITH_RANGE":

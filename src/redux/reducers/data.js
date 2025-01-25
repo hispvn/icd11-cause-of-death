@@ -6,7 +6,8 @@ import {
   MUTATE_DATAVALUE,
   INIT_DATA,
   INIT_NEW_DATA,
-  INIT_NEW_EVENT
+  INIT_NEW_EVENT,
+  INIT_NEW_ENROLLMENT
 } from "../actions/data/type";
 import {
   mutateTei,
@@ -16,7 +17,8 @@ import {
   mutateDataValue,
   initData,
   initNewData,
-  initNewEvent
+  initNewEvent,
+  initNewEnrollment
 } from "./data-methods";
 
 const initialState = {
@@ -50,6 +52,9 @@ export default function (state = initialState, action) {
     }
     case INIT_NEW_EVENT: {
       return initNewEvent(state, action);
+    }
+    case INIT_NEW_ENROLLMENT: {
+      return initNewEnrollment(state, action);
     }
     default:
       return state;

@@ -17,7 +17,10 @@ import {
   SET_UI_LOCALE,
   CHANGE_FULLNAMEOPTION,
   GET_ICD_API_CLIENT_TOKEN,
-  SET_CUSTOM_CERTIFICATE
+  SET_CUSTOM_CERTIFICATE,
+  SET_ALL_OPTIONSETS,
+  GET_ALL_PROGRAMS,
+  GET_TRACKED_ENTITY_TYPE
 } from "./type";
 
 export const setProgramMetadata = (programMetadata) => ({
@@ -38,6 +41,20 @@ export const setTeas = (trackedEntityAttributes) => ({
   type: SET_TEAS,
   payload: {
     trackedEntityAttributes
+  }
+});
+
+export const setAllOptionSets = (optionSets) => ({
+  type: SET_ALL_OPTIONSETS,
+  payload: {
+    optionSets
+  }
+});
+
+export const getAllPrograms = (programs) => ({
+  type: GET_ALL_PROGRAMS,
+  payload: {
+    programs
   }
 });
 
@@ -88,7 +105,14 @@ export const getTrackedEntityTypes = trackedEntityTypes => ({
   payload: {
     trackedEntityTypes
   }
-})
+});
+
+export const getTrackedEntityType = trackedEntityType => ({
+  type: GET_TRACKED_ENTITY_TYPE,
+  payload: {
+    trackedEntityType
+  }
+});
 
 export const setUserGroups = userGroups => ({
   type: SET_USER_GROUPS,

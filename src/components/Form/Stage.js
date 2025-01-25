@@ -936,10 +936,14 @@ const Stage = ({
                               formMapping.dataElements["codA_underlying"],
                               formMapping.dataElements["codA_other_name"]
                             )}
-                            <Button
+                            <div
                               style={{
                                 width: "20%",
-                                margin: "5px"
+                                margin: "5px",
+                              }}
+                            ><Tooltip className={"custom-tooltip"} title={t("timeFromOnsetToDeath")}><Button
+                              style={{
+                                width: "100%",
                               }}
                               disabled={!currentEvent?.dataValues[formMapping.dataElements["codA"]]}
                               onClick={ () => {
@@ -955,7 +959,15 @@ const Stage = ({
                                   })
                                 });
                               }}
-                            >{t("timeFromOnsetToDeath")}</Button>
+                            ><span
+                              style={{
+                                width: "100%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "inline-block"
+                              }}
+                            >{t("timeFromOnsetToDeath")}</span></Button></Tooltip></div>
                           </div>
                         </td>
                         {/* <td>
@@ -977,10 +989,14 @@ const Stage = ({
                               formMapping.dataElements["codB_underlying"],
                               formMapping.dataElements["codB_other_name"]
                             )}
-                            <Button
+                            <div
                               style={{
                                 width: "20%",
-                                margin: "5px"
+                                margin: "5px",
+                              }}
+                            ><Tooltip className={"custom-tooltip"} title={t("timeFromOnsetToDeath")}><Button
+                              style={{
+                                width: "100%",
                               }}
                               disabled={!currentEvent?.dataValues[formMapping.dataElements["codB"]]}
                               onClick={ () => {
@@ -996,7 +1012,15 @@ const Stage = ({
                                   })
                                 });
                               }}
-                            >{t("timeFromOnsetToDeath")}</Button>
+                            ><span
+                              style={{
+                                width: "100%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "inline-block"
+                              }}
+                          >{t("timeFromOnsetToDeath")}</span></Button></Tooltip></div>
                           </div>
                         </td>
                         {/* <td>
@@ -1021,10 +1045,14 @@ const Stage = ({
                               formMapping.dataElements["codC_underlying"],
                               formMapping.dataElements["codC_other_name"]
                             )}
-                            <Button
+                            <div
                               style={{
                                 width: "20%",
-                                margin: "5px"
+                                margin: "5px",
+                              }}
+                            ><Tooltip className={"custom-tooltip"} title={t("timeFromOnsetToDeath")}><Button
+                              style={{
+                                width: "100%",
                               }}
                               disabled={!currentEvent?.dataValues[formMapping.dataElements["codC"]]}
                               onClick={ () => {
@@ -1040,7 +1068,15 @@ const Stage = ({
                                   })
                                 });
                               }}
-                            >{t("timeFromOnsetToDeath")}</Button>
+                            ><span
+                              style={{
+                                width: "100%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "inline-block"
+                              }}
+                          >{t("timeFromOnsetToDeath")}</span></Button></Tooltip></div>
                           </div>
                         </td>
                         {/* <td>
@@ -1065,10 +1101,14 @@ const Stage = ({
                               formMapping.dataElements["codD_underlying"],
                               formMapping.dataElements["codD_other_name"]
                             )}
-                            <Button
+                            <div
                               style={{
                                 width: "20%",
-                                margin: "5px"
+                                margin: "5px",
+                              }}
+                            ><Tooltip className={"custom-tooltip"} title={t("timeFromOnsetToDeath")}><Button
+                              style={{
+                                width: "100%",
                               }}
                               disabled={!currentEvent?.dataValues[formMapping.dataElements["codD"]]}
                               onClick={ () => {
@@ -1084,7 +1124,15 @@ const Stage = ({
                                   })
                                 });
                               }}
-                            >{t("timeFromOnsetToDeath")}</Button>
+                            ><span
+                              style={{
+                                width: "100%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "inline-block"
+                              }}
+                            >{t("timeFromOnsetToDeath")}</span></Button></Tooltip></div>
                           </div>
                         </td>
                         {/* <td>
@@ -1109,10 +1157,14 @@ const Stage = ({
                               formMapping.dataElements["codO_underlying"],
                               formMapping.dataElements["codO_other_name"]
                             )}
-                            <Button
+                            <div
                               style={{
                                 width: "20%",
-                                margin: "5px"
+                                margin: "5px",
+                              }}
+                            ><Tooltip className={"custom-tooltip"} title={t("timeFromOnsetToDeath")}><Button
+                              style={{
+                                width: "100%",
                               }}
                               disabled={!currentEvent?.dataValues[formMapping.dataElements["codO"]]}
                               onClick={ () => {
@@ -1128,7 +1180,15 @@ const Stage = ({
                                   })
                                 });
                               }}
-                            >{t("timeFromOnsetToDeath")}</Button>
+                            ><span
+                              style={{
+                                width: "100%",
+                                whiteSpace: "nowrap",
+                                overflow: "hidden",
+                                textOverflow: "ellipsis",
+                                display: "inline-block"
+                              }}
+                            >{t("timeFromOnsetToDeath")}</span></Button></Tooltip></div>
                           </div>
                         </td>
                         {/* <td>

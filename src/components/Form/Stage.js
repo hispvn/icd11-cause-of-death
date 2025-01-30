@@ -514,35 +514,35 @@ const Stage = ({
       + (currentTeiAgeAttributeValue ? `&estimatedAge=P${currentTeiAgeAttributeValue}YD` : "")
       + (currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : "")
       + (currentTeiDateOfDeath ? `&dateDeath=${currentTeiDateOfDeath}` : "")
-      + ( "&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[0] ).join(","))
-      + ( "&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
-      + ("&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
-      + ("&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
-      + ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(","))
-      + ( "&intervalA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(","))
-      + ( "&intervalB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
-      + ("&intervalC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
-      + ("&intervalD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
-      + ("&intervalE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(","))
-      + (causeOfDeaths[formMapping.dataElements["surgery"]] && causeOfDeaths[formMapping.dataElements["surgery"]] !== "" ? ("&surgeryWasPerformed=" + causeOfDeaths[formMapping.dataElements["surgery"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["surgery_date"]] && causeOfDeaths[formMapping.dataElements["surgery_date"]] !== "" ? ("&surgeryDate=" + causeOfDeaths[formMapping.dataElements["surgery_date"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["surgery_reason"]] && causeOfDeaths[formMapping.dataElements["surgery_reason"]] !== "" ? ("&surgeryReason=" + causeOfDeaths[formMapping.dataElements["surgery_reason"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["autopsy"]] && causeOfDeaths[formMapping.dataElements["autopsy"]] !== "" ? ("&autopsyWasRequested=" + causeOfDeaths[formMapping.dataElements["autopsy"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["autopsy_specified"]] && causeOfDeaths[formMapping.dataElements["autopsy_specified"]] !== "" ? ("&autopsyFindings=" + causeOfDeaths[formMapping.dataElements["autopsy_specified"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["mannerOfDeath"]] && causeOfDeaths[formMapping.dataElements["mannerOfDeath"]] !== "" ? ("&mannerOfDeath=" + causeOfDeaths[formMapping.dataElements["mannerOfDeath"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["dateOfInjury"]] && causeOfDeaths[formMapping.dataElements["dateOfInjury"]] !== "" ? ("&mannerOfDeathDateOfExternalCauseOrPoisoning=" + causeOfDeaths[formMapping.dataElements["dateOfInjury"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["externalCause"]] && causeOfDeaths[formMapping.dataElements["externalCause"]] !== "" ? ("&mannerOfDeathDescriptionExternalCause=" + causeOfDeaths[formMapping.dataElements["externalCause"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["externalCause_place"]] && causeOfDeaths[formMapping.dataElements["externalCause_place"]] !== "" ? ("&mannerOfDeathPlaceOfOccuranceExternalCause=" + causeOfDeaths[formMapping.dataElements["externalCause_place"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]] && causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]] !== "" ? ("&=fetalOrInfantDeathMultiplePregnancy" + causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["stillborn"]] && causeOfDeaths[formMapping.dataElements["stillborn"]] !== "" ? ("&=fetalOrInfantDeathStillborn" + causeOfDeaths[formMapping.dataElements["stillborn"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]] && causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]] !== "" ? ("&=fetalOrInfantDeathDeathWithin24h" + causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["birth_weight"]] && causeOfDeaths[formMapping.dataElements["birth_weight"]] !== "" ? ("&=fetalOrInfantDeathBirthWeight" + causeOfDeaths[formMapping.dataElements["birth_weight"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]] && causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]] !== "" ? ("&=fetalOrInfantDeathPregnancyWeeks" + causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["age_mother"]] && causeOfDeaths[formMapping.dataElements["age_mother"]] !== "" ? ("&=fetalOrInfantDeathAgeMother" + causeOfDeaths[formMapping.dataElements["age_mother"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]] && causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]] !== "" ? ("&=fetalOrInfantDeathPerinatalDescription" + causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]] && causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]] !== "" ? ("&=maternalDeathWasPregnant" + causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]] && causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]] !== "" ? ("&=maternalDeathTimeFromPregnancy" + causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]]) : "")
-      + (causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]] && causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]] !== "" ? ("&=maternalDeathPregnancyContribute" + causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]]) : "");
+      + ("&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[0] ).join(","))
+      + (causeOfDeaths[formMapping.dataElements["codB"]].code !== "" ? ("&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) : "") 
+      + (causeOfDeaths[formMapping.dataElements["codC"]].code !== "" ? ("&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) : "")  
+      + (causeOfDeaths[formMapping.dataElements["codD"]].code !== "" ? ("&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) : "")  
+      + (causeOfDeaths[formMapping.dataElements["codO"]].code !== "" ? ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) : "") 
+      + ("&intervalA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[1]?.replace(")","") ?? "" ).join(","))
+      + (causeOfDeaths[formMapping.dataElements["codB"]].code !== "" ? ("&intervalB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[1]?.replace(")","") ?? "" ).join(",")) : "") 
+      + (causeOfDeaths[formMapping.dataElements["codC"]].code !== "" ? ("&intervalC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[1]?.replace(")","") ?? "" ).join(",")) : "")  
+      + (causeOfDeaths[formMapping.dataElements["codD"]].code !== "" ? ("&intervalD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[1]?.replace(")","") ?? "" ).join(",")) : "")  
+      + (causeOfDeaths[formMapping.dataElements["codO"]].code !== "" ? ("&intervalE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[1]?.replace(")","") ?? "" ).join(",")) : "") 
+      + (currentEvent.dataValues[formMapping.dataElements["surgery"]] && currentEvent.dataValues[formMapping.dataElements["surgery"]] !== "" ? ("&surgeryWasPerformed=" + currentEvent.dataValues[formMapping.dataElements["surgery"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["surgery_date"]] && currentEvent.dataValues[formMapping.dataElements["surgery_date"]] !== "" ? ("&surgeryDate=" + currentEvent.dataValues[formMapping.dataElements["surgery_date"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["surgery_reason"]] && currentEvent.dataValues[formMapping.dataElements["surgery_reason"]] !== "" ? ("&surgeryReason=" + currentEvent.dataValues[formMapping.dataElements["surgery_reason"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["autopsy"]] && currentEvent.dataValues[formMapping.dataElements["autopsy"]] !== "" ? ("&autopsyWasRequested=" + currentEvent.dataValues[formMapping.dataElements["autopsy"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["autopsy_specified"]] && currentEvent.dataValues[formMapping.dataElements["autopsy_specified"]] !== "" ? ("&autopsyFindings=" + currentEvent.dataValues[formMapping.dataElements["autopsy_specified"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["mannerOfDeath"]] && currentEvent.dataValues[formMapping.dataElements["mannerOfDeath"]] !== "" ? ("&mannerOfDeath=" + currentEvent.dataValues[formMapping.dataElements["mannerOfDeath"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["dateOfInjury"]] && currentEvent.dataValues[formMapping.dataElements["dateOfInjury"]] !== "" ? ("&mannerOfDeathDateOfExternalCauseOrPoisoning=" + currentEvent.dataValues[formMapping.dataElements["dateOfInjury"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["externalCause"]] && currentEvent.dataValues[formMapping.dataElements["externalCause"]] !== "" ? ("&mannerOfDeathDescriptionExternalCause=" + currentEvent.dataValues[formMapping.dataElements["externalCause"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["externalCause_place"]] && currentEvent.dataValues[formMapping.dataElements["externalCause_place"]] !== "" ? ("&mannerOfDeathPlaceOfOccuranceExternalCause=" + currentEvent.dataValues[formMapping.dataElements["externalCause_place"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["multiple_pregnancies"]] && currentEvent.dataValues[formMapping.dataElements["multiple_pregnancies"]] !== "" ? ("&=fetalOrInfantDeathMultiplePregnancy" + currentEvent.dataValues[formMapping.dataElements["multiple_pregnancies"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["stillborn"]] && currentEvent.dataValues[formMapping.dataElements["stillborn"]] !== "" ? ("&=fetalOrInfantDeathStillborn" + currentEvent.dataValues[formMapping.dataElements["stillborn"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["hours_newborn_survived"]] && currentEvent.dataValues[formMapping.dataElements["hours_newborn_survived"]] !== "" ? ("&=fetalOrInfantDeathDeathWithin24h" + currentEvent.dataValues[formMapping.dataElements["hours_newborn_survived"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["birth_weight"]] && currentEvent.dataValues[formMapping.dataElements["birth_weight"]] !== "" ? ("&=fetalOrInfantDeathBirthWeight" + currentEvent.dataValues[formMapping.dataElements["birth_weight"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["completedWeeks_pregnancy"]] && currentEvent.dataValues[formMapping.dataElements["completedWeeks_pregnancy"]] !== "" ? ("&=fetalOrInfantDeathPregnancyWeeks" + currentEvent.dataValues[formMapping.dataElements["completedWeeks_pregnancy"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["age_mother"]] && currentEvent.dataValues[formMapping.dataElements["age_mother"]] !== "" ? ("&=fetalOrInfantDeathAgeMother" + currentEvent.dataValues[formMapping.dataElements["age_mother"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["pregnancy_conditions"]] && currentEvent.dataValues[formMapping.dataElements["pregnancy_conditions"]] !== "" ? ("&=fetalOrInfantDeathPerinatalDescription" + currentEvent.dataValues[formMapping.dataElements["pregnancy_conditions"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["pregnancy_inLastYear"]] && currentEvent.dataValues[formMapping.dataElements["pregnancy_inLastYear"]] !== "" ? ("&=maternalDeathWasPregnant" + currentEvent.dataValues[formMapping.dataElements["pregnancy_inLastYear"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["time_from_pregnancy"]] && currentEvent.dataValues[formMapping.dataElements["time_from_pregnancy"]] !== "" ? ("&=maternalDeathTimeFromPregnancy" + currentEvent.dataValues[formMapping.dataElements["time_from_pregnancy"]]) : "")
+      + (currentEvent.dataValues[formMapping.dataElements["pregnancy_contributed_to_death"]] && currentEvent.dataValues[formMapping.dataElements["pregnancy_contributed_to_death"]] !== "" ? ("&=maternalDeathPregnancyContribute" + currentEvent.dataValues[formMapping.dataElements["pregnancy_contributed_to_death"]]) : "");
     const result = await fetch(icdApiUrl, {
       headers: headers
     })
@@ -645,6 +645,10 @@ const Stage = ({
                   return accumulator === "" ? `${currentValue.code} (${currentValue.time})` : `${accumulator},${currentValue.code} (${currentValue.time})`
                 }, "")
               );
+              causeOfDeaths[timeToDeath.causeId].code = timeToDeath.timeInterval.reduce((accumulator, currentValue) => {
+                return accumulator === "" ? `${currentValue.code} (${currentValue.time})` : `${accumulator},${currentValue.code} (${currentValue.time})`
+              }, "");
+              setCauseOfDeaths({...causeOfDeaths});
               setTimeToDeathModal(false);
             }}
             style={{ width: "100px"}}

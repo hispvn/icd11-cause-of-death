@@ -3197,7 +3197,7 @@
             ]
         },
         {
-            "code": "ACCIDENT",
+            "code": "1",
             "name": "Accident",
             "id": "Kt5m38ayDhf",
             "sortOrder": 4,
@@ -3241,7 +3241,7 @@
             ]
         },
         {
-            "code": "ASSAULT",
+            "code": "3",
             "name": "Assault",
             "id": "V8gEEmyktxU",
             "sortOrder": 2,
@@ -3263,7 +3263,7 @@
             ]
         },
         {
-            "code": "HOME",
+            "code": "0",
             "name": "At home",
             "id": "mjpU3NOh7Km",
             "sortOrder": 1,
@@ -3285,7 +3285,7 @@
             ]
         },
         {
-            "code": "AT_DEATH",
+            "code": "0",
             "name": "At time of death",
             "id": "bMwkT5De6B1",
             "sortOrder": 1,
@@ -3302,7 +3302,7 @@
             ]
         },
         {
-            "code": "BETWEEN_43D_1Y",
+            "code": "2",
             "name": "Between 43 days up to 1 year before death",
             "id": "iPXEYhpWbUU",
             "sortOrder": 3,
@@ -3319,7 +3319,24 @@
             ]
         },
         {
-            "code": "NOT_DETERMINED",
+            "code": "3",
+            "name": "One year or more before death",
+            "id": "QVemZangvwX",
+            "sortOrder": 4,
+            "optionSet": {
+                "id": "GqmQvJGc5PV"
+            },
+            "attributeValues": [],
+            "translations": [
+                {
+                    "property": "NAME",
+                    "locale": "fr",
+                    "value": "Entre 43 jours et 1 an avant le décès"
+                }
+            ]
+        },
+        {
+            "code": "6",
             "name": "Could not be determined",
             "id": "c8FeiRCDU5Y",
             "sortOrder": 3,
@@ -3385,7 +3402,7 @@
             ]
         },
         {
-            "code": "DISEASE",
+            "code": "0",
             "name": "Disease",
             "id": "wJWlGy14Orx",
             "sortOrder": 1,
@@ -3429,7 +3446,7 @@
             ]
         },
         {
-            "code": "FARM",
+            "code": "7",
             "name": "Farm",
             "id": "AST8SDb4U6u",
             "sortOrder": 8,
@@ -3579,7 +3596,7 @@
             ]
         },
         {
-            "code": "INDUSTRIAL_CONSTRUCTION_AREA",
+            "code": "6",
             "name": "Industrial and construction area",
             "id": "WHE2R5w8MGg",
             "sortOrder": 7,
@@ -3601,7 +3618,7 @@
             ]
         },
         {
-            "code": "SUICIDE",
+            "code": "2",
             "name": "Intentional self-harm",
             "id": "V2vLgRorQ2P",
             "sortOrder": 9,
@@ -3623,7 +3640,7 @@
             ]
         },
         {
-            "code": "LEGAL_INTERVENTION",
+            "code": "4",
             "name": "Legal intervention",
             "id": "HE8FkiQfMxL",
             "sortOrder": 5,
@@ -3729,7 +3746,7 @@
             ]
         },
         {
-            "code": "NO",
+            "code": "0",
             "name": "No",
             "id": "ueETuxbu9pQ",
             "sortOrder": 2,
@@ -3818,7 +3835,7 @@
             ]
         },
         {
-            "code": "OTHER",
+            "code": "8",
             "name": "Other place (please specify)",
             "id": "jWVBnrZnBxI",
             "sortOrder": 9,
@@ -3840,7 +3857,7 @@
             ]
         },
         {
-            "code": "PENDING_INVESTIGATION",
+            "code": "7",
             "name": "Pending investigation",
             "id": "NymgckGwVe2",
             "sortOrder": 7,
@@ -3928,7 +3945,7 @@
             ]
         },
         {
-            "code": "RESIDENTIAL_INSTITUTION",
+            "code": "1",
             "name": "Residential institution",
             "id": "YckcNUdYaWK",
             "sortOrder": 2,
@@ -3972,7 +3989,7 @@
             ]
         },
         {
-            "code": "INSTITUTION",
+            "code": "2",
             "name": "School, other institution, public administrative area",
             "id": "Ohg7AX7x72u",
             "sortOrder": 3,
@@ -4021,7 +4038,7 @@
             ]
         },
         {
-            "code": "SPORT_ATHLETIC_AREA",
+            "code": "3",
             "name": "Sports and atheltics area",
             "id": "vl1QKwF88J9",
             "sortOrder": 4,
@@ -4043,7 +4060,7 @@
             ]
         },
         {
-            "code": "STREET_HIGHWAY",
+            "code": "4",
             "name": "Street and highway",
             "id": "WnL0uYrLzkV",
             "sortOrder": 5,
@@ -4065,7 +4082,7 @@
             ]
         },
         {
-            "code": "TRADE_SERVICE_AREA",
+            "code": "5",
             "name": "Trade and service area",
             "id": "uonHD40ye1Q",
             "sortOrder": 6,
@@ -4087,7 +4104,7 @@
             ]
         },
         {
-            "code": "UNKNOWN",
+            "code": "9",
             "name": "Unknown",
             "id": "KHEb0BqMIvf",
             "sortOrder": 10,
@@ -4144,7 +4161,7 @@
             ]
         },
         {
-            "code": "UNKNOWN",
+            "code": "9",
             "name": "Unknown",
             "id": "k0vPpHylQEg",
             "sortOrder": 8,
@@ -4201,10 +4218,10 @@
             ]
         },
         {
-            "code": "UNKNOWN",
+            "code": "9",
             "name": "Unknown",
             "id": "mDjfEVVxu8d",
-            "sortOrder": 4,
+            "sortOrder": 5,
             "optionSet": {
                 "id": "GqmQvJGc5PV"
             },
@@ -4258,7 +4275,7 @@
             ]
         },
         {
-            "code": "UNKNOWN",
+            "code": "9",
             "name": "Unknown",
             "id": "pWRiZczgIK4",
             "sortOrder": 3,
@@ -4315,7 +4332,7 @@
             ]
         },
         {
-            "code": "WAR",
+            "code": "5",
             "name": "War",
             "id": "zojDWKY5iYc",
             "sortOrder": 6,
@@ -4354,7 +4371,7 @@
             ]
         },
         {
-            "code": "WITHIN_42_DAYS",
+            "code": "1",
             "name": "Within 42 days before death",
             "id": "zLssGFYYTkd",
             "sortOrder": 2,
@@ -4398,7 +4415,7 @@
             ]
         },
         {
-            "code": "YES",
+            "code": "1",
             "name": "Yes",
             "id": "qEtCYWsKCXb",
             "sortOrder": 1,

@@ -503,127 +503,6 @@ const Stage = ({
   }
 
   const detectUnderlyingCauseOfDeath = async () => {
-    // const payload = {
-    //   "DeathCertificate": {
-    //     "CertificateKey": "",
-    //     "Issuer": "",
-    //     "Comments": "",
-    //     "FreeText": "",
-    //     "ICDVersion": "",
-    //     "ICDMinorVersion": "",
-    //     "UCStated": null,
-    //     "UCComputed": {
-    //       "RuleEngine": "",
-    //       "Reject": null,
-    //       "Validate": null,
-    //       "Timestamp": "",
-    //       "UC": null,
-    //       "UCComplete": null,
-    //       "Report": "",
-    //       "Errors": "",
-    //       "Warnings": ""
-    //     },
-    //     "AdministrativeData": {
-    //         "DateBirth": currentTeiDateOfBirthAttributeValue ? moment(currentTeiDateOfBirthAttributeValue, "YYYY-MM-DD").format("ddd MMM DD YYYY") : "",
-    //         "DateDeath": currentTeiDateOfDeath ? moment(currentTeiDateOfDeath, "YYYY-MM-DD").format("ddd MMM DD YYYY") : "",
-    //         "Sex": !currentTeiSexAttributeValue ? 9 : currentTeiSexAttributeValue === "" ? 9 : currentTeiSexAttributeValue === femaleCode ? 2 : 1,
-    //         "EstimatedAge": (currentTeiDateOfBirthAttributeValue && currentTeiDateOfDeath) ? `P${currentTeiAgeAttributeValue}Y` : ""
-    //     },
-    //     "Part1": [
-    //         {
-    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codA"]]?.split(",").map( codeSelection => ({
-    //               "Code": codeSelection.split(" (")[0],
-    //               "LinearizationURI": "",
-    //               "Text": "",
-    //               "FoundationURI": "",
-    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
-    //             })) ?? []
-    //         },
-    //         {
-    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codB"]]?.split(",").map( codeSelection => ({
-    //               "Code": codeSelection.split(" (")[0],
-    //               "LinearizationURI": "",
-    //               "Text": "",
-    //               "FoundationURI": "",
-    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
-    //             })) ?? []
-    //         },
-    //         {
-    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codC"]]?.split(",").map( codeSelection => ({
-    //               "Code": codeSelection.split(" (")[0],
-    //               "LinearizationURI": "",
-    //               "Text": "",
-    //               "FoundationURI": "",
-    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
-    //             })) ?? []
-    //         },
-    //         {
-    //             "Conditions": currentEvent.dataValues[formMapping.dataElements["codD"]]?.split(",").map( codeSelection => ({
-    //               "Code": codeSelection.split(" (")[0],
-    //               "LinearizationURI": "",
-    //               "Text": "",
-    //               "FoundationURI": "",
-    //               "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
-    //             })) ?? []
-    //         },
-    //         {
-    //             "Conditions": []
-    //         }
-    //     ],
-    //     "Part2": {
-    //         "Conditions": currentEvent.dataValues[formMapping.dataElements["codO"]]?.split(",").map( codeSelection => ({
-    //           "Code": codeSelection.split(" (")[0],
-    //           "LinearizationURI": "",
-    //           "Text": "",
-    //           "FoundationURI": "",
-    //           "Interval": codeSelection.split(" (")[1]?.replace(")","") ?? ""
-    //         })) ?? []
-    //     },
-    //     "Surgery": {
-    //         "WasPerformed": null,
-    //         "Reason": "",
-    //         "Date": ""
-    //     },
-    //     "Autopsy": {
-    //         "WasRequested": null,
-    //         "Findings": null
-    //     },
-    //     "MannerOfDeath": {
-    //         "MannerOfDeath": null,
-    //         "DateOfExternalCauseOrPoisoning": "",
-    //         "DescriptionExternalCause": "",
-    //         "PlaceOfOccuranceExternalCause": null
-    //     },
-    //     "FetalOrInfantDeath": {
-    //         "MultiplePregnancy": null,
-    //         "Stillborn": null,
-    //         "DeathWithin24h": null,
-    //         "BirthHeight": null,
-    //         "PregnancyWeeks": null,
-    //         "AgeMother": null,
-    //         "PerinatalDescription": ""
-    //     },
-    //     "MaternalDeath": {
-    //         "WasPregnant": null,
-    //         "TimeFromPregnancy": null,
-    //         "PregnancyContribute": null
-    //     }
-    //   },
-    //   "DorisSettings": {
-    //     "fullyAutomatic": true,
-    //     "lang": keyUiLocale
-    //   }
-    // };
-
-    // const result = await fetch("https://icd.who.int/doris/api/ucod/underlyingcauseofdeath/", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   },
-    //   body: payload
-    // })
-    // .then(response => response.json());
-    // const underlyingCode = result.UCComputed.UCComplete?.code ?? "";
 
     let headers = new Headers();
     headers.append("accept", "application/json");
@@ -639,7 +518,31 @@ const Stage = ({
       + ( "&causeOfDeathCodeB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
       + ("&causeOfDeathCodeC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
       + ("&causeOfDeathCodeD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[0] ).join(",")) 
-      + ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(","));
+      + ("&causeOfDeathCodeE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[0] ).join(","))
+      + ( "&intervalA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(","))
+      + ( "&intervalB=" + causeOfDeaths[formMapping.dataElements["codB"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
+      + ("&intervalC=" + causeOfDeaths[formMapping.dataElements["codC"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
+      + ("&intervalD=" + causeOfDeaths[formMapping.dataElements["codD"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(",")) 
+      + ("&intervalE=" + causeOfDeaths[formMapping.dataElements["codO"]].code.split(",").map( c => c.split(" (")[1] ).replace(")","").join(","))
+      + (causeOfDeaths[formMapping.dataElements["surgery"]] && causeOfDeaths[formMapping.dataElements["surgery"]] !== "" ? ("&surgeryWasPerformed=" + causeOfDeaths[formMapping.dataElements["surgery"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["surgery_date"]] && causeOfDeaths[formMapping.dataElements["surgery_date"]] !== "" ? ("&surgeryDate=" + causeOfDeaths[formMapping.dataElements["surgery_date"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["surgery_reason"]] && causeOfDeaths[formMapping.dataElements["surgery_reason"]] !== "" ? ("&surgeryReason=" + causeOfDeaths[formMapping.dataElements["surgery_reason"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["autopsy"]] && causeOfDeaths[formMapping.dataElements["autopsy"]] !== "" ? ("&autopsyWasRequested=" + causeOfDeaths[formMapping.dataElements["autopsy"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["autopsy_specified"]] && causeOfDeaths[formMapping.dataElements["autopsy_specified"]] !== "" ? ("&autopsyFindings=" + causeOfDeaths[formMapping.dataElements["autopsy_specified"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["mannerOfDeath"]] && causeOfDeaths[formMapping.dataElements["mannerOfDeath"]] !== "" ? ("&mannerOfDeath=" + causeOfDeaths[formMapping.dataElements["mannerOfDeath"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["dateOfInjury"]] && causeOfDeaths[formMapping.dataElements["dateOfInjury"]] !== "" ? ("&mannerOfDeathDateOfExternalCauseOrPoisoning=" + causeOfDeaths[formMapping.dataElements["dateOfInjury"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["externalCause"]] && causeOfDeaths[formMapping.dataElements["externalCause"]] !== "" ? ("&mannerOfDeathDescriptionExternalCause=" + causeOfDeaths[formMapping.dataElements["externalCause"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["externalCause_place"]] && causeOfDeaths[formMapping.dataElements["externalCause_place"]] !== "" ? ("&mannerOfDeathPlaceOfOccuranceExternalCause=" + causeOfDeaths[formMapping.dataElements["externalCause_place"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]] && causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]] !== "" ? ("&=fetalOrInfantDeathMultiplePregnancy" + causeOfDeaths[formMapping.dataElements["multiple_pregnancies"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["stillborn"]] && causeOfDeaths[formMapping.dataElements["stillborn"]] !== "" ? ("&=fetalOrInfantDeathStillborn" + causeOfDeaths[formMapping.dataElements["stillborn"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]] && causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]] !== "" ? ("&=fetalOrInfantDeathDeathWithin24h" + causeOfDeaths[formMapping.dataElements["hours_newborn_survived"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["birth_weight"]] && causeOfDeaths[formMapping.dataElements["birth_weight"]] !== "" ? ("&=fetalOrInfantDeathBirthWeight" + causeOfDeaths[formMapping.dataElements["birth_weight"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]] && causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]] !== "" ? ("&=fetalOrInfantDeathPregnancyWeeks" + causeOfDeaths[formMapping.dataElements["completedWeeks_pregnancy"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["age_mother"]] && causeOfDeaths[formMapping.dataElements["age_mother"]] !== "" ? ("&=fetalOrInfantDeathAgeMother" + causeOfDeaths[formMapping.dataElements["age_mother"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]] && causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]] !== "" ? ("&=fetalOrInfantDeathPerinatalDescription" + causeOfDeaths[formMapping.dataElements["pregnancy_conditions"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]] && causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]] !== "" ? ("&=maternalDeathWasPregnant" + causeOfDeaths[formMapping.dataElements["pregnancy_inLastYear"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]] && causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]] !== "" ? ("&=maternalDeathTimeFromPregnancy" + causeOfDeaths[formMapping.dataElements["time_from_pregnancy"]]) : "")
+      + (causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]] && causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]] !== "" ? ("&=maternalDeathPregnancyContribute" + causeOfDeaths[formMapping.dataElements["pregnancy_contributed_to_death"]]) : "");
     const result = await fetch(icdApiUrl, {
       headers: headers
     })

@@ -7,9 +7,10 @@
       "aggregationType": "SUM",
       "domainType": "TRACKER",
       "publicAccess": "r-------",
-      "valueType": "BOOLEAN",
+      "valueType": "TEXT",
       "formName": "Was an autopsy conducted?",
       "zeroIsSignificant": false,
+      "optionSet": { "id": "dhiyfHmX1P8" },
       "translations": [
         {
           "property": "SHORT_NAME",

@@ -71,13 +71,22 @@ const ControlBar = ({
   const [filterOU, setFiterOU] = useState([]);
 
   useEffect(() => {
-    if (orgUnits && searchOU.length > 3) {
-      setFiterOU(
-        orgUnits
-          .filter( ({displayName}) => displayName.toLowerCase().includes(searchOU.toLocaleLowerCase()) )
-          .map(({path}) => path)
-      )
-    }
+    // if (orgUnits && searchOU.length > 3) {
+    const timeoutId = setTimeout(() => {
+      if (orgUnits && searchOU) {
+        setFiterOU(
+          orgUnits
+            .filter(({ displayName }) =>
+              displayName.toLowerCase().includes(searchOU.toLocaleLowerCase())
+            )
+            .map(({ path }) => path)
+        );
+      }
+      if (!searchOU) {
+        setFiterOU([]);
+      }
+    }, 1000);
+    return () => clearTimeout(timeoutId);
   }, [searchOU]);
 
   return (
@@ -86,28 +95,34 @@ const ControlBar = ({
         trigger="click"
         content={
           <>
-            <Input placeholder="Search" value={searchOU} onChange={e => { setSearchOU(e.target.value) }} />
+            <Input
+              placeholder="Search"
+              value={searchOU}
+              onChange={(e) => {
+                setSearchOU(e.target.value);
+              }}
+            />
             <div className="orgunit-selector-container">
-              { 
-                  orgUnits && orgUnits.length > 0 && <OrgUnitSelector
-                    selectedOrgUnit={selectedOrgUnit}
-                    handleSelectOrgUnit={(orgUnit) => {
-                      setSelectedOrgUnit(orgUnit);
-                      if (route !== "search") {
-                        if (isDirty) {
-                          setRouteText("list");
-                          setExitWarning(true);
-                        } else {
-                          changeRoute("list");
-                        }
+              {orgUnits && orgUnits.length > 0 && (
+                <OrgUnitSelector
+                  selectedOrgUnit={selectedOrgUnit}
+                  handleSelectOrgUnit={(orgUnit) => {
+                    setSelectedOrgUnit(orgUnit);
+                    if (route !== "search") {
+                      if (isDirty) {
+                        setRouteText("list");
+                        setExitWarning(true);
+                      } else {
+                        changeRoute("list");
                       }
-                    }}
-                    // filter={searchOU === "" ? [] : filterOU}
-                    // filter={orgUnits ? orgUnits.map( ({path}) => path ) : []}
-                    filter={searchOU === "" ? [] : filterOU}
-                    // filter={["/jjKIShO8MjG","/jjKIShO8MjG/zj9LoeErgkP"]}
-                  />
-              }
+                    }
+                  }}
+                  // filter={searchOU === "" ? [] : filterOU}
+                  // filter={orgUnits ? orgUnits.map( ({path}) => path ) : []}
+                  filter={searchOU === "" ? [] : filterOU}
+                  // filter={["/jjKIShO8MjG","/jjKIShO8MjG/zj9LoeErgkP"]}
+                />
+              )}
             </div>
           </>
         }

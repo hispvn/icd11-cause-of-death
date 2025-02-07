@@ -141,56 +141,56 @@ const App = ({
 
       Promise.all([
         metadataApi.get("/api/dataStore/WHO_ICD11_COD/program"),
-        metadataApi.getOrgUnitGroups(),
-        metadataApi.getOrgUnitLevels(),
-        metadataApi.get(
-          "/api/trackedEntityAttributes.json",
-          { paging: false },
-          ["fields=id,displayName,valueType,optionSet,formName"]
-        ),
-        metadataApi.getTrackerDataElements(),
-        metadataApi.get("/api/users.json", { paging: false }, [
-          "fields=id,displayName,organisationUnits~size",
-        ]),
-        metadataApi.get("/api/organisationUnits.json", { paging: false }, [
-          "fields=id,displayName,path,level,code",
-        ]),
-        metadataApi.get("/api/trackedEntityTypes.json", { paging: false }, [
-          "fields=id,displayName",
-        ]),
-        metadataApi.get("/api/userGroups.json", { paging: false }, [
-          "fields=id,displayName",
-        ]),
-        metadataApi.getMe(),
-        metadataApi.get(
-          "/api/programs.json",
-          { paging: false },
-          [
-            "fields=:owner,!created,!lastUpdated,!user,!lastUpdatedBy,!organisationUnits,programTrackedEntityAttributes[:owner,!created,!lastUpdated]",
-            "filter=programType:eq:WITH_REGISTRATION"
-          ]
-        ),
-        // metadataApi.get(
-        //   "/api/optionSets.json",
-        //   { paging: false },
-        //   ["fields=id,displayName,options[id,displayName,code,sortOrder]"]
-        // )
+        metadataApi.getMe()
       ]).then( async (results) => {
 
-        await InitTranslation(translationData,results[9].settings.keyUiLocale);
-        setUILocale(results[9].settings.keyUiLocale)
+        Promise.all([
+          metadataApi.getOrgUnitGroups(),
+          metadataApi.getOrgUnitLevels(),
+          metadataApi.get(
+            "/api/trackedEntityAttributes.json",
+            { paging: false },
+            ["fields=id,displayName,valueType,optionSet,formName"]
+          ),
+          metadataApi.getTrackerDataElements(),
+          metadataApi.get("/api/users.json", { paging: false }, [
+            "fields=id,displayName,organisationUnits~size",
+          ]),
+          metadataApi.get("/api/organisationUnits.json", { paging: false }, [
+            "fields=id,displayName,path,level,code",
+          ]),
+          metadataApi.get("/api/trackedEntityTypes.json", { paging: false }, [
+            "fields=id,displayName",
+          ]),
+          metadataApi.get("/api/userGroups.json", { paging: false }, [
+            "fields=id,displayName",
+          ]),
+          metadataApi.get(
+            "/api/programs.json",
+            { paging: false },
+            [
+              "fields=:owner,!created,!lastUpdated,!user,!lastUpdatedBy,!organisationUnits,programTrackedEntityAttributes[:owner,!created,!lastUpdated]",
+              "filter=programType:eq:WITH_REGISTRATION"
+            ]
+          )
+        ]).then(set => {
+          // for admin module
+          setOrgUnitGroups(set[0].organisationUnitGroups);
+          setOrgUnitLevels(set[1].organisationUnitLevels);
+          setTeas(set[2].trackedEntityAttributes);
+          setTrackerDataElements(set[3].dataElements);
+          setUsers(set[4].users);
+          setOrgUnits(set[5].organisationUnits);
+          getTrackedEntityTypes(set[6].trackedEntityTypes);
+          setUserGroups(set[7].userGroups);
+          getAllPrograms(set[8].programs);
+        });
+        
 
-        // for admin module
-        setOrgUnitGroups(results[1].organisationUnitGroups);
-        setOrgUnitLevels(results[2].organisationUnitLevels);
-        setTeas(results[3].trackedEntityAttributes);
-        setTrackerDataElements(results[4].dataElements);
-        setUsers(results[5].users);
-        setOrgUnits(results[6].organisationUnits);
-        getTrackedEntityTypes(results[7].trackedEntityTypes);
-        setUserGroups(results[8].userGroups);
-        // setAllOptionSets(results[11].optionSets);
-        getAllPrograms(results[10].programs);
+        await InitTranslation(translationData,results[1].settings.keyUiLocale);
+        setUILocale(results[1].settings.keyUiLocale)
+
+        
 
         // for entry module
         if (results[0].status) {
@@ -245,7 +245,7 @@ const App = ({
                 data: false,
                 view: false
               };
-              results[9].userGroups.forEach( userGroup => {
+              results[1].userGroups.forEach( userGroup => {
                 const role = res[0].userGroupAccesses ? res[0].userGroupAccesses.find( ({id}) => id === userGroup.id )
                   : res[0].sharing.userGroups[userGroup.id] ;
                 if ( role ) {

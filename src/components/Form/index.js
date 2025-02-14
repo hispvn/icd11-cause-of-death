@@ -167,20 +167,7 @@ const Form = ({
                   padding: "1.5px",
                 }}
               >
-                {userRoles.admin && <Button
-                  type="primary" 
-                  danger
-                  style={{
-                    width: "110px"
-                  }}
-                  disabled={currentTei.isNew && !currentTei.isSaved}
-                  onClick={() => {
-                    setDeleteWarning(true);
-                  }}
-                >
-                  Delete
-                </Button>}
-                <Button
+                {currentTei.isNew ? <Button
                   type="primary" 
                   style={{
                     width: "110px",
@@ -212,6 +199,7 @@ const Form = ({
                         programMetadata.id
                       );
                       mutateTei("isSaved", true);
+                      mutateTei("isNew", false);
 
                       // Dirty Check
                       mutateTei("isDirty", false);
@@ -227,8 +215,20 @@ const Form = ({
                     }
                   }}
                 >
-                  {t("save")}
-                </Button>
+                  Create
+                </Button> : userRoles.admin ? <Button
+                  type="primary" 
+                  danger
+                  style={{
+                    width: "110px"
+                  }}
+                  disabled={currentTei.isNew && !currentTei.isSaved}
+                  onClick={() => {
+                    setDeleteWarning(true);
+                  }}
+                >
+                  Delete
+                </Button> : <></>}
               </ButtonGroup>
             </div>
           </div>
@@ -296,6 +296,7 @@ const Form = ({
                 style={{
                   width: "110px"
                 }}
+                disabled={currentTei.isNew}
                 icon={sideBar ? <DoubleLeftOutlined /> : <DoubleRightOutlined />}
                 onClick={() => {setSideBar(!sideBar)}}
               >
@@ -332,6 +333,7 @@ const Form = ({
                   mutateEvent(currentEvents[0].event,"dataValues",{});
                   setLoading(false);
                 }}
+                disabled={currentTei.isNew}
               >
                 Clear
               </Button>
@@ -374,12 +376,16 @@ const Form = ({
                   </Button>
                   :
                   <Button
-                    style={{
+                    style={currentTei.isNew ? {
+                      width: "110px",
+                      marginLeft: "3px"
+                    } : {
                       width: "110px",
                       marginLeft: "3px",
                       backgroundColor: "#f0ad4e",
                       color: "white"
                     }}
+                    disabled={currentTei.isNew}
                     onClick={async () => {
                       if (
                         currentEvents[0] &&
@@ -432,6 +438,7 @@ const Form = ({
                     width: "110px",
                     marginLeft: "3px"
                   }}
+                  disabled={currentTei.isNew}
                   onClick={async () => {
                     if (
                       currentEvents[0] &&

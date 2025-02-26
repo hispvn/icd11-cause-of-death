@@ -29,7 +29,7 @@ const initialState = {
   selectedOrgUnit: null,
   orgUnitGroups: null,
   orgUnitLevels: null,
-  orgUnits: null,
+  orgUnits: [],
   icd11Options: null,
   formMapping: null,
   certificateTemplate: {

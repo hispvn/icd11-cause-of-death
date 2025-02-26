@@ -1,7 +1,7 @@
 /** Transform to chart data */
 import { AGE_RANGES, SEXES, AGE_RANGES_ID, EXPANDED_AGE_RANGES, EXPANDED_AGE_RANGES_ID, AGE_RANGES_SHORT, AGE_RANGES_SHORT_ID, MONTHS } from "../pages/utils";
 
-const generateChildCharts = ( chartid, data, template, femaleCode ) => {
+const generateChildCharts = ( chartid, data, template, femaleCode, sexAttr, ageAttr ) => {
     const FEMALE_CODE = femaleCode;
     let convert;
     switch ( chartid ) {
@@ -148,8 +148,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         borderColor: template.data.datasets[index].borderColor,
                         tension: 0.1,
                         data: AGE_RANGES_ID.map( ageG => {
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -162,8 +164,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
                         data: AGE_RANGES_ID.map( ageG => {
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -179,8 +183,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -192,10 +198,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -211,8 +219,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -224,10 +234,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -243,8 +255,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -256,10 +270,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -275,8 +291,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -288,10 +306,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -368,8 +388,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -385,10 +407,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -434,11 +458,11 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
         case "6.6": 
             convert = [{
                 label: "Malaria",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0200" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0200" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "Other causes",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] !== "0200" ).reduce( (curTotal, val) => curTotal + parseInt(val[2]), 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0200" ).reduce( (curTotal, val) => curTotal + parseInt(val[data.headers.length - 1]), 0 ))
             }];
             return {
                 labels: AGE_RANGES,
@@ -461,8 +485,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -478,10 +504,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val =( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -527,11 +555,11 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
         case "7.6":
             convert = [{
                 label: "Tuberculosis",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0030" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0030" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "Other causes",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] !== "0030" ).reduce( (curTotal, val) => curTotal + parseInt(val[2]), 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0030" ).reduce( (curTotal, val) => curTotal + parseInt(val[data.headers.length - 1]), 0 ))
             }];
             return {
                 labels: AGE_RANGES,
@@ -554,8 +582,10 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                         tension: 0.1,
                         data: EXPANDED_AGE_RANGES_ID.map( ageG => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0
                         })
                     }
                 })
@@ -571,10 +601,12 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     return {
                         label: sex,
                         backgroundColor: template.data.datasets[index].backgroundColor,
-                        data: data.metaData.dimensions.pe.map( ageG => {
+                        data: data.metaData.dimensions.pe.map( pe => {
                             // ageG
-                            const val = ( sex === "Female" ) ? data.rows.find( row => row[0] === FEMALE_CODE && row[1] === ageG ) : data.rows.find( row => row[0] !== FEMALE_CODE && row[1] === ageG );
-                            return val ? parseInt(val[2]) : 0;
+                            const val = ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === "pe")] === pe );
+                            return val ? parseInt(val[data.headers.length - 1]) : 0;
                         })
                     }
                 })
@@ -620,11 +652,11 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
         case "8.6":
             convert = [{
                 label: "AIDS",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0090" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0090" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "Other causes",
-                value: AGE_RANGES_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] !== "0090" ).reduce( (curTotal, val) => curTotal + parseInt(val[2]), 0 ))
+                value: AGE_RANGES_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0090" ).reduce( (curTotal, val) => curTotal + parseInt(val[data.headers.length - 1]), 0 ))
             }];
             return {
                 labels: AGE_RANGES,
@@ -639,19 +671,19 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
         case "9.1": 
             convert = [{
                 label: "Malaria",
-                value: AGE_RANGES_SHORT_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0200" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_SHORT_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0200" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "Tuberculosis",
-                value: AGE_RANGES_SHORT_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0030" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_SHORT_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0030" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "AIDS",
-                value: AGE_RANGES_SHORT_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] === "0090" ).reduce( (curTotal, val) => curTotal + val[2], 0 ))
+                value: AGE_RANGES_SHORT_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === "0090" ).reduce( (curTotal, val) => curTotal + val[data.headers.length - 1], 0 ))
             },
             {
                 label: "Other causes",
-                value: AGE_RANGES_SHORT_ID.map( pe => data.rows.filter( row => row[0] === pe && row[1] !== "0200" && row[1] !== "0030" && row[1] !== "0090" ).reduce( (curTotal, val) => curTotal + parseInt(val[2]), 0 ))
+                value: AGE_RANGES_SHORT_ID.map( ageG => data.rows.filter( row => row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0200" && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0030" && row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] !== "0090" ).reduce( (curTotal, val) => curTotal + parseInt(val[data.headers.length - 1]), 0 ))
             }];
             return {
                 labels: AGE_RANGES_SHORT,
@@ -670,9 +702,11 @@ const generateChildCharts = ( chartid, data, template, femaleCode ) => {
                     convert.push({
                         label: `${sex} - ${causeGroup.split(" - ")[1]}`,
                         stack: sex,
-                        data: AGE_RANGES_SHORT_ID.map( pe => {
-                            const val =  ( sex === "Female" ) ? data.rows.find( row => row[0] === causeGroup.split(" - ")[0] && row[1] === FEMALE_CODE && row[2] === pe ) : data.rows.find( row => row[0] === causeGroup.split(" - ")[0] && row[1] !== FEMALE_CODE && row[2] === pe );
-                            return !val ? 0 : sex === "Male" ? -1*val[3] : val[3]
+                        data: AGE_RANGES_SHORT_ID.map( ageG => {
+                            const val =  ( sex === "Female" ) ? 
+                                data.rows.find( row => row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === causeGroup.split(" - ")[0] && row[data.headers.findIndex(({name}) => name === sexAttr)] === FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG ) 
+                                : data.rows.find( row => row[data.headers.findIndex(({name}) => name === "zwFVJMwggaH")] === causeGroup.split(" - ")[0] && row[data.headers.findIndex(({name}) => name === sexAttr)] !== FEMALE_CODE && row[data.headers.findIndex(({name}) => name === ageAttr)] === ageG );
+                            return !val ? 0 : sex === "Male" ? -1*val[data.headers.length - 1] : val[data.headers.length - 1]
                         })
                     })
                 })

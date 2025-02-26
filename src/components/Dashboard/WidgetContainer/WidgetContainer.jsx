@@ -64,7 +64,9 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, f
                   props.widget.i,
                   data,
                   result,
-                  femaleCode
+                  femaleCode,
+                  formMapping.attributes["sex"],
+                  formMapping.attributes["age"]
                 ),
                 colors: result.colors
               } 
@@ -88,7 +90,9 @@ const WidgetContainer = React.forwardRef(({ style, className, selectedOrgUnit, f
                 "2.1",
                 data,
                 result,
-                femaleCode
+                femaleCode,
+                formMapping.attributes["sex"],
+                formMapping.attributes["age"]
               ),
               colors: result.colors
             } 

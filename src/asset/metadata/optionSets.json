@@ -167,7 +167,7 @@
       "userAccesses": []
     },
     {
-      "name": "Reason for manual selection of underlying cause",
+      "name": "CoD - Reason for manual selection of underlying cause",
       "id": "fcEG5Pd7jKG",
       "publicAccess": "rw------",
       "version": 4,
@@ -178,7 +178,7 @@
       "userAccesses": [ ]
     },
     {
-      "name": "Underlying cause of death processed by",
+      "name": "CoD - Underlying cause of death processed by",
       "id": "poG5iRzoLn7",
       "publicAccess": "rw------",
       "version": 2,

@@ -311,7 +311,7 @@ const Stage = ({
             // set underlying
             if (value) {
               if ( currentCauseOfDeath[id].code.split(",").length === 1 ) {
-                setUnderlyingResult(currentCauseOfDeath[id].code);
+                setUnderlyingResult(currentCauseOfDeath[id].code.split(" (")[0]);
               }
               else {
                 setUnderlyingSelections(currentCauseOfDeath[id].code.split(",").map(selection => ({label: `${selection} - ${icd11Options.find(({code}) => code === selection.split(" (")[0])?.name}`, value: selection.split(" (")[0]})));
@@ -852,7 +852,7 @@ const Stage = ({
                               style={{
                                 width: "100%",
                               }}
-                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codA"]]}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codA"]] || enrollmentStatus === "COMPLETED"}
                               onClick={ () => {
                                 setTimeToDeathModal(true);
                                 setTimeToDeath({
@@ -905,7 +905,7 @@ const Stage = ({
                               style={{
                                 width: "100%",
                               }}
-                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codB"]]}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codB"]] || enrollmentStatus === "COMPLETED"}
                               onClick={ () => {
                                 setTimeToDeathModal(true);
                                 setTimeToDeath({
@@ -961,7 +961,7 @@ const Stage = ({
                               style={{
                                 width: "100%",
                               }}
-                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codC"]]}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codC"]] || enrollmentStatus === "COMPLETED"}
                               onClick={ () => {
                                 setTimeToDeathModal(true);
                                 setTimeToDeath({
@@ -1017,7 +1017,7 @@ const Stage = ({
                               style={{
                                 width: "100%",
                               }}
-                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codD"]]}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codD"]] || enrollmentStatus === "COMPLETED"}
                               onClick={ () => {
                                 setTimeToDeathModal(true);
                                 setTimeToDeath({
@@ -1073,7 +1073,7 @@ const Stage = ({
                               style={{
                                 width: "100%",
                               }}
-                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codO"]]}
+                              disabled={!currentEvent?.dataValues[formMapping.dataElements["codO"]] || enrollmentStatus === "COMPLETED"}
                               onClick={ () => {
                                 setTimeToDeathModal(true);
                                 setTimeToDeath({

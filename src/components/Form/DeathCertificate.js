@@ -15,6 +15,7 @@ const DeathCertificate = ({
   certificateTemplate,
   customCertificateTemplate,
   formMapping,
+  programMetadata,
   open,
   onCancel,
   onLoading
@@ -30,24 +31,47 @@ const DeathCertificate = ({
                                                     : (val) ? <CheckSquareFilled style={{ fontSize: 20, color: "#1890ff", }} /> 
                                                       : <CloseSquareFilled style={{ fontSize: 20, color: "#d3d3d3", }} />
 
-  const getVal = row => {
+  const getVal_defaultCert = row => {
     if (row.enrollment) {
       return currentEnrollment[row.enrollment === "orgUnit" ? "orgUnitName" : row.enrollment];
     } else if (row.trackedEntityAttribute) {
-      return isBoolean(currentTei.attributes[row.trackedEntityAttribute])
+      const foundTea = programMetadata.trackedEntityAttributes.find( tea => tea.id === row.trackedEntityAttribute );
+      return !foundTea.valueSet ? isBoolean(currentTei.attributes[row.trackedEntityAttribute]) 
+        : foundTea.valueSet.find( vs => vs.value === currentTei.attributes[row.trackedEntityAttribute] )?.label ?? currentTei.attributes[row.trackedEntityAttribute];
     } else if (currentEvent && currentEvent.dataValues) {
-      return isBoolean(currentEvent.dataValues[row.dataElement])
+      const foundDe = programMetadata.programStages.find( ps => ps.id === formMapping.programStage ).dataElements.find( de => de.id === row.dataElement );
+      return !foundDe.valueSet ? isBoolean(currentEvent.dataValues[row.dataElement]) : foundDe.valueSet.find( vs => vs.value === currentEvent.dataValues[row.dataElement] )?.label ?? currentEvent.dataValues[row.dataElement];
     }
   }
 
+  const getVal_customCert = (uid, datatype) => {
+    if (datatype === "de") {
+      if (currentEvent && currentEvent.dataValues[uid]) {
+        const foundDe = programMetadata.programStages.find( ps => ps.id === formMapping.programStage ).dataElements.find( de => de.id === uid );
+        return !foundDe.valueSet ? currentEvent.dataValues[uid] : foundDe.valueSet.find( vs => vs.value === currentEvent.dataValues[uid] )?.label ?? currentEvent.dataValues[uid];
+      }
+      else {
+        return "";
+      }
+    }
+    else if (datatype === "tea") {
+      if (currentTei && currentTei.attributes[uid]) {
+        const foundTea = programMetadata.trackedEntityAttributes.find( tea => tea.id === uid );
+        return !foundTea.valueSet ? currentTei.attributes[uid] : foundTea.valueSet.find( vs => vs.value === currentTei.attributes[uid] )?.label ?? currentTei.attributes[uid];
+      }
+      else {
+        return "";
+      }
+    }
+  }
   const convertToValue = (val,valType) => {
     if (valType === "text") {
       return val.split("#{").map( str => {
         if( currentEvent && str.startsWith("de.") ) {
-          return str.replace(`de.${str.slice(3,14)}}`,currentEvent.dataValues[str.slice(3,14)] ? currentEvent.dataValues[str.slice(3,14)] : "");
+          return str.replace(`de.${str.slice(3,14)}}`,getVal_customCert(str.slice(3,14),"de"));
         }
         else if( currentTei && str.startsWith("tea.") ) {
-          return str.replace(`tea.${str.slice(4,15)}}`,currentTei.attributes[str.slice(4,15)] ? currentTei.attributes[str.slice(4,15)] : "");
+          return str.replace(`tea.${str.slice(4,15)}}`,getVal_customCert(str.slice(4,15),"tea"));
         }
         else if( str.startsWith("orgUnitName") ) {
           return str.replace(`orgUnitName}`,currentEnrollment["orgUnitName"]);
@@ -192,7 +216,7 @@ const DeathCertificate = ({
                 <div style={{fontSize: 20}}><strong>{row.label}:</strong></div>
               </Col>
               <Col span={16}>
-                <div style={{fontSize: 20}}>{getVal(row)}</div>
+                <div style={{fontSize: 20}}>{getVal_defaultCert(row)}</div>
               </Col>
             </Row>
           )
@@ -206,7 +230,7 @@ const DeathCertificate = ({
                 <div style={{fontSize: 20}}><strong>{row.label}:</strong></div>
               </Col>
               <Col style={{ textAlign: "right" }} span={8}>
-                <div style={{fontSize: 20}}>{getVal(row)}</div>
+                <div style={{fontSize: 20}}>{getVal_defaultCert(row)}</div>
               </Col>
             </Row>
           )
@@ -222,7 +246,8 @@ const mapStateToProps = (state) => {
     data: state.data,
     certificateTemplate: state.metadata.certificateTemplate,
     customCertificateTemplate: state.metadata.customCertificate,
-    formMapping: state.metadata.formMapping
+    formMapping: state.metadata.formMapping,
+    programMetadata: state.metadata.programMetadata
   };
 };
 

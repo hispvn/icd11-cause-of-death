@@ -7,7 +7,8 @@ const defaultAttributes = [
   { name: "Date of Birth is estimated", valueType: "TRUE_ONLY", code: "estimated_dob"},
   { name: "Age in years", valueType: "INTEGER_ZERO_OR_POSITIVE", code: "age"},
   { name: "Address", valueType: "LONG_TEXT", code: "address"},
-  { name: "Sex", valueType: "optionSet", code: "sex"}
+  { name: "Sex", valueType: "optionSet", code: "sex"},
+  { name: "COD Status", valueType: "TEXT", code: "status"},
 ];
 
 const analyticData = {

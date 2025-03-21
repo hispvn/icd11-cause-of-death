@@ -15,7 +15,7 @@ import { SearchOutlined } from "@ant-design/icons";
 const { useApi } = Hooks;
 const { LoadingMask } = Components;
 
-const RegisteredTeiList = ({ metadata, data, initData, changeRoute }) => {
+const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute }) => {
   const { t } = useTranslation();
   const { dataApi } = useApi();
   const { programMetadata, selectedOrgUnit } = metadata;
@@ -213,14 +213,16 @@ const RegisteredTeiList = ({ metadata, data, initData, changeRoute }) => {
               onRow={(record, rowIndex) => {
                 return {
                   onClick: async (event) => {
-                    setLoadingPage(true);
-                    const result = await dataApi.getTrackedEntityInstanceById(
-                      record.teiId,
-                      programMetadata.id
-                    );
-                    setLoadingPage(false);
-                    initData(result, programMetadata);
-                    changeRoute("form");
+                    if (userRoles.admin || userRoles.data) {
+                      setLoadingPage(true);
+                      const result = await dataApi.getTrackedEntityInstanceById(
+                        record.teiId,
+                        programMetadata.id
+                      );
+                      setLoadingPage(false);
+                      initData(result, programMetadata);
+                      changeRoute("form");
+                    }
                   },
                 };
               }}
@@ -266,6 +268,7 @@ const mapStateToProps = (state) => {
   return {
     metadata: state.metadata,
     data: state.data,
+    userRoles: state.user.userRoles
   };
 };
 

@@ -149,7 +149,8 @@ const ControlBar = ({
             !selectedOrgUnit ||
             !programMetadata.organisationUnits.find(
               (ou) => ou.id === selectedOrgUnit.id
-            )
+            ) ||
+            userRoles.view
           }
           onClick={() => {
             if (isDirty) {

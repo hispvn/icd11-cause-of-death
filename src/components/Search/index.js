@@ -12,7 +12,7 @@ const { Panel } = Collapse;
 
 const { useApi } = Hooks;
 
-const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrollment, changeRoute, programs, selectedOrgUnit }) => {
+const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrollment, changeRoute, programs, selectedOrgUnit, userRoles }) => {
   const { dataApi } = useApi();
   const { t } = useTranslation();
 
@@ -445,7 +445,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               ou: enrollments.filter(({status}) => status !== "CANCELLED").map( ({orgUnitName}) => orgUnitName ).join(" | "),
                               enrollDate: enrollments.filter(({status}) => status !== "CANCELLED").map( ({enrollmentDate}) => enrollmentDate.substring(0,10) ).join(" | ")
                           }),
-                          action: enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
+                          action: userRoles.view ? <></> : enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
                             onClick={async() => {
                               const result = await dataApi.getTrackedEntityInstanceById(
                                 trackedEntityInstance,
@@ -500,7 +500,8 @@ const mapStateToProps = (state) => {
     programMetadata: state.metadata.programMetadata,
     trackedEntityType: state.metadata.trackedEntityType,
     programs: state.metadata.programs,
-    selectedOrgUnit: state.metadata.selectedOrgUnit
+    selectedOrgUnit: state.metadata.selectedOrgUnit,
+    userRoles: state.user.userRoles
   };
 };
 

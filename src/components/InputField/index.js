@@ -1,4 +1,4 @@
-import { Input, Radio, Checkbox, DatePicker, Select } from "antd";
+import { Input, InputNumber, Radio, Checkbox, DatePicker, Select } from "antd";
 import moment from "moment";
 import "./index.css";
 const { TextArea } = Input;
@@ -75,13 +75,28 @@ const InputField = (props) => {
       );
     }
     switch (valueType) {
-      case "TEXT":
       case "INTEGER_POSITIVE":
       case "INTEGER_NEGATIVE":
       case "INTEGER_ZERO_OR_POSITIVE":
       case "PERCENTAGE":
       case "NUMBER":
       case "INTEGER":
+        return (
+          <InputNumber
+            addonBefore={addonBefore}
+            addonAfter={addonAfter}
+            value={value || ""}
+            onClick={click}
+            onChange={(event) => {
+              change(event.target.value);
+            }}
+            disabled={disabled}
+            placeholder={placeholder}
+            allowClear={allowClear}
+            style={style}
+          />
+        );
+      case "TEXT":
       case "PHONE_NUMBER":
       case "EMAIL":
         return (

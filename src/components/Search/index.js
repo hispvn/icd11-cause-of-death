@@ -403,7 +403,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               ou: enrollments.find( ({program}) => program === programMetadata.id )?.orgUnitName,
                               enrollDate: enrollments.find( ({program}) => program === programMetadata.id )?.enrollmentDate.substring(0,10)
                           }),
-                          action: <Button
+                          action: (userRoles.data || userRoles.admin) && <Button
                             onClick={async() => {
                               const result = await dataApi.getTrackedEntityInstanceById(
                                 trackedEntityInstance,
@@ -445,7 +445,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               ou: enrollments.filter(({status}) => status !== "CANCELLED").map( ({orgUnitName}) => orgUnitName ).join(" | "),
                               enrollDate: enrollments.filter(({status}) => status !== "CANCELLED").map( ({enrollmentDate}) => enrollmentDate.substring(0,10) ).join(" | ")
                           }),
-                          action: userRoles.view ? <></> : enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
+                          action: (userRoles.view && !userRoles.admin && !userRoles.data) ? <></> : enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
                             onClick={async() => {
                               const result = await dataApi.getTrackedEntityInstanceById(
                                 trackedEntityInstance,

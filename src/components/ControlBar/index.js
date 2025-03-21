@@ -146,11 +146,10 @@ const ControlBar = ({
         <Button
           variant="contained"
           disabled={
-            !selectedOrgUnit ||
-            !programMetadata.organisationUnits.find(
-              (ou) => ou.id === selectedOrgUnit.id
-            ) ||
-            userRoles.view
+            (userRoles.view && !userRoles.admin && !userRoles.data) || (!selectedOrgUnit ||
+              !programMetadata.organisationUnits.find(
+                (ou) => ou.id === selectedOrgUnit.id
+              ))
           }
           onClick={() => {
             if (isDirty) {

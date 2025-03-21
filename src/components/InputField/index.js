@@ -82,13 +82,14 @@ const InputField = (props) => {
       case "NUMBER":
       case "INTEGER":
         return (
-          <InputNumber
+          <Input
+            type="number"
             addonBefore={addonBefore}
             addonAfter={addonAfter}
             value={value || ""}
             onClick={click}
             onChange={(event) => {
-              change(event.target.value);
+                change(event.target.value);
             }}
             disabled={disabled}
             placeholder={placeholder}

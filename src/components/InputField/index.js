@@ -61,7 +61,7 @@ const InputField = (props) => {
           value={value}
           allowClear
           showSearch
-          style={style ? style : { width: "100%", maxWidth: "260px", textAlign: "left" }}
+          style={style ? style : { width: "100%", maxWidth: "410px", textAlign: "left" }}
           onChange={(selected) => {
             change(selected);
           }}
@@ -155,6 +155,7 @@ const InputField = (props) => {
             }}
             disabledDate={disabledDate}
             disabled={disabled}
+            style={style ? style : { width: "100%", maxWidth: "410px", textAlign: "left" }}
           />
         );
       case "DATETIME":

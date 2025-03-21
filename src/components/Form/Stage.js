@@ -511,7 +511,7 @@ const Stage = ({
     headers.append("Authorization", `Bearer ${icdApi_clientToken}`);
     const icdApiUrl = "https://id.who.int/icd/release/11/2023-01/doris?" 
       + "sex=" + (!currentTeiSexAttributeValue ? "9" : currentTeiSexAttributeValue === "" ? "9" : currentTeiSexAttributeValue === femaleCode ? "2" : "1")
-      + (currentTeiAgeAttributeValue ? `&estimatedAge=P${currentTeiAgeAttributeValue}YD` : "")
+      + (currentTeiAgeAttributeValue ? `&estimatedAge=${attributes[formMapping.attributes["age_unit"]].replace("_",attributes[formMapping.attributes["estimated_age"]])}` : "")
       + (currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : "")
       + (currentTeiDateOfDeath ? `&dateDeath=${currentTeiDateOfDeath}` : "")
       + ("&causeOfDeathCodeA=" + causeOfDeaths[formMapping.dataElements["codA"]].code.split(",").map( c => c.split(" (")[0] ).join(","))

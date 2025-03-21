@@ -1,6 +1,17 @@
 {
   "optionSets": [
     {
+      "name": "CoD - Age Unit",
+      "id": "b9QWoApPuYD",
+      "publicAccess": "rw------",
+      "version": 8,
+      "valueType": "TEXT",
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
+    },
+    {
       "name": "CoD - ICD 11 Cause Group",
       "id": "T2wD6jsdZze",
       "publicAccess": "r-------",
@@ -60,10 +71,10 @@
       "translations": [
         { "property": "NAME", "locale": "cs", "value": "Místo výskytu" },
         {
-					"locale": "fr",
-					"property": "NAME",
-					"value": "Lieu de la cause externe"
-				}
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Lieu de la cause externe"
+        }
       ],
       "userAccesses": []
     },
@@ -77,12 +88,16 @@
       "userGroupAccesses": [],
       "attributeValues": [],
       "translations": [
-        { "property": "NAME", "locale": "cs", "value": "Těhotenské komplikace" },
         {
-					"locale": "fr",
-					"property": "NAME",
-					"value": "Complications de la grossesse"
-				}
+          "property": "NAME",
+          "locale": "cs",
+          "value": "Těhotenské komplikace"
+        },
+        {
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Complications de la grossesse"
+        }
       ],
       "userAccesses": []
     },
@@ -134,10 +149,10 @@
       "translations": [
         { "property": "NAME", "locale": "cs", "value": "Časový interval" },
         {
-					"locale": "fr",
-					"property": "NAME",
-					"value": "Intervalle de temps"
-				}
+          "locale": "fr",
+          "property": "NAME",
+          "value": "Intervalle de temps"
+        }
       ],
       "userAccesses": []
     },
@@ -172,10 +187,10 @@
       "publicAccess": "rw------",
       "version": 4,
       "valueType": "TEXT",
-      "userGroupAccesses": [ ],
-      "attributeValues": [ ],
-      "translations": [ ],
-      "userAccesses": [ ]
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
     },
     {
       "name": "CoD - Underlying cause of death processed by",
@@ -183,10 +198,10 @@
       "publicAccess": "rw------",
       "version": 2,
       "valueType": "TEXT",
-      "userGroupAccesses": [ ],
-      "attributeValues": [ ],
-      "translations": [ ],
-      "userAccesses": [ ]
+      "userGroupAccesses": [],
+      "attributeValues": [],
+      "translations": [],
+      "userAccesses": []
     }
   ]
 }

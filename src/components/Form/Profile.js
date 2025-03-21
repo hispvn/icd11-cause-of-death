@@ -45,6 +45,7 @@ const Profile = ({
         message.error("ERROR!!! Reported Date must be greater than incidentDate")
       }
     }
+    console.log(currentTei.attributes)
   }, [data])
 
   const getTeaMetadata = (attribute) =>
@@ -90,6 +91,8 @@ const Profile = ({
     const dob = getTeaMetadata(formMapping.attributes["dob"]);
     const age = getTeaMetadata(formMapping.attributes["age"]);
     const isEstimated = getTeaMetadata(formMapping.attributes["estimated_dob"]);
+    const estimatedAge = getTeaMetadata(formMapping.attributes["estimated_age"]);
+    const ageUnit = getTeaMetadata(formMapping.attributes["age_unit"]);
     return (
       <>
         <Row justify="start" align="middle">
@@ -110,7 +113,7 @@ const Profile = ({
           </Col>
         </Row>
         <Row>
-          <Col>
+          <Col span={24}>
             <InputField
               value={getTeaValue(formMapping.attributes["dob"])}
               // valueType={dob.valueType}
@@ -129,15 +132,41 @@ const Profile = ({
                   message.error("Age can't be greater than 150")
                 else if (age_cal < 0)
                   message.error("Age can't be negative number")
-                else if (!isNaN(age_cal))
+                else if (!isNaN(age_cal)) {
                   mutateAttribute(age.id, age_cal + "");
+                  if (age_cal === 0) {
+                    const age_cal_in_months = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+                      moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
+                      "months",
+                      true
+                    ));
+                    if (age_cal_in_months === 0) {
+                      const age_cal_in_days = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+                        moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
+                        "days",
+                        true
+                      ));
+                      mutateAttribute(estimatedAge.id, age_cal_in_days + "");
+                      mutateAttribute(ageUnit.id, "P_D");
+                    }
+                    else {
+                      mutateAttribute(estimatedAge.id, age_cal_in_months + "");
+                      mutateAttribute(ageUnit.id, "P_M");
+                    }
+                  }
+                  else {
+                    mutateAttribute(estimatedAge.id, age_cal + "");
+                    mutateAttribute(ageUnit.id, "P_YD");
+                  }
+                }
+                  
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
-              disabled={enrollmentStatus === "COMPLETED"}
+              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) === true}
               mandatory={dob.compulsory}
             />
           </Col>
-          <Col>
+          {/* <Col>
             <InputField
               value={getTeaValue(formMapping.attributes["age"])}
               valueType={age.valueType}
@@ -154,8 +183,30 @@ const Profile = ({
                   mutateAttribute(age.id, "");
                 }
               }}
-              disabled={enrollmentStatus === "COMPLETED"}
+              // disabled={enrollmentStatus === "COMPLETED"}
+              disabled={true}
               mandatory={age.compulsory}
+            />
+          </Col> */}
+        </Row>
+        <Row>
+          <Col xs={24} sm={12}>
+            <InputField
+              label={ageUnit.displayFormName}
+              valueType={ageUnit.valueType}
+              valueSet={ageUnit.valueSet}
+              value={getTeaValue(formMapping.attributes["age_unit"])}
+              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) !== true}
+              mandatory={ageUnit.compulsory}
+            />
+          </Col>
+          <Col xs={24} sm={12}>
+            <InputField
+              label={estimatedAge.displayFormName}
+              valueType={estimatedAge.valueType}
+              value={getTeaValue(formMapping.attributes["estimated_age"])}
+              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) !== true}
+              mandatory={estimatedAge.compulsory}
             />
           </Col>
         </Row>

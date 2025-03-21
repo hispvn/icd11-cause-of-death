@@ -113,7 +113,8 @@ const Review = ({
       // generate metadata (base on setting stored in redux)
       if (installType === "custom") {
         const ageAttribute = await metadataApi.get(`/api/trackedEntityAttributes.json`, { paging: false }, [`filter=id:eq:${trackedEntityAttributes.find(([,name]) => name === "Age in years")[0]}`,"fields=:owner,!created,!lastUpdated,!createdBy,!lastUpdatedBy"]);
-        data = generateCustomMetadata({trackedEntityAttributes,dataElements,trackedEntityType,fullnameOption}, generateNewUID,ageAttribute.trackedEntityAttributes[0]);
+        const ageUnitAttribute = await metadataApi.get(`/api/trackedEntityAttributes.json`, { paging: false }, [`filter=id:eq:${trackedEntityAttributes.find(([,name]) => name === "Age unit")[0]}`,"fields=:owner,!created,!lastUpdated,!createdBy,!lastUpdatedBy"]);
+        data = generateCustomMetadata({trackedEntityAttributes,dataElements,trackedEntityType,fullnameOption}, generateNewUID,ageAttribute.trackedEntityAttributes[0],ageUnitAttribute.trackedEntityAttributes[0]);
         data.metadata.programIndicators = updateProgramIndicators(data.metadata.programIndicators,trackedEntityAttributes.find(([,name]) => name === "Date of Birth")[0],trackedEntityAttributes.find(([,name]) => name === "Sex")[0],femaleOption);
         data.metadata.sqlViews = updateSQLViews(data.metadata.sqlViews,trackedEntityAttributes.find(([,name]) => name === "Age in years")[0],trackedEntityAttributes.find(([,name]) => name === "Sex")[0],femaleOption);
       }

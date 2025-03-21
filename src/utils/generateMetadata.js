@@ -71,7 +71,7 @@ export const generateDefaultMetadata = (fullnameOption, newUID) => {
     };
 }
 
-export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
+export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttribute ) => {
     console.log(admin);
     /** 
      * WHAT THIS FUNCTION DOES
@@ -153,6 +153,12 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
                 }
             ]
         ]
+    });
+    metadata["trackedEntityAttributes"].push({
+        ...ageUnitAttribute,
+        optionSet: {
+            id: "b9QWoApPuYD"
+        }
     });
 
     // const admin = require("./admin.json");

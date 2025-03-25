@@ -71,7 +71,7 @@ export const generateDefaultMetadata = (fullnameOption, newUID) => {
     };
 }
 
-export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttribute ) => {
+export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
     console.log(admin);
     /** 
      * WHAT THIS FUNCTION DOES
@@ -98,7 +98,9 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttr
         dataElements: {},
         attributes: {
           system_id: "BfkIayM14MF",
-          status: "rZSVLUfgHlD"
+          status: "rZSVLUfgHlD",
+          estimated_age: "dG792prxjrb",
+          age_unit: "p9hGfsmdve7"
         },
         programStage: "WlWJt4lVSWw",
         optionAttributes: {
@@ -129,8 +131,8 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttr
     metadata["optionGroupSets"] = require(`../asset/metadata/optionGroupSets.json`)["optionGroupSets"];
     metadata["legendSets"] = require(`../asset/metadata/legendSets.json`)["legendSets"];
 
-    // add system_id
-    metadata["trackedEntityAttributes"] = require(`../asset/metadata/trackedEntityAttributes.json`)["trackedEntityAttributes"].slice(0,2);
+    // add system_id, cod status, age unit and estimated age
+    metadata["trackedEntityAttributes"] = require(`../asset/metadata/trackedEntityAttributes.json`)["trackedEntityAttributes"].slice(0,4);
     metadata["trackedEntityAttributes"].push({
         ...ageAttribute,
         legendSets: [
@@ -154,17 +156,14 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttr
             ]
         ]
     });
-    metadata["trackedEntityAttributes"].push({
-        ...ageUnitAttribute,
-        optionSet: {
-            id: "b9QWoApPuYD"
-        }
-    });
 
     // const admin = require("./admin.json");
     let dataElements = [];
     let optionSets = [];
     let options = [];
+
+    const ageUnitOptionSet = metadata.optionSets.find( ({id}) => id === "b9QWoApPuYD" );
+    const ageUnitOptions = metadata.options.filter( opt => opt.optionSet.id === "b9QWoApPuYD" );
 
     for ( const frame in admin.dataElements ) {
         admin.dataElements[frame].defaultSections.forEach( section => {
@@ -188,8 +187,14 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttr
     }
 
     metadata["dataElements"] = dataElements;
-    metadata["optionSets"] = optionSets;
-    metadata["options"] = options;
+    metadata["optionSets"] = [
+        ...optionSets,
+        ...[ageUnitOptionSet]
+    ];
+    metadata["options"] = [
+        ...options,
+        ...ageUnitOptions
+    ];
     const entryForm = require("../asset/metadata/mapping.json");
     for ( const key in entryForm.dataElements ) {
         if ( metadata["dataElements"].find( ({id}) => id === entryForm.dataElements[key] ) ) {
@@ -290,6 +295,28 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute, ageUnitAttr
             "program": { "id": metadata.programs[0].id },
             // "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[0][0] },
             "trackedEntityAttribute": { "id": metadata["trackedEntityAttributes"][1].id },
+            "programTrackedEntityAttributeGroups": []
+          }],
+          ...[{
+            "mandatory": false,
+            "searchable": true,
+            "renderOptionsAsRadio": false,
+            "displayInList": true,
+            "sortOrder": admin.trackedEntityAttributes.filter( ([des,]) => des !== '' ).length + 2,
+            "program": { "id": metadata.programs[0].id },
+            // "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[0][0] },
+            "trackedEntityAttribute": { "id": metadata["trackedEntityAttributes"][2].id },
+            "programTrackedEntityAttributeGroups": []
+          }],
+          ...[{
+            "mandatory": false,
+            "searchable": true,
+            "renderOptionsAsRadio": false,
+            "displayInList": true,
+            "sortOrder": admin.trackedEntityAttributes.filter( ([des,]) => des !== '' ).length + 2,
+            "program": { "id": metadata.programs[0].id },
+            // "trackedEntityAttribute": { "id": admin.trackedEntityAttributes[0][0] },
+            "trackedEntityAttribute": { "id": metadata["trackedEntityAttributes"][3].id },
             "programTrackedEntityAttributeGroups": []
           }]
         //   ...[{

@@ -454,10 +454,27 @@ const Form = ({
                     }
                     else {
                       setLoading(true);
-                      const { currentEvents } = generateDhis2Payload(data, programMetadata);
-                      await dataApi.pushEvents({ events: currentEvents });
+                      const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
+                        data,
+                        programMetadata
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
+                        programMetadata.id
+                      );
+                      await dataApi.pushEnrollment(
+                        currentEnrollment,
+                        programMetadata.id
+                      );
+                      await dataApi.pushTrackedEntityInstance(
+                        currentTei,
+                        programMetadata.id
+                      );
+                      mutateTei("isSaved", true);
       
                       // Dirty Check
+                      mutateTei("isDirty", false);
+                      mutateEnrollment("isDirty", false);
                       mutateEvent(currentEvents[0].event,"isDirty",false);
       
                       // Notification

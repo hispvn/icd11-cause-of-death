@@ -5,11 +5,11 @@ const defaultAttributes = [
   { name: "Last Name", valueType: "TEXT", code: "family_name"},
   { name: "Date of Birth", valueType: "DATE", code: "dob"},
   { name: "Date of Birth is estimated", valueType: "TRUE_ONLY", code: "estimated_dob"},
-  { name: "Age unit", valueType: "TEXT", code: "age_unit"},
-  { name: "Estimated age", valueType: "INTEGER_POSITIVE", code: "estimated_age"},
   { name: "Age in years", valueType: "INTEGER_ZERO_OR_POSITIVE", code: "age"},
   { name: "Address", valueType: "LONG_TEXT", code: "address"},
   { name: "Sex", valueType: "optionSet", code: "sex"},
+  { name: "Age unit", valueType: "TEXT", code: "age_unit"},
+  { name: "Estimated age", valueType: "INTEGER_POSITIVE", code: "estimated_age"},
   { name: "COD Status", valueType: "TEXT", code: "status"},
 ];
 

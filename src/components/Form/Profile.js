@@ -162,7 +162,7 @@ const Profile = ({
                   
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
-              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) === true}
+              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) === true || getTeaValue((formMapping.attributes["estimated_dob"])) === "true"}
               mandatory={dob.compulsory}
             />
           </Col>
@@ -196,8 +196,14 @@ const Profile = ({
               valueType={ageUnit.valueType}
               valueSet={ageUnit.valueSet}
               value={getTeaValue(formMapping.attributes["age_unit"])}
-              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) !== true}
+              disabled={enrollmentStatus === "COMPLETED" || (getTeaValue((formMapping.attributes["estimated_dob"])) !== true && getTeaValue((formMapping.attributes["estimated_dob"])) !== "true")}
               mandatory={ageUnit.compulsory}
+              change={(value) => {
+                mutateAttribute(ageUnit.id, value);
+                if (value === "P_YD" && getTeaValue(estimatedAge.id) !== "") {
+                  mutateAttribute(age.id, getTeaValue(estimatedAge.id));
+                }
+              }}
             />
           </Col>
           <Col xs={24} sm={12}>
@@ -205,8 +211,16 @@ const Profile = ({
               label={estimatedAge.displayFormName}
               valueType={estimatedAge.valueType}
               value={getTeaValue(formMapping.attributes["estimated_age"])}
-              disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) !== true}
+              disabled={enrollmentStatus === "COMPLETED" || (getTeaValue((formMapping.attributes["estimated_dob"])) !== true && getTeaValue((formMapping.attributes["estimated_dob"])) !== "true")}
               mandatory={estimatedAge.compulsory}
+              change={(value) => {
+                if (value > 0) {
+                  mutateAttribute(estimatedAge.id, value);
+                  if (getTeaValue(ageUnit.id) === "P_YD") {
+                    mutateAttribute(age.id, value);
+                  }
+                }
+              }}
             />
           </Col>
         </Row>

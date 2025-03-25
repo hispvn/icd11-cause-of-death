@@ -63,7 +63,6 @@ const Attributes = ({
   };
 
   useEffect(() => {
-    console.log(selectedTrackedEntityAttributes)
     if ( (selectedTrackedEntityAttributes.filter( ([,source]) => source === "Sex" ).length > 0) ) {
       metadataApi.get(`/api/trackedEntityAttributes/${selectedTrackedEntityAttributes.find( ([,source]) => source === "Sex" )[0]}.json`, {} ,[
         "fields=optionSet[options[id,name,code]]"
@@ -344,7 +343,7 @@ const Attributes = ({
             </>
           }
           
-          {defaultAttributes.slice(4,11).map((attribute,index) => {
+          {defaultAttributes.slice(4,9).map((attribute,index) => {
             return (
               <div key={index} className="administration-attribute">
                 <div>{attribute.name}</div>

@@ -22,7 +22,7 @@ import { useTranslation } from "react-i18next";
 const { Step } = Steps;
 const { useApi } = Hooks;
 
-const Administration = ({ admin, programMetadata, formMapping, changeStep, setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setFemaleCode, setCustomCertificate }) => {
+const Administration = ({ admin, programMetadata, formMapping, metadataFullnameOption, changeStep, setFormMapping_TEAs, setProgramMetadata, setCertificateTemplate, setFemaleCode, setCustomCertificate }) => {
   const { t } = useTranslation();
   
   const [open, setOpen] = useState(false);
@@ -92,23 +92,23 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                     }
                     else if ( step === 1 ) {
                       if ( type === "custom" ) {
-                        if ( trackedEntityType === null || femaleOption === "" ) {
+                        if ( trackedEntityType === null || femaleOption === "" || femaleOption === null ) {
                           // Show error
                           message.error(t("errorMissingTET"));
                         } 
                         // else if (!fullnameOption && trackedEntityAttributes.filter( ([destination,]) => destination !== '' ).length < 7) {
                         //   message.error(t("errorMissingTET"));
                         // }
-                        else if ( fullnameOption === "noname" &&  trackedEntityAttributes.filter( ([destination,]) => destination !== '' ).length < 5) {
+                        else if ( fullnameOption === "noname" &&  trackedEntityAttributes.filter( ([destination,source]) => destination !== '' && source !== null ).length < 5) {
                           message.error(t("errorMissingTET"));
                         }
-                        else if ( fullnameOption === "fullname" &&  trackedEntityAttributes.filter( ([destination,]) => destination !== '' ).length < 6) {
+                        else if ( fullnameOption === "fullname" &&  trackedEntityAttributes.filter( ([destination,source]) => destination !== '' && source !== null ).length < 6) {
                           message.error(t("errorMissingTET"));
                         }
-                        else if ( fullnameOption === "firstlastname" &&  trackedEntityAttributes.filter( ([destination,]) => destination !== '' ).length < 7) {
+                        else if ( fullnameOption === "firstlastname" &&  trackedEntityAttributes.filter( ([destination,source]) => destination !== '' && source !== null ).length < 7) {
                           message.error(t("errorMissingTET"));
                         }
-                        else if ( fullnameOption === "firstmidlastname" &&  trackedEntityAttributes.filter( ([destination,]) => destination !== '' ).length < 8) {
+                        else if ( fullnameOption === "firstmidlastname" &&  trackedEntityAttributes.filter( ([destination,source]) => destination !== '' && source !== null ).length < 8) {
                           message.error(t("errorMissingTET"));
                         }
                         else changeStep(2);
@@ -180,13 +180,41 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                         let attributes = {};
                         admin.trackedEntityAttributes.forEach( defaultAttribute => {
                           if (defaultAttribute[1] === "Unique ID") attributes["system_id"] = defaultAttribute[0];
-                          if (defaultAttribute[1] === "First Name") attributes["given_name"] = defaultAttribute[0];
-                          if (defaultAttribute[1] === "Last Name") attributes["family_name"] = defaultAttribute[0];
+                          if (
+                            defaultAttribute[1] === "First Name" 
+                            && ( 
+                              metadataFullnameOption === "fullname"
+                              || metadataFullnameOption === "firstlastname"
+                              || metadataFullnameOption === "firstmidlastname"
+                              || fullnameOption === "fullname"
+                              || fullnameOption === "firstlastname"
+                              || fullnameOption === "firstmidlastname"
+                            )
+                          ) attributes["given_name"] = defaultAttribute[0];
+                          if (
+                            defaultAttribute[1] === "Middle Name"
+                            && ( 
+                              metadataFullnameOption === "firstmidlastname"
+                              || fullnameOption === "firstmidlastname"
+                            )
+                          ) attributes["middle_name"] = defaultAttribute[0];
+                          if (
+                            defaultAttribute[1] === "Last Name"
+                            && ( 
+                              metadataFullnameOption === "firstlastname"
+                              || metadataFullnameOption === "firstmidlastname"
+                              || fullnameOption === "firstlastname"
+                              || fullnameOption === "firstmidlastname"
+                            )
+                          ) attributes["family_name"] = defaultAttribute[0];
                           if (defaultAttribute[1] === "Date of Birth") attributes["dob"] = defaultAttribute[0];
                           if (defaultAttribute[1] === "Date of Birth is estimated") attributes["estimated_dob"] = defaultAttribute[0];
                           if (defaultAttribute[1] === "Age in years") attributes["age"] = defaultAttribute[0];
                           if (defaultAttribute[1] === "Address") attributes["address"] = defaultAttribute[0];
                           if (defaultAttribute[1] === "Sex") attributes["sex"] = defaultAttribute[0];
+                          if (defaultAttribute[1] === "Age unit") attributes["age_unit"] = defaultAttribute[0];
+                          if (defaultAttribute[1] === "Estimated age") attributes["estimated_age"] = defaultAttribute[0];
+                          if (defaultAttribute[1] === "COD Status") attributes["status"] = defaultAttribute[0];
                         });
                         setFormMapping_TEAs(attributes);
                         metadataApi.push("/api/dataStore/WHO_ICD11_COD/formMapping", {
@@ -206,9 +234,9 @@ const Administration = ({ admin, programMetadata, formMapping, changeStep, setFo
                             trackedEntityType: {
                               id: admin.trackedEntityType
                             },
-                            programTrackedEntityAttributes: admin.trackedEntityAttributes.filter( ([destination,]) => destination !== undefined ).map( ([destination,],index) => 
+                            programTrackedEntityAttributes: admin.trackedEntityAttributes.filter( ([destination,]) => destination !== undefined ).map( ([destination,source],index) => 
                               ({
-                                "mandatory": true,
+                                "mandatory": source === "Sex" || source === "Age in years",
                                 "searchable": true,
                                 "renderOptionsAsRadio": false,
                                 "displayInList": true,
@@ -265,7 +293,8 @@ const mapStateToProps = (state) => {
   return {
     admin: state.admin,
     programMetadata: state.metadata.programMetadata,
-    formMapping: state.metadata.formMapping
+    formMapping: state.metadata.formMapping,
+    metadataFullnameOption: state.metadata.fullnameOption
   };
 };
 

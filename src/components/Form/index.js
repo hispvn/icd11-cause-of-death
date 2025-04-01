@@ -470,6 +470,7 @@ const Form = ({
                         currentTei,
                         programMetadata.id
                       );
+                      await dataApi.pushEvents({ events: currentEvents });
                       mutateTei("isSaved", true);
       
                       // Dirty Check

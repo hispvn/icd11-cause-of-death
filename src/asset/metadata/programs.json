@@ -66,7 +66,7 @@
           "displayInList": true,
           "sortOrder": 3,
           "program": { "id": "ogrOUKoSaWA" },
-          "trackedEntityAttribute": { "id": "A9yzNTl9G0f" },
+          "trackedEntityAttribute": { "id": "lDKfAjYyQcN" },
           "programTrackedEntityAttributeGroups": []
         },
         {
@@ -76,16 +76,6 @@
           "displayInList": true,
           "sortOrder": 4,
           "program": { "id": "ogrOUKoSaWA" },
-          "trackedEntityAttribute": { "id": "lDKfAjYyQcN" },
-          "programTrackedEntityAttributeGroups": []
-        },
-        {
-          "mandatory": false,
-          "searchable": true,
-          "renderOptionsAsRadio": false,
-          "displayInList": true,
-          "sortOrder": 5,
-          "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "revZcilpJvK" },
           "programTrackedEntityAttributeGroups": []
         },
@@ -94,7 +84,7 @@
           "searchable": false,
           "renderOptionsAsRadio": false,
           "displayInList": false,
-          "sortOrder": 6,
+          "sortOrder": 5,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "z4jIMvqs0ff" },
           "programTrackedEntityAttributeGroups": []
@@ -104,7 +94,7 @@
           "searchable": false,
           "renderOptionsAsRadio": false,
           "displayInList": false,
-          "sortOrder": 7,
+          "sortOrder": 6,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "UpxiqwM8BTC" },
           "programTrackedEntityAttributeGroups": []
@@ -114,7 +104,7 @@
           "searchable": true,
           "renderOptionsAsRadio": false,
           "displayInList": true,
-          "sortOrder": 8,
+          "sortOrder": 7,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "F6qFXT44qay" },
           "programTrackedEntityAttributeGroups": []
@@ -124,7 +114,7 @@
           "searchable": false,
           "renderOptionsAsRadio": false,
           "displayInList": false,
-          "sortOrder": 9,
+          "sortOrder": 8,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "X5p19VIeYyW" },
           "programTrackedEntityAttributeGroups": []
@@ -134,9 +124,29 @@
           "searchable": false,
           "renderOptionsAsRadio": false,
           "displayInList": false,
-          "sortOrder": 10,
+          "sortOrder": 9,
           "program": { "id": "ogrOUKoSaWA" },
           "trackedEntityAttribute": { "id": "rZSVLUfgHlD" },
+          "programTrackedEntityAttributeGroups": []
+        },
+        {
+          "mandatory": false,
+          "searchable": false,
+          "renderOptionsAsRadio": false,
+          "displayInList": false,
+          "sortOrder": 10,
+          "program": { "id": "ogrOUKoSaWA" },
+          "trackedEntityAttribute": { "id": "p9hGfsmdve7" },
+          "programTrackedEntityAttributeGroups": []
+        },
+        {
+          "mandatory": false,
+          "searchable": false,
+          "renderOptionsAsRadio": false,
+          "displayInList": false,
+          "sortOrder": 11,
+          "program": { "id": "ogrOUKoSaWA" },
+          "trackedEntityAttribute": { "id": "dG792prxjrb" },
           "programTrackedEntityAttributeGroups": []
         }
       ],

@@ -90,7 +90,7 @@ const Result = ({
                     </tbody>
                 </table>
                 {
-                    (currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]]) && <>
+                    (currentEvent && (currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] || getUcodWarning() !== "")) && <>
                         <div className="result-section-title">Detailed explanation</div>
                         <div>
                             {currentTei.attributes[formMapping.attributes["sex"]] ? currentTei.attributes[formMapping.attributes["sex"]] : ""}, {currentTei.attributes[formMapping.attributes["age"]] ? currentTei.attributes[formMapping.attributes["age"]] : ""}
@@ -103,22 +103,14 @@ const Result = ({
                                 </div>
                             </>
                         }
-                        <div><strong>Short Coding Report</strong></div>
-                        <div className="results-compute">
-                            {/* <p>
-                                <Button 
-                                    onClick={() => detectUnderlyingCauseOfDeath()}
-                                > 
-                                {t("compute")} 
-                                </Button> 
-                            </p> */}
-                            <div><pre style={{whiteSpace: "pre-wrap"}}>{getUcodResult()}</pre></div>
-                            {/* <p>
-                                <Button> 
-                                    Re-select Underlying Cause of Death
-                                </Button> 
-                            </p> */}
-                        </div>
+                        { 
+                            getUcodResult() !== "" && <>
+                                <div><strong>Short Coding Report</strong></div>
+                                <div className="results-compute">
+                                    <div><pre style={{whiteSpace: "pre-wrap"}}>{getUcodResult()}</pre></div>
+                                </div>
+                            </>
+                        }
                     </>
                 }
             </div>

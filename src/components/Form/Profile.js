@@ -29,7 +29,6 @@ const Profile = ({
   const { currentTei, currentEnrollment, currentEvents, currentEnrollment: { status: enrollmentStatus } } = data;
   const { programMetadata, formMapping, fullnameOption } = metadata;
 
-
   useEffect(() => {
     if ( getTeaValue(formMapping.attributes["system_id"]) === "" ) {
       metadataApi.get(`/api/trackedEntityAttributes/${formMapping.attributes["system_id"]}/generate.json`)
@@ -37,7 +36,7 @@ const Profile = ({
         mutateAttribute(formMapping.attributes["system_id"], res.value);
       });
     }
-  },[]);
+  }, [data])
 
   useEffect(() => {
     if ( currentEnrollment["enrollmentDate"] && currentEnrollment["incidentDate"] ) {
@@ -45,8 +44,7 @@ const Profile = ({
         message.error("ERROR!!! Reported Date must be greater than incidentDate")
       }
     }
-    console.log(currentTei.attributes)
-  }, [data])
+  }, [currentEnrollment["enrollmentDate"],currentEnrollment["incidentDate"]]);
 
   const getTeaMetadata = (attribute) =>
     programMetadata.trackedEntityAttributes.find(
@@ -133,7 +131,7 @@ const Profile = ({
                 else if (age_cal < 0)
                   message.error("Age can't be negative number")
                 else if (!isNaN(age_cal)) {
-                  mutateAttribute(age.id, age_cal + "");
+                  mutateAttribute(formMapping.attributes["age"], age_cal + "");
                   if (age_cal === 0) {
                     const age_cal_in_months = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
                       moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
@@ -146,20 +144,19 @@ const Profile = ({
                         "days",
                         true
                       ));
-                      mutateAttribute(estimatedAge.id, age_cal_in_days + "");
-                      mutateAttribute(ageUnit.id, "P_D");
+                      mutateAttribute(formMapping.attributes["estimated_age"], age_cal_in_days + "");
+                      mutateAttribute(formMapping.attributes["age_unit"], "P_D");
                     }
                     else {
-                      mutateAttribute(estimatedAge.id, age_cal_in_months + "");
-                      mutateAttribute(ageUnit.id, "P_M");
+                      mutateAttribute(formMapping.attributes["estimated_age"], age_cal_in_months + "");
+                      mutateAttribute(formMapping.attributes["age_unit"], "P_M");
                     }
                   }
                   else {
-                    mutateAttribute(estimatedAge.id, age_cal + "");
-                    mutateAttribute(ageUnit.id, "P_YD");
+                    mutateAttribute(formMapping.attributes["estimated_age"], age_cal + "");
+                    mutateAttribute(formMapping.attributes["age_unit"], "P_YD");
                   }
                 }
-                  
               }}
               disabledDate={current => current && current >= moment().startOf('day')}
               disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) === true || getTeaValue((formMapping.attributes["estimated_dob"])) === "true"}
@@ -270,6 +267,47 @@ const Profile = ({
             mutateEvent(event.event, "eventDate", value);
             mutateEvent(event.event, "dueDate", value);
           });
+          if ( 
+            currentTei.attributes[formMapping.attributes["dob"]]
+          ) {
+            console.log("calculate age")
+            const age_cal = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+              moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
+              "years",
+              true
+            ));
+            if (age_cal > 150) 
+              message.error("Age can't be greater than 150")
+            else if (age_cal < 0)
+              message.error("Age can't be negative number")
+            else if (!isNaN(age_cal)) {
+              mutateAttribute(formMapping.attributes["age"], age_cal + "");
+              if (age_cal === 0) {
+                const age_cal_in_months = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+                  moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
+                  "months",
+                  true
+                ));
+                if (age_cal_in_months === 0) {
+                  const age_cal_in_days = parseInt(moment(currentEnrollment.incidentDate, "YYYY-MM-DD").diff(
+                    moment(getTeaValue(formMapping.attributes["dob"]), "YYYY-MM-DD"),
+                    "days",
+                    true
+                  ));
+                  mutateAttribute(formMapping.attributes["estimated_age"], age_cal_in_days + "");
+                  mutateAttribute(formMapping.attributes["age_unit"], "P_D");
+                }
+                else {
+                  mutateAttribute(formMapping.attributes["estimated_age"], age_cal_in_months + "");
+                  mutateAttribute(formMapping.attributes["age_unit"], "P_M");
+                }
+              }
+              else {
+                mutateAttribute(formMapping.attributes["estimated_age"], age_cal + "");
+                mutateAttribute(formMapping.attributes["age_unit"], "P_YD");
+              }
+            }
+          }
         }}
         disabled={enrollmentStatus === "COMPLETED"}
         mandatory={true}

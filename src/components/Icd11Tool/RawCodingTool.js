@@ -12,7 +12,7 @@ const { Search } = Input;
 
 let apiUrl = process.env.REACT_APP_ICD11_API_URL;
 
-const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILocale }) => {
+const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILocale, icdApi_clientToken }) => {
   const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState("");
   const [selectedEntity, setSelectedEntity] = useState(null);
@@ -50,7 +50,8 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILo
   useEffect(() => {
     const mySettings = {
       autoBind: false,
-      apiServerUrl: "https://icd11restapi-developer-test.azurewebsites.net",
+      apiServerUrl: "https://id.who.int",
+      apiSecured: true,
       language: keyUILocale
       // icdMinorVersion: "2020-09",
       // icdLinearization: "mms",
@@ -59,6 +60,9 @@ const RawCodingTool = ({ onSelect, iNo, isClear, defaultValue, freeText, keyUILo
       selectedEntityFunction: (selectedEntity) => {
         onSelect(selectedEntity);
         setSelectedEntity(selectedEntity);
+      },
+      getNewTokenFunction: async () => {
+        return icdApi_clientToken;
       }
     };
     ECT.Handler.configure(mySettings, myCallbacks);
@@ -108,6 +112,7 @@ RawCodingTool.propTypes = {
 const mapStateToProps = (state) => {
   return {
     keyUILocale: state.metadata.keyUiLocale,
+    icdApi_clientToken: state.metadata.icdApi_clientToken
   };
 };
 

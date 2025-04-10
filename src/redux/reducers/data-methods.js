@@ -92,7 +92,7 @@ export const initNewEnrollment = (state, action) => {
   const orgUnit = selectedOrgUnit.id;
   const program = programMetadata.id;
   const currentTei = trackedEntityInstance;
-  currentTei.isNew = false;
+  currentTei.isNew = true;
   currentTei.isDirty = false;
   currentTei.attributes = currentTei.attributes.reduce(
     (previousValue, currentValue) => {

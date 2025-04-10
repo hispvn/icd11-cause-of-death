@@ -594,7 +594,10 @@ const Stage = ({
 
       setUnderlyingResult(underlyingCode);
       setCauseOfDeaths(cods);
-    };
+    }
+    else {
+      mutateDataValue(currentEvent.event, formMapping.dataElements["underlyingCOD_warning"], result.warning ?? "");
+    }
   }
 
   // const getUcodResult = () => currentEvent && currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] ? currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] : t("note_WHO_digital_open_rule_integrated_cause_of_death_selection_Doris");

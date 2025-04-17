@@ -20,7 +20,7 @@ const Selections = ({
   const { t } = useTranslation();
   const onChangeRadio = (e) => {
     if (e.target.value === "global") {
-      changeIcd11ToolUrl("https://icd11restapi-developer-test.azurewebsites.net/icd/", "global");
+      changeIcd11ToolUrl("https://id.who.int/icd/", "global");
     } else {
       changeIcd11ToolUrl("", e.target.value);
     }

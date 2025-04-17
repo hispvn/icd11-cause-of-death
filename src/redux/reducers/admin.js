@@ -44,7 +44,7 @@ const initialState = {
   assignedOrgUnits: [],
   icd11ToolUrl: {
     type: "global",
-    url: "https://icd11restapi-developer-test.azurewebsites.net/icd/"
+    url: "https://id.who.int/icd/"
   },
   certificateTemplate: null,
   customCertificate: null,

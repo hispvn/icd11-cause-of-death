@@ -277,7 +277,7 @@ export const generateCustomMetadata = ( admin, newUID, ageAttribute ) => {
             "programTrackedEntityAttributeGroups": []
           }],
           ...admin.trackedEntityAttributes.filter( ([des,]) => des !== '' ).map( (tea,index) => ({
-            "mandatory": tea[1] === "Sex" || tea[1] === "Age in years",
+            "mandatory": tea[1] === "Age in years",
             "searchable": tea[1] === "First Name" || tea[1] === "Last Name" || tea[1] === "Date of Birth" || tea[1] === "Address",
             "renderOptionsAsRadio": false,
             "displayInList": tea[1] === "First Name" || tea[1] === "Last Name" || tea[1] === "Date of Birth" || tea[1] === "Address",

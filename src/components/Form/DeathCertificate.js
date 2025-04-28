@@ -113,20 +113,51 @@ const DeathCertificate = ({
   useEffect(() => {
     if ( open ) {
       if ( customCertificateTemplate ) {
-        Promise.all([
-          metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.template}/data.pdf`)
-        ])
-        .then( async (res) => {
-          const pdfDoc = await fillPdf(res[0],customCertificateTemplate.labels.map( l => ({
-            ...l,
-            value: convertToValue(l.value,l.valueType)
-          })));
-          // const pdfDoc = await fillPdf(res[0],[]);
-          const fileURL = await convertPdfDoc2FileURL(pdfDoc);
-          setPdfURL(fileURL);
-          // await showPage(pdfDoc, 1);
-          onLoading();
-        });
+        // const font = customCertificateTemplate.customFont && customCertificateTemplate.customFont !== null ?
+        //                 await metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.customFont}/data.ttf`) : null;
+        // if ( font !== null ) setCustomFont(font.arrayBuffer());
+        if (customCertificateTemplate.customFont && customCertificateTemplate.customFont !== null) {
+          Promise.all([
+            metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.template}/data.pdf`),
+            metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.customFont}/data.ttf`)
+          ])
+          .then( async (res) => {
+            const font = await res[1].arrayBuffer();
+            const pdfDoc = await fillPdf(
+              res[0],
+              customCertificateTemplate.labels.map( l => ({
+                ...l,
+                value: convertToValue(l.value,l.valueType)
+              })),
+              font
+            );
+            // const pdfDoc = await fillPdf(res[0],[]);
+            const fileURL = await convertPdfDoc2FileURL(pdfDoc);
+            setPdfURL(fileURL);
+            // await showPage(pdfDoc, 1);
+            onLoading();
+          });
+        }
+        else {
+          Promise.all([
+            metadataApi.pullNotForJson(`/api/documents/${customCertificateTemplate.template}/data.pdf`)
+          ])
+          .then( async (res) => {
+            const pdfDoc = await fillPdf(
+              res[0],
+              customCertificateTemplate.labels.map( l => ({
+                ...l,
+                value: convertToValue(l.value,l.valueType)
+              })),
+              null
+            );
+            // const pdfDoc = await fillPdf(res[0],[]);
+            const fileURL = await convertPdfDoc2FileURL(pdfDoc);
+            setPdfURL(fileURL);
+            // await showPage(pdfDoc, 1);
+            onLoading();
+          });
+        }
       }
       else {
         onLoading();

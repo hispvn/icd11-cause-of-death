@@ -1,15 +1,19 @@
 import { PDFDocument, StandardFonts } from "pdf-lib";
+import fontkit from '@pdf-lib/fontkit';
 
-async function fillPdf(pdfFileTemplate,labels) {
+async function fillPdf(pdfFileTemplate,labels,customFont) {
     const reponsePDFBuffer = await pdfFileTemplate.arrayBuffer();
 
     const pdfDoc = await PDFDocument.load(reponsePDFBuffer);
+    pdfDoc.registerFontkit(fontkit);
 
     const pages = pdfDoc.getPages();
 
     const PAGE_HEIGHT = pages[0].getSize().height;
 
-    const Helvetica = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    const font = await pdfDoc.embedFont(customFont !== null ? customFont : StandardFonts.Helvetica);
+    const standardFont = await pdfDoc.embedFont(StandardFonts.Helvetica);
+    
 
     // const HelveticaBold = await pdfDoc.embedFont(StandardFonts.HelveticaBold);
     // const FONT_SIZE = 12;
@@ -43,7 +47,7 @@ async function fillPdf(pdfFileTemplate,labels) {
                 x: coordinates[0],
                 y: PAGE_HEIGHT - coordinates[1],
                 size,
-                font: Helvetica
+                font: font
             });
         }
         else if ( valueType === "check" ) {
@@ -51,7 +55,7 @@ async function fillPdf(pdfFileTemplate,labels) {
                 x: coordinates[0],
                 y: PAGE_HEIGHT - coordinates[1],
                 size,
-                font: Helvetica
+                font: standardFont
             });
         }
     });

@@ -7,7 +7,8 @@ import {
     Select,
     List,
     Divider,
-    Modal
+    Modal,
+    Checkbox
 } from "antd";
 import { Backdrop, CircularProgress } from '@mui/material';
 // import fileSaver from "file-saver";
@@ -29,6 +30,7 @@ const CustomCertificate = props => {
     const [ pages, setPages ] = useState(1);
 
     const [ template, setTemplate ] = useState(null);
+    const [ customFont, setCustomFont ] = useState(null);
     const [ openModal, setOpenModal ] = useState(null);
     const [ currentLabel, setCurrentlabel ] = useState({
         label: "",
@@ -41,8 +43,8 @@ const CustomCertificate = props => {
 
     const [ loading, setLoading ] = useState(false);
 
-    const generateData = async pdfFileTemplate => {
-        const pdfDoc = await fillPdf(pdfFileTemplate,props.certificateTemplateAdmin.labels);
+    const generateData = async (pdfFileTemplate) => {
+        const pdfDoc = await fillPdf(pdfFileTemplate,props.certificateTemplateAdmin.labels,customFont);
         const fileURL = await convertPdfDoc2FileURL(pdfDoc);
         setPdfURL(fileURL);
         setPages(pdfDoc.getPages().length);
@@ -58,8 +60,15 @@ const CustomCertificate = props => {
         }
     }
 
-    useLayoutEffect(() => {
+    useLayoutEffect(async () => {
         setLoading(true);
+        const font = props.certificateTemplateMetadata.customFont && props.certificateTemplateMetadata.customFont !== null ?
+                        await metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.customFont}/data.ttf`) : null;
+        let font1 = null;
+        if ( font !== null ) {
+            font1 = await font.arrayBuffer();
+            setCustomFont(font1);
+        }
         props.changeCustomCertificate(props.certificateTemplateMetadata);
         if ( props.certificateTemplateMetadata ) {
             Promise.all([
@@ -70,7 +79,8 @@ const CustomCertificate = props => {
                 setTemplates(res[0].documents);                
                 setTemplate(props.certificateTemplateMetadata.template);
 
-                const pdfDoc = await fillPdf(res[1],props.certificateTemplateMetadata.labels);
+                console.log(customFont === null);
+                const pdfDoc = await fillPdf(res[1],props.certificateTemplateMetadata.labels,font1);
                 const fileURL = await convertPdfDoc2FileURL(pdfDoc);
                 setPdfURL(fileURL);
                 setPages(pdfDoc.getPages().length);

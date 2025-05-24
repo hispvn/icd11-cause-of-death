@@ -7,7 +7,7 @@
       "publicAccess": "--------",
       "ignoreOverdueEvents": false,
       "skipOffline": false,
-      "enrollmentDateLabel": "Reported Date ",
+      "enrollmentDateLabel": "Reported Date",
       "onlyEnrollOnce": true,
       "version": 73,
       "maxTeiCountToReturn": 0,

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, version } from "react";
 import "./index.css";
 import HeaderBarContainer from "../HeaderBar";
 import ControlBar from "../ControlBar";
@@ -9,6 +9,7 @@ import Form from "../Form";
 import Export from "../Export";
 import Dashboard from "../Dashboard";
 import Translation from "../Translation";
+import UpdateDialog from "./UpdateDialog";
 import { TRANSLATIONS } from "../Translation/const";
 import { Hooks, Components } from "tracker-capture-app-core";
 import { InitTranslation } from "../../locale/i18n";
@@ -81,6 +82,8 @@ const App = ({
 }) => {
   const { metadataApi } = useApi();
   const [loading, setLoading] = useState(false);
+  const [updatingDialog, setUpdatingDialog] = useState(false);
+  const [metadataUpdatedDate, setMetadataUpdatedDate] = useState(null);
   useEffect(() => {
     setLoading(true);
     (async () => {
@@ -303,6 +306,21 @@ const App = ({
 
               setLoading(false);
 
+              if ( results[0].metadataUpdatedDate ) {
+                if ( results[0].metadataUpdatedDate !== "2025-05-05" ) {
+                  setMetadataUpdatedDate(results[0]);
+                  setUpdatingDialog(true);
+                }
+              }
+              else {
+                setMetadataUpdatedDate({
+                  ...results[0],
+                  metadataUpdatedDate: "2025-04-15", // Not change this date
+                  version: "2.0.0"
+                });
+                setUpdatingDialog(true);
+              }
+
             });
           } else {
             changeRoute("administration");
@@ -332,6 +350,11 @@ const App = ({
           {route === "translation" && <Translation />}
         </div>
       )}
+      <UpdateDialog
+        open={updatingDialog}
+        handleCloseUpdate={() => setUpdatingDialog(false)}
+        metadataUpdatedDate={metadataUpdatedDate}
+      />
     </div>
   );
 };

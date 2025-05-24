@@ -509,7 +509,7 @@ const Stage = ({
     headers.append("API-Version", "v2");
     headers.append("Accept-Language", keyUiLocale);
     headers.append("Authorization", `Bearer ${icdApi_clientToken}`);
-    const icdApiUrl = "https://id.who.int/icd/release/11/2023-01/doris?" 
+    const icdApiUrl = "https://id.who.int/icd/release/11/2025-01/doris?" 
       + "sex=" + (!currentTeiSexAttributeValue ? "9" : currentTeiSexAttributeValue === "" ? "9" : currentTeiSexAttributeValue === femaleCode ? "2" : "1")
       + (currentTeiAgeAttributeValue ? `&estimatedAge=${attributes[formMapping.attributes["age_unit"]].replace("_",attributes[formMapping.attributes["estimated_age"]])}` : "")
       + (currentTeiDateOfBirthAttributeValue ? `&dateBirth=${currentTeiDateOfBirthAttributeValue}` : "")

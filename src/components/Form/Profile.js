@@ -163,28 +163,6 @@ const Profile = ({
               mandatory={dob.compulsory}
             />
           </Col>
-          {/* <Col>
-            <InputField
-              value={getTeaValue(formMapping.attributes["age"])}
-              valueType={age.valueType}
-              label={age.displayFormName}
-              change={(value) => {
-                if ( value !== "" ) {
-                  (parseInt(value) > 150) ?
-                  message.error("Age can't be greater than 150")
-                  : (parseInt(value) < 0) ? 
-                    message.error("Age can't be negative number")
-                    : mutateAttribute(age.id, value);
-                }
-                else {
-                  mutateAttribute(age.id, "");
-                }
-              }}
-              // disabled={enrollmentStatus === "COMPLETED"}
-              disabled={true}
-              mandatory={age.compulsory}
-            />
-          </Col> */}
         </Row>
         <Row>
           <Col xs={24} sm={12}>
@@ -197,8 +175,31 @@ const Profile = ({
               mandatory={ageUnit.compulsory}
               change={(value) => {
                 mutateAttribute(ageUnit.id, value);
-                if (value === "P_YD" && getTeaValue(estimatedAge.id) !== "") {
-                  mutateAttribute(age.id, getTeaValue(estimatedAge.id));
+                if ( getTeaValue(estimatedAge.id) !== "" ) {
+                  if (value === "P_YD") {
+                    mutateAttribute(age.id, getTeaValue(estimatedAge.id));
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(estimatedAge.id)), "years").format("YYYY-MM-DD"));
+                    }
+                  } 
+                  else if (value === "P_M") {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(estimatedAge.id)), "months").format("YYYY-MM-DD"));
+                    }
+                  }
+                  else if (value === "P_D") {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(estimatedAge.id)), "days").format("YYYY-MM-DD"));
+                    }
+                  }
+                  else {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, currentEnrollment.incidentDate);
+                    }
+                  }
                 }
               }}
             />
@@ -215,6 +216,27 @@ const Profile = ({
                   mutateAttribute(estimatedAge.id, value);
                   if (getTeaValue(ageUnit.id) === "P_YD") {
                     mutateAttribute(age.id, value);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(value), "years").format("YYYY-MM-DD"));
+                    }
+                  }
+                  else if (getTeaValue(ageUnit.id) === "P_M") {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(value), "months").format("YYYY-MM-DD"));
+                    }
+                  }
+                  else if (getTeaValue(ageUnit.id) === "P_D") {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(value), "days").format("YYYY-MM-DD"));
+                    }
+                  }
+                  else {
+                    mutateAttribute(age.id, 0);
+                    if (currentEnrollment.incidentDate) {
+                      mutateAttribute(dob.id, currentEnrollment.incidentDate);
+                    }
                   }
                 }
               }}
@@ -227,24 +249,6 @@ const Profile = ({
 
   return (
     <div>
-      {/* <Backdrop
-        sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={loading}
-      >
-        <CircularProgress color="inherit" />
-      </Backdrop> */}
-      {/* <WarningDialog 
-        open={exitWarning}
-        handleCancel={() => {
-          setExitWarning(false);
-        }}
-        handleOk={() => {
-          mutateTei("isDirty", false);
-          mutateEnrollment("isDirty", false);
-          mutateEvent(currentEvents[0].event, "isDirty", false);
-          changeRoute("list");
-        }}
-      ></WarningDialog> */}
       <InputField
         value={currentEnrollment.enrollmentDate || ""}
         label={t("reportedDate")}
@@ -305,6 +309,32 @@ const Profile = ({
               else {
                 mutateAttribute(formMapping.attributes["estimated_age"], age_cal + "");
                 mutateAttribute(formMapping.attributes["age_unit"], "P_YD");
+              }
+            }
+          }
+          else if (currentTei.attributes[formMapping.attributes["estimated_age"]] && currentTei.attributes[formMapping.attributes["age_unit"]]) {
+            if (getTeaValue(formMapping.attributes["age_unit"]) === "P_YD") {
+              mutateAttribute(formMapping.attributes["age"], getTeaValue(formMapping.attributes["estimated_age"]));
+              if (currentEnrollment.incidentDate) {
+                mutateAttribute(formMapping.attributes["dob"], moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(formMapping.attributes["estimated_age"])), "years").format("YYYY-MM-DD"));
+              }
+            }
+            else if (getTeaValue(formMapping.attributes["age_unit"]) === "P_M") {
+              mutateAttribute(formMapping.attributes["age"], 0);
+              if (currentEnrollment.incidentDate) {
+                mutateAttribute(formMapping.attributes["dob"], moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(formMapping.attributes["estimated_age"])), "months").format("YYYY-MM-DD"));
+              }
+            }
+            else if (getTeaValue(formMapping.attributes["age_unit"]) === "P_D") {
+              mutateAttribute(formMapping.attributes["age"], 0);
+              if (currentEnrollment.incidentDate) {
+                mutateAttribute(formMapping.attributes["dob"], moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(formMapping.attributes["estimated_age"])), "days").format("YYYY-MM-DD"));
+              }
+            }
+            else {
+              mutateAttribute(formMapping.attributes["age"], 0);
+              if (currentEnrollment.incidentDate) {
+                mutateAttribute(formMapping.attributes["dob"], currentEnrollment.incidentDate);
               }
             }
           }

@@ -326,7 +326,11 @@ const Finish = ({
             }
 
             Promise.all([
-                metadataApi.push("/api/dataStore/WHO_ICD11_COD/program", {id: metadata["programs"][0].id}, "PUT"),
+                metadataApi.push("/api/dataStore/WHO_ICD11_COD/program", {
+                    id: metadata["programs"][0].id,
+                    metadataUpdatedDate: "2025-05-05", // Change to the date to the last updated date
+                    version: "2.0.1"
+                }, "PUT"),
                 metadataApi.push("/api/dataStore/WHO_ICD11_COD/femaleOption", {code: femaleOption}, "PUT"),
                 metadataApi.push("/api/dataStore/WHO_ICD11_COD/icdOptionSet", {id: metadata["optionSets"].find( ({code}) => code === "icd11").id}, "PUT"),
                 metadataApi.push("/api/dataStore/WHO_ICD11_COD/formMapping", formMapping, "PUT"),

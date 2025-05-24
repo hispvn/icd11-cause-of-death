@@ -4539,8 +4539,8 @@
       "translations": []
     },
     {
-      "code": "DORIS given wrong underlying cause",
-      "name": "DORIS given wrong underlying cause",
+      "code": "DORIS mismatchs with the clinically selected cause of death",
+      "name": "The clinically selected cause of death does not always match the one most relevant for prevention that is selected by DORIS",
       "id": "iuO3AfwamMA",
       "sortOrder": 3,
       "optionSet": {

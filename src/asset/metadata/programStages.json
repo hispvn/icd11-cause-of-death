@@ -4,7 +4,7 @@
       "id": "WlWJt4lVSWw",
       "name": "Cause of death (registration)",
       "allowGenerateNextVisit": false,
-      "executionDateLabel": "Date of death",
+      "executionDateLabel": "Reported Date",
       "preGenerateUID": false,
       "publicAccess": "r-r-----",
       "reportDateToUse": "enrollmentDate",

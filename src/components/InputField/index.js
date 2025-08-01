@@ -1,4 +1,4 @@
-import { Input, InputNumber, Radio, Checkbox, DatePicker, Select } from "antd";
+import { Input, InputNumber, Radio, Checkbox, DatePicker, Select, TimePicker } from "antd";
 import moment from "moment";
 import "./index.css";
 const { TextArea } = Input;
@@ -159,9 +159,38 @@ const InputField = (props) => {
           />
         );
       case "DATETIME":
-        return <div>hello</div>;
+        return <DatePicker 
+          value={value ? moment(value) : ""}
+          onChange={(momentObject) => {
+            if( momentObject !== null ) {
+              change(momentObject.format("YYYY-MM-DDTHH:mm"));
+            }
+            else {
+              change("");
+            }
+          }}
+          showTime={{
+            format: 'HH:mm',
+          }}
+          format="YYYY-MM-DD HH:mm"
+          disabled={disabled}
+          style={style ? style : { width: "100%", maxWidth: "410px", textAlign: "left" }}
+        />;
       case "TIME":
-        return <div>hello</div>;
+        return <TimePicker 
+          value={value ? moment(value, "HH:mm") : ""}
+          onChange={(momentObject) => {
+            if( momentObject !== null ) {
+              change(momentObject.format("HH:mm"));
+            }
+            else {
+              change("");
+            }
+          }}
+          format="HH:mm"
+          disabled={disabled}
+          style={style ? style : { width: "100%", maxWidth: "410px", textAlign: "left" }}
+        />;
       case "BOOLEAN":
         return (
           <Radio.Group

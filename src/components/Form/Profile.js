@@ -183,19 +183,19 @@ const Profile = ({
                     }
                   } 
                   else if (value === "P_M") {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(estimatedAge.id)), "months").format("YYYY-MM-DD"));
                     }
                   }
                   else if (value === "P_D") {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(getTeaValue(estimatedAge.id)), "days").format("YYYY-MM-DD"));
                     }
                   }
                   else {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, currentEnrollment.incidentDate);
                     }
@@ -221,19 +221,19 @@ const Profile = ({
                     }
                   }
                   else if (getTeaValue(ageUnit.id) === "P_M") {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(value), "months").format("YYYY-MM-DD"));
                     }
                   }
                   else if (getTeaValue(ageUnit.id) === "P_D") {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, moment(currentEnrollment.incidentDate, "YYYY-MM-DD").subtract(parseInt(value), "days").format("YYYY-MM-DD"));
                     }
                   }
                   else {
-                    mutateAttribute(age.id, 0);
+                    mutateAttribute(age.id, "0");
                     if (currentEnrollment.incidentDate) {
                       mutateAttribute(dob.id, currentEnrollment.incidentDate);
                     }

@@ -124,6 +124,7 @@ const App = ({
         }
       }
       else{
+        console.log(translationData);
         Object.entries(localeFile.en.translation).forEach((value) => {
           let findKey = translationData.translations.find(e=>e.key === value[0]);
           if(!findKey){
@@ -147,6 +148,7 @@ const App = ({
         metadataApi.getMe()
       ]).then( async (results) => {
 
+        // This is for installation
         Promise.all([
           metadataApi.getOrgUnitGroups(),
           metadataApi.getOrgUnitLevels(),
@@ -226,7 +228,10 @@ const App = ({
         } else {
           if (results[0].id !== null) {
             Promise.all([
-              metadataApi.getProgramMetadata(results[0].id),
+              // metadataApi.getProgramMetadata(results[0].id),
+              metadataApi.get(`/api/programs/${results[0].id}`, { paging: false }, [
+                "fields=id,displayName,sharing,userGroupAccesses,trackedEntityType,organisationUnits[id,displayName,code,path,attributeValues],programTrackedEntityAttributes[mandatory,displayInList,searchable,trackedEntityAttribute[id,displayName,displayFormName,displayShortName,valueType,optionSet[id],unique]],programStages[id,displayName,programStageDataElements[displayInReports,sortOrder,compulsory,dataElement[id,displayName,displayFormName,displayShortName,description,valueType,optionSet[id]]"
+              ]),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/femaleOption"),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/icdOptionSet"),
               metadataApi.get(
@@ -236,12 +241,6 @@ const App = ({
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/fullnameOption"),
               metadataApi.get("/api/dataStore/WHO_ICD11_COD/customCertificate")
             ]).then( async (res) => {
-              // Get TET info
-              await metadataApi.getTrackedEntityType(res[0].trackedEntityType)
-              .then(result => {
-                getTrackedEntityType(result);
-              });
-
               // Set userRoles
               let roles = {
                 admin: false,
@@ -275,23 +274,179 @@ const App = ({
               setUserRole(roles);
 
 
+              // Get TET info
+              // setProgramMetadata(res[0]);
+              Promise.all([
+                metadataApi.get("/api/optionSets.json", { paging: false }, 
+                  [
+                    "fields=id,displayName,options[id,displayName,code,sortOrder]",
+                    `filter=id:!eq:${res[2].id}`,
+                  ]
+                ),
+                metadataApi.getTrackedEntityType(res[0].trackedEntityType.id),
+              ]).then( async (result) => {
+                setProgramMetadata({
+                  id: res[0].id,
+                  sharing: res[0].sharing,
+                  userGroupAccesses: res[0].userGroupAccesses,
+                  trackedEntityType: res[0].trackedEntityType.id,
+                  organisationUnits: res[0].organisationUnits,
+                  trackedEntityAttributes: res[0].programTrackedEntityAttributes.map((ptea) => {
+                    const tea = {
+                      compulsory: ptea.mandatory,
+                      id: ptea.trackedEntityAttribute.id,
+                      displayName: ptea.trackedEntityAttribute.displayName,
+                      displayFormName: ptea.trackedEntityAttribute.displayFormName
+                        ? ptea.trackedEntityAttribute.displayFormName
+                        : ptea.trackedEntityAttribute.displayShortName,
+                      valueType: ptea.trackedEntityAttribute.valueType,
+                      valueSet: null,
+                      optionSet: ptea.trackedEntityAttribute.optionSet ? ptea.trackedEntityAttribute.optionSet.id : null,
+                      displayInList: ptea.displayInList,
+                      searchable: ptea.searchable,
+                      unique: ptea.trackedEntityAttribute.unique
+                    };
+                    if (ptea.trackedEntityAttribute.optionSet) {
+                      tea.valueSet = result[0].optionSets
+                        .find((os) => os.id === ptea.trackedEntityAttribute.optionSet.id)
+                        .options.map((o) => {
+                          return {
+                            value: o.code,
+                            label: o.displayName
+                          };
+                        });
+                    }
+                    return tea;
+                  }),
+                  programStages: res[0].programStages.map((ps) => {
+                    const programStage = {
+                      id: ps.id,
+                      displayName: ps.displayName,
+                      dataElements: ps.programStageDataElements.map((psde) => {
+                        const dataElement = {
+                          displayInReports: psde.displayInReports,
+                          sortOrder: psde.sortOrder,
+                          compulsory: psde.compulsory,
+                          id: psde.dataElement.id,
+                          displayName: psde.dataElement.displayName,
+                          displayFormName: psde.dataElement.displayFormName
+                            ? psde.dataElement.displayFormName
+                            : psde.dataElement.displayShortName,
+                          description: psde.dataElement.description,
+                          valueType: psde.dataElement.valueType,
+                          valueSet: null,
+                          optionSet: psde.dataElement.optionSet ? psde.dataElement.optionSet.id : null
+                        };
+                        if (psde.dataElement.optionSet && psde.dataElement.optionSet.id !== res[2].id) {
+                          console.log(psde.dataElement);
+                          dataElement.valueSet = result[0].optionSets
+                            .find((os) => os.id === psde.dataElement.optionSet.id)
+                            .options.map((o) => {
+                              return {
+                                value: o.code,
+                                label: o.displayName
+                              };
+                            });
+                        }
+                        return dataElement;
+                      })
+                    };
+                    return programStage;
+                  })
+                });
+                getTrackedEntityType(result[1]);
+
+                await getICD11Options(require("../../asset/metadata/icd11_options.json"));
+                metadataApi.get("/api/options.json", { paging: false }, [
+                  "fields=id,displayName,code,sortOrder,attributeValues[value,attribute[id]]",
+                  "filter=optionSet.id:eq:" + res[2].id,
+                ])
+                .then(({ options }) => {
+                  getICD11Options(options);
+                  setProgramMetadata({
+                    id: res[0].id,
+                    sharing: res[0].sharing,
+                    userGroupAccesses: res[0].userGroupAccesses,
+                    trackedEntityType: res[0].trackedEntityType.id,
+                    organisationUnits: res[0].organisationUnits,
+                    trackedEntityAttributes: res[0].programTrackedEntityAttributes.map((ptea) => {
+                      const tea = {
+                        compulsory: ptea.mandatory,
+                        id: ptea.trackedEntityAttribute.id,
+                        displayName: ptea.trackedEntityAttribute.displayName,
+                        displayFormName: ptea.trackedEntityAttribute.displayFormName
+                          ? ptea.trackedEntityAttribute.displayFormName
+                          : ptea.trackedEntityAttribute.displayShortName,
+                        valueType: ptea.trackedEntityAttribute.valueType,
+                        valueSet: null,
+                        optionSet: ptea.trackedEntityAttribute.optionSet ? ptea.trackedEntityAttribute.optionSet.id : null,
+                        displayInList: ptea.displayInList,
+                        searchable: ptea.searchable,
+                        unique: ptea.trackedEntityAttribute.unique
+                      };
+                      if (ptea.trackedEntityAttribute.optionSet) {
+                        tea.valueSet = result[0].optionSets
+                          .find((os) => os.id === ptea.trackedEntityAttribute.optionSet.id)
+                          .options.map((o) => {
+                            return {
+                              value: o.code,
+                              label: o.displayName
+                            };
+                          });
+                      }
+                      return tea;
+                    }),
+                    programStages: res[0].programStages.map((ps) => {
+                      const programStage = {
+                        id: ps.id,
+                        displayName: ps.displayName,
+                        dataElements: ps.programStageDataElements.map((psde) => {
+                          const dataElement = {
+                            displayInReports: psde.displayInReports,
+                            sortOrder: psde.sortOrder,
+                            compulsory: psde.compulsory,
+                            id: psde.dataElement.id,
+                            displayName: psde.dataElement.displayName,
+                            displayFormName: psde.dataElement.displayFormName
+                              ? psde.dataElement.displayFormName
+                              : psde.dataElement.displayShortName,
+                            description: psde.dataElement.description,
+                            valueType: psde.dataElement.valueType,
+                            valueSet: null,
+                            optionSet: psde.dataElement.optionSet ? psde.dataElement.optionSet.id : null
+                          };
+                          if (psde.dataElement.optionSet) {
+                            console.log(psde.dataElement);
+                            dataElement.valueSet = psde.dataElement.optionSet.id !== res[2].id ? result[0].optionSets
+                              .find((os) => os.id === psde.dataElement.optionSet.id)
+                              .options.map((o) => {
+                                return {
+                                  value: o.code,
+                                  label: o.displayName
+                                };
+                              }) : options.map((o) => {
+                                return {
+                                  value: o.code,
+                                  label: o.displayName
+                                };
+                              });
+                          }
+                          return dataElement;
+                        })
+                      };
+                      return programStage;
+                    })
+                  })
+                });
+              });
+
               // Set other states
-              setProgramMetadata(res[0]);
               setFemaleCode(res[1].code);
               setFullnameOption(res[5].fullnameOption);
               if (res[3].certificate !== null) setCertificateTemplate(res[3].certificate);
               if (res[6].certificate !== null) setCustomCertificate(res[6].certificate);
               setFormMapping(res[4]);
               changeRoute("list");
-
-              await getICD11Options(require("../../asset/metadata/icd11_options.json"));
-              metadataApi.get("/api/options.json", { paging: false }, [
-                "fields=id,name,code,attributeValues[value,attribute[id]]",
-                "filter=optionSet.id:eq:" + res[2].id,
-              ])
-              .then(({ options }) => {
-                getICD11Options(options);
-              });
               
 
               // Get Token for ICD11 API

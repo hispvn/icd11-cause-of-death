@@ -60,44 +60,46 @@ const CustomCertificate = props => {
         }
     }
 
-    useLayoutEffect(async () => {
+    useEffect( () => {
         setLoading(true);
-        const font = props.certificateTemplateMetadata.customFont && props.certificateTemplateMetadata.customFont !== null ?
-                        await metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.customFont}/data.ttf`) : null;
-        let font1 = null;
-        if ( font !== null ) {
-            font1 = await font.arrayBuffer();
-            setCustomFont(font1);
-        }
-        props.changeCustomCertificate(props.certificateTemplateMetadata);
-        if ( props.certificateTemplateMetadata ) {
-            Promise.all([
-                metadataApi.get("/api/documents.json"),
-                metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.template}/data.pdf`)
-            ])
-            .then( async (res) => {
-                setTemplates(res[0].documents);                
-                setTemplate(props.certificateTemplateMetadata.template);
+        (async () => {
+            const font = props.certificateTemplateMetadata.customFont && props.certificateTemplateMetadata.customFont !== null ?
+                            await metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.customFont}/data.ttf`) : null;
+            let font1 = null;
+            if ( font !== null ) {
+                font1 = await font.arrayBuffer();
+                setCustomFont(font1);
+            }
+            props.changeCustomCertificate(props.certificateTemplateMetadata);
+            if ( props.certificateTemplateMetadata ) {
+                Promise.all([
+                    metadataApi.get("/api/documents.json"),
+                    metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.template}/data.pdf`)
+                ])
+                .then( async (res) => {
+                    setTemplates(res[0].documents);                
+                    setTemplate(props.certificateTemplateMetadata.template);
 
-                console.log(customFont === null);
-                const pdfDoc = await fillPdf(res[1],props.certificateTemplateMetadata.labels,font1);
-                const fileURL = await convertPdfDoc2FileURL(pdfDoc);
-                setPdfURL(fileURL);
-                setPages(pdfDoc.getPages().length);
-                // await showPage(pdfDoc, 1);
+                    console.log(customFont === null);
+                    const pdfDoc = await fillPdf(res[1],props.certificateTemplateMetadata.labels,font1);
+                    const fileURL = await convertPdfDoc2FileURL(pdfDoc);
+                    setPdfURL(fileURL);
+                    setPages(pdfDoc.getPages().length);
+                    // await showPage(pdfDoc, 1);
 
-                setLoading(false);
-            });
-        }
-        else {
-            Promise.all([
-                metadataApi.get("/api/documents.json"),
-            ])
-            .then( res => {
-                setTemplates(res[0].documents);
-                setLoading(false);
-            });
-        }
+                    setLoading(false);
+                });
+            }
+            else {
+                Promise.all([
+                    metadataApi.get("/api/documents.json"),
+                ])
+                .then( res => {
+                    setTemplates(res[0].documents);
+                    setLoading(false);
+                });
+            }
+        })();
     }, []);
 
     return (

@@ -263,25 +263,6 @@ const Form = ({
             <div className="result-content">
               <Result />
             </div>
-            {/* <div className="result-button">
-              <ButtonGroup
-                style={{
-                  float: "right",
-                  padding: "1.5px",
-                }}
-              >
-                <Button
-                  type="primary" 
-                  style={{
-                    width: "110px",
-                  }}
-                  disabled={!certificate}
-                  onClick={() => { setOpenCertificate(true); }}
-                >
-                  Certificate
-                </Button>
-              </ButtonGroup>
-            </div> */}
           </div>
         </div>
         <div className={sideBar ? "stage-section-container" : "stage-section-container-fullscreen"}>

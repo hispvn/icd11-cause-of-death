@@ -63,15 +63,15 @@ const CustomCertificate = props => {
     useEffect( () => {
         setLoading(true);
         (async () => {
-            const font = props.certificateTemplateMetadata.customFont && props.certificateTemplateMetadata.customFont !== null ?
-                            await metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.customFont}/data.ttf`) : null;
             let font1 = null;
-            if ( font !== null ) {
-                font1 = await font.arrayBuffer();
-                setCustomFont(font1);
-            }
             props.changeCustomCertificate(props.certificateTemplateMetadata);
             if ( props.certificateTemplateMetadata ) {
+                const font = props.certificateTemplateMetadata.customFont && props.certificateTemplateMetadata.customFont !== null ?
+                    await metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.customFont}/data.ttf`) : null;
+                if ( font !== null ) {
+                    font1 = await font.arrayBuffer();
+                    setCustomFont(font1);
+                }
                 Promise.all([
                     metadataApi.get("/api/documents.json"),
                     metadataApi.pullNotForJson(`/api/documents/${props.certificateTemplateMetadata.template}/data.pdf`)

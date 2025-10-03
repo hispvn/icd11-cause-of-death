@@ -68,6 +68,7 @@ const Profile = ({
         }}
         disabled={attribute === formMapping.attributes["system_id"] || enrollmentStatus === "COMPLETED"}
         mandatory={tea.compulsory}
+        style={{  width: "100%", textAlign: "left" }}
       />
     );
   };
@@ -161,6 +162,7 @@ const Profile = ({
               disabledDate={current => current && current >= moment().startOf('day')}
               disabled={enrollmentStatus === "COMPLETED" || getTeaValue((formMapping.attributes["estimated_dob"])) === true || getTeaValue((formMapping.attributes["estimated_dob"])) === "true"}
               mandatory={dob.compulsory}
+              style={{  width: "100%", textAlign: "left" }}
             />
           </Col>
         </Row>
@@ -259,6 +261,7 @@ const Profile = ({
         }}
         disabled={enrollmentStatus === "COMPLETED"}
         mandatory={true}
+        style={{  width: "100%", textAlign: "left" }}
       />
       <InputField
         value={currentEnrollment.incidentDate || ""}
@@ -341,6 +344,7 @@ const Profile = ({
         }}
         disabled={enrollmentStatus === "COMPLETED"}
         mandatory={true}
+        style={{  width: "100%", textAlign: "left" }}
       />
       {/* {attributes
         .slice(0, 3)

@@ -3,13 +3,34 @@ import { connect } from "react-redux";
 import { useTranslation } from "react-i18next";
 
 import InputField from "../InputField";
-import { Button } from "antd";
+import { Tabs } from "antd";
 import "./stage.css";
 
 const Result = ({
     metadata,
     data
 }) => {
+    // MermaidChart
+    const charts = {
+        ReportRuleFlow: `graph TD;
+        START([Starting point])
+        START -.-> SP4
+        SP4["SP4"] -- "TSP: 5A11" --> M4
+        M4["M4"] -- "TUC:<br/>5A11/GB61.Z/GB60.Z/BA00.Z<br/>(Substitute<br/>5A11>5A11/GB61.Z/GB60.Z/BA00.Z)" --> END([5A11/GB61.Z/GB60.Z/BA00.Z is the underlying<br/>cause of death.])
+        SP4@{ shape: rect, label: "<div style='cursor:pointer;' title='SP4: 5A11 is the starting point of the first-mentioned sequence (GB61.Z due to GB60.Z due to 5A11), which is selected as the tentative starting point (TSP).'>SP4 </div>"}
+        M4@{ shape: rect, label: "<div style='cursor:pointer;' title='GB61.Z, GB60.Z, BA00.Z are manifestations of the selected underlying cause of death 5A11 and it is added as a postcoordination - 5A11>5A11/GB61.Z/GB60.Z/BA00.Z. The postcoordinations - GB61.Z, GB60.Z, BA00.Z - were selected from conditions that are potential manifestations of the tentative underlying cause - 5A11, manual check of their validity is needed.'>M4 </div>"}
+        `,
+        ReportRuleProgression: `sequenceDiagram
+        participant SP4
+        participant M4
+        Note over SP4: SP4: 5A11 is the<br/>starting point of the<br/>first-mentioned sequence<br/>(GB61.Z due to GB60.Z<br/>due to 5A11), which is<br/>selected as the<br/>tentative starting point<br/>(TSP).
+        SP4->>M4: TSP: 5A11
+        Note over M4: GB61.Z, GB60.Z, BA00.Z<br/>are manifestations of<br/>the selected underlying<br/>cause of death 5A11 and<br/>it is added as a<br/>postcoordination -<br/>5A11>5A11/GB61.Z/GB60.Z/BA00.Z.<br/>The postcoordinations -<br/>GB61.Z, GB60.Z, BA00.Z -<br/>were selected from<br/>conditions that are<br/>potential manifestations<br/>of the tentative<br/>underlying cause - 5A11,<br/>manual check of their<br/>validity is needed.
+        M4->>UCOD: TUC:<br/>5A11/GB61.Z/GB60.Z/BA00.Z<br/>(Substitute<br/>5A11>5A11/GB61.Z/GB60.Z/BA00.Z)
+        Note over UCOD: <br/>5A11/GB61.Z/GB60.Z/BA00.Z<br/>is the<br/>underlying<br/>cause of<br/>death.
+        `,
+    };
+
     const { t } = useTranslation();
 
     const { programMetadata, formMapping } = metadata;
@@ -89,8 +110,8 @@ const Result = ({
                         </tr>
                     </tbody>
                 </table>
-                {
-                    (currentEvent && (currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] || getUcodWarning() !== "")) && <>
+                { (currentEvent && (currentEvent.dataValues[formMapping.dataElements["underlyingCOD_report"]] || getUcodWarning() !== "")) && <Tabs defaultActiveKey="1">
+                    <Tabs.TabPane tab="Textual report" key="1">
                         <div className="result-section-title">Detailed explanation</div>
                         <div>
                             {currentTei.attributes[formMapping.attributes["sex"]] ? currentTei.attributes[formMapping.attributes["sex"]] : ""}, {currentTei.attributes[formMapping.attributes["age"]] ? currentTei.attributes[formMapping.attributes["age"]] : ""}
@@ -111,8 +132,8 @@ const Result = ({
                                 </div>
                             </>
                         }
-                    </>
-                }
+                    </Tabs.TabPane>
+                </Tabs> }
             </div>
         </div>
     )

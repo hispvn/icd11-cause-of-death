@@ -41,10 +41,12 @@ const UpdateDialog = ({open, handleCloseUpdate, metadataUpdatedDate}) => {
                     ]
                 );
 
-                const updatedProgramIndicators = programIndicators.programIndicators.map(indicator => {
+                const updatedProgramIndicators = programIndicators.programIndicators
+                .filter( indicator => indicator.filter && indicator.filter.includes("V{enrollment_date}"))
+                .map(indicator => {
                     return {
                         ...indicator,
-                        filter: indicator.filter.replaceAll("V{enrollment_date}","V{incident_date}"),
+                        filter: indicator.filter ? indicator.filter.replaceAll("V{enrollment_date}","V{incident_date}") : undefined,
                     };
                 });
 

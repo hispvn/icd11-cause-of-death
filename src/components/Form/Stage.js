@@ -52,7 +52,7 @@ const Stage = ({
   const {
     currentEnrollment,
     currentTei: { attributes },
-    currentEnrollment: { enrollmentDate: currentTeiDateOfDeath },
+    currentEnrollment: { occurredAt: currentTeiDateOfDeath },
     currentEnrollment: { status: enrollmentStatus }
   } = data;
   const { programMetadata, formMapping, icd11Options, femaleCode, icdApi_clientToken, keyUiLocale } = metadata;
@@ -113,8 +113,8 @@ const Stage = ({
     if (!currentEvent) {
       const eventId = generateCode();
       initNewEvent(eventId, programStage.id);
-      mutateEvent(eventId, "eventDate", currentEnrollment.incidentDate);
-      mutateEvent(eventId, "dueDate", currentEnrollment.incidentDate);
+      mutateEvent(eventId, "occurredAt", currentEnrollment.occurredAt);
+      mutateEvent(eventId, "scheduledAt", currentEnrollment.occurredAt);
 
       // Dirty Check
       mutateEvent(eventId, "isDirty", false);
@@ -153,6 +153,7 @@ const Stage = ({
       },
     };
     setCauseOfDeaths(cods);
+    console.log(icd11Options);
   }, []);
 
   useEffect(() => {
@@ -372,7 +373,7 @@ const Stage = ({
       : "unknown"
 
     return (
-      <Tooltip title={`${option?.name}\n${timeString}`} overlayInnerStyle={{ whiteSpace: "pre-line" }}>
+      <Tooltip title={`${option?.displayName}\n${timeString}`} overlayInnerStyle={{ whiteSpace: "pre-line" }}>
         <span
           style={{
             display: "inline-flex",
@@ -1357,42 +1358,6 @@ const Stage = ({
               </div>)}
               {formMapping.otherSections.frameB && formMapping.otherSections.frameB.map( section => renderOtherSection(section) )}
               {formMapping.otherSections.form && formMapping.otherSections.form.map( section => renderOtherSection(section) )}
-            {/* </div> */}
-          {/* </TabPane>
-        </Tabs> */}
-        {/* <div className="stage-save-button-container">
-          <ButtonGroup>
-            <Button
-              type="primary"
-              onClick={async () => {
-                setLoading(true);
-                const { currentEvents } = generateDhis2Payload(data, programMetadata);
-                await dataApi.pushEvents({ events: currentEvents });
-
-                // Dirty Check
-                mutateEvent(currentEvents[0].event,"isDirty",false);
-
-                // Notification
-                setLoading(false);
-                message.success("Saved Successfully!");
-              }}
-            >
-            {
-              t("save")
-            }
-            </Button>
-            <Button
-              onClick={async () => {
-                setLoading(true);
-                const { currentEvents } = generateDhis2Payload(data, programMetadata);
-                mutateEvent(currentEvents[0].event,"dataValues",{});
-                setLoading(false);
-              }}
-            >{
-              t("clear")
-            }</Button>
-          </ButtonGroup>
-        </div> */}
       </div>
     </>
   );

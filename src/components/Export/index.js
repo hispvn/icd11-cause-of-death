@@ -24,9 +24,9 @@ const countryCodes = require("../../asset/metadata/iso3_code.json");
 
 const Export = ({ route, orgUnits }) => {
   const { t } = useTranslation();
-  const { dataApi } = useApi();
+  const { trackerApi } = useApi();
   const getData = async (year) =>
-    dataApi.pull(
+    trackerApi.pull(
       `/api/sqlViews/XpI2kVApPIH/data?paging=false&var=year:${year}`
     );
   const [periodType, setPeriodType] = useState("Yearly");
@@ -39,13 +39,13 @@ const Export = ({ route, orgUnits }) => {
 
   useEffect(() => {
     (async () => {
-      const countryCodeFromDataStore = await dataApi.pull("/api/dataStore/WHO_ICD11_COD/countryCode");
+      const countryCodeFromDataStore = await trackerApi.pull("/api/dataStore/WHO_ICD11_COD/countryCode");
       if (countryCodeFromDataStore.status) {
         const cc = orgUnits.find( ({level}) => level === 1 ) ? orgUnits.find( ({level}) => level === 1 ).code : undefined;
         const isValid = cc && countryCodes.find(({code}) => code === cc);
         if ( isValid ) {
           setCountryCode(isValid);
-          await dataApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", isValid);
+          await trackerApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", isValid);
         }
         else {
           setCountryCodeModal(true);
@@ -159,7 +159,7 @@ const Export = ({ route, orgUnits }) => {
           visible={countryCodeModal}
           okText={"Select"}
           onOk={() => {
-            dataApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", countryCode);
+            trackerApi.push("/api/dataStore/WHO_ICD11_COD/countryCode", countryCode);
             setCountryCodeModal(false);
           }}
           okButtonProps={{

@@ -54,7 +54,7 @@ export const initNewData = (state, action) => {
   const generatedTeiId = generateCode();
   const generatedEnrollmentId = generateCode();
   const currentTei = {
-    trackedEntityInstance: generatedTeiId,
+    trackedEntity: generatedTeiId,
     orgUnit,
     isDirty: false,
     isNew: true,
@@ -68,7 +68,7 @@ export const initNewData = (state, action) => {
     program,
     isDirty: false,
     isNew: true,
-    trackedEntityInstance: generatedTeiId
+    trackedEntity: generatedTeiId
   };
   const currentEvents = programMetadata.programStages.map((ps) => {
     return {
@@ -78,7 +78,7 @@ export const initNewData = (state, action) => {
       program,
       isDirty: false,
       isNew: true,
-      trackedEntityInstance: generatedTeiId,
+      trackedEntity: generatedTeiId,
       enrollment: generatedEnrollmentId,
       dataValues: {}
     };
@@ -104,16 +104,6 @@ export const initNewEnrollment = (state, action) => {
     },
     {}
   );
-  // const currentTei = {
-  //   trackedEntityInstance: generatedTeiId,
-  //   orgUnit,
-  //   isDirty: false,
-  //   isNew: true,
-  //   isSaved: false,
-  //   trackedEntityType: programMetadata.trackedEntityType,
-  //   attributes: {}
-  // };
-  
   const generatedEnrollmentId = generateCode();
   const currentEnrollment = {
     enrollment: generatedEnrollmentId,
@@ -121,7 +111,7 @@ export const initNewEnrollment = (state, action) => {
     program,
     isDirty: false,
     isNew: true,
-    trackedEntityInstance: currentTei.trackedEntityInstance
+    trackedEntity: currentTei.trackedEntity
   };
   const currentEvents = programMetadata.programStages.map((ps) => {
     return {
@@ -131,7 +121,7 @@ export const initNewEnrollment = (state, action) => {
       program,
       isDirty: false,
       isNew: true,
-      trackedEntityInstance: currentTei.trackedEntityInstance,
+      trackedEntity: currentTei.trackedEntity,
       enrollment: generatedEnrollmentId,
       dataValues: {}
     };
@@ -159,14 +149,8 @@ export const initData = (state, action) => {
     },
     {}
   );
-  currentEnrollment.enrollmentDate = convertValue(
-    "DATE",
-    currentEnrollment.enrollmentDate
-  );
-  currentEnrollment.incidentDate = convertValue(
-    "DATE",
-    currentEnrollment.incidentDate
-  );
+  currentEnrollment.enrolledAt = convertValue("DATE", currentEnrollment.enrolledAt);
+  currentEnrollment.occurredAt = convertValue("DATE", currentEnrollment.occurredAt);
   currentEnrollment.isNew = false;
   currentEnrollment.isDirty = false;
   currentEvents.forEach((event) => {
@@ -174,8 +158,8 @@ export const initData = (state, action) => {
       (ps) => ps.id === event.programStage
     );
     if (!programStage) return;
-    event.eventDate = convertValue("DATE", event.eventDate);
-    event.dueDate = convertValue("DATE", event.dueDate);
+    event.occurredAt = convertValue("DATE", event.occurredAt);
+    event.scheduledAt = convertValue("DATE", event.scheduledAt);
     event.isNew = false;
     event.isDirty = false;
     event.dataValues = event.dataValues.reduce(
@@ -211,7 +195,7 @@ export const initNewEvent = (state, action) => {
     isDirty: false,
     orgUnit: currentTei.orgUnit,
     enrollment: currentEnrollment.enrollment,
-    trackedEntityInstance: currentTei.trackedEntityInstance,
+    trackedEntity: currentTei.trackedEntity,
     program: currentEnrollment.program,
     programStage,
     dataValues: {}

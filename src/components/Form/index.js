@@ -49,7 +49,7 @@ const Form = ({
   userRoles,
 }) => {
   const { t } = useTranslation();
-  const { dataApi } = useApi();
+  const { trackerApi } = useApi();
 
   const [ sideBar, setSideBar ] = useState(true);
   const [ profileSection, setProfileSection ] = useState(true); 
@@ -102,17 +102,27 @@ const Form = ({
           setDeleteWarning(false);
         }}
         handleDeleteEnrollment={async () => {
-          await dataApi.push(
-            `/api/enrollments/${currentEnrollment.enrollment}`,
-            {},
+          await trackerApi.pushTrackedEntities(
+            {
+              enrollments: [
+                {
+                  enrollment: currentEnrollment.enrollment
+                },
+              ],
+            },
             "DELETE"
           );
           changeRoute("list");
         }}
         handleDeleteTEI={async () => {
-          await dataApi.push(
-            `/api/trackedEntityInstances/${currentEnrollment.trackedEntityInstance}`,
-            {},
+          await trackerApi.pushTrackedEntities(
+            {
+              trackedEntities: [
+                {
+                  trackedEntity: currentEnrollment.trackedEntity
+                },
+              ],
+            },
             "DELETE"
           );
           changeRoute("list");
@@ -178,25 +188,26 @@ const Form = ({
                     if ( 
                       programMetadata.trackedEntityAttributes.filter( ({compulsory}) => compulsory )
                       .every( ({id}) => currentTei.attributes[id] && currentTei.attributes[id] !== "" )
-                      && currentEnrollment['enrollmentDate'] && currentEnrollment.enrollmentDate !== ""
-                      && currentEnrollment['incidentDate'] && currentEnrollment['incidentDate'] !== ""
+                      && currentEnrollment['enrolledAt'] && currentEnrollment.enrolledAt !== ""
+                      && currentEnrollment['occurredAt'] && currentEnrollment['occurredAt'] !== ""
                     ) {
                       setLoading(true);
                       const { currentTei, currentEnrollment, currentEvents } = generateDhis2Payload(
                         data,
                         programMetadata
                       );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
-                      );
-                      await dataApi.pushEnrollment(
-                        currentEnrollment,
-                        programMetadata.id
-                      );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
+                      await trackerApi.pushTrackedEntities(
+                        {
+                          trackedEntities: [
+                            {
+                              ...currentTei,
+                              enrollments: [{
+                                ...currentEnrollment
+                              }],
+                            },
+                          ],
+                        },
+                        "CREATE_AND_UPDATE"
                       );
                       mutateTei("isSaved", true);
                       mutateTei("isNew", false);
@@ -336,13 +347,18 @@ const Form = ({
                         data,
                         programMetadata
                       );
-                      await dataApi.pushEnrollment(
-                        currentEnrollment,
-                        programMetadata.id
-                      );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
+                      await trackerApi.pushTrackedEntities(
+                        {
+                          trackedEntities: [
+                            {
+                              ...currentTei,
+                              enrollments: [{
+                                ...currentEnrollment
+                              }],
+                            },
+                          ],
+                        },
+                        "CREATE_AND_UPDATE"
                       );
                       mutateTei("isSaved", true);
 
@@ -390,15 +406,20 @@ const Form = ({
                           data,
                           programMetadata
                         );
-                        await dataApi.pushEnrollment(
-                          currentEnrollment,
-                          programMetadata.id
+                        await trackerApi.pushTrackedEntities(
+                          {
+                            trackedEntities: [
+                              {
+                                ...currentTei,
+                                enrollments: [{
+                                  ...currentEnrollment,
+                                  events: currentEvents
+                                }]
+                              },
+                            ],
+                          },
+                          "CREATE_AND_UPDATE"
                         );
-                        await dataApi.pushTrackedEntityInstance(
-                          currentTei,
-                          programMetadata.id
-                        );
-                        await dataApi.pushEvents({ events: currentEvents });
                         mutateTei("isSaved", true);
 
                         // Dirty Check
@@ -439,19 +460,20 @@ const Form = ({
                         data,
                         programMetadata
                       );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
+                      await trackerApi.pushTrackedEntities(
+                        {
+                          trackedEntities: [
+                            {
+                              ...currentTei,
+                              enrollments: [{
+                                ...currentEnrollment,
+                                events: currentEvents
+                              }]
+                            },
+                          ],
+                        },
+                        "CREATE_AND_UPDATE"
                       );
-                      await dataApi.pushEnrollment(
-                        currentEnrollment,
-                        programMetadata.id
-                      );
-                      await dataApi.pushTrackedEntityInstance(
-                        currentTei,
-                        programMetadata.id
-                      );
-                      await dataApi.pushEvents({ events: currentEvents });
                       mutateTei("isSaved", true);
       
                       // Dirty Check

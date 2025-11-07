@@ -23,7 +23,7 @@ const Registration = ({
     selectedOrgUnit
 }) => {
 
-    const { dataApi } = useApi();
+    const { trackerApi } = useApi();
 
     const [program, setProgram] = useState(undefined);
     const [filters, setFilters] = useState([]);
@@ -51,7 +51,7 @@ const Registration = ({
     };
 
     const handleChangeCurrentPage = async (page) => {
-        const teis = await dataApi.searchTei(
+        const teis = await trackerApi.searchTei(
             program,
             filters,
             pager.pageSize,
@@ -122,7 +122,7 @@ const Registration = ({
                     }}
                     disabled={!program || filters.length === 0}
                     onClick={async () => {
-                        const teis = await dataApi.searchTei(
+                        const teis = await trackerApi.searchTei(
                             program,
                             filters,
                             pager.pageSize,

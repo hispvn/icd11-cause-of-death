@@ -84,6 +84,7 @@ const App = ({
   const [loading, setLoading] = useState(false);
   const [updatingDialog, setUpdatingDialog] = useState(false);
   const [metadataUpdatedDate, setMetadataUpdatedDate] = useState(null);
+  const [dhis2Version, setDhis2Version] = useState(null);
   useEffect(() => {
     setLoading(true);
     (async () => {
@@ -145,8 +146,11 @@ const App = ({
 
       Promise.all([
         metadataApi.get("/api/dataStore/WHO_ICD11_COD/program"),
-        metadataApi.getMe()
+        metadataApi.getMe(),
+        metadataApi.get("/api/system/info")
       ]).then( async (results) => {
+
+        setDhis2Version(results[2].version);
 
         // This is for installation
         Promise.all([
@@ -488,13 +492,17 @@ const App = ({
 
   return (
     <div className="App">
-      <div className="header-bar-container">
-        <HeaderBarContainer />
-      </div>
+      {
+        dhis2Version && !dhis2Version.startsWith("2.42") && (
+          <div className="header-bar-container">
+            <HeaderBarContainer />
+          </div>
+        )
+      }
       {loading ? (
         <LoadingMask />
       ) : (
-        <div className="app-content">
+        <div className={ dhis2Version && dhis2Version.startsWith("2.42") ? "app-content" : "app-content-ver41"}>
           {!loading && <ControlBar />}
           {route === "list" && <RegisteredTeiList />}
           {route === "search" && <SearchForm />}

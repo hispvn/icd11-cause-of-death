@@ -16,6 +16,7 @@ const DeathCertificate = ({
   customCertificateTemplate,
   formMapping,
   programMetadata,
+  icd11Options,
   open,
   onCancel,
   onLoading
@@ -64,6 +65,17 @@ const DeathCertificate = ({
       }
     }
   }
+  const convertTimeToValue = (time) => !time ? "unknown" 
+            : time[time.length - 1] === "Y" ? `${time.substring(1,time.length - 1)} year${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+            : time[time.length - 1] === "W" ? `${time.substring(1,time.length - 1)} week${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+            : time[time.length - 1] === "D" ? `${time.substring(1,time.length - 1)} day${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` 
+            : time[time.length - 1] === "H" ? `${time.substring(2,time.length - 1)} hour${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}` 
+            : time[time.length - 1] === "S" ? `${time.substring(2,time.length - 1)} second${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}`
+            : time[time.length - 1] === "M" ? 
+              ( time.substring(0,2) === "PT" ? 
+                `${time.substring(2,time.length - 1)} minute${parseInt(time.substring(2,time.length - 1)) === 1 ? "" : "s"}`
+                : `${time.substring(1,time.length - 1)} month${parseInt(time.substring(1,time.length - 1)) === 1 ? "" : "s"}` ) 
+            : "unknown";
   const convertToValue = (val,valType) => {
     if (valType === "text") {
       return val.split("#{").map( str => {
@@ -77,10 +89,55 @@ const DeathCertificate = ({
           return str.replace(`orgUnitName}`,currentEnrollment["orgUnitName"]);
         }
         else if( str.startsWith("enrollmentDate") ) {
-          return str.replace(`enrollmentDate}`,currentEnrollment["enrollmentDate"]);
+          return str.replace(`enrollmentDate}`,currentEnrollment["enrolledAt"]);
         }
         else if( str.startsWith("incidentDate") ) {
-          return str.replace(`incidentDate}`,currentEnrollment["incidentDate"]);
+          return str.replace(`incidentDate}`,currentEnrollment["occurredAt"]);
+        }
+        else if( str === "causeA" ) {
+          const firstCode = getVal_customCert(formMapping.dataElements["codA"],"de").split(", ")[0].split(" (")[0];
+          const val = `${firstCode} - ${icd11Options.find( opt => opt.code === firstCode )?.displayName ?? ""}`;
+          return str.replace(`causeA`, val);
+        }
+        else if( str === "causeA_time" ) {
+          const time = getVal_customCert(formMapping.dataElements["codA"],"de").split(", ")[0].split(" (")[1]?.replace(")","");
+          return str.replace(`causeA_time`, convertTimeToValue(time));
+        }
+        else if( str === "causeB" ) {
+          const firstCode = getVal_customCert(formMapping.dataElements["codB"],"de").split(", ")[0].split(" (")[0];
+          const val = `${firstCode} - ${icd11Options.find( opt => opt.code === firstCode )?.displayName ?? ""}`;
+          return str.replace(`causeB`, val);
+        }
+        else if( str === "causeB_time" ) {
+          const time = getVal_customCert(formMapping.dataElements["codB"],"de").split(", ")[0].split(" (")[1]?.replace(")","");
+          return str.replace(`causeB_time`, convertTimeToValue(time));
+        }
+        else if( str === "causeC" ) {
+          const firstCode = getVal_customCert(formMapping.dataElements["codC"],"de").split(", ")[0].split(" (")[0];
+          const val = `${firstCode} - ${icd11Options.find( opt => opt.code === firstCode )?.displayName ?? ""}`;
+          return str.replace(`causeC`, val);
+        }
+        else if( str === "causeC_time" ) {
+          const time = getVal_customCert(formMapping.dataElements["codC"],"de").split(", ")[0].split(" (")[1]?.replace(")","");
+          return str.replace(`causeC_time`, convertTimeToValue(time));
+        }
+        else if( str === "causeD" ) {
+          const firstCode = getVal_customCert(formMapping.dataElements["codD"],"de").split(", ")[0].split(" (")[0];
+          const val = `${firstCode} - ${icd11Options.find( opt => opt.code === firstCode )?.displayName ?? ""}`;
+          return str.replace(`causeD`, val);
+        }
+        else if( str === "causeD_time" ) {
+          const time = getVal_customCert(formMapping.dataElements["codD"],"de").split(", ")[0].split(" (")[1]?.replace(")","");
+          return str.replace(`causeD_time`, convertTimeToValue(time));
+        }
+        else if( str === "causeOther" ) {
+          const firstCode = getVal_customCert(formMapping.dataElements["codO"],"de").split(", ")[0].split(" (")[0];
+          const val = `${firstCode} - ${icd11Options.find( opt => opt.code === firstCode )?.displayName ?? ""}`;
+          return str.replace(`causeOther`, val);
+        }
+        else if( str === "causeOther_time" ) {
+          const time = getVal_customCert(formMapping.dataElements["codO"],"de").split(", ")[0].split(" (")[1]?.replace(")","");
+          return str.replace(`causeOther_time`, convertTimeToValue(time));
         }
         else {
           return str;
@@ -278,7 +335,8 @@ const mapStateToProps = (state) => {
     certificateTemplate: state.metadata.certificateTemplate,
     customCertificateTemplate: state.metadata.customCertificate,
     formMapping: state.metadata.formMapping,
-    programMetadata: state.metadata.programMetadata
+    programMetadata: state.metadata.programMetadata,
+    icd11Options: state.metadata.icd11Options
   };
 };
 

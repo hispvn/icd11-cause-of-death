@@ -17,13 +17,13 @@ const { LoadingMask } = Components;
 
 const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute }) => {
   const { t } = useTranslation();
-  const { dataApi } = useApi();
+  const { trackerApi } = useApi();
   const { programMetadata, selectedOrgUnit } = metadata;
   const tableContainer = useRef(null);
   const [size, setSize] = useState({ height: 0 });
   const [loadingTable, setLoadingTable] = useState(true);
   const [loadingPage, setLoadingPage] = useState(true);
-  const [sortTable, setSortTable] = useState("order=created:desc");
+  const [sortTable, setSortTable] = useState("order=createdAt:desc");
   const [filterTable, setFilterTable] = useState([]);
 
   const [tableData, setTableData] = useState({
@@ -45,14 +45,14 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
       if (!programMetadata || !selectedOrgUnit) return;
       setLoadingPage(true);
       setFilterTable([]);
-      setSortTable("order=created:desc");
+      setSortTable("order=createdAt:desc");
       setTableData({
         ...tableData,
         columns: null,
         data: null,
         pager: null,
       });
-      const instanceList = await dataApi.getTrackedEntityInstanceListByQuery(
+      const instanceList = await trackerApi.getTrackedEntityInstanceListByQuery(
         selectedOrgUnit.id,
         programMetadata.id,
         10,
@@ -72,7 +72,7 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
     if (selectedOrgUnit) {
       (async () => {
         setLoadingTable(true);
-        const instanceList = await dataApi.getTrackedEntityInstanceListByQuery(
+        const instanceList = await trackerApi.getTrackedEntityInstanceListByQuery(
           selectedOrgUnit.id,
           programMetadata.id,
           tableData.pager ? tableData.pager.pageSize : 10,
@@ -106,7 +106,7 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
         if (sorter.order === "ascend") {
           orderString = `order=${sorter.columnKey}:asc`;
         } else {
-          orderString = `order=created:desc`;
+          orderString = `order=createdAt:desc`;
         }
       }
       setSortTable(orderString);
@@ -150,32 +150,46 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
       });
     const lastUpdatedObject = {
       title: t("lastUpdated"),
-      dataIndex: "lastupdated",
-      key: "lastupdated",
+      dataIndex: "updatedAt",
+      key: "updatedAt",
       sorter: true,
       // filterDropdown: generateTableFilter(null, onFilter, {
       //   name: "lastupdated",
       //   type: "DATE",
       // }),
-      render: generateTableColumns(null, { name: "lastupdated", type: "DATE" }),
+      render: generateTableColumns(null, { name: "updatedAt", type: "DATE" }),
     };
     columns.unshift(lastUpdatedObject);
-    const data = instanceList.rows.map((row, index) => {
+    // const data = instanceList.rows.map((row, index) => {
+    const data = instanceList.trackedEntities.map((row, index) => {
       const rowObject = {
         key: index,
       };
 
-      const teiIdIndex = instanceList.headers.findIndex(
-        (h) => h.name === "instance"
-      );
-      rowObject.teiId = row[teiIdIndex];
+      // const teiIdIndex = instanceList.headers.findIndex(
+      //   (h) => h.name === "instance"
+      // );
+      // rowObject.teiId = row[teiIdIndex];
+
+      rowObject.teiId = row.trackedEntity;
+      rowObject["updatedAt"] = row.updatedAt;
 
       columns.forEach((column) => {
-        const columnIndex = instanceList.headers.findIndex((h) => {
-          return h.name === column.dataIndex;
-        });
-        rowObject[column.dataIndex] =
-          columnIndex !== -1 ? row[columnIndex] : "";
+        // const columnIndex = instanceList.headers.findIndex((h) => {
+        //   return h.name === column.dataIndex;
+        // });
+        // rowObject[column.dataIndex] =
+        //   columnIndex !== -1 ? row[columnIndex] : "";
+
+        if ( column.dataIndex !== "updatedAt" ) {
+          rowObject[column.dataIndex] = row.attributes.find((attr) => {
+            return attr.attribute === column.dataIndex;
+          })
+            ? row.attributes.find((attr) => {
+                return attr.attribute === column.dataIndex;
+              }).value
+            : "";
+        }
       });
       rowObject["rZSVLUfgHlD"] = (rowObject["rZSVLUfgHlD"] !== "Completed") ? "Pending" : "Completed";
       return rowObject;
@@ -187,13 +201,13 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
       ...tableData,
       columns,
       data,
-      pager: instanceList.metaData.pager,
+      pager: instanceList.pager,
     });
   };
 
   const onChangePage = async (page, pageSize) => {
     setLoadingTable(true);
-    const instanceList = await dataApi.getTrackedEntityInstanceListByQuery(
+    const instanceList = await trackerApi.getTrackedEntityInstanceListByQuery(
       selectedOrgUnit.id,
       programMetadata.id,
       pageSize,
@@ -215,7 +229,7 @@ const RegisteredTeiList = ({ metadata, data, userRoles, initData, changeRoute })
                   onClick: async (event) => {
                     if (userRoles.admin || userRoles.data) {
                       setLoadingPage(true);
-                      const result = await dataApi.getTrackedEntityInstanceById(
+                      const result = await trackerApi.getTrackedEntityInstanceById(
                         record.teiId,
                         programMetadata.id
                       );

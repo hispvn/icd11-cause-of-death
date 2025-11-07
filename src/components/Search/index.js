@@ -5,7 +5,7 @@ import InputField from "../InputField";
 import { connect } from "react-redux";
 import { initNewEnrollment, initData } from "../../redux/actions/data";
 import { changeRoute } from "../../redux/actions/route";
-import SeartResult from "./Result";
+// import SeartResult from "./Result";
 import "./index.css";
 import { useTranslation } from "react-i18next";
 const { Panel } = Collapse;
@@ -13,7 +13,7 @@ const { Panel } = Collapse;
 const { useApi } = Hooks;
 
 const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrollment, changeRoute, programs, selectedOrgUnit, userRoles }) => {
-  const { dataApi } = useApi();
+  const { trackerApi } = useApi();
   const { t } = useTranslation();
 
   const [option, setOption] = useState("program"); // ["program","person"]
@@ -46,13 +46,13 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
   };
 
   const handleChangeCurrentPage = async (page) => {
-    const teis = option === "program" ? await dataApi.searchTei(
+    const teis = option === "program" ? await trackerApi.searchTei(
       programMetadata.id,
       filters,
       pager.pageSize,
       page
     )
-    : await dataApi.searchTeiByTet(
+    : await trackerApi.searchTeiByTet(
       trackedEntityType.id,
       filters,
       pager.pageSize,
@@ -142,18 +142,18 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                             margin: "5px"
                           }}
                           onClick={async () => {
-                            const teis = await dataApi.searchTei(
+                            const teis = await trackerApi.searchTei(
                                 programMetadata.id,
                                 filters,
                                 pager.pageSize,
                                 pager.current
                             );
                             setData({
-                                trackedEntityInstances: teis.trackedEntityInstances
+                                trackedEntityInstances: teis.trackedEntities
                             });
                             setPager({
                                 ...pager,
-                                total: teis.pager.total
+                                ...teis.pager
                             });
                             setOpen(true);
                           }}
@@ -196,18 +196,18 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                           margin: "10px 5px 5px 5px"
                         }}
                         onClick={async () => {
-                          const teis = await dataApi.searchTei(
+                          const teis = await trackerApi.searchTei(
                               programMetadata.id,
                               filters,
                               pager.pageSize,
                               pager.current
                           );
                           setData({
-                              trackedEntityInstances: teis.trackedEntityInstances
+                              trackedEntityInstances: teis.trackedEntities
                           });
                           setPager({
                               ...pager,
-                              total: teis.pager.total
+                              ...teis.pager
                           });
                           setOpen(true);
                         }}
@@ -253,18 +253,18 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                             margin: "5px"
                           }}
                           onClick={async () => {
-                            const teis = await dataApi.searchTeiByTet(
+                            const teis = await trackerApi.searchTeiByTet(
                                 trackedEntityType.id,
                                 filters,
                                 pager.pageSize,
                                 pager.current
                             );
                             setData({
-                                trackedEntityInstances: teis.trackedEntityInstances
+                                trackedEntityInstances: teis.trackedEntities
                             });
                             setPager({
                                 ...pager,
-                                total: teis.pager.total
+                                ...teis.pager
                             });
                             setOpen(true);
                           }}
@@ -307,18 +307,18 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                           margin: "10px 5px 5px 5px"
                         }}
                         onClick={async () => {
-                          const teis = await dataApi.searchTeiByTet(
+                          const teis = await trackerApi.searchTeiByTet(
                               trackedEntityType.id,
                               filters,
                               pager.pageSize,
                               pager.current
                           );
                           setData({
-                              trackedEntityInstances: teis.trackedEntityInstances
+                              trackedEntityInstances: teis.trackedEntities
                           });
                           setPager({
                               ...pager,
-                              total: teis.pager.total
+                              ...teis.pager
                           });
                           setOpen(true);
                         }}
@@ -386,7 +386,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                       }]
                     ]}
                     dataSource={option === "program" ? 
-                      data.trackedEntityInstances.map( ({attributes,trackedEntityInstance, enrollments}, index) => 
+                      data.trackedEntityInstances.map( ({attributes,trackedEntity, enrollments}, index) => 
                         ({
                           ...programMetadata.trackedEntityAttributes
                           .filter( ({displayInList}) => displayInList )
@@ -399,14 +399,14 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               [cur.id]: cur.value
                           }) , { 
                               key: index, 
-                              teiId: trackedEntityInstance,
+                              teiId: trackedEntity,
                               ou: enrollments.find( ({program}) => program === programMetadata.id )?.orgUnitName,
-                              enrollDate: enrollments.find( ({program}) => program === programMetadata.id )?.enrollmentDate.substring(0,10)
+                              enrollDate: enrollments.find( ({program}) => program === programMetadata.id )?.enrolledAt.substring(0,10)
                           }),
                           action: (userRoles.data || userRoles.admin) && <Button
                             onClick={async() => {
-                              const result = await dataApi.getTrackedEntityInstanceById(
-                                trackedEntityInstance,
+                              const result = await trackerApi.getTrackedEntityInstanceById(
+                                trackedEntity,
                                 programMetadata.id
                               );
 
@@ -424,10 +424,10 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               // }
                               changeRoute("form");
                             }}
-                          >View</Button>
+                          >Open</Button>
                         })
                       ) : 
-                      data.trackedEntityInstances.map( ({attributes,trackedEntityInstance, enrollments}, index) => 
+                      data.trackedEntityInstances.map( ({attributes,trackedEntity, enrollments}, index) => 
                         ({
                           ...trackedEntityType.trackedEntityAttributes
                           .filter( ({displayInList}) => displayInList )
@@ -440,15 +440,15 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               [cur.id]: cur.value
                           }) , { 
                               key: index, 
-                              teiId: trackedEntityInstance,
+                              teiId: trackedEntity,
                               program: enrollments.filter(({status}) => status !== "CANCELLED").map( ({program}) => programs.find(({id}) => id === program).name ).join(" | "),
                               ou: enrollments.filter(({status}) => status !== "CANCELLED").map( ({orgUnitName}) => orgUnitName ).join(" | "),
                               enrollDate: enrollments.filter(({status}) => status !== "CANCELLED").map( ({enrollmentDate}) => enrollmentDate.substring(0,10) ).join(" | ")
                           }),
                           action: (userRoles.view && !userRoles.admin && !userRoles.data) ? <></> : enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
                             onClick={async() => {
-                              const result = await dataApi.getTrackedEntityInstanceById(
-                                trackedEntityInstance,
+                              const result = await trackerApi.getTrackedEntityInstanceById(
+                                trackedEntity,
                                 programMetadata.id
                               );
 
@@ -460,12 +460,12 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               initData(result, programMetadata);
                               changeRoute("form");
                             }}
-                          >View</Button>
+                          >Open</Button>
                           : <Button
                             onClick={async() => {
                               if (selectedOrgUnit) {
-                                const result = await dataApi.getTrackedEntityInstanceById(
-                                  trackedEntityInstance,
+                                const result = await trackerApi.getTrackedEntityInstanceById(
+                                  trackedEntity,
                                   programMetadata.id
                                 );
   

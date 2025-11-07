@@ -16,7 +16,7 @@ const SearchResult = ({
     programMetadata, trackedEntityType,
     initData, initNewEnrollment, changeRoute
 }) => {
-    const { dataApi } = useApi();
+    const { trackerApi } = useApi();
 
     const handleTableChange = (newPagination, filters, sorter) => {
         handleChangePage(newPagination.current)
@@ -90,7 +90,7 @@ const SearchResult = ({
                     onRow={(record, rowIndex) => {
                         return {
                             onClick: async (event) => {
-                                const result = await dataApi.getTrackedEntityInstanceById(
+                                const result = await trackerApi.getTrackedEntityInstanceById(
                                     record.teiId,
                                     programMetadata.id
                                 );

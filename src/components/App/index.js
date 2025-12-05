@@ -466,7 +466,7 @@ const App = ({
               setLoading(false);
 
               if ( results[0].metadataUpdatedDate ) {
-                if ( results[0].metadataUpdatedDate !== "2025-05-05" ) {
+                if ( results[0].metadataUpdatedDate !== "2025-11-10" ) {
                   setMetadataUpdatedDate(results[0]);
                   setUpdatingDialog(true);
                 }

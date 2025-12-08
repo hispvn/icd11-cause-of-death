@@ -296,7 +296,7 @@ const ControlBar = ({
             <li>2.38</li>
             <li>2.39</li>
             <li>2.40</li>
-            <li>2.41</li>
+            <li>2.41 (not tested)</li>
           </ul>
         </DialogContent>
       </Dialog>

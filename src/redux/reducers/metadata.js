@@ -26,6 +26,10 @@ import {
 
 const initialState = {
   programMetadata: null,
+  // selectedOrgUnit: {
+  //   id: "V5XvX1wr1kF",
+  //   displayName: "Central Health Region"
+  // },
   selectedOrgUnit: null,
   orgUnitGroups: null,
   orgUnitLevels: null,

@@ -71,6 +71,14 @@ const UpdateDialog = ({open, handleCloseUpdate, metadataUpdatedDate}) => {
                 }, "PUT")
             }
 
+            if (moment(metadataUpdatedDate.metadataUpdatedDate, "YYYY-MM-DD").isBefore(moment("2025-11-10", "YYYY-MM-DD"))) {
+                await metadataApi.push("/api/dataStore/WHO_ICD11_COD/program", {
+                    id: metadataUpdatedDate.id,
+                    metadataUpdatedDate: "2025-11-10",
+                    version: "2.0.1"
+                }, "PUT")
+            }
+
             setLoading(false);
         }
     }, [open])

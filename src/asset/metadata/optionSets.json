@@ -3,7 +3,7 @@
     {
       "name": "CoD - Age Unit",
       "id": "b9QWoApPuYD",
-      "publicAccess": "rw------",
+      "publicAccess": "r-------",
       "version": 8,
       "valueType": "TEXT",
       "userGroupAccesses": [],
@@ -184,7 +184,7 @@
     {
       "name": "CoD - Reason for manual selection of underlying cause",
       "id": "fcEG5Pd7jKG",
-      "publicAccess": "rw------",
+      "publicAccess": "r-------",
       "version": 4,
       "valueType": "TEXT",
       "userGroupAccesses": [],
@@ -195,7 +195,7 @@
     {
       "name": "CoD - Underlying cause of death processed by",
       "id": "poG5iRzoLn7",
-      "publicAccess": "rw------",
+      "publicAccess": "r-------",
       "version": 2,
       "valueType": "TEXT",
       "userGroupAccesses": [],

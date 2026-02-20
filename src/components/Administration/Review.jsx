@@ -128,7 +128,14 @@ const Review = ({
           organisationUnits: assignedOrgUnits.map( o => {return { id : o.substring(o.length-11,o.length) }}),
           userGroupAccesses: getUserGroupAccesses(),
           sharing: getUserSharing()
-        }]
+        }],
+        programstages: data.metadata.programStages.map( ps => {
+          return {
+            ...ps,
+            userGroupAccesses: getUserGroupAccesses(),
+            sharing: getUserSharing()
+          }
+        }),
       };
 
       // local state

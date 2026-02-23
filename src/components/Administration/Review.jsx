@@ -129,7 +129,7 @@ const Review = ({
           userGroupAccesses: getUserGroupAccesses(),
           sharing: getUserSharing()
         }],
-        programstages: data.metadata.programStages.map( ps => {
+        programStages: data.metadata.programStages.map( ps => {
           return {
             ...ps,
             userGroupAccesses: getUserGroupAccesses(),

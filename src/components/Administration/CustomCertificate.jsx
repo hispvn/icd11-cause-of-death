@@ -8,11 +8,13 @@ import {
     List,
     Divider,
     Modal,
-    Checkbox
+    Checkbox,
+    message
 } from "antd";
 import { Backdrop, CircularProgress } from '@mui/material';
 // import fileSaver from "file-saver";
 import { changeCustomCertificate } from "../../redux/actions/admin";
+import { setCustomCertificate } from "../../redux/actions/metadata";
 import { Hooks } from "tracker-capture-app-core";
 import { convertPdfDoc2FileURL, fillPdf, showPage } from "../../utils/certificate";
 // import { Image, PictureAsPdf, Print } from "@material-ui/icons";
@@ -88,6 +90,24 @@ const CustomCertificate = props => {
                     // await showPage(pdfDoc, 1);
 
                     setLoading(false);
+                })
+                .catch( err => {
+                    console.log(err);
+
+                    // Showw message error
+                    message.error(err.message || "Error loading certificate template");
+
+                    // Clean up certificate setup
+                    props.setCustomCertificate(null);
+                    props.changeCustomCertificate(null);
+
+                    Promise.all([
+                        metadataApi.get("/api/documents.json"),
+                    ])
+                    .then( res1 => {
+                        setTemplates(res1[0].documents);
+                        setLoading(false);
+                    });
                 });
             }
             else {
@@ -432,7 +452,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    changeCustomCertificate
+    changeCustomCertificate,
+    setCustomCertificate
 };
 
 export default connect(mapStateToProps,mapDispatchToProps)(CustomCertificate);

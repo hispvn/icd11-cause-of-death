@@ -88,6 +88,24 @@ const CustomCertificate = props => {
                     // await showPage(pdfDoc, 1);
 
                     setLoading(false);
+                })
+                .catch( err => {
+                    console.log(err);
+
+                    // Showw message error
+                    message.error(err.message || "Error loading certificate template");
+
+                    // Clean up certificate setup
+                    props.setCustomCertificate(null);
+                    props.changeCustomCertificate(null);
+
+                    Promise.all([
+                        metadataApi.get("/api/documents.json"),
+                    ])
+                    .then( res1 => {
+                        setTemplates(res1[0].documents);
+                        setLoading(false);
+                    });
                 });
             }
             else {

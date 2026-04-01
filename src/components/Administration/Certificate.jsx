@@ -265,8 +265,8 @@ const Certificate = props => {
                         <div className="administration-certificate-modal-list">
                             {
                             [
-                                {id: "enrollmentDate", displayName: "Enrolment Date"}, 
-                                {id: "incidentDate", displayName: "Incident Date"},
+                                {id: "enrolledAt", displayName: "Enrolment Date"}, 
+                                {id: "occurredAt", displayName: "Incident Date"},
                                 {id: "orgUnitName", displayName: "Organisation Unit"}
                             ].filter( it => it.displayName.toLowerCase().includes(search.toLowerCase())).length > 0 && 
                             <>
@@ -275,8 +275,8 @@ const Certificate = props => {
                                     size="small"
                                     split={false}
                                     dataSource={[
-                                        {id: "enrollmentDate", displayName: "Enrolment Date"}, 
-                                        {id: "incidentDate", displayName: "Incident Date"},
+                                        {id: "enrolledAt", displayName: "Enrolment Date"}, 
+                                        {id: "occurredAt", displayName: "Incident Date"},
                                         {id: "orgUnitName", displayName: "Organisation Unit"}
                                     ].filter( it => it.displayName.toLowerCase().includes(search.toLowerCase()))}
                                     renderItem={(item) => (

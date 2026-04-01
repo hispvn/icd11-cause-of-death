@@ -277,11 +277,11 @@ const Finish = ({
                 logo: null,
                 info: [{
                     label: "Date of Death",
-                    enrollment: "incidentDate"
+                    enrollment: "occurredAt"
                 },
                 {
                     label: "Reported Date",
-                    enrollment: "enrollmentDate"
+                    enrollment: "enrolledAt"
                 },
                 {
                     label: "COD System ID",

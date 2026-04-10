@@ -19,8 +19,7 @@ const DeathCertificate = ({
   icd11Options,
   open,
   onCancel,
-  onLoading,
-  selectedOrgUnit
+  onLoading
 }) => {
   const { metadataApi } = useApi();
   const [pdfURL, setPdfURL] = useState(null);
@@ -35,7 +34,7 @@ const DeathCertificate = ({
 
   const getVal_defaultCert = row => {
     if (row.enrollment) {
-      return row.enrollment === "orgUnitName" ? selectedOrgUnit.displayName : currentEnrollment[row.enrollment];
+      return row.enrollment === "orgUnitName" ? currentTei.orgUnitName : currentEnrollment[row.enrollment];
     } else if (row.trackedEntityAttribute) {
       const foundTea = programMetadata.trackedEntityAttributes.find( tea => tea.id === row.trackedEntityAttribute );
       return !foundTea.valueSet ? isBoolean(currentTei.attributes[row.trackedEntityAttribute]) 
@@ -87,7 +86,7 @@ const DeathCertificate = ({
           return str.replace(`tea.${str.slice(4,15)}}`,getVal_customCert(str.slice(4,15),"tea"));
         }
         else if( str.startsWith("orgUnitName") ) {
-          return str.replace(`orgUnitName}`, selectedOrgUnit.displayName);
+          return str.replace(`orgUnitName}`, currentTei.orgUnitName);
         }
         else if( str.startsWith("enrollmentDate") ) {
           return str.replace(`enrollmentDate}`,currentEnrollment["enrolledAt"]);
@@ -279,7 +278,7 @@ const DeathCertificate = ({
       :
       <Space size="large" style={{ width: "100%" }} direction="vertical">
         <div style={{ position: "relative" }}>
-          <div
+          {/* <div
             style={{
               padding: "4px 8px",
               position: "absolute",
@@ -295,7 +294,23 @@ const DeathCertificate = ({
             level={2}
           >
             {certificateTemplate.title}
-          </Typography.Title>
+          </Typography.Title> */}
+          <Row gutter={[16, 16]}>
+              <Col span={4}>
+                  <div className="administration-certificate-logo">
+                      { certificateTemplate.logo !== null && <img src={certificateTemplate.logo} alt="logo" /> }
+                  </div>
+              </Col>
+              <Col span={16}>
+                  <Typography.Title
+                      style={{ marginBottom: 0, textAlign: "center" }}
+                      level={2}
+                  >
+                      {certificateTemplate.title}
+                  </Typography.Title>
+              </Col>
+              <Col span={4}></Col>
+          </Row>
         </div>
         <div />
         {
@@ -338,7 +353,6 @@ const mapStateToProps = (state) => {
     formMapping: state.metadata.formMapping,
     programMetadata: state.metadata.programMetadata,
     icd11Options: state.metadata.icd11Options,
-    selectedOrgUnit: state.metadata.selectedOrgUnit,
   };
 };
 

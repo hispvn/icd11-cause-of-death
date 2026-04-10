@@ -59,7 +59,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
       page
     );
     setData({
-      trackedEntityInstances: teis.trackedEntityInstances
+      trackedEntityInstances: teis.trackedEntities
     });
     setPager({
       ...pager,
@@ -443,7 +443,7 @@ const SearchForm = ({ programMetadata, trackedEntityType, initData, initNewEnrol
                               teiId: trackedEntity,
                               program: enrollments.filter(({status}) => status !== "CANCELLED").map( ({program}) => programs.find(({id}) => id === program).name ).join(" | "),
                               ou: enrollments.filter(({status}) => status !== "CANCELLED").map( ({orgUnitName}) => orgUnitName ).join(" | "),
-                              enrollDate: enrollments.filter(({status}) => status !== "CANCELLED").map( ({enrollmentDate}) => enrollmentDate.substring(0,10) ).join(" | ")
+                              enrollDate: enrollments.filter(({status}) => status !== "CANCELLED").map( ({enrolledAt}) => enrolledAt.substring(0,10) ).join(" | ")
                           }),
                           action: (userRoles.view && !userRoles.admin && !userRoles.data) ? <></> : enrollments.find(({program, status}) => program === programMetadata.id && status !== "CANCELLED") ? <Button
                             onClick={async() => {

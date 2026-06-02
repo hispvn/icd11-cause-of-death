@@ -4,6 +4,7 @@
       "code": "Person",
       "id": "RQrHOJGKT5H",
       "name": "Person",
+      "shortName": "Person",
       "publicAccess": "r-------",
       "description": "Person",
       "allowAuditLog": false,
